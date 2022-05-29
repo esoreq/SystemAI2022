@@ -88,7 +88,8 @@
 # 
 # 
 # `````{admonition} Challenge
-# Use the `man` command to explore the different options you can use to extend the `mkdir` program
+# Use the `man` command to explore the different options you can use to extend the `mkdir` program.
+# If you are using gwdg cloud use --help instead of man
 # ````{dropdown} Solution 
 # ```{code-block} console 
 # man mkdir
@@ -428,11 +429,12 @@
 # echo " 
 # function make_folder_structure {
 #    echo Creating folder structure in \$1
-#    mkdir -p \$1/{Notebooks,Code,Tmp,Data,Report,Presentation}
-#    mkdir -p \$1/Data/{raw,processed,share}
-#    mkdir -p \$1/Report/{Tables,Figures,Text}
-#    mkdir -p \$1/Background/{pdf,pptx}
-#    echo Dont forget to add README > \$1/README.md}" >> functions.sh
+#    mkdir -p \$1/{notebooks,code,tmp,data,report,presentation}
+#    mkdir -p \$1/data/{raw,processed,share}
+#    mkdir -p \$1/report/{tables,figures,text}
+#    mkdir -p \$1/background/{pdf,pptx}
+#    echo Dont forget to add README > \$1/README.md
+#    }" >> functions.sh
 # ```
 # 
 # Try to explain what this function is doing 

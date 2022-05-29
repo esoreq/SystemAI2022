@@ -48,6 +48,9 @@
 # #### Install the command line tools
 # 
 # Go to [cli github](https://cli.github.com) and install the command line tools for any OS
+# For the gwdg cloud use the following conda command 
+# `conda install gh --channel conda-forge`
+# 
 # 
 # #### If you don't have a GitHub user account - 
 # Create one [here](https://github.com/join)
@@ -294,13 +297,18 @@
 # Pushing may not function because repositories are protected from being edited by anybody except the repository owners and contributors. 
 # In a way cloning is like downloading a file from a read-only folder to your computer. 
 # But it is the simplest way to contribute to a project. 
-# Let us clone the dcarte repo to our local drive. 
+# Let us clone the GitHub demo repo to our local drive (or the gwdg cloud). 
 # 
 # ```{code-block} bash
-# cd ~/sandbox && git clone https://github.com/esoreq/dcarte
+# gh repo clone githubtraining/hellogitworld
+# ```
+# In the first time you will be required to authenticate
+# 
+# ```{code-block} bash
+# gh auth login
 # ```
 # 
-# This process downloads the latest version of dcarte to your local drive. 
+# This process downloads the latest version of hellogitworld to your local drive. 
 # The benefit of having a local snapshot of the code is that you can change parts of it and not wait for changes to roll out in the proper pip installation 
 # Another benefit lies in your ability to contribute to the project if you find an overlooked problem.
 # 
