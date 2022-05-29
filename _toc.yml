@@ -11,11 +11,14 @@ parts:
       - file: bootcamp/day_01/04_jupyter_101
       - file: bootcamp/day_01/05_markdown_101    
       - file: bootcamp/day_01/06_homework
-    # - file: bootcamp/day_02/day_02_overview
-    #   sections:
-    #   - file: bootcamp/day_02/python_syntax_101
-    #   - file: bootcamp/day_02/python_core_101
-    #   - file: bootcamp/day_02/python_data_structures
+    - file: bootcamp/day_02/00_day_02_overview
+      sections:
+      - file: bootcamp/day_02/01_python_syntax_101
+      - file: bootcamp/day_02/02_variables_101
+      - file: bootcamp/day_02/03_data_types
+      - file: bootcamp/day_02/04_python_data_structures
+      - file: bootcamp/day_02/05_programming_101
+      - file: bootcamp/day_02/06_home_work      
     # - file: bootcamp/day_03/day_03_overview
     #   sections:
     #   - file: bootcamp/day_03/python_programming_101
