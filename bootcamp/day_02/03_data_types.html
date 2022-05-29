@@ -1,0 +1,1597 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PYTHON Data operations 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_02/03_data_types.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PYTHON Data structures 101" href="04_python_data_structures.html" />
+    <link rel="prev" title="PYTHON Basic Data Types" href="02_variables_101.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_02/03_data_types.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_02/03_data_types.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_02/03_data_types.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-operations">
+   Basic Data operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-integers-whole-numbers">
+     Basic Arithmetic operations on integers (whole numbers)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-complex-numbers">
+     Basic Arithmetic operations on complex numbers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-strings-say-what">
+     Basic Arithmetic operations on strings (SAY WHAT!?)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-numeric-comparison-operators">
+     Basic Numeric Comparison Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-numeric-assignment-operators">
+     Basic Numeric Assignment Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-logical-operators">
+     Basic Logical Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-comparison-operations-on-strings">
+     Basic Comparison operations on strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-expand-on-strings">
+     Lets expand on strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-do-we-need-both-single-and-double-quotes">
+       Why do we need both single
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         '
+        </span>
+       </code>
+       and double
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         "
+        </span>
+       </code>
+       quotes?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-using-both-single-and-double-quotes">
+     What about using both  single
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       '
+      </span>
+     </code>
+     and double
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       "
+      </span>
+     </code>
+     quotes?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escaping-the-escape-sequences">
+     Escaping the Escape Sequences
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#useful-escape-sequence-characters-esc">
+       useful Escape sequence characters (ESC)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#everything-in-python-is-an-object">
+     Everything in Python is an object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whats-the-meaning-of-double-leading-and-trailing-underscores-in-python">
+     What’s the Meaning of double leading and trailing underscores In Python?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-string-transformation-examples">
+     Some string transformation examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-than-style">
+     More than style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-focus-on-indexing-for-a-moment">
+     Let’s focus on indexing for a moment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#but-how-can-we-navigate-in-this-sequence">
+     But how can we navigate in this sequence?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-and-skipping">
+     Slicing and skipping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-are-immutable">
+     Strings are immutable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-also-use-split-to-break-a-long-string">
+     We can also use split to break a long string
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-can-be-concatenated">
+     Strings can be concatenated
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-formatting">
+   String Formatting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-strings-examples">
+     f-strings examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-an-f-string-command">
+     Anatomy of an f-string command
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-string-and-numbers">
+       f-string and numbers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-strings-dates-and-time">
+       f-strings dates and time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-string-can-do-numeric-notations">
+       f-string can do numeric notations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-do-some-exercises">
+     Let’s do some exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PYTHON Data operations 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-data-operations">
+   Basic Data operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-integers-whole-numbers">
+     Basic Arithmetic operations on integers (whole numbers)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-complex-numbers">
+     Basic Arithmetic operations on complex numbers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations-on-strings-say-what">
+     Basic Arithmetic operations on strings (SAY WHAT!?)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-numeric-comparison-operators">
+     Basic Numeric Comparison Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-numeric-assignment-operators">
+     Basic Numeric Assignment Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-logical-operators">
+     Basic Logical Operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-comparison-operations-on-strings">
+     Basic Comparison operations on strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-expand-on-strings">
+     Lets expand on strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-do-we-need-both-single-and-double-quotes">
+       Why do we need both single
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         '
+        </span>
+       </code>
+       and double
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         "
+        </span>
+       </code>
+       quotes?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-using-both-single-and-double-quotes">
+     What about using both  single
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       '
+      </span>
+     </code>
+     and double
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       "
+      </span>
+     </code>
+     quotes?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escaping-the-escape-sequences">
+     Escaping the Escape Sequences
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#useful-escape-sequence-characters-esc">
+       useful Escape sequence characters (ESC)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#everything-in-python-is-an-object">
+     Everything in Python is an object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whats-the-meaning-of-double-leading-and-trailing-underscores-in-python">
+     What’s the Meaning of double leading and trailing underscores In Python?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-string-transformation-examples">
+     Some string transformation examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-than-style">
+     More than style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-focus-on-indexing-for-a-moment">
+     Let’s focus on indexing for a moment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#but-how-can-we-navigate-in-this-sequence">
+     But how can we navigate in this sequence?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-and-skipping">
+     Slicing and skipping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-are-immutable">
+     Strings are immutable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-also-use-split-to-break-a-long-string">
+     We can also use split to break a long string
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings-can-be-concatenated">
+     Strings can be concatenated
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-formatting">
+   String Formatting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-strings-examples">
+     f-strings examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anatomy-of-an-f-string-command">
+     Anatomy of an f-string command
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-string-and-numbers">
+       f-string and numbers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-strings-dates-and-time">
+       f-strings dates and time
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-string-can-do-numeric-notations">
+       f-string can do numeric notations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-do-some-exercises">
+     Let’s do some exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-data-operations-101">
+<h1>PYTHON Data operations 101<a class="headerlink" href="#python-data-operations-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-data-operations">
+<h2>Basic Data operations<a class="headerlink" href="#basic-data-operations" title="Permalink to this headline">¶</a></h2>
+<p>The different data types we just discussed in detail are the basic building blocks of any Python operation.
+As I mentioned earlier, objects are copies of a template called a class.
+Each class has a different set of methods associated with the specific operations allowed on its data type.</p>
+<div class="section" id="basic-arithmetic-operations-on-integers-whole-numbers">
+<h3>Basic Arithmetic operations on integers (whole numbers)<a class="headerlink" href="#basic-arithmetic-operations-on-integers-whole-numbers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>As we already saw, Python has various “types” of numbers (numeric literals).</p></li>
+<li><p>It also has many different operators.</p></li>
+<li><p>Arithmetic Operators perform various arithmetic calculations on these.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;+ Addition :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;* Multiplication :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> * </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;/ Division :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;- Substraction :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;% Modulus :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> % </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;// Floor Division :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">//</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;** Exponent :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">^</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="sa">f</span><span class="s1">&#39;() Use parentheses to specify order :&#39;</span><span class="si">:</span><span class="s2">&lt;45</span><span class="si">}{</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> * ( </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1"> ) = </span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+ Addition :                                 5 + 4 = 9
+* Multiplication :                           5 * 4 = 20
+/ Division :                                 5 / 4 = 1.25
+- Substraction :                             5 - 4 = 1
+% Modulus :                                  5 % 4 = 1
+// Floor Division :                          5 / 4 = 1
+** Exponent :                                5^4 = 625
+() Use parentheses to specify order :        5 * ( 5/4 - 4 ) = -13.75
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Obtain 21 using the four numbers 1, 5, 6, 7 and any arithmetic operations ( +, -, *, / ).</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">5</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="basic-arithmetic-operations-on-complex-numbers">
+<h3>Basic Arithmetic operations on complex numbers<a class="headerlink" href="#basic-arithmetic-operations-on-complex-numbers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python complex numbers are of type complex.</p></li>
+<li><p>Every complex number contains one real part and one imaginary part.</p></li>
+<li><p>We define imaginary numbers using the letter <code class="docutils literal notranslate"><span class="pre">j</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Real Parts (x = </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">real</span><span class="si">}</span><span class="s2">) | Imaginary Parts = (x = </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">imag</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Real Parts (x = 1.0, y = 2.0) | Imaginary Parts = (x = 1.0, y = -2.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Using python solve the following equation <span class="math notranslate nohighlight">\((-7 + 7i) - (-7 - 3i) + (-7 - 8i) = ?\)</span></p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">7</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="mi">7</span> <span class="o">-</span> <span class="mi">3</span><span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">7</span> <span class="o">-</span> <span class="mi">8</span><span class="n">j</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="basic-arithmetic-operations-on-strings-say-what">
+<h3>Basic Arithmetic operations on strings (SAY WHAT!?)<a class="headerlink" href="#basic-arithmetic-operations-on-strings-say-what" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In general, you cannot perform mathematical operations on strings, even if the strings look like numbers.</p></li>
+<li><p>However, some arithmetic operators do work on strings and open up some nice options. Let’s explore this.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;cere&#39;</span><span class="p">,</span><span class="s1">&#39;bellum&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;+ Addition :                             </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* Multiplication :                       </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="mi">3</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="mi">3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Combinations :                           </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">*</span><span class="si">{</span><span class="mi">3</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">x</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;() Use parentheses to specify order:     </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">+((</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)*</span><span class="si">{</span><span class="mi">2</span><span class="si">}</span><span class="s2">)=</span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+ Addition :                             cere+bellum=cerebellum
+* Multiplication :                       cere*3=cerecerecere
+Combinations :                           cere*3+bellum=cerecerecerebellum
+() Use parentheses to specify order:     cere+((cere+bellum)*2)=cerecerebellumcerebellum
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-numeric-comparison-operators">
+<h3>Basic Numeric Comparison Operators<a class="headerlink" href="#basic-numeric-comparison-operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Comparison operators are used to comparing two values</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isEqual(==)          </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">==</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; notEqual(!=)         </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">!=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isGreater(&gt;)         </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&gt;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">  is </span><span class="si">{</span><span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isSmaller(&lt;)         </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">  is </span><span class="si">{</span><span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isGreaterOrEqual(&gt;=) </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&gt;=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isSmallerOrEqual(&lt;=) </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&lt;=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">x</span><span class="o">&lt;=</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> isEqual(==)          5==4 is False
+ notEqual(!=)         5!=4 is True
+ isGreater(&gt;)         5&gt;4  is True
+ isSmaller(&lt;)         5&lt;4  is False
+ isGreaterOrEqual(&gt;=) 5&gt;=4 is True
+ isSmallerOrEqual(&lt;=) 5&lt;=4 is False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-numeric-assignment-operators">
+<h3>Basic Numeric Assignment Operators<a class="headerlink" href="#basic-numeric-assignment-operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Assignment operators are used to assigning values to variables</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x = y   </span><span class="se">\t</span><span class="s2">| y is assigned to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">19</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x = y  </span><span class="se">\t</span><span class="s2">| 17 is assigned to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x += y </span><span class="se">\t</span><span class="s2">| y is added to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x -= y </span><span class="se">\t</span><span class="s2">| y subtracted from x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x *= y </span><span class="se">\t</span><span class="s2">| x multiplied by y</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x /= y </span><span class="se">\t</span><span class="s2">| x divided by y</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">%=</span> <span class="n">y</span> <span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x %= y </span><span class="se">\t</span><span class="s2">| x%y is assigned to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">**=</span> <span class="n">y</span><span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x **= y</span><span class="se">\t</span><span class="s2">| x**y is Added to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">//=</span> <span class="n">y</span><span class="p">;</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x //= y</span><span class="se">\t</span><span class="s2">| x//y is assigned to x</span><span class="se">\t</span><span class="s2">| x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> x = y   	| y is assigned to x	| x=3
+ x = y  	| 17 is assigned to x	| x=19
+ x += y 	| y is added to x	| x=22
+ x -= y 	| y subtracted from x	| x=19
+ x *= y 	| x multiplied by y	| x=57
+ x /= y 	| x divided by y	| x=19.0
+ x %= y 	| x%y is assigned to x	| x=1.0
+ x **= y	| x**y is Added to x	| x=1.0
+ x //= y	| x//y is assigned to x	| x=0.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-logical-operators">
+<h3>Basic Logical Operators<a class="headerlink" href="#basic-logical-operators" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Logical operators in Python are used for conditional statements are true or false.</p></li>
+<li><p>Logical operators in Python are <strong>and</strong>, <strong>or</strong> and <strong>not</strong>.</p></li>
+<li><p>For logical operators, the following condition are applied.</p></li>
+<li><p>AND operator returns True if both the operands (right side and left side) are True</p></li>
+<li><p>OR operator returns True if either of the operand (right side or left side) is True</p></li>
+<li><p>NOT operator returns True if the operand is False</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; When x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> and y is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">35</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x and y                 is </span><span class="si">{</span><span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x or y                  is </span><span class="si">{</span><span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; not x and y             is </span><span class="si">{</span><span class="ow">not</span> <span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x and not y             is </span><span class="si">{</span><span class="n">x</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="s1">&#39;~&#39;</span><span class="o">*</span><span class="mi">35</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; When x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> and y is </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">35</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; x&lt;y&lt;y**2 and not y&lt;x    is </span><span class="si">{</span><span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="o">&lt;</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">y</span><span class="o">&lt;</span><span class="n">x</span> <span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> When x is True and y is False
+ ===================================
+ x and y                 is False
+ x or y                  is True
+ not x and y             is False
+ x and not y             is True
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ When x is 10 and y is 20
+ ===================================
+ x&lt;y&lt;y**2 and not y&lt;x    is True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-comparison-operations-on-strings">
+<h3>Basic Comparison operations on strings<a class="headerlink" href="#basic-comparison-operations-on-strings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>String objects can be compared as well</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span><span class="s1">&#39;small&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isEqual(==)          </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; notEqual(!=)         </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">!=</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span><span class="s1">&#39;SMALL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">43</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; isEqual(==)          </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; notEqual(!=)         </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> isEqual(==)          small == small = True
+ notEqual(!=)         SMALL != small = True
+ ===========================================
+ isEqual(==)          small == SMALL = False
+ notEqual(!=)         small != small = False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lets-expand-on-strings">
+<h3>Lets expand on strings<a class="headerlink" href="#lets-expand-on-strings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Every string in Python is an object containing a sequence of characters.</p></li>
+<li><p>Each letter in a string has a distinct index corresponding to its specific order.</p></li>
+<li><p>Indices start in 0 and end in the length of the string-1</p></li>
+<li><p>Spaces count as a character</p></li>
+<li><p>Both single and double quotes can be used to define a string</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Both tests are the same i.e. a=</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="se">\&#39;</span><span class="s2"> and b=</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="se">\&#39;</span><span class="s2"> and a==b is </span><span class="si">{</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Both tests are the same i.e. a=&#39;test&#39; and b=&#39;test&#39; and a==b is True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="why-do-we-need-both-single-and-double-quotes">
+<h4>Why do we need both single <code class="docutils literal notranslate"><span class="pre">'</span></code> and double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> quotes?<a class="headerlink" href="#why-do-we-need-both-single-and-double-quotes" title="Permalink to this headline">¶</a></h4>
+<p>This simplifies using either single or double quotes within a phrase
+Consider the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_phrash</span> <span class="o">=</span> <span class="s2">&quot;Did you know that &#39;cultivar&#39; is synonymous with &#39;clone&#39;?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;British style</span><span class="se">\t</span><span class="s2">: </span><span class="si">{</span><span class="n">some_phrash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">same_phrash</span> <span class="o">=</span> <span class="s1">&#39;Did you know that &quot;cultivar&quot; is synonymous with &quot;clone&quot;?&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;American style </span><span class="se">\t</span><span class="s2">: </span><span class="si">{</span><span class="n">same_phrash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>British style	: Did you know that &#39;cultivar&#39; is synonymous with &#39;clone&#39;?
+American style 	: Did you know that &quot;cultivar&quot; is synonymous with &quot;clone&quot;?
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-about-using-both-single-and-double-quotes">
+<h3>What about using both  single <code class="docutils literal notranslate"><span class="pre">'</span></code> and double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> quotes?<a class="headerlink" href="#what-about-using-both-single-and-double-quotes" title="Permalink to this headline">¶</a></h3>
+<p>What do we do when we want both single <code class="docutils literal notranslate"><span class="pre">'</span></code> and double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> quotes in the same string?</p>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Try to print the following sentence using python<br />
+“‘The Green Hills of Earth’ is one of my favourite stories,” my teacher said.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Luckily we have Escape Sequences in Python</p></li>
+<li><p class="card-text">An escape sequence is defined using a backslash (\) followed by any protected word.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mixed_quote_phrash</span> <span class="o">=</span> <span class="s1">&#39;&quot; </span><span class="se">\&#39;</span><span class="s1">The Green Hills of Earth</span><span class="se">\&#39;</span><span class="s1"> is one of my favourite stories,&quot; my teacher said.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We can escape the single: </span><span class="se">\n</span><span class="si">{</span><span class="n">mixed_quote_phrash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">mixed_quote_phrash</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> &#39;The Green Hills of Earth&#39; is one of my favourite stories,</span><span class="se">\&quot;</span><span class="s2"> my teacher said.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Or the double: </span><span class="se">\n</span><span class="si">{</span><span class="n">mixed_quote_phrash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="escaping-the-escape-sequences">
+<h3>Escaping the Escape Sequences<a class="headerlink" href="#escaping-the-escape-sequences" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If we need to add a backslash, we will simply use a double \</p></li>
+<li><p>This will print out only one backslash</p></li>
+</ul>
+<div class="section" id="useful-escape-sequence-characters-esc">
+<h4>useful Escape sequence characters (ESC)<a class="headerlink" href="#useful-escape-sequence-characters-esc" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>ESC</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>\</p></td>
+<td class="text-align:left"><p>Prints Backslash</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>'</p></td>
+<td class="text-align:left"><p>Prints single-quote</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>&quot;</p></td>
+<td class="text-align:left"><p>Prints double quote</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>\n</p></td>
+<td class="text-align:left"><p>Print line break</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>\t</p></td>
+<td class="text-align:left"><p>print tab</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>\uxxxx</p></td>
+<td class="text-align:left"><p>Use 16-bit hex Unicode char</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>\Uxxxxxxxx</p></td>
+<td class="text-align:left"><p>Use 32-bit hex Unicode char</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:left"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="everything-in-python-is-an-object">
+<h3>Everything in Python is an object<a class="headerlink" href="#everything-in-python-is-an-object" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>String class is an object as well.</p></li>
+<li><p>Every time you create a string, it comes with many methods</p></li>
+<li><p>After initializing a string object, all the possible methods can be accessed using dot notation</p></li>
+<li><p>These are all functions that are useful under different situations</p></li>
+</ul>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Use the right introspection function to print all the methods a string object has</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul class="simple">
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">dir</span></code> returns list of methods and attributes associated with that object.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="whats-the-meaning-of-double-leading-and-trailing-underscores-in-python">
+<h3>What’s the Meaning of double leading and trailing underscores In Python?<a class="headerlink" href="#whats-the-meaning-of-double-leading-and-trailing-underscores-in-python" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="some-string-transformation-examples">
+<h3>Some string transformation examples<a class="headerlink" href="#some-string-transformation-examples" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="s2">&quot; upper is a method used to convert a string to uppercase&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">((</span><span class="s2">&quot; center pads a string from both sides to fill k chars &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="s2">&quot; we can chain both together &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="s2">&quot; But there are many options (e.g. title) &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="s1">&#39;~&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> UPPER IS A METHOD USED TO CONVERT A STRING TO UPPERCASE
+~~~~~~~~~~~~~ center pads a string from both sides to fill k chars ~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~ WE CAN CHAIN BOTH TOGETHER ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~ But There Are Many Options (E.G. Title) ~~~~~~~~~~~~~~~~~~~~
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-than-style">
+<h3>More than style<a class="headerlink" href="#more-than-style" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>By definition, we would expect string functions to be associated with style</p></li>
+<li><p>But there are also more general ones</p></li>
+<li><p>For example the <code class="docutils literal notranslate"><span class="pre">endswith</span></code> command is a useful way to test the type of a filename</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="s2">&quot;some_file_name.zip&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;zip&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Try to find a way to count the number of times the word ‘her’ is used in this short story by <a class="reference external" href="http://fiftywordstories.com/2021/04/12/n-west-moss-a-man-not-her-husband/">N. West Moss</a>.</p>
+<blockquote>
+<div><p><em>A man (not her husband) had loved her last summer. He never said so, never kissed her, so maybe he hadn’t, but the wondering lit her up like a firefly. His absence weighed a thousand pounds and made her ears ring. Having almost certainly been loved still made her dance.</em></p>
+</div></blockquote>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">story</span> <span class="o">=</span> <span class="s2">&quot;A man (not her husband) had loved her last summer. He never said so, never kissed her, so maybe he hadn’t, but the wondering lit her up like a firefly. His absence weighed a thousand pounds and made her ears ring. Having almost certainly been loved still made her dance.&quot;</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The word her is used </span><span class="si">{</span><span class="n">story</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;her&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> times&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<p>Now find a way to identify the index of the first occurrence of the word ‘her’ in the story.</p>
+<blockquote>
+<div><p><em>A man (not her husband) had loved her last summer. He never said so, never kissed her, so maybe he hadn’t, but the wondering lit her up like a firefly. His absence weighed a thousand pounds and made her ears ring. Having almost certainly been loved still made her dance.</em></p>
+</div></blockquote>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The word her first appears in the </span><span class="si">{</span><span class="n">story</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;her&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> position&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="let-s-focus-on-indexing-for-a-moment">
+<h3>Let’s focus on indexing for a moment<a class="headerlink" href="#let-s-focus-on-indexing-for-a-moment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Every string is a sequence of characters</p></li>
+<li><p>This is an excellent opportunity to cover how indexing works</p></li>
+<li><p>The len() function will count all of the string characters (including spaces and punctuation)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_string</span> <span class="o">=</span> <span class="s2">&quot;Some times we want to find how long is a string&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">some_string</span><span class="si">}</span><span class="s1">  = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">some_string</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some times we want to find how long is a string  = 47
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="but-how-can-we-navigate-in-this-sequence">
+<h3>But how can we navigate in this sequence?<a class="headerlink" href="#but-how-can-we-navigate-in-this-sequence" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>To go to a specific index in a string, we use brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></p></li>
+<li><p>Remember that indexing starts at 0 for Python</p></li>
+<li><p>Consider the following:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Access start index using [0]</span><span class="se">\t\t\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Access end index using  [-1] </span><span class="se">\t\t\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Use the colon [start:end] to perform slicing </span><span class="se">\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[</span><span class="mi">38</span><span class="p">:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Get everything UPTO [:end] </span><span class="se">\t\t\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Get everything FROM TO [start:end-2] </span><span class="se">\t\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[</span><span class="mi">38</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Access start index using [0]			= S 
+Access end index using  [-1] 			= G 
+Use the colon [start:end] to perform slicing 	=  A 
+Get everything UPTO [:end] 			= SOME 
+Get everything FROM TO [start:end-2] 		=  A STRI
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="slicing-and-skipping">
+<h3>Slicing and skipping<a class="headerlink" href="#slicing-and-skipping" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>It is possible to use index and slice notation to get a sequence using a step size</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Print everything [:]</span><span class="se">\t\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[:]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Print every second word [::2] </span><span class="se">\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="se">\n\</span>
+<span class="s2">Everything in reverse [::-1]</span><span class="se">\t</span><span class="s2">= </span><span class="si">{</span><span class="n">some_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Print everything [:]		= SOME TIMES WE WANT TO FIND HOW LONG IS A STRING 
+Print every second word [::2] 	= SM IE EWN OFN O OGI  TIG 
+Everything in reverse [::-1]	= GNIRTS A SI GNOL WOH DNIF OT TNAW EW SEMIT EMOS
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings-are-immutable">
+<h3>Strings are immutable<a class="headerlink" href="#strings-are-immutable" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Remember, immutable means that you cannot change the object itself</p></li>
+<li><p>This means that we cannot change a single letter in the string</p></li>
+</ul>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Let’s try this explicitly - try to run this sta</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_string</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-can-also-use-split-to-break-a-long-string">
+<h3>We can also use split to break a long string<a class="headerlink" href="#we-can-also-use-split-to-break-a-long-string" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The split() and rsplit() methods splits string from the left or right at the specified separator and returns a list of strings.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;some times we would like to split long text&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It,can,use any,kind of, delimiter&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You,can,also,define,how,many,splits&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;As,well,as,direction,of,splits&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;some&#39;, &#39;times&#39;, &#39;we&#39;, &#39;would&#39;, &#39;like&#39;, &#39;to&#39;, &#39;split&#39;, &#39;long&#39;, &#39;text&#39;]
+[&#39;It&#39;, &#39;can&#39;, &#39;use any&#39;, &#39;kind of&#39;, &#39; delimiter&#39;]
+[&#39;You&#39;, &#39;can&#39;, &#39;also&#39;, &#39;define,how,many,splits&#39;]
+[&#39;As,well,as,direction&#39;, &#39;of&#39;, &#39;splits&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings-can-be-concatenated">
+<h3>Strings can be concatenated<a class="headerlink" href="#strings-can-be-concatenated" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We already saw that we could combine different strings together</p></li>
+<li><p>But this is not very easy to understand</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="s1">&#39;some&#39;</span><span class="p">,</span><span class="s1">&#39;times&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;would&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">d</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sometimeswouldwouldwe
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>For those paying attention to the code, you can see that I am constantly combining strings with variables</p></li>
+<li><p>This operation is called string formatting, and it is useful to know the different ways in which it can be used</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="string-formatting">
+<h2>String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>From python 3.6 string formatting is done using f-strings, these simplify this process and make the code easier to understand</p></li>
+<li><p>For those interested (and for completeness) <a class="reference external" href="https://realpython.com/python-string-formatting/">here is a link explaining the older methods</a></p></li>
+</ul>
+<div class="section" id="f-strings-examples">
+<h3>f-strings examples<a class="headerlink" href="#f-strings-examples" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_str</span> <span class="o">=</span> <span class="s2">&quot;Malarkey&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Do you know what </span><span class="si">{</span><span class="n">some_str</span><span class="si">}</span><span class="s2"> means?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="c1"># using !r will keep the string</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">some_str</span><span class="si">!r}</span><span class="s2"> refers to talk that is particularly foolish&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Do you know what Malarkey means?
+
+&#39;Malarkey&#39; refers to talk that is particularly foolish
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="anatomy-of-an-f-string-command">
+<h3>Anatomy of an f-string command<a class="headerlink" href="#anatomy-of-an-f-string-command" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Any string starting with the letter <code class="docutils literal notranslate"><span class="pre">f</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code> (case doesn’t matter) will be interpreted as an f-string</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;String&#39;</span> <span class="o">==</span> <span class="sa">F</span><span class="s1">&#39;String&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>An f-string is composed of at least one of two potential components:</p>
+<ul>
+<li><p>A string</p></li>
+<li><p>A replacement field contained between two curly brackets</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;String&quot;</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">==</span> <span class="sa">f</span><span class="s1">&#39;String&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The replacement field has two potential components contained between the two curly brackets</p>
+<ul>
+<li><p>f_expression</p></li>
+<li><p>format_spec</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="f-string-and-numbers">
+<h4>f-string and numbers<a class="headerlink" href="#f-string-and-numbers" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Expression</p></th>
+<th class="text-align:left head"><p>Format</p></th>
+<th class="text-align:left head"><p>Syntax</p></th>
+<th class="text-align:left head"><p>Output</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>22/7</p></td>
+<td class="text-align:left"><p>.2f</p></td>
+<td class="text-align:left"><p>f’{22/7:.2f}’</p></td>
+<td class="text-align:left"><p>3.14</p></td>
+<td class="text-align:left"><p>2 decimal places</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>(1+1/5)**5</p></td>
+<td class="text-align:left"><p>.3f</p></td>
+<td class="text-align:left"><p>f’{(1+1/5)**5:+.3f}’</p></td>
+<td class="text-align:left"><p>+2.488</p></td>
+<td class="text-align:left"><p>3 decimal places with sign</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>(-.5)**0.75</p></td>
+<td class="text-align:left"><p>.1f</p></td>
+<td class="text-align:left"><p>f’{(-.5)**0.75:+.1f}’</p></td>
+<td class="text-align:left"><p>-0.4+0.4j</p></td>
+<td class="text-align:left"><p>1 decimal places with sign</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>44/7</p></td>
+<td class="text-align:left"><p>.0f</p></td>
+<td class="text-align:left"><p>f’{44/7:.0f}’</p></td>
+<td class="text-align:left"><p>6</p></td>
+<td class="text-align:left"><p>No decimal places</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>12</p></td>
+<td class="text-align:left"><p>0&gt;3</p></td>
+<td class="text-align:left"><p>f’{12:0&gt;3}’</p></td>
+<td class="text-align:left"><p>012</p></td>
+<td class="text-align:left"><p>Pad number with zeros (left padding, width 3)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>1e6</p></td>
+<td class="text-align:left"><p>,</p></td>
+<td class="text-align:left"><p>f’{1e6:,}’</p></td>
+<td class="text-align:left"><p>1,000,000.0</p></td>
+<td class="text-align:left"><p>Float format with comma separator</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>1e9</p></td>
+<td class="text-align:left"><p>,</p></td>
+<td class="text-align:left"><p>f’{int(1e9):,}’</p></td>
+<td class="text-align:left"><p>1,000,000,000</p></td>
+<td class="text-align:left"><p>Int format with comma separator</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>5/9</p></td>
+<td class="text-align:left"><p>.2%</p></td>
+<td class="text-align:left"><p>f’{5/9:.2%}’</p></td>
+<td class="text-align:left"><p>25.00%</p></td>
+<td class="text-align:left"><p>Format percentage</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>25**5</p></td>
+<td class="text-align:left"><p>.2e</p></td>
+<td class="text-align:left"><p>f’{25**5:.2e}’</p></td>
+<td class="text-align:left"><p>9.77e+06</p></td>
+<td class="text-align:left"><p>Exponent notation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="f-strings-dates-and-time">
+<h4>f-strings dates and time<a class="headerlink" href="#f-strings-dates-and-time" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Dates are also simpler to define (however, I am cheating here as I am using some Python package)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="n">some_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">some_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">second</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">some_date</span><span class="si">:</span><span class="s2">%B %d, %Y</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">some_time</span><span class="si">:</span><span class="s2">%H:%M:%S</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>May 26, 2020 13:30:10
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-string-can-do-numeric-notations">
+<h4>f-string can do numeric notations<a class="headerlink" href="#f-string-can-do-numeric-notations" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>For example Hexadecimal often used to describe RGB colors</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">255</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The color cyan-blue can be written as #</span><span class="si">{</span><span class="n">R</span><span class="si">:</span><span class="s1">x</span><span class="si">}{</span><span class="n">G</span><span class="si">:</span><span class="s1">x</span><span class="si">}{</span><span class="n">B</span><span class="si">:</span><span class="s1">x</span><span class="si">}</span><span class="s1"> in hex form&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The color cyan-blue can be written as #099ff in hex form
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Also binary numbers</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number 254 is </span><span class="si">{</span><span class="mi">254</span><span class="si">:</span><span class="s1">b</span><span class="si">}</span><span class="s1"> in binary &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number 254 is 11111110 in binary 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-do-some-exercises">
+<h3>Let’s do some exercises<a class="headerlink" href="#let-s-do-some-exercises" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Try to change the question mark using expressions and the variables x and y in the right side of the equation to produce the following output</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>x,y = -12,2 # given numbers
+? = -6.0 
+? = -10
+? = -14
+? = 0
+? = 144.0
+? = 0.0+3.5j 
+? = 96.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.datacamp.com/community/tutorials/python-string-tutorial">Python String Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/community/tutorials/python-data-science-cheat-sheet-basics">Python For Data Science - A Cheat Sheet For Beginners</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02_variables_101.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PYTHON Basic Data Types</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_python_data_structures.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PYTHON Data structures 101</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

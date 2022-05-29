@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PYTHON SYNTAX 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_02/01_python_syntax_101.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PYTHON Basic Data Types" href="02_variables_101.html" />
+    <link rel="prev" title="DAY 02 - Python" href="00_day_02_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_02/01_python_syntax_101.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_02/01_python_syntax_101.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_02/01_python_syntax_101.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-syntax">
+   What is a syntax
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-essentials-and-best-practices">
+   Syntax Essentials and Best Practices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-essentials-rules">
+     Syntax Essentials rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-statements-are-executed-in-a-serial-way">
+     Python statements are executed in a serial way
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-blocks-are-defined-by-indentation">
+     Code blocks are defined by indentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indentations-for-structure">
+     Indentations for structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-to-avoid-using-more-than-one-statement-per-line">
+     Try to avoid using more than one statement per line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naming-convention-simplifies-collaboration">
+     Naming convention simplifies collaboration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explicit-line-joining">
+     Explicit line joining
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#many-commands-in-single-line">
+     Many commands in single line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implicit-line-joining">
+     Implicit line joining
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments-are-marked-by">
+     Comments Are Marked by
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       #
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commenting-your-code-serves-multiple-purposes">
+     Commenting your code serves multiple purposes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-multiline-comments">
+     Use Multiline Comments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-stacking-of-hashtags">
+       multiple stacking of hashtags
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternatively-docstrings-can-be-used-by-combining-three-commas">
+       Alternatively, docstrings can be used by combining three commas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-keywords">
+     Python Keywords
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-matters">
+     Case matters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-names">
+     Variable Names
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-blank-lines">
+     Use blank lines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-white-spaces">
+     Use white spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underscore-in-python">
+     Underscore
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       _
+      </span>
+     </code>
+     in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports-best-practice">
+     Imports best practice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-essentials-rules-recap">
+     Syntax Essentials rules recap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PYTHON SYNTAX 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-syntax">
+   What is a syntax
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-essentials-and-best-practices">
+   Syntax Essentials and Best Practices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-essentials-rules">
+     Syntax Essentials rules
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-statements-are-executed-in-a-serial-way">
+     Python statements are executed in a serial way
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-blocks-are-defined-by-indentation">
+     Code blocks are defined by indentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indentations-for-structure">
+     Indentations for structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#try-to-avoid-using-more-than-one-statement-per-line">
+     Try to avoid using more than one statement per line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naming-convention-simplifies-collaboration">
+     Naming convention simplifies collaboration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explicit-line-joining">
+     Explicit line joining
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#many-commands-in-single-line">
+     Many commands in single line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implicit-line-joining">
+     Implicit line joining
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments-are-marked-by">
+     Comments Are Marked by
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       #
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#commenting-your-code-serves-multiple-purposes">
+     Commenting your code serves multiple purposes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-multiline-comments">
+     Use Multiline Comments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-stacking-of-hashtags">
+       multiple stacking of hashtags
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternatively-docstrings-can-be-used-by-combining-three-commas">
+       Alternatively, docstrings can be used by combining three commas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-keywords">
+     Python Keywords
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-matters">
+     Case matters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-names">
+     Variable Names
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-blank-lines">
+     Use blank lines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-white-spaces">
+     Use white spaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underscore-in-python">
+     Underscore
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       _
+      </span>
+     </code>
+     in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports-best-practice">
+     Imports best practice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#syntax-essentials-rules-recap">
+     Syntax Essentials rules recap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-syntax-101">
+<h1>PYTHON SYNTAX 101<a class="headerlink" href="#python-syntax-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-syntax">
+<h2>What is a syntax<a class="headerlink" href="#what-is-a-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Syntax is the way words work together to make sentences, clauses, and phrases. “Syntax” means “arrange together,” as well as “study of the syntactic properties of a language.” The syntax of a computer language is the set of rules that define the combinations of symbols that are considered correct for that language.</p>
+</div>
+<div class="section" id="syntax-essentials-and-best-practices">
+<h2>Syntax Essentials and Best Practices<a class="headerlink" href="#syntax-essentials-and-best-practices" title="Permalink to this headline">¶</a></h2>
+<p>One of the trickiest things for Python newcomers to adapt to is the syntax.
+In this opening section, I’ll go over some syntax essentials as well as some formatting best practices.
+This will help you keep your code consistent and hopefully elegant.</p>
+<div class="section" id="syntax-essentials-rules">
+<h3>Syntax Essentials rules<a class="headerlink" href="#syntax-essentials-rules" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>A naming convention simplifies collaboration - use them</p></li>
+<li><p>Code blocks are defined by indentation (can be either space or tab)</p></li>
+<li><p>Try to avoid using more than one statement per line</p></li>
+<li><p>Python is case sensitive : <span class="math notranslate nohighlight">\(vara \neq  varA\)</span></p></li>
+<li><p>Path specification uses forward slashes (regardless of OS): <code class="docutils literal notranslate"><span class="pre">~/user/home</span></code></p></li>
+<li><p>There is no need to add a command terminator <code class="docutils literal notranslate"><span class="pre">;</span></code></p></li>
+<li><p>You can combine two executable statements using a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code>  (but avoid that if you can)</p></li>
+<li><p>String literals can be defined using single <code class="docutils literal notranslate"><span class="pre">'</span></code> double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or even triple <code class="docutils literal notranslate"><span class="pre">'''</span></code> quotes</p></li>
+<li><p>It is considered good conduct to keep lines of code short</p></li>
+<li><p>Backslash \ can be used to stack lines of code together</p></li>
+<li><p>Expressions enclosed in brackets i.e. (), [] or {} don’t need a backslash</p></li>
+<li><p>Comments in Python begin with a hash mark (#) and whitespace character and continue to the end of the line.</p></li>
+<li><p>Keywords are protected and should not be used as variables</p></li>
+</ol>
+</div>
+<div class="section" id="python-statements-are-executed-in-a-serial-way">
+<h3>Python statements are executed in a serial way<a class="headerlink" href="#python-statements-are-executed-in-a-serial-way" title="Permalink to this headline">¶</a></h3>
+<p>A statement is a piece of code that can be executed by a Python interpreter.
+The simplest way to explain this is to argue that any Python code is a statement.
+To indicate the end of a statement, the token NEWLINE character is used.
+Each statement in a Python script is represented by a line of code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is a print statement&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a print statement
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="code-blocks-are-defined-by-indentation">
+<h3>Code blocks are defined by indentation<a class="headerlink" href="#code-blocks-are-defined-by-indentation" title="Permalink to this headline">¶</a></h3>
+<p>A Python program is constructed from code blocks. A block is a piece of Python program text that is executed as a unit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am part of a code block&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am also part of the same code block&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am part of a code block
+I am also part of the same code block
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indentations-for-structure">
+<h3>Indentations for structure<a class="headerlink" href="#indentations-for-structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In contrast to the closing statements common in Bash (such as fi) or MATLAB (such as end) Python uses indentations to understand the structure of your code.</p></li>
+<li><p>So you should make sure to use indentations correctly and consistently.</p></li>
+<li><p>This makes code more straightforward to read and ultimately understand</p></li>
+<li><p>Indentations can be created using either tabs or spaces (usually four spaces)</p></li>
+<li><p>If the indentations are mixed the code will fail to excute</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">brain_lobes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">brain_lobes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">brain_lobes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="try-to-avoid-using-more-than-one-statement-per-line">
+<h3>Try to avoid using more than one statement per line<a class="headerlink" href="#try-to-avoid-using-more-than-one-statement-per-line" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using the semi-colon symbol you can combine multiple statements in one line</p></li>
+<li><p>However, If you put a line break in the wrong place, you will get an error message.</p></li>
+<li><p>To avoid that you should have one statement per line.</p></li>
+<li><p>As with all rules, there are some exceptions some of which we will cover later in the course</p></li>
+</ul>
+</div>
+<div class="section" id="naming-convention-simplifies-collaboration">
+<h3>Naming convention simplifies collaboration<a class="headerlink" href="#naming-convention-simplifies-collaboration" title="Permalink to this headline">¶</a></h3>
+<p>A naming convention is a set of rules for selecting the character sequence that should be used to name different data types and data structures. This can be confusing if you have little background. So without going into what the following are (we will discuss them as we continue) I would like to lay them out for future reflection.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Identifier</p></th>
+<th class="text-align:left head"><p>Example</p></th>
+<th class="text-align:left head"><p>Commonly used for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>single lowercase letter</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td class="text-align:left"><p>mathematical notation variables</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>single uppercase letter</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td class="text-align:left"><p>mathematical notation variables</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>lowercase sequence</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">lowercase</span></code></p></td>
+<td class="text-align:left"><p>variables, modules, functions and package</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>uppercase sequence</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">UPPERCASE</span></code></p></td>
+<td class="text-align:left"><p>Constants</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Snake lowercase</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">lower_case_with_underscores</span></code></p></td>
+<td class="text-align:left"><p>Variables and functions</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Snake uppercase</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">UPPER_CASE_WITH_UNDERSCORES</span></code></p></td>
+<td class="text-align:left"><p>Constants</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Camel case</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">CamelCase</span></code></p></td>
+<td class="text-align:left"><p>Class</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>mixed case</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">mixedCase</span></code></p></td>
+<td class="text-align:left"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Camel snake case</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Camel_Snake_Case</span></code></p></td>
+<td class="text-align:left"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>single leading underscore</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">_single_leading_underscore</span></code></p></td>
+<td class="text-align:left"><p>weak “internal use” indicator. E.g. from M import * does not import objects whose name starts with an underscore.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>single trailing underscore</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">single_trailing_underscore_</span></code></p></td>
+<td class="text-align:left"><p>Single trailing underscore naming convention is used to avoid conflicts with Python keywords.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>double leading underscore</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">__double_leading_underscore</span></code></p></td>
+<td class="text-align:left"><p>private variables and methods inside a class</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>single trailing underscore</p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">__double_leading_and_trailing_underscore__</span></code></p></td>
+<td class="text-align:left"><p>“magic” objects or attributes that are built in the language (e.g. <code class="docutils literal notranslate"><span class="pre">__init__</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="explicit-line-joining">
+<h3>Explicit line joining<a class="headerlink" href="#explicit-line-joining" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using a backslash <code class="docutils literal notranslate"><span class="pre">\</span></code>, we can break long commands across many lines</p></li>
+<li><p>Using code that is longer than 80 char is perceived as bad practice</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> \
+<span class="p">(</span><span class="s1">&#39;Multi</span><span class="se">\</span>
+<span class="s1"> line</span><span class="se">\</span>
+<span class="s1"> command&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Multi line command
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="many-commands-in-single-line">
+<h3>Many commands in single line<a class="headerlink" href="#many-commands-in-single-line" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using the semicolon ; we can achieve the opposite, i.e. to combine multiple commands in one line</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Multi&#39;</span><span class="p">);</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Line&#39;</span><span class="p">);</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Output&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="implicit-line-joining">
+<h3>Implicit line joining<a class="headerlink" href="#implicit-line-joining" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Expressions in parentheses, square brackets or curly braces can be split over more than one physical line without using backslashes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brain_lobes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Frontal&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Parietal&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Occipital&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Temporal&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brain_lobes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frontal&#39;, &#39;Parietal&#39;, &#39;Occipital&#39;, &#39;Temporal&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comments-are-marked-by">
+<h3>Comments Are Marked by <code class="docutils literal notranslate"><span class="pre">#</span></code><a class="headerlink" href="#comments-are-marked-by" title="Permalink to this headline">¶</a></h3>
+<p><em><strong>“Code is more often read than written.”</strong></em>
+<em><strong>Guido van Rossum</strong></em></p>
+<ul class="simple">
+<li><p>It is important to add comments to your Python code.</p></li>
+<li><p>To do this use the # character, everything that comes after it won’t be executed.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This will run.&quot;</span><span class="p">)</span>  <span class="c1"># This won&#39;t run</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="commenting-your-code-serves-multiple-purposes">
+<h3>Commenting your code serves multiple purposes<a class="headerlink" href="#commenting-your-code-serves-multiple-purposes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Planning and Reviewing, i.e. outline of the desired functionality of some future code</p></li>
+<li><p>Code Description, i.e. explain the intent of specific sections of code</p></li>
+<li><p>Algorithmic description, i.e. explain how the algorithm works or how it’s implemented within your code or even add a link to the source</p></li>
+<li><p>Tagging, i.e. label specific sections of your code where you need to take action, e.g. BUG, FIXME, TODO, UPGRADE.</p></li>
+<li><p>Comments should be short, sweet, and to the point.</p></li>
+</ul>
+<p><em><strong>“Code tells you how; Comments tell you why.”</strong></em>
+<em><strong>Jeff Atwood (aka Coding Horror)</strong></em></p>
+</div>
+<div class="section" id="use-multiline-comments">
+<h3>Use Multiline Comments<a class="headerlink" href="#use-multiline-comments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Multi-line comments can be achieved primitively using :</p></li>
+</ul>
+<div class="section" id="multiple-stacking-of-hashtags">
+<h4>multiple stacking of hashtags<a class="headerlink" href="#multiple-stacking-of-hashtags" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This </span>
+<span class="c1"># is </span>
+<span class="c1"># stacking </span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="alternatively-docstrings-can-be-used-by-combining-three-commas">
+<h4>Alternatively, docstrings can be used by combining three commas<a class="headerlink" href="#alternatively-docstrings-can-be-used-by-combining-three-commas" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">arg1</span><span class="p">):</span> 
+    <span class="sd">&quot;&quot;&quot;Summary line. some_function will do some thing with arg1</span>
+<span class="sd">  </span>
+<span class="sd">    Extended description of the function. </span>
+<span class="sd">    some_function will get arg1 and do things with it</span>
+<span class="sd">    some of the things are complex, and some are simple</span>
+<span class="sd">    some_function will then return some value.  </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters: </span>
+<span class="sd">    arg1: the thing we will do stuff to </span>
+<span class="sd">  </span>
+<span class="sd">    Returns: </span>
+<span class="sd">    some_value_back </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">some_value_back</span>  <span class="o">=</span> <span class="n">arg1</span> <span class="o">*</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="n">some_value_back</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-keywords">
+<h3>Python Keywords<a class="headerlink" href="#python-keywords" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Keywords are the reserved words in Python.</p></li>
+<li><p>You cannot use a keyword as a variable name, function name or any other identifier.</p></li>
+<li><p>These 35 keywords are used to define the syntax and structure of the Python language.</p></li>
+<li><p>To examine them you can run the following code</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyword</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;async&#39;, &#39;await&#39;, &#39;break&#39;, &#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="case-matters">
+<h3>Case matters<a class="headerlink" href="#case-matters" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python is case sensitive.</p></li>
+<li><p>This means the <strong>HELP</strong> is not equal to <strong>help</strong></p></li>
+<li><p>Most of Python keywords are written with lowercase letters.</p></li>
+<li><p>Notable exceptions to this rule are True and False boolean values and the <strong>None</strong> variable that all use a mixture of cases.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HELP&quot;</span><span class="o">==</span><span class="s2">&quot;help&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-names">
+<h3>Variable Names<a class="headerlink" href="#variable-names" title="Permalink to this headline">¶</a></h3>
+<p><em><strong>Code is read much more often than it is written</strong></em>
+<em><strong>Guido van Rossum 2001</strong></em></p>
+<ol class="simple">
+<li><p>Variable names should use lowercase.</p></li>
+<li><p>Variable names cannot:</p>
+<ul class="simple">
+<li><p>Start with a number</p></li>
+<li><p>Contain spaces</p></li>
+<li><p>Use any of these symbols : <code class="docutils literal notranslate"><span class="pre">'&quot;,&lt;&gt;/?|\()!&#64;#$%^&amp;*~-+</span></code></p></li>
+</ul>
+</li>
+<li><p>Avoid using the characters:</p>
+<ul class="simple">
+<li><p>‘l’ (lowercase letter el)</p></li>
+<li><p>‘O’ (uppercase letter oh)</p></li>
+<li><p>‘I’ (uppercase letter eye)</p></li>
+</ul>
+</li>
+<li><p>short_names vs long_name</p></li>
+<li><p>long_names should be separated using the underscore symbol (_)</p></li>
+<li><p>This makes them readable</p></li>
+<li><p>Remember that making variable names simple to understand minimizes the time spent on commenting</p></li>
+</ol>
+</div>
+<div class="section" id="use-blank-lines">
+<h3>Use blank lines<a class="headerlink" href="#use-blank-lines" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using blank lines is the simplest way to separate code blocks visually</p></li>
+<li><p>Even multiple blank lines to distinguish between different parts of the code.</p></li>
+<li><p>It won’t affect the result of your script.</p></li>
+</ul>
+</div>
+<div class="section" id="use-white-spaces">
+<h3>Use white spaces<a class="headerlink" href="#use-white-spaces" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python allows white spaces in assignment</p></li>
+<li><p>This makes nicer looking code</p></li>
+</ul>
+<p>In contrast to bash where you are not allowed to use white space in assignment</p>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>Try running the following code in your terminal</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NUM2 = 4 </span>
+</pre></div>
+</div>
+</div>
+<p>Python ignores white spaces and all of these variables have the same value and will all compile</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">num_01</span> <span class="o">=</span> <span class="mi">4</span> 
+ <span class="n">num_02</span><span class="o">=</span><span class="mi">4</span>
+ <span class="n">num_03</span> <span class="o">=</span><span class="mi">4</span>
+ <span class="n">num_04</span> <span class="o">=</span>            <span class="mi">4</span>
+ <span class="nb">print</span><span class="p">(</span><span class="n">num_01</span> <span class="o">==</span> <span class="n">num_02</span> <span class="o">==</span> <span class="n">num_03</span> <span class="o">==</span> <span class="n">num_04</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="underscore-in-python">
+<h3>Underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> in Python<a class="headerlink" href="#underscore-in-python" title="Permalink to this headline">¶</a></h3>
+<p>Python’s underscore <code class="docutils literal notranslate"><span class="pre">_</span></code> is a unique character. It can be used for many different purposes.
+During this week we will use some of these cases so for the sake of completeness</p>
+<ol class="simple">
+<li><p>Stores the value of the last expression executed</p></li>
+<li><p>Leaving out values in different situations (in practice, we just store them on a  temporary variable)</p></li>
+</ol>
+</div>
+<div class="section" id="imports-best-practice">
+<h3>Imports best practice<a class="headerlink" href="#imports-best-practice" title="Permalink to this headline">¶</a></h3>
+<p>Python is a community effort and it relies on many different modules and packages that can be imported to be used in various situations.
+This is similar to a library in R.<br />
+We will go over this in detail tomorrow, but it should be stated.</p>
+<ul class="simple">
+<li><p>Use <strong>import x</strong> for importing packages and modules.</p></li>
+<li><p>Use <strong>from x import y</strong> where x is the package prefix, and y is the module name with no prefix.</p></li>
+<li><p>Use <strong>from x import y as z</strong> if two modules named y are to be imported or if y is an inconveniently long name.</p></li>
+<li><p>Use <strong>import y as z</strong> only when z is a standard abbreviation (e.g., np for NumPy). –&gt;</p></li>
+</ul>
+</div>
+<div class="section" id="syntax-essentials-rules-recap">
+<h3>Syntax Essentials rules recap<a class="headerlink" href="#syntax-essentials-rules-recap" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>A naming convention simplifies collaboration - use them</p></li>
+<li><p>Code blocks are defined by indentation (can be either space or tab)</p></li>
+<li><p>Try to avoid using more than one statement per line</p></li>
+<li><p>Python is case sensitive : <span class="math notranslate nohighlight">\(vara \neq  varA\)</span></p></li>
+<li><p>Path specification uses forward slashes (regardless of OS): <code class="docutils literal notranslate"><span class="pre">~/user/home</span></code></p></li>
+<li><p>There is no need to add a command terminator <code class="docutils literal notranslate"><span class="pre">;</span></code></p></li>
+<li><p>You can combine two executable statements using a semicolon <code class="docutils literal notranslate"><span class="pre">;</span></code>  (but avoid that if you can)</p></li>
+<li><p>String literals can be defined using single <code class="docutils literal notranslate"><span class="pre">'</span></code> double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or even triple <code class="docutils literal notranslate"><span class="pre">'''</span></code> quotes</p></li>
+<li><p>It is considered good conduct to keep lines of code short</p></li>
+<li><p>Backslash \ can be used to stack lines of code together</p></li>
+<li><p>Expressions enclosed in brackets i.e. (), [] or {} don’t need a backslash</p></li>
+<li><p>Comments in Python begin with a hash mark (#) and whitespace character and continue to the end of the line.</p></li>
+<li><p>Keywords are protected and should not be used as variables</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8 – Style Guide for Python Code</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">PEP 257 – Docstring Conventions</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0020">The Zen of Python</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/community/tutorials/pep8-tutorial-python-code">PEP-8 Tutorial: Code Standards in Python</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_day_02_overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">DAY 02 - Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_variables_101.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PYTHON Basic Data Types</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
