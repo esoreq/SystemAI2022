@@ -1,0 +1,1259 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PYTHON MODULES 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_03/02_python_modules_101.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PYTHON ANACONDA 102" href="03_anaconda_revisited.html" />
+    <link rel="prev" title="PYTHON FUNCTIONS 101" href="01_python_functions_101.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_classes_in_python.html">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_03/02_python_modules_101.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_03/02_python_modules_101.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_03/02_python_modules_101.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modules-and-packages">
+   Modules and Packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-module">
+     What is a Module?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modules-are-useful-because-they">
+     Modules are useful because they:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-use-modules">
+     Why use Modules?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#my-module-example">
+     my_module example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-import-to-load-my-module">
+     Using import to load my_module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-importing-in-python-work">
+     How does importing in Python work?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-introspection-to-look-under-the-hood">
+     Using introspection to look under the hood
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-reimport-a-module">
+     How to reimport a module?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-the-jupyter-interactive-settings-there-are-alternatives">
+       In the jupyter interactive settings there are alternatives
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-cache-to-keep-my-module-alive">
+       Using cache to keep my_module alive
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-test-our-module">
+       Lets test our module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extend-your-module-by-adding-sample-standard-deviation">
+     Extend your module by adding sample standard deviation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-your-code-against-some-gold-standard-package">
+     Testing your code against some gold standard package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-call-a-module-from-within-a-function">
+     We can call a module from within a function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-datetime-to-the-main-scope">
+     Import datetime to the main scope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#every-module-has-a-physical-file-associated-with-it">
+     Every module has a physical file associated with it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-module-anatomy">
+     The module anatomy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-does-all-do">
+       What does
+       <strong>
+        all
+       </strong>
+       do?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-does-datetime-have-datetime-inside">
+     Why does datetime have datetime inside?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-a-package">
+   How to define a package
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-directory-called-my-package">
+     Make a directory called my_package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-we-do-the-same-using-python">
+     Can we do the same using Python?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PYTHON MODULES 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modules-and-packages">
+   Modules and Packages
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-module">
+     What is a Module?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modules-are-useful-because-they">
+     Modules are useful because they:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-use-modules">
+     Why use Modules?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#my-module-example">
+     my_module example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-import-to-load-my-module">
+     Using import to load my_module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-importing-in-python-work">
+     How does importing in Python work?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-introspection-to-look-under-the-hood">
+     Using introspection to look under the hood
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-reimport-a-module">
+     How to reimport a module?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-the-jupyter-interactive-settings-there-are-alternatives">
+       In the jupyter interactive settings there are alternatives
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-cache-to-keep-my-module-alive">
+       Using cache to keep my_module alive
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-test-our-module">
+       Lets test our module
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extend-your-module-by-adding-sample-standard-deviation">
+     Extend your module by adding sample standard deviation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-your-code-against-some-gold-standard-package">
+     Testing your code against some gold standard package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-call-a-module-from-within-a-function">
+     We can call a module from within a function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-datetime-to-the-main-scope">
+     Import datetime to the main scope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#every-module-has-a-physical-file-associated-with-it">
+     Every module has a physical file associated with it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-module-anatomy">
+     The module anatomy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-does-all-do">
+       What does
+       <strong>
+        all
+       </strong>
+       do?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-does-datetime-have-datetime-inside">
+     Why does datetime have datetime inside?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-define-a-package">
+   How to define a package
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-directory-called-my-package">
+     Make a directory called my_package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#can-we-do-the-same-using-python">
+     Can we do the same using Python?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-modules-101">
+<h1>PYTHON MODULES 101<a class="headerlink" href="#python-modules-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules-and-packages">
+<h2>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python core language is compact.</p></li>
+<li><p>This is an intentional design feature to maintain simplicity.</p></li>
+<li><p>Much of the powerful functionality comes through external modules and packages.</p></li>
+</ul>
+<div class="section" id="what-is-a-module">
+<h3>What is a Module?<a class="headerlink" href="#what-is-a-module" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A module is simply a file with the <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension, containing Python definitions, functions, and statements.</p></li>
+<li><p>Modules are imported from other modules using the import command.</p></li>
+<li><p>The first time a module is loaded into a running Python script, it is initialized by executing the code in the module once.</p></li>
+<li><p>If we change the module, we need to reload it for these changes to take effect</p></li>
+</ul>
+</div>
+<div class="section" id="modules-are-useful-because-they">
+<h3>Modules are useful because they:<a class="headerlink" href="#modules-are-useful-because-they" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Simplify your code by calling readable functions instead of multiple lines of code</p></li>
+<li><p>Make it simpler to maintain, improve and collaborate</p></li>
+<li><p>Allow you to organize your code in different files (each a different module)</p></li>
+</ol>
+</div>
+<div class="section" id="why-use-modules">
+<h3>Why use Modules?<a class="headerlink" href="#why-use-modules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using modules, you can break down large programs into smaller, more manageable pieces.</p></li>
+<li><p>Code can also be reused through modules.</p></li>
+<li><p>Instead of copying their definitions between different programs, we can create modules for our most commonly used functions.</p></li>
+<li><p>a module is also the simplest way to share code with a collaborator</p></li>
+</ul>
+</div>
+<div class="section" id="my-module-example">
+<h3>my_module example<a class="headerlink" href="#my-module-example" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Jupyter notebooks have a nifty thing called magic functions</p></li>
+<li><p>In the next session we will go over some of them in detail</p></li>
+<li><p>For now I will use magic to simplify the creation of a python script to act as my first module</p></li>
+<li><p>This file can be generated using magic or by creating a text file and renaming it.</p></li>
+<li><p>The example is not intended to be considered good practice, but rather to illustrate some functionality in general.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> my_module.py
+<span class="n">sum_sq</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">sq_mean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="n">sum_sq</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">var</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing my_module.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-imports-best-practice admonition">
+<p class="admonition-title">Imports best practice </p>
+<ul class="simple">
+<li><p>Use <strong>import x</strong> for importing packages and modules.</p></li>
+<li><p>Use <strong>from x import y</strong> where x is the package prefix, and y is the module name with no prefix.</p></li>
+<li><p>Use <strong>from x import y as z</strong> if two modules named y are to be imported or if y is an inconveniently long name.</p></li>
+<li><p>Use <strong>import y as z</strong> only when z is a standard abbreviation (e.g., np for NumPy).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-import-to-load-my-module">
+<h3>Using import to load my_module<a class="headerlink" href="#using-import-to-load-my-module" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Once the file is in the same folder as my notebook we can use import to load it</p></li>
+</ul>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<ul class="simple">
+<li><p>In a code cell use import to load <code class="docutils literal notranslate"><span class="pre">my_module</span></code></p></li>
+<li><p>Also use from x import y to load the lambda function <code class="docutils literal notranslate"><span class="pre">var</span></code> from <code class="docutils literal notranslate"><span class="pre">my_module</span></code></p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_module</span>
+<span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">var</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="how-does-importing-in-python-work">
+<h3>How does importing in Python work?<a class="headerlink" href="#how-does-importing-in-python-work" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One limitation of the import approach is that it explicitly loads the contents of the script into the memory as an object</p></li>
+<li><p>For efficiency reasons, when you import a module in an interactive Python session, the Python interpreter executes two operations: It begins by determining if the module is already stored in the sys.module dictionary. And only if it is absent does it import the module. Python will ignore this request if you have previously imported the module (or imported another module that references it) and you attempt to import it again.</p></li>
+<li><p>This means that if we change the file (by adding a function to it for example) we will need to re-import it to make it accessible</p></li>
+</ul>
+</div>
+<div class="section" id="using-introspection-to-look-under-the-hood">
+<h3>Using introspection to look under the hood<a class="headerlink" href="#using-introspection-to-look-under-the-hood" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">dir</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span></code> on <code class="docutils literal notranslate"><span class="pre">my_module</span></code> is revealing (look below)</p></li>
+<li><p>my_module is an object (everything in python is an object) of type module</p></li>
+<li><p>And it has as methods the different lambda functions we just created</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;my_module&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;mean&#39;,
+ &#39;sq_mean&#39;,
+ &#39;sum_sq&#39;,
+ &#39;var&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-reimport-a-module">
+<h3>How to reimport a module?<a class="headerlink" href="#how-to-reimport-a-module" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Often we want to change code that exists in a module we are developing for various reasons.</p></li>
+<li><p>The easiest way reload a module is to quit your interactive session and start it again.</p></li>
+<li><p>This also means you need to rerun all steps leading to that point which might not be very wise or efficient.</p></li>
+<li><p>Working in a non-interactive settings the only way to reload your module to reflect change is via a module called <code class="docutils literal notranslate"><span class="pre">importlib</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">my_module</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="in-the-jupyter-interactive-settings-there-are-alternatives">
+<h4>In the jupyter interactive settings there are alternatives<a class="headerlink" href="#in-the-jupyter-interactive-settings-there-are-alternatives" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>One option is to not use import and simply load the module into memory using the magic function <code class="docutils literal notranslate"><span class="pre">%run</span></code></p></li>
+<li><p>You can rerun a file as many times as you want and it will always update all the functions.</p></li>
+<li><p>Running a file in IPython is extremely easy.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> my_module
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="using-cache-to-keep-my-module-alive">
+<h4>Using cache to keep my_module alive<a class="headerlink" href="#using-cache-to-keep-my-module-alive" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>In Jupyter we have another set of magic commands that deal with that</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">%autoreload</span></code> magic command can be used to automatically track changes in any module and update them when a change occurs.</p></li>
+<li><p>Because it’s not enabled by default, you have to load it as an extension using a different magic command called <code class="docutils literal notranslate"><span class="pre">%load_ext</span></code></p></li>
+<li><p>So the first step is to call <code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">autoreload</span></code> that makes the <code class="docutils literal notranslate"><span class="pre">autoreload</span></code> command active</p></li>
+<li><p>Then use it</p></li>
+<li><p>There are 3 configuration options for the <code class="docutils literal notranslate"><span class="pre">autoreload</span></code> you can set</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">0</span></code> - disables the auto-reloading. This is the default setting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">1</span></code> - it will only auto-reload modules that were imported using the <code class="docutils literal notranslate"><span class="pre">%aimport</span></code> function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">2</span></code> - auto-reload all the modules. Great way to make writing and testing your modules much easier.</p></li>
+</ul>
+</li>
+<li><p>In the context of this course we will use <code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">2</span></code></p></li>
+</ul>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<ul class="simple">
+<li><p>Update your import cell to contain the reload magic commands</p></li>
+<li><p>Also use the <code class="docutils literal notranslate"><span class="pre">as</span></code> format to rename <code class="docutils literal notranslate"><span class="pre">my_module</span></code> to <code class="docutils literal notranslate"><span class="pre">utils</span></code></p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">my_module</span> <span class="k">as</span> <span class="nn">utils</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
+<span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</div>
+<div class="section" id="lets-test-our-module">
+<h4>Lets test our module<a class="headerlink" href="#lets-test-our-module" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>If you did everything so far you should get the same result as me</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extend-your-module-by-adding-sample-standard-deviation">
+<h3>Extend your module by adding sample standard deviation<a class="headerlink" href="#extend-your-module-by-adding-sample-standard-deviation" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-challenge admonition">
+<p class="admonition-title">Challenge</p>
+<ul class="simple">
+<li><p>The standard deviation of the sample mean is defined using the following formula</p></li>
+<li><p><span class="math notranslate nohighlight">\( s = \sqrt{\frac{1}{N-1}\sum^n_{i=1} (x_i-\bar{x})^2} \)</span></p></li>
+<li><p>Try to implement your std function and place it into your module file</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Solution<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="o">-</span><span class="n">a</span> <span class="n">my_module</span><span class="o">.</span><span class="n">py</span>
+<span class="n">std</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">data</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="card-text">Here I am using <code class="docutils literal notranslate"><span class="pre">-a</span></code> argument with magic %%writefile to append the line to the end of the file</p></li>
+<li><p class="card-text">But you could have just opened the file and added the line manually</p></li>
+</ul>
+</div>
+</details></div>
+</div>
+<div class="section" id="testing-your-code-against-some-gold-standard-package">
+<h3>Testing your code against some gold standard package<a class="headerlink" href="#testing-your-code-against-some-gold-standard-package" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We sometimes create our own mathematical functions for a variety of reasons</p></li>
+<li><p>Testing these with established modules is a good habit to have</p></li>
+<li><p>Recall that the assert keyword lets you test if a condition in your code returns True, if not, the program will raise an AssertionError.</p></li>
+<li><p>You can write a message to be written if the code returns False, check the example below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span> 
+<span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="p">,</span><span class="s2">&quot;variance is not equal to standard deviation&quot;</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">/Users/eyalsoreq/github/SystemAI2022/bootcamp/day_03/02_python_modules_101.ipynb Cell 16&#39;</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/eyalsoreq/github/SystemAI2022/bootcamp/day_03/02_python_modules_101.ipynb#ch0000022?line=1&#39;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/eyalsoreq/github/SystemAI2022/bootcamp/day_03/02_python_modules_101.ipynb#ch0000022?line=2&#39;</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/eyalsoreq/github/SystemAI2022/bootcamp/day_03/02_python_modules_101.ipynb#ch0000022?line=3&#39;</span><span class="o">&gt;</span><span class="mi">4</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">assert</span> <span class="n">utils</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="p">,</span><span class="s2">&quot;variance is not equal to standard deviation&quot;</span>
+
+<span class="ne">AssertionError</span>: variance is not equal to standard deviation
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="we-can-call-a-module-from-within-a-function">
+<h3>We can call a module from within a function<a class="headerlink" href="#we-can-call-a-module-from-within-a-function" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Consider the code below</p></li>
+<li><p>We created a function that imports a module called datetime from a Python package called  datetime</p></li>
+<li><p>It is safe to assume that this is a module that deals with dates and times</p></li>
+<li><p>Because it was imported inside the functions scope it is only available to the function itself</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">temporal_hello</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span><span class="n">time</span>
+    <span class="n">local_dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">local_dt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good Morning&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">local_dt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">time</span><span class="p">(</span><span class="mi">18</span><span class="p">)):</span>    
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good Afternoon&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good night&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temporal_hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Good night
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-datetime-to-the-main-scope">
+<h3>Import datetime to the main scope<a class="headerlink" href="#import-datetime-to-the-main-scope" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Let’s the anatomy of the datetime module using <code class="docutils literal notranslate"><span class="pre">dir</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> 
+<span class="nb">dir</span><span class="p">(</span><span class="n">datetime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;MAXYEAR&#39;,
+ &#39;MINYEAR&#39;,
+ &#39;__all__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;date&#39;,
+ &#39;datetime&#39;,
+ &#39;datetime_CAPI&#39;,
+ &#39;sys&#39;,
+ &#39;time&#39;,
+ &#39;timedelta&#39;,
+ &#39;timezone&#39;,
+ &#39;tzinfo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="every-module-has-a-physical-file-associated-with-it">
+<h3>Every module has a physical file associated with it<a class="headerlink" href="#every-module-has-a-physical-file-associated-with-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In Python every module has a file that can be examined</p></li>
+<li><p>This can be identified using the <code class="docutils literal notranslate"><span class="pre">__file__</span></code> property</p></li>
+<li><p>Using another nifty magic command we can peak into that file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="vm">__file__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/opt/anaconda3/envs/dcarte_tutorials/lib/python3.10/datetime.py&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+head -n 20 /opt/anaconda3/envs/dcarte_tutorials/lib/python3.10/datetime.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&quot;&quot;Concrete date/time and related types.
+
+See http://www.iana.org/time-zones/repository/tz-link.html for
+time zone and DST data sources.
+&quot;&quot;&quot;
+
+__all__ = (&quot;date&quot;, &quot;datetime&quot;, &quot;time&quot;, &quot;timedelta&quot;, &quot;timezone&quot;, &quot;tzinfo&quot;,
+           &quot;MINYEAR&quot;, &quot;MAXYEAR&quot;)
+
+
+import time as _time
+import math as _math
+import sys
+from operator import index as _index
+
+def _cmp(x, y):
+    return 0 if x == y else 1 if x &gt; y else -1
+
+MINYEAR = 1
+MAXYEAR = 9999
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-module-anatomy">
+<h3>The module anatomy<a class="headerlink" href="#the-module-anatomy" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We see a docstring at the beginning</p></li>
+<li><p>Then a weird variable named <code class="docutils literal notranslate"><span class="pre">__all__</span></code> that receives a tuple</p></li>
+<li><p>Followed by a block of imports</p></li>
+</ul>
+<div class="section" id="what-does-all-do">
+<h4>What does <strong>all</strong> do?<a class="headerlink" href="#what-does-all-do" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>It declares the semantically “public” names from a module.</p></li>
+<li><p>If there is a function name in <strong>all</strong>, it will be available when starr import the module contents to the scope.</p></li>
+<li><p>However, if you omit <strong>all</strong> in a module, the “starred import” will import all names (not starting with an underscore) defined in the module.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="why-does-datetime-have-datetime-inside">
+<h3>Why does datetime have datetime inside?<a class="headerlink" href="#why-does-datetime-have-datetime-inside" title="Permalink to this headline">¶</a></h3>
+<p>= This is not a meta thing but rather an organizational tool</p>
+<ul class="simple">
+<li><p>A module can have modules or classes contained inside it</p></li>
+<li><p>In Python 3.0, user-defined class objects are instances of the object named type, which is itself a class.</p></li>
+<li><p>We will go over this later on today</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">datetime</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;type&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This higher level of abstraction comprises modules or classes that can work independently, but have a common function in terms of time, and are thus part of the datetime  package.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-define-a-package">
+<h2>How to define a package<a class="headerlink" href="#how-to-define-a-package" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Packages are a way of structuring Python’s module namespace by using “dotted module names”</p></li>
+<li><p>They are simple directories, containing several python scripts.</p></li>
+<li><p>Defining a package in Python requires a unique folder name and used to require a special file called <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+</ul>
+<div class="section" id="make-a-directory-called-my-package">
+<h3>Make a directory called my_package<a class="headerlink" href="#make-a-directory-called-my-package" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We will use Jupyter magic to change the cell to <code class="docutils literal notranslate"><span class="pre">%%bash</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to create a folder</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">mv</span></code> to move and rename <code class="docutils literal notranslate"><span class="pre">my_module.py</span></code> into the newly created folder <code class="docutils literal notranslate"><span class="pre">my_package</span></code></p></li>
+<li><p>Finlay create an empty python file called <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> in <code class="docutils literal notranslate"><span class="pre">my_package</span></code> using <code class="docutils literal notranslate"><span class="pre">touch</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+mkdir -p my_package
+#rename the file and move it into my_package
+mv my_module.py my_package/my_stats.py 
+touch my_package/__init__.py 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mv: my_module.py: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="can-we-do-the-same-using-python">
+<h3>Can we do the same using Python?<a class="headerlink" href="#can-we-do-the-same-using-python" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We can using a module :)</p></li>
+<li><p>To achieve exactly the same chain of events (and some more) we will use the <code class="docutils literal notranslate"><span class="pre">Path</span></code> module</p></li>
+<li><p>We will use the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> and <code class="docutils literal notranslate"><span class="pre">write_text</span></code> functions</p></li>
+<li><p>One limitation by design is that the Path module does not support appending text</p></li>
+<li><p>This is only a means to teach you how to use the module to interact with the file system in an OS agnostic way</p></li>
+<li><p>Pay close attention to the use of <code class="docutils literal notranslate"><span class="pre">__all__</span></code> in this context, I am only giving the user of my module access to the functions declared there.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">utils</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;utils&#39;</span><span class="p">)</span>
+<span class="n">utils</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="c1">#make the directory </span>
+<span class="p">(</span><span class="n">utils</span> <span class="o">/</span> <span class="s1">&#39;__init__.py&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;from .my_stats import *&quot;</span><span class="p">)</span>
+<span class="n">my_stats_module</span> <span class="o">=</span> <span class="n">utils</span> <span class="o">/</span> <span class="s1">&#39;my_stats.py&#39;</span>
+<span class="n">my_stats_module</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">__all__ = [&#39;var&#39;,&#39;std&#39;]</span>
+<span class="s2">sum_sq = lambda data: sum(x ** 2 for x in data)</span>
+<span class="s2">mean = lambda data: sum(data)/float(len(data))</span>
+<span class="s2">sq_mean = lambda data: sum_sq(data)/float(len(data)-1)</span>
+<span class="s2">var = lambda data: sum((x - mean(data))**2/float(len(data)-1) for x in data)</span>
+<span class="s2">std = lambda data: var(data)**0.5</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>286
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">utils</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">utils</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__path__&#39;,
+ &#39;__spec__&#39;,
+ &#39;std&#39;,
+ &#39;var&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">utils</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.049752469181039
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#modules">Modules in python</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">Packages in python</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_python_functions_101.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PYTHON FUNCTIONS 101</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_anaconda_revisited.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PYTHON ANACONDA 102</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

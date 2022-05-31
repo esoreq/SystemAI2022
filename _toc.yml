@@ -19,13 +19,13 @@ parts:
       - file: bootcamp/day_02/04_python_data_structures
       - file: bootcamp/day_02/05_programming_101
       - file: bootcamp/day_02/06_home_work      
-    # - file: bootcamp/day_03/00_day_03_overview
-    #   sections:
-    #   - file: bootcamp/day_03/01_python_functions_101
-    #   - file: bootcamp/day_03/02_python_modules_101
-    #   - file: bootcamp/day_03/03_anaconda_revisted
-    #   - file: bootcamp/day_03/04_classes_in_python
-    #   - file: bootcamp/day_03/05_homework
+    - file: bootcamp/day_03/00_day_03_overview
+      sections:
+      - file: bootcamp/day_03/01_python_functions_101
+      - file: bootcamp/day_03/02_python_modules_101
+      - file: bootcamp/day_03/03_anaconda_revisited
+      - file: bootcamp/day_03/04_classes_in_python
+      - file: bootcamp/day_03/05_homework
     # - file: bootcamp/day_04/00_day_04_overview
     #   sections:
     #   - file: bootcamp/day_04/01_Numpy_data_structures

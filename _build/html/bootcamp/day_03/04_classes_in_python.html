@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PYTHON CLASSES 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_03/04_classes_in_python.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DAY 03 - HOMEWORK" href="05_homework.html" />
+    <link rel="prev" title="PYTHON ANACONDA 102" href="03_anaconda_revisited.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_python_modules_101.html">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_03/04_classes_in_python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_03/04_classes_in_python.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_03/04_classes_in_python.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-scopes-and-namespaces">
+   Python Scopes and Namespaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-built-in-namespace">
+     The Built-In Namespace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-global-namespace">
+     The Global namespace
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-whos-magic-command">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         %whos
+        </span>
+       </code>
+       magic command
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-enclosing-and-local-namespace">
+     The Enclosing and Local namespace
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-classes-and-methods">
+   Python Classes and Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-simplest-example-class-as-a-data-storage">
+     The simplest example - class as a data storage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes-can-be-initialized">
+     Classes can be initialized
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-instance-output-using-the-repr-method">
+     Setting instance output using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       __repr__
+      </span>
+     </code>
+     method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-add-some-object-specific-methods">
+     We can add some object specific methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-come-in-three-different-flavours">
+     Methods come in three different flavours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#static-method-is-just-a-way-of-keeping-things-tidy">
+     Static method is just a way of keeping things tidy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PYTHON CLASSES 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-scopes-and-namespaces">
+   Python Scopes and Namespaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-built-in-namespace">
+     The Built-In Namespace
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-global-namespace">
+     The Global namespace
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-whos-magic-command">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         %whos
+        </span>
+       </code>
+       magic command
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-enclosing-and-local-namespace">
+     The Enclosing and Local namespace
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-classes-and-methods">
+   Python Classes and Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-simplest-example-class-as-a-data-storage">
+     The simplest example - class as a data storage
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes-can-be-initialized">
+     Classes can be initialized
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-instance-output-using-the-repr-method">
+     Setting instance output using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       __repr__
+      </span>
+     </code>
+     method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-add-some-object-specific-methods">
+     We can add some object specific methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-come-in-three-different-flavours">
+     Methods come in three different flavours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#static-method-is-just-a-way-of-keeping-things-tidy">
+     Static method is just a way of keeping things tidy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-classes-101">
+<h1>PYTHON CLASSES 101<a class="headerlink" href="#python-classes-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python-scopes-and-namespaces">
+<h2>Python Scopes and Namespaces<a class="headerlink" href="#python-scopes-and-namespaces" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A namespace is a mapping from names to objects.</p></li>
+<li><p>This is just a link between a name and an object</p></li>
+<li><p>In a Python program, there are four types of namespaces:</p></li>
+<li><p>Built-In - The set of <a class="reference external" href="https://docs.python.org/3/library/functions.html">built-in</a> function names (e.g. abs, range etc)</p></li>
+<li><p>Global</p></li>
+<li><p>Enclosing</p></li>
+<li><p>Local</p></li>
+<li><p>The interpreter searches for a name from the inside out, looking in the local, enclosing, global, and finally the built-in scope</p></li>
+</ul>
+<div class="section" id="the-built-in-namespace">
+<h3>The Built-In Namespace<a class="headerlink" href="#the-built-in-namespace" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The built-in namespace contains the names of all of Python’s built-in objects.</p></li>
+<li><p>These are available at all times when Python is running.</p></li>
+<li><p>We can separate the built-in namespace roughly to four groups</p>
+<ul>
+<li><p>Builtin Function Type</p></li>
+<li><p>Errors</p></li>
+<li><p>Constants</p></li>
+<li><p>Base classes (e.g. data types and other things)</p></li>
+</ul>
+</li>
+<li><p>We used the introspective function <code class="docutils literal notranslate"><span class="pre">dir</span></code> before to look into the namespace of functions (before we knew it was a namespace)</p></li>
+<li><p>In IPython which is the backbone of the Jupyter Python Kernel there are other stuff and you are welcome to go over them and search for the usage using the code below</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">types</span>
+<span class="n">builtin_scope</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)</span>
+<span class="n">builtin_functions</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">builtin_scope</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="n">types</span><span class="o">.</span><span class="n">BuiltinFunctionType</span><span class="p">)]</span>
+<span class="n">basic_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">builtin_scope</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">func</span><span class="p">),</span><span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">func</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)]</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">builtin_scope</span> <span class="k">if</span> <span class="n">func</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;Error&#39;</span><span class="p">)]</span>
+<span class="n">constants</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">builtin_scope</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">basic_types</span> <span class="o">+</span> <span class="n">builtin_functions</span> <span class="o">+</span> <span class="n">errors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-global-namespace">
+<h3>The Global namespace<a class="headerlink" href="#the-global-namespace" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The global namespace contains any names defined at the level of the main program.</p></li>
+<li><p>Python creates the global namespace when the main program body starts, and it remains in existence until the interpreter terminates (in the case of a notebook this is the kernel).</p></li>
+<li><p>It will contain anything you add, but it will also contain many IPython specific variables (and if you are using vscode then additional vscode names)</p></li>
+<li><p>It will become intractable very fast</p></li>
+<li><p>Therefore, to examine the actual variables and functions at the global level use the jupyter magic command <code class="docutils literal notranslate"><span class="pre">%whos</span></code> function that plots the user defined variables and functions</p></li>
+</ul>
+<div class="section" id="the-whos-magic-command">
+<h4>The <code class="docutils literal notranslate"><span class="pre">%whos</span></code> magic command<a class="headerlink" href="#the-whos-magic-command" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>lists the name type and info of the global namespace</p></li>
+<li><p>Can be filtered by type</p></li>
+<li><p>For example below I am just printing the list variables in the global namespace</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span> list 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable            Type    Data/Info
+-------------------------------------
+basic_types         list    n=45
+builtin_functions   list    n=44
+builtin_scope       list    n=158
+errors              list    n=48
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-enclosing-and-local-namespace">
+<h3>The Enclosing and Local namespace<a class="headerlink" href="#the-enclosing-and-local-namespace" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Every time a function is initialized, the interpreter creates a new namespace.</p></li>
+<li><p>That namespace is local to the function and remains in existence until the function terminates.</p></li>
+<li><p>Functions don’t exist independently from one another only at the level of the main program.</p></li>
+<li><p>You can also define one function inside another.</p></li>
+<li><p>Let’s give an example</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">local_namespace</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">b</span><span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">())</span>
+<span class="n">local_namespace</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enclosing_namespace</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">**</span><span class="n">p</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">())</span>
+<span class="n">enclosing_namespace</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;power&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="python-classes-and-methods">
+<h2>Python Classes and Methods<a class="headerlink" href="#python-classes-and-methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In Python, most code is implemented with a special construct called a class, which is one of the core features of object-oriented programming.</p></li>
+<li><p>Classes provide a means of bundling data and functionality together.</p></li>
+<li><p>Classes are used by programmers to group related items together.</p></li>
+<li><p>Classes allow us to combine methods and attributes which share a common purpose.</p></li>
+<li><p>Creating a new class creates a new type of object, allowing new instances of that type to be made.</p></li>
+<li><p>Each class instance can have attributes attached to it for maintaining its state.</p></li>
+<li><p>Class instances can also have methods (defined by its class) for modifying its state.</p></li>
+</ul>
+<div class="section" id="the-simplest-example-class-as-a-data-storage">
+<h3>The simplest example - class as a data storage<a class="headerlink" href="#the-simplest-example-class-as-a-data-storage" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>You create an empty class</p></li>
+<li><p>Then create a new instance of that class</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DataStorage</span><span class="p">():</span>
+    <span class="k">pass</span>
+<span class="n">storage</span> <span class="o">=</span> <span class="n">DataStorage</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>And now you can use the dot notation to add information into the class</p></li>
+<li><p>You can add any type of info you like</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">storage</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Project Title&#39;</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">number_of_obs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">number_of_groups</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;group_</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">2</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">storage</span><span class="o">.</span><span class="n">number_of_groups</span><span class="p">)]</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">lambda_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">storage</span><span class="o">.</span><span class="n">chr_fun</span> <span class="o">=</span> <span class="nb">chr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>You can also use the <code class="docutils literal notranslate"><span class="pre">setattr</span></code> to create a new attribute</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">vars</span></code> function to list all the variables in the instance</p></li>
+<li><p>And the <code class="docutils literal notranslate"><span class="pre">getattr</span></code> can be used to get the value of the attribute</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">setattr</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="s1">&#39;t-test&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">storage</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title = Project Title
+number_of_obs = (50, 50, 50)
+number_of_groups = 3
+group_names = [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;]
+lambda_fun = &lt;function &lt;lambda&gt; at 0x113e485e0&gt;
+bool = True
+chr_fun = &lt;built-in function chr&gt;
+test = t-test
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>But you can also use the dot notation to get the value</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The attribute title = </span><span class="si">{</span><span class="n">storage</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The attribute title = Project Title
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Finally we can delete attributes using the <code class="docutils literal notranslate"><span class="pre">delattr</span></code>  function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">delattr</span><span class="p">(</span><span class="n">storage</span><span class="p">,</span><span class="s1">&#39;title&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;number_of_obs&#39;: (50, 50, 50), &#39;number_of_groups&#39;: 3, &#39;group_names&#39;: [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;], &#39;lambda_fun&#39;: &lt;function &lt;lambda&gt; at 0x113e485e0&gt;, &#39;bool&#39;: True, &#39;chr_fun&#39;: &lt;built-in function chr&gt;, &#39;test&#39;: &#39;t-test&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="classes-can-be-initialized">
+<h3>Classes can be initialized<a class="headerlink" href="#classes-can-be-initialized" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using the protected method <code class="docutils literal notranslate"><span class="pre">__init__</span></code> we can define what information is necessary to create an instance</p></li>
+<li><p>You can also define default values like in a function</p></li>
+<li><p>Using the protected word <code class="docutils literal notranslate"><span class="pre">self</span></code> we can set the attributes when we create the instance</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> 
+<span class="k">class</span> <span class="nc">Participant</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">first_name</span><span class="p">,</span>
+                 <span class="n">last_name</span><span class="p">,</span>
+                 <span class="n">Data_type</span> <span class="o">=</span> <span class="s1">&#39;EEG&#39;</span><span class="p">,</span>
+                 <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Data_type</span> <span class="o">=</span> <span class="n">Data_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+    
+<span class="n">sub_01</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="s1">&#39;Eyal&#39;</span><span class="p">,</span><span class="s1">&#39;Soreq&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">sub_01</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;first_name&#39;: &#39;Eyal&#39;, &#39;last_name&#39;: &#39;Soreq&#39;, &#39;Data_type&#39;: &#39;EEG&#39;, &#39;date&#39;: datetime.date(2022, 5, 31)}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-instance-output-using-the-repr-method">
+<h3>Setting instance output using the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method<a class="headerlink" href="#setting-instance-output-using-the-repr-method" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method is used in callable objects in python that return some information on the object that can be predefined</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Participant</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">first_name</span><span class="p">,</span>
+                 <span class="n">last_name</span><span class="p">,</span>
+                 <span class="n">Data_type</span> <span class="o">=</span> <span class="s1">&#39;EEG&#39;</span><span class="p">,</span>
+                 <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Data_type</span> <span class="o">=</span> <span class="n">Data_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Participant </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s1"> was admitted at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s1"> for a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">Data_type</span><span class="si">}</span><span class="s1"> experiment&#39;</span>           
+    
+<span class="n">sub_01</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="s1">&#39;Eyal&#39;</span><span class="p">,</span><span class="s1">&#39;Soreq&#39;</span><span class="p">)</span>
+<span class="n">sub_01</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-05-31 for a EEG experiment
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="we-can-add-some-object-specific-methods">
+<h3>We can add some object specific methods<a class="headerlink" href="#we-can-add-some-object-specific-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>For example we can extend this toy example by creating a function that registers a task and captures the time this was triggered</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span> 
+<span class="k">class</span> <span class="nc">Participant</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">first_name</span><span class="p">,</span>
+                 <span class="n">last_name</span><span class="p">,</span>
+                 <span class="n">Data_type</span> <span class="o">=</span> <span class="s1">&#39;EEG&#39;</span><span class="p">,</span>
+                 <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Data_type</span> <span class="o">=</span> <span class="n">Data_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">add_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">):</span>
+        <span class="n">task</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="n">task</span><span class="p">,</span><span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>    
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Participant </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">admittance</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39; was admitted at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s1"> for a&#39;</span>
+        <span class="n">experiment</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">Data_type</span><span class="si">}</span><span class="s1"> experiment&#39;</span> 
+        <span class="n">tasks</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> registered at </span><span class="si">{</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="n">admittance</span> <span class="o">+</span> <span class="n">experiment</span> <span class="o">+</span> <span class="n">tasks</span>
+    
+<span class="n">sub_01</span> <span class="o">=</span> <span class="n">Participant</span><span class="p">(</span><span class="s1">&#39;Eyal&#39;</span><span class="p">,</span><span class="s1">&#39;Soreq&#39;</span><span class="p">)</span>
+<span class="n">sub_01</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s1">&#39;Odd one out&#39;</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sub_01</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s1">&#39;Stroop word test&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sub_01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-05-31 for a EEG experiment
+Odd one out registered at 09:10:00
+Stroop word test registered at 09:10:02
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methods-come-in-three-different-flavours">
+<h3>Methods come in three different flavours<a class="headerlink" href="#methods-come-in-three-different-flavours" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Instance methods - that takes the <code class="docutils literal notranslate"><span class="pre">self</span></code> keyword we covered already</p></li>
+<li><p>The two other method types are:</p>
+<ul>
+<li><p>Class methods - points to the parent class and has access to the <code class="docutils literal notranslate"><span class="pre">cls</span></code> keyword</p></li>
+<li><p>Static methods - That doesn’t have access to the instance attributes nor to the class</p></li>
+</ul>
+</li>
+<li><p>The way to define these is by using another special type of function called a decorator</p></li>
+<li><p>We will start with a simple example of the classmethod example</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Task</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">,</span>
+                 <span class="n">modality</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modality</span> <span class="o">=</span> <span class="n">modality</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rep</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> using </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modality</span><span class="si">}</span><span class="s1"> was registered at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">registered</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">rep</span>
+        
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">eeg_stroop</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="s1">&#39;stroop&#39;</span><span class="p">,</span><span class="s1">&#39;EEG&#39;</span><span class="p">)</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">mri_stroop</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="s1">&#39;stroop&#39;</span><span class="p">,</span><span class="s1">&#39;MRI&#39;</span><span class="p">)</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">eye_tracker_stroop</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="s1">&#39;stroop&#39;</span><span class="p">,</span><span class="s1">&#39;eye_tracker&#39;</span><span class="p">)</span>
+    
+
+<span class="n">task_01</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">eeg_stroop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">task_01</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">task_02</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">mri_stroop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">task_02</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">task_03</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">eye_tracker_stroop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">task_03</span><span class="p">)</span>
+            
+        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using EEG was registered at 09:10:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using MRI was registered at 09:10:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using eye_tracker was registered at 09:10:06
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="static-method-is-just-a-way-of-keeping-things-tidy">
+<h3>Static method is just a way of keeping things tidy<a class="headerlink" href="#static-method-is-just-a-way-of-keeping-things-tidy" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>To illustrate that I will give another example</p></li>
+<li><p>Here are a set of words we want a way to randomly shuffle this list every time an object is called</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span><span class="s1">&#39;awake&#39;</span><span class="p">,</span><span class="s1">&#39;tired&#39;</span><span class="p">,</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span><span class="s1">&#39;blanket&#39;</span><span class="p">,</span><span class="s1">&#39;doze&#39;</span><span class="p">,</span><span class="s1">&#39;slumber&#39;</span><span class="p">,</span><span class="s1">&#39;snore&#39;</span><span class="p">,</span><span class="s1">&#39;pillow&#39;</span><span class="p">,</span><span class="s1">&#39;peach&#39;</span><span class="p">,</span><span class="s1">&#39;yawn&#39;</span><span class="p">,</span><span class="s1">&#39;drowsy&#39;</span><span class="p">]</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">class</span> <span class="nc">WordShuffle</span><span class="p">():</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">words</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">2022</span><span class="p">):</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">words</span> <span class="o">=</span> <span class="n">words</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
+    
+    <span class="nd">@staticmethod</span>    
+    <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">seq</span>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">words</span><span class="p">))</span>    
+    
+<span class="n">word_scramble</span> <span class="o">=</span> <span class="n">WordShuffle</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">word_scramble</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_scramble</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>doze, awake, tired, dream, slumber, rest, peach, yawn, drowsy, snore, blanket, pillow
+dream, snore, awake, drowsy, tired, rest, blanket, pillow, yawn, slumber, peach, doze
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.w3schools.com/python/python_classes.asp">Python Classes and Objects</a></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com/python/python_inheritance.asp">Inheritance</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">Classes in python</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_anaconda_revisited.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PYTHON ANACONDA 102</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_homework.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DAY 03 - HOMEWORK</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
