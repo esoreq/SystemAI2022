@@ -26,11 +26,13 @@ parts:
       - file: bootcamp/day_03/03_anaconda_revisited
       - file: bootcamp/day_03/04_classes_in_python
       - file: bootcamp/day_03/05_homework
-    # - file: bootcamp/day_04/00_day_04_overview
-    #   sections:
-    #   - file: bootcamp/day_04/01_Numpy_data_structures
-    #   - file: bootcamp/day_04/02_Pandas_data_structures
-    #   - file: bootcamp/day_04/advanced_pandas      
+    - file: bootcamp/day_04/00_day_04_overview
+      sections:
+      - file: bootcamp/day_04/01_Numpy_data_structures
+      - file: bootcamp/day_04/02_Pandas_data_structures
+      - file: bootcamp/day_04/03_raw_to_tidy_with_pandas   
+      - file: bootcamp/day_04/04_plotting_with_pandas      
+      - file: bootcamp/day_04/05_homework      
     # - file: bootcamp/day_05/day_05_overview
     #   sections:
     #   - file: bootcamp/day_05/describing_data
