@@ -75,13 +75,13 @@
 # |Time    | Session    | Description   | 
 # |-----------:|----------:|---------:|
 # |09:00-09:10| Day 04 overview | Intro to core scientific tools in Python |
-# |09:10-09:50| [Numpy 101](01_Numpy_data_structures.ipynb)| Python Functions 101 |
+# |09:10-09:50| [Numpy 101](01_Numpy_data_structures.ipynb)| Basic of Numpy |
 # |09:50-09:55| Break | Coffee or Tea |
-# |10:00-10:40| [Pandas 101](02_Pandas_data_structures.ipynb)| What are modules and packages in Python |
+# |10:00-10:40| [Pandas 101](02_Pandas_data_structures.ipynb)| Basics of pandas |
 # |10:40-10:45| Break | Coffee or Tea |
-# |10:45-11:10| [From raw to tidy](03_raw_to_tidy_with_pandas.ipynb)| Practical environment setup |
+# |10:45-11:10| [From raw to tidy](03_raw_to_tidy_with_pandas.ipynb)| Practical pandas demonstration on real data  |
 # |11:10-11:15| Break | Coffee or Tea |
-# |11:15-11:45| [Plotting in Pandas](04_plotting_with_pandas.ipynb) | Classes in Python |
+# |11:15-11:45| [Plotting in Pandas](04_plotting_with_pandas.ipynb) | Plotting in Pandas |
 # |11:45-11:50| Break | Coffee or Tea |
 # |11:50-12:00| [homework assignment](05_home_work.ipynb) | Going over the homework assignment |
 # 
