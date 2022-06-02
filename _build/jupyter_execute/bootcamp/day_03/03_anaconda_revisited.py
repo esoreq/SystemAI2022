@@ -95,7 +95,7 @@ get_ipython().run_line_magic('autoreload', '2')
 # ### Step 5. Verify the key module versions using the watermark magic function
 # 
 
-# In[4]:
+# In[2]:
 
 
 get_ipython().run_line_magic('watermark', '-p numpy,pandas,matplotlib,seaborn,plotly')
@@ -108,7 +108,7 @@ get_ipython().run_line_magic('watermark', '-p numpy,pandas,matplotlib,seaborn,pl
 # - While conda does have some versioning under the hood, a simple approach to exporting stable environments can save you and any potential collaborators hours of work and frustration.
 # 
 
-# In[5]:
+# In[3]:
 
 
 get_ipython().system(' conda env export --name SYS_2022 > ./SYS_2022/env_frozen.yml')
