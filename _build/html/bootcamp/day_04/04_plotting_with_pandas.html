@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotting with pandas and Matplotlib &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_04/04_plotting_with_pandas.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DAY 04 - HOMEWORK" href="05_homework.html" />
+    <link rel="prev" title="From raw to structured" href="03_raw_to_tidy_with_pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_03/00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/02_python_modules_101.html">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/04_classes_in_python.html">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_04_overview.html">
+   DAY 04 - Numpy and Pandas 101
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Numpy_data_structures.html">
+     Numpy 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Pandas_data_structures.html">
+     Pandas 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_raw_to_tidy_with_pandas.html">
+     From raw to structured
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Plotting with pandas and Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_homework.html">
+     DAY 04 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_04/04_plotting_with_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_04/04_plotting_with_pandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_04/04_plotting_with_pandas.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-data">
+   Input data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-data-from-pickle">
+     Load data from pickle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#before-we-can-plot-anything-we-should-remove-missing-data">
+     Before we can plot anything we should remove missing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-that-our-dataframe-is-full-we-can-go-over-the-different-plotting-capabilities-pandas-supports">
+     Now that our dataframe is full we can go over the different plotting capabilities pandas supports
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-simplest-plot-the-pie-chart">
+       The simplest plot - the pie chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-simplest-plot-the-bar-chart">
+       The next simplest plot - the bar chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-histogram-chart">
+       The next plot - the histogram chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-box-chart">
+       The next plot - the box chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-kernel-density-kde-chart">
+       The next plot - the kernel density (kde) chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-stepped-area-chart">
+       The next plot - the stepped area chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-scatter-chart">
+       The next plot - the scatter chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-line-chart">
+       The next plot - the line chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#final-plot-for-today-the-hexbin">
+       Final plot for today the hexbin
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Plotting with pandas and Matplotlib</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input-data">
+   Input data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-data-from-pickle">
+     Load data from pickle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#before-we-can-plot-anything-we-should-remove-missing-data">
+     Before we can plot anything we should remove missing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#now-that-our-dataframe-is-full-we-can-go-over-the-different-plotting-capabilities-pandas-supports">
+     Now that our dataframe is full we can go over the different plotting capabilities pandas supports
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-simplest-plot-the-pie-chart">
+       The simplest plot - the pie chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-simplest-plot-the-bar-chart">
+       The next simplest plot - the bar chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-histogram-chart">
+       The next plot - the histogram chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-box-chart">
+       The next plot - the box chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-kernel-density-kde-chart">
+       The next plot - the kernel density (kde) chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-stepped-area-chart">
+       The next plot - the stepped area chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-scatter-chart">
+       The next plot - the scatter chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-next-plot-the-line-chart">
+       The next plot - the line chart
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#final-plot-for-today-the-hexbin">
+       Final plot for today the hexbin
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="plotting-with-pandas-and-matplotlib">
+<h1>Plotting with pandas and Matplotlib<a class="headerlink" href="#plotting-with-pandas-and-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p>Now that we are familiar with some of the capabilities that pandas offer, we will begin visualising our data in Python by utilising the built-in plotting choices that are immediately available in pandas.  In a manner that is analogous to the scenario of Pandas being built upon NumPy, charting in Pandas makes use of the plotting capabilities that are available in the Matplotlib plotting library.
+In particular, we will employ features from the pyplot module in Matplotlib, which offers visualisation comparable to that of MATLAB. Tomorrow we will expand on this further in the last day of this Bootcamp</p>
+<div class="section" id="input-data">
+<h2>Input data<a class="headerlink" href="#input-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The data we will be using is the same data we just spent tidying up.</p></li>
+<li><p>We begin by importing some packages</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;tableau-colorblind10&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;tableau-colorblind10&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">watermark</span> -p pandas,matplotlib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas    : 1.4.2
+matplotlib: 3.5.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data-from-pickle">
+<h3>Load data from pickle<a class="headerlink" href="#load-data-from-pickle" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;12_tasks.pkl&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>task</th>
+      <th>info</th>
+      <th colspan="5" halign="left">spatial_span</th>
+      <th colspan="4" halign="left">grammatical_reasoning</th>
+      <th>...</th>
+      <th colspan="10" halign="left">info</th>
+    </tr>
+    <tr>
+      <th>measure</th>
+      <th>device</th>
+      <th>max_score</th>
+      <th>avg_score</th>
+      <th>avg_ms_per_item</th>
+      <th>num_correct</th>
+      <th>num_attempts</th>
+      <th>final_score</th>
+      <th>num_errors</th>
+      <th>num_correct</th>
+      <th>num_attempts</th>
+      <th>...</th>
+      <th>hospital_stay</th>
+      <th>handedness</th>
+      <th>employment_status</th>
+      <th>exercise_freq</th>
+      <th>alcohol_per_week</th>
+      <th>caffeine_per_day</th>
+      <th>cigarettes_per_day</th>
+      <th>cannabis</th>
+      <th>stimulants</th>
+      <th>depressants</th>
+    </tr>
+    <tr>
+      <th>(info, user)</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>45312</th>
+      <td>DESKTOP</td>
+      <td>5.0</td>
+      <td>4.75</td>
+      <td>2052.07381</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>19.0</td>
+      <td>0.0</td>
+      <td>19.0</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>False</td>
+      <td>Right</td>
+      <td>Employed full time</td>
+      <td>Three or more times a week</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>45315</th>
+      <td>DESKTOP</td>
+      <td>6.0</td>
+      <td>4.8</td>
+      <td>1842.607143</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>25.0</td>
+      <td>0.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>...</td>
+      <td>True</td>
+      <td>Right</td>
+      <td>Employed full time</td>
+      <td>Less than once a week</td>
+      <td>6.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>45318</th>
+      <td>DESKTOP</td>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>1943.734694</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>17.0</td>
+      <td>1.0</td>
+      <td>18.0</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>True</td>
+      <td>Right</td>
+      <td>Employed full time</td>
+      <td>Less than once a week</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>45319</th>
+      <td>DESKTOP</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>1900.488095</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>21.0</td>
+      <td>1.0</td>
+      <td>22.0</td>
+      <td>23.0</td>
+      <td>...</td>
+      <td>True</td>
+      <td>Right</td>
+      <td>Other</td>
+      <td>Once or twice a week</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>45320</th>
+      <td>DESKTOP</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>5.0</td>
+      <td>13.0</td>
+      <td>18.0</td>
+      <td>...</td>
+      <td>True</td>
+      <td>Right</td>
+      <td>Full time student</td>
+      <td>Less than once a week</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 90 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="before-we-can-plot-anything-we-should-remove-missing-data">
+<h3>Before we can plot anything we should remove missing data<a class="headerlink" href="#before-we-can-plot-anything-we-should-remove-missing-data" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Missing data is a real problem and we will address it in the first day of our course</p></li>
+<li><p>For now we will take the harsh and wasteful approach of discarding any observation that has missing data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;### Dataset had </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> obs and after removing those with missing data we have  </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> obs&#39;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/Users/eyalsoreq/github/SystemAI2022/bootcamp/day_04/04_plotting_with_pandas.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="now-that-our-dataframe-is-full-we-can-go-over-the-different-plotting-capabilities-pandas-supports">
+<h3>Now that our dataframe is full we can go over the different plotting capabilities pandas supports<a class="headerlink" href="#now-that-our-dataframe-is-full-we-can-go-over-the-different-plotting-capabilities-pandas-supports" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-simplest-plot-the-pie-chart">
+<h4>The simplest plot - the pie chart<a class="headerlink" href="#the-simplest-plot-the-pie-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A pie chart is a circular statistical visual that is divided into slices to show numerical proportion.</p></li>
+<li><p>The arc length of each slice in a pie chart (and thus its centre angle and area) is proportionate to the quantity it shows.</p></li>
+<li><p>Meaningful when there are only up to 5 categories, this sum of a whole plot gives some idea of the proportion of the different categories in a dataset</p></li>
+<li><p>Here we are using the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> method that is specific to a Series in Pandas</p></li>
+<li><p>We could go further and automate this with some help from the parent plotting tool matplotlib</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;info&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;device&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04_plotting_with_pandas_9_1.png" src="../../_images/04_plotting_with_pandas_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_plot</span> <span class="o">=</span> <span class="p">[</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">demo</span> <span class="k">if</span> <span class="n">demo</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">5</span> <span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">to_plot</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span><span class="n">feature</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span><span class="n">to_plot</span><span class="p">):</span>
+    <span class="n">demo</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_10_0.png" src="../../_images/04_plotting_with_pandas_10_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-simplest-plot-the-bar-chart">
+<h4>The next simplest plot - the bar chart<a class="headerlink" href="#the-next-simplest-plot-the-bar-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A bar chart or bar graph is a type of chart or graph that displays categorical data using rectangular bars with heights or lengths proportional to the values they represent.</p></li>
+<li><p>The bars can be plotted horizontally or vertically.</p></li>
+<li><p>A vertical bar chart is also known as a column chart.</p></li>
+<li><p>A bar graph compares two or more distinct categories.</p></li>
+<li><p>The chart’s one axis reflects the specific categories being compared, while the other axis displays a measured value.</p></li>
+<li><p>Some bar graphs show bars clustered in groups of more than one, displaying the values of multiple measured variables.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_plot</span> <span class="o">=</span> <span class="p">[</span> <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">demo</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_bool_dtype</span><span class="p">(</span><span class="n">demo</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">demo</span><span class="p">[</span><span class="n">to_plot</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">demo</span><span class="p">[</span><span class="n">to_plot</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">padding</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_12_0.png" src="../../_images/04_plotting_with_pandas_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-histogram-chart">
+<h4>The next plot - the histogram chart<a class="headerlink" href="#the-next-plot-the-histogram-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A histogram is an approximation of the distribution of numerical data.</p></li>
+<li><p>The first stage in creating a histogram is to “bin” (or “bucket”) the range of values, which means dividing the full range of values into a series of intervals and then counting how many values fall into each interval.</p></li>
+<li><p>Bins are often stated as non-overlapping, sequential intervals of a variable.</p></li>
+<li><p>The bins (intervals) must be adjacent and often (but not always) of comparable size.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;0 &lt; age &lt; 100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_14_0.png" src="../../_images/04_plotting_with_pandas_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-box-chart">
+<h4>The next plot - the box chart<a class="headerlink" href="#the-next-plot-the-box-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>In descriptive statistics, a box plot shows location, spread, and skewness through quartiles.</p></li>
+<li><p>In addition to the box on a box plot, whiskers can extend from the box to indicate variability outside the top and lower quartiles.</p></li>
+<li><p>Outliers can be plotted as isolated points beyond the whiskers on a box-plot.</p></li>
+<li><p>Box plots are non-parametric: they illustrate variance in samples of a statistical population without assuming the underlying statistical distribution.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">demo</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;0 &lt; age &lt; 100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_16_0.png" src="../../_images/04_plotting_with_pandas_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-kernel-density-kde-chart">
+<h4>The next plot - the kernel density (kde) chart<a class="headerlink" href="#the-next-plot-the-kernel-density-kde-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The term “kernel density estimation” (KDE) refers to a non-parametric method that is used in the field of statistics to estimate the probability density function of a random variable.</p></li>
+<li><p>The estimation of the kernel density is a fundamental data smoothing problem that involves drawing conclusions about the population on the basis of a limited data sample.</p></li>
+<li><p>The kernel density chart is used to communicate the shape of the distribution</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demo</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;0 &lt; age &lt; 100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;education&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">(</span><span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_18_0.png" src="../../_images/04_plotting_with_pandas_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-stepped-area-chart">
+<h4>The next plot - the stepped area chart<a class="headerlink" href="#the-next-plot-the-stepped-area-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A step area chart is an area chart in which points are connected by horizontal and vertical line segments, looking like steps of a staircase.</p></li>
+<li><p>The area between the line segments and the X-axis is filled with color or a pattern.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop</span> <span class="o">=</span> <span class="p">(</span><span class="n">demo</span><span class="o">.</span>
+        <span class="n">assign</span><span class="p">(</span><span class="n">age_band</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">demo</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span><span class="o">.</span>
+        <span class="n">query</span><span class="p">(</span><span class="s1">&#39;0 &lt; age &lt; 100&#39;</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;education&#39;</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">age_band</span><span class="o">.</span>
+        <span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">,</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">unstack</span><span class="p">()</span><span class="o">.</span>
+        <span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">prop</span><span class="o">/</span><span class="n">prop</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">prop</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">width</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04_plotting_with_pandas_20_1.png" src="../../_images/04_plotting_with_pandas_20_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-scatter-chart">
+<h4>The next plot - the scatter chart<a class="headerlink" href="#the-next-plot-the-scatter-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A scatter plot (aka scatter chart, scatter graph) uses dots to represent values for two different numeric variables.</p></li>
+<li><p>The position of each dot on the horizontal and vertical axis indicates values for an individual data point.</p></li>
+<li><p>Scatter plots are used to observe relationships between variables.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">demo</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">spatial_span_ms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;spatial_span&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">avg_ms_per_item</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3500</span><span class="p">))</span>
+<span class="n">tmp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;0 &lt; age &lt; 100&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;spatial_span_ms&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;, ylabel=&#39;spatial_span_ms&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04_plotting_with_pandas_22_1.png" src="../../_images/04_plotting_with_pandas_22_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="the-next-plot-the-line-chart">
+<h4>The next plot - the line chart<a class="headerlink" href="#the-next-plot-the-line-chart" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A line chart or line plot or line graph or curve chart is a type of chart which displays information as a series of data points called ‘markers’ connected by straight line segments.</p></li>
+<li><p>It is a basic type of chart common in many fields.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span>
+ <span class="n">agg</span><span class="p">(</span><span class="n">ss_ub</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;spatial_span_ms&#39;</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="p">),</span>
+     <span class="n">ss_mean</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;spatial_span_ms&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+     <span class="n">ss_lb</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;spatial_span_ms&#39;</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="p">))</span><span class="o">.</span>
+ <span class="n">query</span><span class="p">(</span><span class="s1">&#39;20 &lt; age &lt; 90&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;o-&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;age&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/04_plotting_with_pandas_24_1.png" src="../../_images/04_plotting_with_pandas_24_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="final-plot-for-today-the-hexbin">
+<h4>Final plot for today the hexbin<a class="headerlink" href="#final-plot-for-today-the-hexbin" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Hexbin map uses hexagons to split the area into several parts and attribute a color to it. The graphic area is divided into a multitude of hexagons and the number of data points in each is counted and represented using a color gradient.</p></li>
+<li><p>This is in fact a 2D histogram</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span> 
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;20 &lt; age &lt; 90&#39;</span><span class="p">)</span>
+<span class="n">spatial_span_zs</span> <span class="o">=</span> <span class="n">zscore</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">spatial_span_ms</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">spatial_span_zs</span> <span class="o">=</span>   <span class="n">spatial_span_zs</span>  <span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;spatial_span_zs&#39;</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/04_plotting_with_pandas_26_0.png" src="../../_images/04_plotting_with_pandas_26_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html#chart-visualization">Chart Visualization in Pandas</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/visualization.html#plotting-tools">Pandas Plotting tools)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/santosjorge/cufflinks">Pandas cufflinks)</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_raw_to_tidy_with_pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">From raw to structured</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_homework.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DAY 04 - HOMEWORK</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

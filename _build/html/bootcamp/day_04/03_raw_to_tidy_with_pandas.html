@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From raw to structured &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_04/03_raw_to_tidy_with_pandas.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plotting with pandas and Matplotlib" href="04_plotting_with_pandas.html" />
+    <link rel="prev" title="Pandas 101" href="02_Pandas_data_structures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_03/00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/02_python_modules_101.html">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/04_classes_in_python.html">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_04_overview.html">
+   DAY 04 - Numpy and Pandas 101
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Numpy_data_structures.html">
+     Numpy 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_Pandas_data_structures.html">
+     Pandas 101
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     From raw to structured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_plotting_with_pandas.html">
+     Plotting with pandas and Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_homework.html">
+     DAY 04 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_04/03_raw_to_tidy_with_pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_04/03_raw_to_tidy_with_pandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_04/03_raw_to_tidy_with_pandas.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disentangling-the-cognitive-physical-and-mental-health-sequelae-of-covid-19">
+   Disentangling the cognitive, physical, and mental health sequelae of COVID-19.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#start-by-importing-the-pandas-module">
+   Start by importing the pandas module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-the-following-links-to-read-the-two-datasets-into-a-dataframe">
+   Use the following links to read the two datasets into a dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-use-the-head-command-to-peak-into-the-first-five-rows-of-the-two-datasets">
+   Now use the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     head
+    </span>
+   </code>
+   command to peak into the first five rows of the two datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fix-the-column-names">
+   Fix the column names
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-list-comprehension-for-loop-to-go-over-the-columns-of-the-measures-and-strip-the-point-suffix">
+     Write a list comprehension for loop to go over the columns of the measures and strip the point suffix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-the-first-row-of-the-measures-dataframe-as-an-array">
+     Extract the first row of the measures dataframe as an array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-first-two-cells-in-col-top-to-info">
+     Change the first two cells in col_top to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       info
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-first-two-cells-in-col-bottom-to-user-and-device">
+     Change the first two cells in col_bottom to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       user
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       device
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-has-a-multiindex-class">
+   Pandas has a MultiIndex class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-the-first-two-rows">
+   Remove the first two rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepend-the-word-info-onto-the-demographics-data-frame">
+   Prepend the word ‘info’ onto the demographics data frame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#almost-final-step-we-now-can-merge-both-dataframes-with-ease">
+   Almost final step we now can merge both dataframes with ease
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-everything-worked-as-planned">
+   If everything worked as planned…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-make-it-usable-in-other-notebooks-we-need-to-be-able-to-save-this-file">
+   To make it usable in other notebooks we need to be able to save this file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-step-create-a-reproducible-function-that-captures-this-process-and-can-be-adapted-to-other-projects-with-minor-changes">
+   Final step create a reproducible function that captures this process and can be adapted to other projects with minor changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>From raw to structured</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disentangling-the-cognitive-physical-and-mental-health-sequelae-of-covid-19">
+   Disentangling the cognitive, physical, and mental health sequelae of COVID-19.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#start-by-importing-the-pandas-module">
+   Start by importing the pandas module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-the-following-links-to-read-the-two-datasets-into-a-dataframe">
+   Use the following links to read the two datasets into a dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-use-the-head-command-to-peak-into-the-first-five-rows-of-the-two-datasets">
+   Now use the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     head
+    </span>
+   </code>
+   command to peak into the first five rows of the two datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fix-the-column-names">
+   Fix the column names
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-a-list-comprehension-for-loop-to-go-over-the-columns-of-the-measures-and-strip-the-point-suffix">
+     Write a list comprehension for loop to go over the columns of the measures and strip the point suffix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-the-first-row-of-the-measures-dataframe-as-an-array">
+     Extract the first row of the measures dataframe as an array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-first-two-cells-in-col-top-to-info">
+     Change the first two cells in col_top to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       info
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-the-first-two-cells-in-col-bottom-to-user-and-device">
+     Change the first two cells in col_bottom to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       user
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       device
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-has-a-multiindex-class">
+   Pandas has a MultiIndex class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remove-the-first-two-rows">
+   Remove the first two rows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepend-the-word-info-onto-the-demographics-data-frame">
+   Prepend the word ‘info’ onto the demographics data frame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#almost-final-step-we-now-can-merge-both-dataframes-with-ease">
+   Almost final step we now can merge both dataframes with ease
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-everything-worked-as-planned">
+   If everything worked as planned…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-make-it-usable-in-other-notebooks-we-need-to-be-able-to-save-this-file">
+   To make it usable in other notebooks we need to be able to save this file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-step-create-a-reproducible-function-that-captures-this-process-and-can-be-adapted-to-other-projects-with-minor-changes">
+   Final step create a reproducible function that captures this process and can be adapted to other projects with minor changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="from-raw-to-structured">
+<h1>From raw to structured<a class="headerlink" href="#from-raw-to-structured" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="disentangling-the-cognitive-physical-and-mental-health-sequelae-of-covid-19">
+<h2><a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4008565">Disentangling the cognitive, physical, and mental health sequelae of COVID-19.</a><a class="headerlink" href="#disentangling-the-cognitive-physical-and-mental-health-sequelae-of-covid-19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Finding real messy raw data in the cognitive domain is not simple</p></li>
+<li><p>For this example I chose the control dataset from the above paper which examined 12 established cognitive tests to examine intelligence in an online settings</p></li>
+<li><p>It has two control datasets</p>
+<ul>
+<li><p>One with the actual cognitive test summary scores</p></li>
+<li><p>Another with an online questioner regarding various demographic questions</p></li>
+</ul>
+</li>
+<li><p>Our objective in this session is to create a joint table that contains information from both tables</p></li>
+<li><p>The secondary objective is to combines everything we learned in the previous session and some additions</p></li>
+<li><p>And we also need some interesting real life data to practice plotting for the next session and tomorrow</p></li>
+</ul>
+</div>
+<div class="section" id="start-by-importing-the-pandas-module">
+<h2>Start by importing the pandas module<a class="headerlink" href="#start-by-importing-the-pandas-module" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Notice that I am using a method called set_option to extend the display constrains imposed by pandas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max.columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max.columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="use-the-following-links-to-read-the-two-datasets-into-a-dataframe">
+<h2>Use the following links to read the two datasets into a dataframe<a class="headerlink" href="#use-the-following-links-to-read-the-two-datasets-into-a-dataframe" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pandas has many ways to read and write tables into a dataframe in many formats</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html">for an exhaustive list</a></p></li>
+<li><p>Here we will use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> command that is able to download a url containing data in csv format and import it</p></li>
+<li><p>Use the pd.read_csv command to complete the following code</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tasks_url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/bwfzme4r&#39;</span>
+<span class="n">demo_url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/2s4cfah6&#39;</span>
+<span class="n">measures</span> <span class="o">=</span> 
+<span class="n">demographics</span> <span class="o">=</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="now-use-the-head-command-to-peak-into-the-first-five-rows-of-the-two-datasets">
+<h2>Now use the <code class="docutils literal notranslate"><span class="pre">head</span></code> command to peak into the first five rows of the two datasets<a class="headerlink" href="#now-use-the-head-command-to-peak-into-the-first-five-rows-of-the-two-datasets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You will see that tbe demographics is fine</p></li>
+<li><p>In contrast, the measures headers are spanned over 3 rows (including the columns)</p></li>
+<li><p>We want to tidy these column names to simplify data exploration</p></li>
+</ul>
+</div>
+<div class="section" id="fix-the-column-names">
+<h2>Fix the column names<a class="headerlink" href="#fix-the-column-names" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="write-a-list-comprehension-for-loop-to-go-over-the-columns-of-the-measures-and-strip-the-point-suffix">
+<h3>Write a list comprehension for loop to go over the columns of the measures and strip the point suffix<a class="headerlink" href="#write-a-list-comprehension-for-loop-to-go-over-the-columns-of-the-measures-and-strip-the-point-suffix" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_top</span> <span class="o">=</span> <span class="p">[</span> <span class="n">___</span> <span class="k">for</span> <span class="n">__</span> <span class="ow">in</span> <span class="n">___</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extract-the-first-row-of-the-measures-dataframe-as-an-array">
+<h3>Extract the first row of the measures dataframe as an array<a class="headerlink" href="#extract-the-first-row-of-the-measures-dataframe-as-an-array" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_bottom</span> <span class="o">=</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-first-two-cells-in-col-top-to-info">
+<h3>Change the first two cells in col_top to <code class="docutils literal notranslate"><span class="pre">info</span></code><a class="headerlink" href="#change-the-first-two-cells-in-col-top-to-info" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_top___</span> <span class="o">=</span> <span class="n">___</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-first-two-cells-in-col-bottom-to-user-and-device">
+<h3>Change the first two cells in col_bottom to <code class="docutils literal notranslate"><span class="pre">user</span></code> and <code class="docutils literal notranslate"><span class="pre">device</span></code><a class="headerlink" href="#change-the-first-two-cells-in-col-bottom-to-user-and-device" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_bottom___</span> <span class="o">=</span> <span class="n">___</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas-has-a-multiindex-class">
+<h2>Pandas has a MultiIndex class<a class="headerlink" href="#pandas-has-a-multiindex-class" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We will use the <code class="docutils literal notranslate"><span class="pre">MultiIndex.from_tuples</span></code> method to convert our two sequences <code class="docutils literal notranslate"><span class="pre">col_top</span></code> and <code class="docutils literal notranslate"><span class="pre">col_bottom</span></code> to column name pairs</p></li>
+<li><p>In three steps,</p>
+<ol class="simple">
+<li><p>first use list comprehension and zip to merge the two lists in to a list of tuple pairs</p></li>
+<li><p>Using that list create MultiIndex object and name the two columns [“task”, “measure”]</p></li>
+<li><p>Finally assign this index to the measures dataframe</p></li>
+</ol>
+</li>
+<li></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">multi_index</span> <span class="o">=</span> <span class="p">[</span> <span class="n">__</span> <span class="k">for</span> <span class="n">__</span> <span class="ow">in</span> <span class="n">___</span> <span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">multi_index</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;measure&quot;</span><span class="p">])</span> 
+<span class="n">measures</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-the-first-two-rows">
+<h2>Remove the first two rows<a class="headerlink" href="#remove-the-first-two-rows" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Now use indexing to overwrite the first two rows of the measures data frame using the iloc method</p></li>
+<li><p>And look at the results of your hard work using head or tail</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measures</span> <span class="o">=</span> 
+<span class="n">measures</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prepend-the-word-info-onto-the-demographics-data-frame">
+<h2>Prepend the word ‘info’ onto the demographics data frame<a class="headerlink" href="#prepend-the-word-info-onto-the-demographics-data-frame" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Before we can combine the two dataframes it will be useful to augment the columns index to be a multi-index also</p></li>
+<li><p>There are many different ways to do that, in this example we will be using the function <code class="docutils literal notranslate"><span class="pre">concat</span></code></p></li>
+<li><p>It is used to concatenate (combine) together Series and Dataframes either by stacking them one over the other or stacking them side by side</p></li>
+<li><p>By concatenating the a dictionary containing a Dataframe we are extending the index with one level</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">demographics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">demographics</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Which is the same as writing this</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">demographics</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">demographics</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="almost-final-step-we-now-can-merge-both-dataframes-with-ease">
+<h2>Almost final step we now can merge both dataframes with ease<a class="headerlink" href="#almost-final-step-we-now-can-merge-both-dataframes-with-ease" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The merge command is designed to merge together dataframes using ideas and concepts from SQL</p></li>
+<li><p>In this context we will use an inner join which gives us only users that have some tasks completed and some questioner data</p></li>
+<li><p>In this class, this will be our primary data set, which will enable us to investigate various analytical tasks using a data set that is as close to reality as possible while still being simple enough to fit in this timeframe.</p></li>
+</ul>
+<p><img alt="" src="https://res.cloudinary.com/practicaldev/image/fetch/s--07Go4Ldi--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/u4rx9tnq7ei4fstlafec.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">measures</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">)),</span>
+              <span class="n">demographics</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">)),</span>
+              <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
+              <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-everything-worked-as-planned">
+<h2>If everything worked as planned…<a class="headerlink" href="#if-everything-worked-as-planned" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Then we now have 13 high level headings each aggregating all the relevant information together</p></li>
+<li><p>Next session we will start exploring how to use that to our advantage to produce both summary tables and preliminary rapid visualizations</p></li>
+<li><p>For now, just run the following command to examine the demographics of the joint dataset</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;info&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="to-make-it-usable-in-other-notebooks-we-need-to-be-able-to-save-this-file">
+<h2>To make it usable in other notebooks we need to be able to save this file<a class="headerlink" href="#to-make-it-usable-in-other-notebooks-we-need-to-be-able-to-save-this-file" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pandas supports multiple output types</p></li>
+<li><p>I am using the pickle format for two reasons:</p>
+<ul>
+<li><p>It preserves the datatypes and multi-index heading</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;12_tasks.pkl&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;12_tasks.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="final-step-create-a-reproducible-function-that-captures-this-process-and-can-be-adapted-to-other-projects-with-minor-changes">
+<h2>Final step create a reproducible function that captures this process and can be adapted to other projects with minor changes<a class="headerlink" href="#final-step-create-a-reproducible-function-that-captures-this-process-and-can-be-adapted-to-other-projects-with-minor-changes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_data</span><span class="p">():</span>
+    <span class="n">tasks_url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/bwfzme4r&#39;</span>
+    <span class="n">demo_url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/2s4cfah6&#39;</span>
+    <span class="n">measures</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">tasks_url</span><span class="p">)</span>
+    <span class="n">demographics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">demo_url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">measures</span><span class="p">,</span><span class="n">demographics</span>
+
+<span class="k">def</span> <span class="nf">fix_measures_columns</span><span class="p">(</span><span class="n">measures</span><span class="p">):</span>
+    <span class="n">col_top</span> <span class="o">=</span> <span class="p">[</span> <span class="n">v</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">measures</span><span class="o">.</span><span class="n">columns</span> <span class="p">]</span>
+    <span class="n">col_bottom</span> <span class="o">=</span> <span class="n">measures</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">col_top</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>
+    <span class="n">col_bottom</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span><span class="s1">&#39;device&#39;</span><span class="p">)</span>
+    <span class="n">multi_index</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span> <span class="n">col_top</span><span class="p">,</span> <span class="n">col_bottom</span> <span class="p">)]</span>
+    <span class="n">measures</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">multi_index</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">,</span> <span class="s2">&quot;measure&quot;</span><span class="p">])</span> 
+    <span class="n">measures</span> <span class="o">=</span> <span class="n">measures</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:,:]</span>
+    <span class="k">return</span> <span class="n">measures</span>
+
+<span class="k">def</span> <span class="nf">load_clean_data</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+    <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;12_tasks.pkl&#39;</span>
+    <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">measures</span><span class="p">,</span><span class="n">demographics</span> <span class="o">=</span> <span class="n">download_data</span><span class="p">()</span>
+        <span class="n">measures</span> <span class="o">=</span> <span class="n">fix_measures_columns</span><span class="p">(</span><span class="n">measures</span><span class="p">)</span>
+        <span class="n">demographics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">demographics</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">measures</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">)),</span>
+              <span class="n">demographics</span><span class="o">.</span><span class="n">set_index</span><span class="p">((</span><span class="s1">&#39;info&#39;</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">)),</span>
+              <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
+              <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/merging.html#merge-join-concatenate-and-compare">Merge, join, concatenate and compare</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/io.html#io-tools-text-csv-hdf5">Input output tools in Pandas (text, CSV, HDF5, …)</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02_Pandas_data_structures.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Pandas 101</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_plotting_with_pandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Plotting with pandas and Matplotlib</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
