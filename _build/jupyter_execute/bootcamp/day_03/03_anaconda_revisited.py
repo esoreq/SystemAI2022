@@ -13,7 +13,7 @@
 # 
 # - Using a package manager such as Anaconda makes it easy to install almost any additional package. 
 # - Moreover, it simplifies collaboration by sending a jupyter notebook with a special file called `.yml` as you should recal from day one of this boot camp
-# 
+#   
 # 
 # ## SYS_2022 environment  
 # 
