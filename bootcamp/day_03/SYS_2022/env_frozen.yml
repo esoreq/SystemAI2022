@@ -73,7 +73,7 @@ dependencies:
   - openssl=1.1.1o=hfe4f2af_0
   - outdated=0.2.1=pyhd8ed1ab_0
   - packaging=21.3=pyhd8ed1ab_0
-  - pandas=1.4.2=py310h514ec25_1
+  - pandas=1.4.2=py310h3099161_2
   - pandas-flavor=0.2.0=py_0
   - parso=0.8.3=pyhd8ed1ab_0
   - patsy=0.5.2=pyhd8ed1ab_0
@@ -82,7 +82,7 @@ dependencies:
   - pillow=9.1.1=py310hb3240ae_0
   - pingouin=0.5.1=pyhd8ed1ab_0
   - pip=22.1.1=pyhd8ed1ab_0
-  - plotly=5.8.0=pyhd8ed1ab_0
+  - plotly=5.8.0=pyhd8ed1ab_1
   - prompt-toolkit=3.0.29=pyha770c72_0
   - psutil=5.9.1=py310h6c45266_0
   - pthread-stubs=0.4=hc929b4f_1001
@@ -119,7 +119,7 @@ dependencies:
   - tzdata=2022a=h191b570_0
   - unicodedata2=14.0.0=py310h1961e1f_1
   - urllib3=1.26.9=pyhd8ed1ab_0
-  - watermark=2.3.0=pyhd8ed1ab_0
+  - watermark=2.3.1=pyhd8ed1ab_1
   - wcwidth=0.2.5=pyh9f0ad1d_2
   - wheel=0.37.1=pyhd8ed1ab_0
   - xarray=2022.3.0=pyhd8ed1ab_0

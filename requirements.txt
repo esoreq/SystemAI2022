@@ -1,5 +1,6 @@
 jupyter-book
 matplotlib
+pandas
 numpy
 #myst-parser
 linkify

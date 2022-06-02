@@ -575,6 +575,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="s2">dependencies:</span>
 <span class="s2">  - numpy</span>
 <span class="s2">  - pandas</span>
+<span class="s2">  - jupyterlab</span>
 <span class="s2">  - scipy</span>
 <span class="s2">  - statsmodels</span>
 <span class="s2">  - pingouin</span>
@@ -591,7 +592,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>228
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>243
 </pre></div>
 </div>
 </div>
@@ -626,19 +627,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="o">%</span><span class="k">load_ext</span> watermark
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
@@ -743,16 +731,16 @@ plotly    : 5.8.0
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "sys_2022"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "sys_2022",
             path: "./bootcamp/day_03"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'sys_2022'</script>
 
               </div>
               
