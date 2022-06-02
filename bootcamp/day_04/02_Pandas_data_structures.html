@@ -1,0 +1,3514 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="From raw to structured" href="03_raw_to_tidy_with_pandas.html" />
+    <link rel="prev" title="Numpy 101" href="01_Numpy_data_structures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_03/00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/02_python_modules_101.html">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/04_classes_in_python.html">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_04_overview.html">
+   DAY 04 - Numpy and Pandas 101
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_Numpy_data_structures.html">
+     Numpy 101
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pandas 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_raw_to_tidy_with_pandas.html">
+     From raw to structured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_plotting_with_pandas.html">
+     Plotting with pandas and Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_homework.html">
+     DAY 04 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_04/02_Pandas_data_structures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_04/02_Pandas_data_structures.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_04/02_Pandas_data_structures.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-wrangling-using-pandas">
+   Data wrangling using Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-pandas">
+   What is Pandas?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-practicalities">
+   Pandas practicalities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-pandas">
+     Importing pandas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-basic-structures">
+     Pandas basic structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-index-class">
+       The Index class
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#index-are-very-similar-to-an-immutable-numpy-array">
+         Index are very similar to an immutable numpy array
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#index-support-many-set-operations">
+         Index support many set operations
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-pandas-series-object">
+       The Pandas Series Object
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#series-provide-the-power-of-numpy-arrays-with-the-flexibility-of-dictionaries">
+         Series provide the power of numpy arrays with the flexibility of dictionaries
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#series-are-by-definition-vectors">
+         Series are by definition vectors
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-pandas-dataframe-object">
+       The Pandas DataFrame Object
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructing-dataframe-objects-selected-methods">
+       Constructing DataFrame objects (selected methods)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-simplest-approach-dictionary">
+         The simplest approach - Dictionary
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#we-can-also-supply-a-list-of-dict">
+         We can also supply a list of dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#we-can-define-the-values-using-series-with-index-and-then-pandas-can-adapt">
+         We can define the values using Series with index and then Pandas can adapt
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#from-a-2d-numpy-array">
+         From a 2d NumPy array
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-selection-in-series-and-dataframes">
+     Data Selection in Series and DataFrames
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-pandas-data-access-methods">
+       Data Selection using pandas data access methods
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-standard-python-numpy-expressions">
+       Data Selection using standard Python / NumPy expressions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-masking-via-conditional-statements">
+       Data Selection using masking via conditional statements
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-operations-in-pandas">
+   Data operations in Pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations">
+     Basic arithmetic operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#index-is-preserved">
+     Index is preserved
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-insert-method">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         insert
+        </span>
+       </code>
+       method
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pd-cut-bins-values-into-discrete-intervals">
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           pd.cut
+          </span>
+         </code>
+         bins values into discrete intervals
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#but-you-can-also-just-add-a-column-like-in-a-dictionary">
+       But you can also just add a column like in a dictionary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pd-concat">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pd.concat
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-operations-in-pandas-using-numpy-universal-functions">
+     Data operations in Pandas using Numpy Universal Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extend-dataframes-using-ufunc-and-assign">
+     Extend dataframes using ufunc and assign
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-dataframe-have-information-to-share">
+     Pandas dataframe have information to share
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Pandas 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-wrangling-using-pandas">
+   Data wrangling using Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-pandas">
+   What is Pandas?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-practicalities">
+   Pandas practicalities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-pandas">
+     Importing pandas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-basic-structures">
+     Pandas basic structures
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-index-class">
+       The Index class
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#index-are-very-similar-to-an-immutable-numpy-array">
+         Index are very similar to an immutable numpy array
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#index-support-many-set-operations">
+         Index support many set operations
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-pandas-series-object">
+       The Pandas Series Object
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#series-provide-the-power-of-numpy-arrays-with-the-flexibility-of-dictionaries">
+         Series provide the power of numpy arrays with the flexibility of dictionaries
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#series-are-by-definition-vectors">
+         Series are by definition vectors
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-pandas-dataframe-object">
+       The Pandas DataFrame Object
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#constructing-dataframe-objects-selected-methods">
+       Constructing DataFrame objects (selected methods)
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#the-simplest-approach-dictionary">
+         The simplest approach - Dictionary
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#we-can-also-supply-a-list-of-dict">
+         We can also supply a list of dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#we-can-define-the-values-using-series-with-index-and-then-pandas-can-adapt">
+         We can define the values using Series with index and then Pandas can adapt
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#from-a-2d-numpy-array">
+         From a 2d NumPy array
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-selection-in-series-and-dataframes">
+     Data Selection in Series and DataFrames
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-pandas-data-access-methods">
+       Data Selection using pandas data access methods
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-standard-python-numpy-expressions">
+       Data Selection using standard Python / NumPy expressions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-selection-using-masking-via-conditional-statements">
+       Data Selection using masking via conditional statements
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-operations-in-pandas">
+   Data operations in Pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-arithmetic-operations">
+     Basic arithmetic operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#index-is-preserved">
+     Index is preserved
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-insert-method">
+       The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         insert
+        </span>
+       </code>
+       method
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pd-cut-bins-values-into-discrete-intervals">
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           pd.cut
+          </span>
+         </code>
+         bins values into discrete intervals
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#but-you-can-also-just-add-a-column-like-in-a-dictionary">
+       But you can also just add a column like in a dictionary
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pd-concat">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pd.concat
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-operations-in-pandas-using-numpy-universal-functions">
+     Data operations in Pandas using Numpy Universal Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extend-dataframes-using-ufunc-and-assign">
+     Extend dataframes using ufunc and assign
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-dataframe-have-information-to-share">
+     Pandas dataframe have information to share
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas-101">
+<h1>Pandas 101<a class="headerlink" href="#pandas-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-wrangling-using-pandas">
+<h2>Data wrangling using Pandas<a class="headerlink" href="#data-wrangling-using-pandas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In science we make a distinction between raw data and tidy data</p></li>
+<li><p>The former is usually not annotated, is closer to the acquisition source  (i.e. sensor or measurement device ) and requires some steps to perform analytics on</p></li>
+<li><p>The latter represents a statistical table that is the foundation for at least one (but often many) questions to be asked on</p></li>
+<li><p>The term Data wrangling is a commonly used catch-all to describe the early stages of the data analytics process.</p></li>
+<li><p>It reflects the steps required to transition from raw to tidy datasets</p>
+<ul>
+<li><p>While the steps can change from project to project the most common ones are:</p>
+<ol class="simple">
+<li><p>Collecting\Extracting data:</p>
+<ol class="simple">
+<li><p>The first step is to identify the data you need,</p></li>
+<li><p>Where to acquire\download it from, and then, of course,</p></li>
+<li><p>How to collect it</p></li>
+</ol>
+</li>
+<li><p>Structuring the data</p>
+<ol class="simple">
+<li><p>Most raw data is unstructured and requires some attention to the way you structure it</p></li>
+<li><p>In some cases you will use summary scores to simplify the data</p></li>
+<li><p>Other cases may call for statistical data mining and transformation</p></li>
+<li><p>But in the end we want to transform the data into a format where the following rules apply:</p>
+<ol class="simple">
+<li><p>Each row reflects an observation</p></li>
+<li><p>Each column reflects a variable/feature of the dataset</p></li>
+<li><p>Each cell reflects a measurement</p></li>
+<li><p>Ideally, both rows and columns are labelled</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Exploratory data analysis</p>
+<ol class="simple">
+<li><p>Describe the data components using both summary tables and data visualisation</p></li>
+<li><p>Identify redundancy</p></li>
+<li><p>Identify outliers</p></li>
+<li><p>Measure missingness</p></li>
+<li><p>Identify association between features and categories</p></li>
+</ol>
+</li>
+<li><p>Data cleaning, enriching and fusion</p>
+<ol class="simple">
+<li><p>Removing or clipping outliers</p></li>
+<li><p>Removing errors and duplications</p></li>
+<li><p>Standardising category names, dates and numeric formats</p></li>
+<li><p>Fusing together complementary datasets to improve available information</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-is-pandas">
+<h2>What is Pandas?<a class="headerlink" href="#what-is-pandas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>While part of this list can be achieved using Numpy it not what it was designed for</p></li>
+<li><p>Pandas, is a package that was designed from scratch to support all of the above list and more.</p></li>
+<li><p>It extends all the elements in numpy by creating three abstract objects</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Index</span></code> - Immutable sequence used for indexing and alignment. The basic object storing axis labels for all pandas objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Series</span></code> - One-dimensional <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> with axis labels (including time series).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> - Two-dimensional, size-mutable, tabular data. Data structure also contains labelled axes (rows and columns).</p></li>
+</ul>
+</li>
+<li><p>These three tools provides efficient access to these sorts of “data munging” tasks that occupy much of a data scientist’s time.</p></li>
+</ul>
+</div>
+<div class="section" id="pandas-practicalities">
+<h2>Pandas practicalities<a class="headerlink" href="#pandas-practicalities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="importing-pandas">
+<h3>Importing pandas<a class="headerlink" href="#importing-pandas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Most of the times we will import both Numpy and Pandas</p></li>
+<li><p>The syntax uses the <code class="docutils literal notranslate"><span class="pre">as</span></code> command to create shortcuts to speed up the code writing</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas-basic-structures">
+<h3>Pandas basic structures<a class="headerlink" href="#pandas-basic-structures" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-index-class">
+<h4>The Index class<a class="headerlink" href="#the-index-class" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>As stated above the major component missing from numpy is the ability to add some context to the arrays</p></li>
+<li><p>The Index class provides this context</p></li>
+<li><p>It is in fact the parent of a family of classes each designed to provide the means to efficiently perform various operations on the two dimensions of the tidy table format.</p></li>
+<li><p>For example:</p>
+<ul>
+<li><p>RangeIndex : Index of some monotonic integer range (i.e. start stop and step)</p></li>
+<li><p>CategoricalIndex : Index of categories</p></li>
+<li><p>DatetimeIndex : Index of datetime64 data.</p></li>
+<li><p>MultiIndex : A multi-level, or hierarchical Index.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When you call pd.Index the class will automatically try to infer which of it’s many sub-classes to use for the sake of efficiency</p>
+</div>
+<ul class="simple">
+<li><p>For example:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], dtype=&#39;object&#39;)
+RangeIndex(start=2, stop=11, step=2)
+Int64Index([2, 4, 6, 8, 10], dtype=&#39;int64&#39;)
+CategoricalIndex([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], categories=[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], ordered=False, dtype=&#39;category&#39;)
+DatetimeIndex([&#39;2020-10-01&#39;, &#39;2020-10-05&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+MultiIndex([(&#39;a&#39;, 1),
+            (&#39;a&#39;, 2),
+            (&#39;b&#39;, 1),
+            (&#39;b&#39;, 3)],
+           )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="index-are-very-similar-to-an-immutable-numpy-array">
+<h5>Index are very similar to an immutable numpy array<a class="headerlink" href="#index-are-very-similar-to-an-immutable-numpy-array" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>For example, you can use standard indexing notation to retrieve values or slices</p></li>
+<li><p>And it has many of the attributes that NumPy arrays have</p></li>
+<li><p>However you cannot change indices, only replace the whole thing</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A2Z</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span><span class="mi">91</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2Z</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2Z</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;size = </span><span class="si">{</span><span class="n">A2Z</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s1">, shape = </span><span class="si">{</span><span class="n">A2Z</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">, dtype = </span><span class="si">{</span><span class="n">A2Z</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C
+Index([&#39;C&#39;, &#39;D&#39;, &#39;E&#39;], dtype=&#39;object&#39;)
+Index([&#39;B&#39;, &#39;E&#39;], dtype=&#39;object&#39;)
+size = 26, shape = (26,), dtype = object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="index-support-many-set-operations">
+<h5>Index support many set operations<a class="headerlink" href="#index-support-many-set-operations" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Python’s built-in set methods such as Difference, Intersection or Union are supported either by set notation</p></li>
+<li><p>Or as builtin functions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix_01</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ix_02</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Index 01 = </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s1"> and Index 02 = </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Symmetric Difference of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span> <span class="o">^</span> <span class="n">ix_02</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Intersection of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span> <span class="o">&amp;</span> <span class="n">ix_02</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Union of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span> <span class="o">|</span> <span class="n">ix_02</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index 01 = [1, 4, 7, 10] and Index 02 = [1, 3, 5, 7, 9]
+Symmetric Difference of ix_01 and ix_02            = Int64Index([3, 4, 5, 9, 10], dtype=&#39;int64&#39;)
+Intersection of ix_01 and ix_02                    = RangeIndex(start=1, stop=11, step=6)
+Union of ix_01 and ix_02                           = Int64Index([1, 3, 4, 5, 7, 9, 10], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2024/2799232625.py:4: FutureWarning: Index.__xor__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__xor__.  Use index.symmetric_difference(other) instead.
+  print(f&#39;{&quot;Symmetric Difference of ix_01 and ix_02&quot;:&lt;50} = {ix_01 ^ ix_02}&#39;)
+/tmp/ipykernel_2024/2799232625.py:5: FutureWarning: Index.__and__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__and__.  Use index.intersection(other) instead.
+  print(f&#39;{&quot;Intersection of ix_01 and ix_02&quot;:&lt;50} = {ix_01 &amp; ix_02}&#39;)
+/tmp/ipykernel_2024/2799232625.py:6: FutureWarning: Index.__or__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__or__.  Use index.union(other) instead.
+  print(f&#39;{&quot;Union of ix_01 and ix_02&quot;:&lt;50} = {ix_01 | ix_02}&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Difference of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">ix_02</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Difference of ix_02 and ix_01&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_02</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">ix_01</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Intersection of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">ix_02</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;Union of ix_01 and ix_02&quot;</span><span class="si">:</span><span class="s1">&lt;50</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">ix_01</span> <span class="o">|</span> <span class="n">ix_02</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Difference of ix_01 and ix_02                      = RangeIndex(start=4, stop=13, step=6)
+Difference of ix_02 and ix_01                      = Int64Index([3, 5, 9], dtype=&#39;int64&#39;)
+Intersection of ix_01 and ix_02                    = RangeIndex(start=1, stop=11, step=6)
+Union of ix_01 and ix_02                           = Int64Index([1, 3, 4, 5, 7, 9, 10], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2024/3811126357.py:4: FutureWarning: Index.__or__ operating as a set operation is deprecated, in the future this will be a logical operation matching Series.__or__.  Use index.union(other) instead.
+  print(f&#39;{&quot;Union of ix_01 and ix_02&quot;:&lt;50} = {ix_01 | ix_02}&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-pandas-series-object">
+<h4>The Pandas Series Object<a class="headerlink" href="#the-pandas-series-object" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> is an object that contains at least three attributes</p>
+<ul>
+<li><p>one-dimensional array of values</p></li>
+<li><p>a pandas index,</p></li>
+<li><p>and a dtype.</p></li>
+</ul>
+</li>
+<li><p>It can be created from any sequence that can create a numpy array - because it is a numpy array (at least the value data is)</p></li>
+<li><p>If you wish you can explicitly define an index</p></li>
+<li><p>You can also add a name</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;46&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    2
+2    3
+dtype: int64
+a    1.0
+b    1.0
+c    1.0
+dtype: float64
+0    4
+1    6
+Name: 46, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="series-provide-the-power-of-numpy-arrays-with-the-flexibility-of-dictionaries">
+<h5>Series provide the power of numpy arrays with the flexibility of dictionaries<a class="headerlink" href="#series-provide-the-power-of-numpy-arrays-with-the-flexibility-of-dictionaries" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>For example, you can use standard indexing notation to retrieve values or slices</p></li>
+<li><p>And it has many of the attributes that NumPy arrays have</p></li>
+<li><p>It also has access to many analytical methods</p></li>
+<li><p>A series cell can contain any type of data</p></li>
+<li><p>And they are of course mutable</p></li>
+<li><p>Also by default a Series Index will be implicitly sorted</p></li>
+</ul>
+</div>
+<div class="section" id="series-are-by-definition-vectors">
+<h5>Series are by definition vectors<a class="headerlink" href="#series-are-by-definition-vectors" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>As you can see they have only one dimension</p></li>
+<li><p>We can convert them to a 1D array that is called a data frame</p></li>
+<li><p>The Series name becomes the column header and every element becomes a row</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">),</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vector_a&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;shape = </span><span class="si">{</span><span class="n">vector_a</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">vector_a</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape = (3,)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vector_a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-pandas-dataframe-object">
+<h4>The Pandas DataFrame Object<a class="headerlink" href="#the-pandas-dataframe-object" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The Series object can be viewed as a coupling of a numpy array with a pandas Index object</p></li>
+<li><p>The DataFrame object is just a set of Series objects that share a pandas Index object for their rows and have another index object that identifies each Series</p></li>
+<li><p>Can be thought of as a dict-like container for Series objects.</p></li>
+<li><p>If for example we combine several Series that have overlapping indices Pandas will automatically combine these Series and create missing values (using <code class="docutils literal notranslate"><span class="pre">NaN</span></code>) in the parts that misalign.</p></li>
+<li><p>Let’s see this in action</p></li>
+</ul>
+</div>
+<div class="section" id="constructing-dataframe-objects-selected-methods">
+<h4>Constructing DataFrame objects (selected methods)<a class="headerlink" href="#constructing-dataframe-objects-selected-methods" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> can be constructed in many ways.</p></li>
+</ul>
+<div class="section" id="the-simplest-approach-dictionary">
+<h5>The simplest approach - Dictionary<a class="headerlink" href="#the-simplest-approach-dictionary" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>The keys are treated as a columns</p></li>
+<li><p>The values are the rows</p></li>
+<li><p>The only caveat that is that the values need to have the same length</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col_A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;col_B&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_A</th>
+      <th>col_B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="we-can-also-supply-a-list-of-dict">
+<h5>We can also supply a list of dict<a class="headerlink" href="#we-can-also-supply-a-list-of-dict" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>The same rules apply</p></li>
+<li><p>Keys are column names</p></li>
+<li><p>Values are elements</p></li>
+<li><p>Pandas adapts to new columns by implicitly adding missing values</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;col_A&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s1">&#39;col_B&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;col_A&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span><span class="s1">&#39;col_B&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;col_A&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s1">&#39;col_C&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_A</th>
+      <th>col_B</th>
+      <th>col_C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>NaN</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="we-can-define-the-values-using-series-with-index-and-then-pandas-can-adapt">
+<h5>We can define the values using Series with index and then Pandas can adapt<a class="headerlink" href="#we-can-define-the-values-using-series-with-index-and-then-pandas-can-adapt" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>If we supply a Series with indices this will be taken into account</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">col_B</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)))</span>
+<span class="n">col_C</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col_A&#39;</span><span class="p">:</span><span class="n">col_A</span><span class="p">,</span><span class="s1">&#39;col_B&#39;</span><span class="p">:</span><span class="n">col_B</span><span class="p">,</span><span class="s1">&#39;col_C&#39;</span><span class="p">:</span><span class="n">col_C</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col_A</th>
+      <th>col_B</th>
+      <th>col_C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>b</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="from-a-2d-numpy-array">
+<h5>From a 2d NumPy array<a class="headerlink" href="#from-a-2d-numpy-array" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>We can create a DataFrame with 2d matrix</p></li>
+<li><p>By default an integer index will be used for both columns and indices</p></li>
+<li><p>Alternatively, one can supply both of them or either they just need to be at the right shape</p></li>
+<li><p>In contrast to sets or dictionaries index can contain multiple copies</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+      <td>9</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>8</td>
+      <td>12</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>2</td>
+      <td>4</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td>3</td>
+      <td>6</td>
+      <td>9</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>4</td>
+      <td>8</td>
+      <td>12</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-selection-in-series-and-dataframes">
+<h3>Data Selection in Series and DataFrames<a class="headerlink" href="#data-selection-in-series-and-dataframes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Let’s create some simulated data to explore some selection basics</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span><span class="mi">2</span><span class="p">),</span><span class="mi">45</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span><span class="mi">2</span><span class="p">),</span><span class="mi">45</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;rng&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span>
+    <span class="n">sex</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span><span class="mi">2</span><span class="p">),</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">2.1</span><span class="p">),</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span><span class="mi">1</span><span class="p">),</span><span class="mi">45</span><span class="p">,</span><span class="mi">125</span><span class="p">),</span>
+    <span class="n">depressed</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,)),</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">],</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="n">n</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>F</td>
+      <td>1.65</td>
+      <td>87.9</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>91</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>72.9</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="data-selection-using-pandas-data-access-methods">
+<h4>Data Selection using pandas data access methods<a class="headerlink" href="#data-selection-using-pandas-data-access-methods" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We can access a single value for a row/column label pair (for this to work the indices need to be unique).</p></li>
+<li><p>We can do the same using actual indices</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sex of subject 104 is </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">104</span><span class="p">,</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sex of subject 104 is </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The sex of subject 104 is F
+The sex of subject 104 is F
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>We can Access a group of rows and columns by label(s)</p></li>
+<li><p>This simply returns the range between the two index labels (which might not be useful if the dataframe isn’t sorted by the index)</p></li>
+<li><p>We can also slice based on real hidden index that reflects the current state of the dataframe</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice the rows between labels 104 and 122&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">104</span><span class="p">:</span><span class="mi">122</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice the rows between index 4 and 7&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>58</td>
+      <td>F</td>
+      <td>1.57</td>
+      <td>78.8</td>
+      <td>True</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>59</td>
+      <td>M</td>
+      <td>1.51</td>
+      <td>96.2</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>143</th>
+      <td>12</td>
+      <td>M</td>
+      <td>1.58</td>
+      <td>77.7</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>13</td>
+      <td>F</td>
+      <td>1.78</td>
+      <td>84.4</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>17</td>
+      <td>M</td>
+      <td>1.23</td>
+      <td>75.3</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="data-selection-using-standard-python-numpy-expressions">
+<h4>Data Selection using standard Python / NumPy expressions<a class="headerlink" href="#data-selection-using-standard-python-numpy-expressions" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We can slice a data frame using the standard numpy notation</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice the last two rows&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice row 1&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice odd rows from 1 - 5&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Slice odd rows from 1 - 5 just for sex and group &#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">][[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;group&#39;</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Extract all Sex values for odd rows from 1 - 5&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">sex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>197</th>
+      <td>55</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>83.7</td>
+      <td>True</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>48</td>
+      <td>F</td>
+      <td>1.78</td>
+      <td>79.6</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>F</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>F</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>F</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>101    F
+103    F
+105    F
+Name: sex, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-selection-using-masking-via-conditional-statements">
+<h4>Data Selection using masking via conditional statements<a class="headerlink" href="#data-selection-using-masking-via-conditional-statements" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We can mask a data frame using boolean sequence</p>
+<ul>
+<li><p>This can be done for both rows and columns</p></li>
+<li><p>It has to be in the size of the rows</p></li>
+</ul>
+</li>
+<li><p>But we can use any conditional statement on the series that compose the data frame</p></li>
+<li><p>Pandas even has a special function that is declarative to make this more explicit and easier to read</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+<span class="n">row_mask</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">],</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">m</span><span class="p">,))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Select 5</span><span class="si">% o</span><span class="s1">f the rows using masking&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">row_mask</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Select people between 30 - 35 &#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">)])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Select the first 3 people from group a &#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Use the query function to filter males age 42 &#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;sex == &quot;M&quot; and age == 42&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### You can combine slicing and masking using pandas indexers&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">,[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>107</th>
+      <td>42</td>
+      <td>M</td>
+      <td>1.33</td>
+      <td>81.4</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>50</td>
+      <td>M</td>
+      <td>1.41</td>
+      <td>74.2</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>50</td>
+      <td>F</td>
+      <td>1.28</td>
+      <td>73.1</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>60</td>
+      <td>F</td>
+      <td>2.10</td>
+      <td>83.8</td>
+      <td>True</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>51</td>
+      <td>M</td>
+      <td>1.58</td>
+      <td>87.0</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>44</td>
+      <td>M</td>
+      <td>1.50</td>
+      <td>59.8</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>32</td>
+      <td>M</td>
+      <td>1.64</td>
+      <td>69.1</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>32</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>82.5</td>
+      <td>False</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>32</td>
+      <td>M</td>
+      <td>1.44</td>
+      <td>103.9</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>32</td>
+      <td>F</td>
+      <td>1.45</td>
+      <td>81.1</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>34</td>
+      <td>M</td>
+      <td>1.42</td>
+      <td>88.8</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>34</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>76.9</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>106</th>
+      <td>0</td>
+      <td>F</td>
+      <td>1.31</td>
+      <td>77.2</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>61</td>
+      <td>F</td>
+      <td>1.44</td>
+      <td>74.0</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>23</td>
+      <td>M</td>
+      <td>1.34</td>
+      <td>88.7</td>
+      <td>False</td>
+      <td>a</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>107</th>
+      <td>42</td>
+      <td>M</td>
+      <td>1.33</td>
+      <td>81.4</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>42</td>
+      <td>M</td>
+      <td>1.63</td>
+      <td>113.2</td>
+      <td>False</td>
+      <td>b</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>F</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>F</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>M</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>M</td>
+      <td>91</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-operations-in-pandas">
+<h2>Data operations in Pandas<a class="headerlink" href="#data-operations-in-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-arithmetic-operations">
+<h3>Basic arithmetic operations<a class="headerlink" href="#basic-arithmetic-operations" title="Permalink to this headline">¶</a></h3>
+<p>NumPy’s ability to do rapid element-wise operations (addition, subtraction, multiplication, etc.) is migrated into the Pandas framework and is available for both series and DataFrame objects.</p>
+<p>The following table lists Python operators and their equivalent Pandas object methods:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Pandas Method(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">add()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sub()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mul()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">div()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">floordiv()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mod()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### For example multiply height by a constant to convert to feet&#39;</span><span class="p">))</span>
+<span class="n">height_feet</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mf">3.280</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;height_feet&#39;</span><span class="p">)</span>
+<span class="n">height_feet</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mf">3.280</span><span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;height_feet&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">height_feet</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### Or calculate BMI based on the ratio between mass and height&lt;sup&gt;2&lt;/sup&gt;&#39;</span><span class="p">))</span>
+<span class="n">bmi</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">/</span><span class="p">(</span> <span class="n">df</span><span class="o">.</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;BMI&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">bmi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    5.4120
+101    5.3464
+102    4.7888
+103    6.0352
+104    6.3960
+Name: height_feet, dtype: float64
+</pre></div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    32.286501
+101    32.707290
+102    34.199662
+103    18.962665
+104    21.249178
+Name: BMI, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="index-is-preserved">
+<h3>Index is preserved<a class="headerlink" href="#index-is-preserved" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Because the index is preserved we can assign this to the original df</p></li>
+<li><p>Note that I can use pandas methods using the dot notation</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+    <span class="n">bmi</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">weight</span><span class="o">/</span><span class="p">(</span> <span class="n">df</span><span class="o">.</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">height_feet</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mf">3.280</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+      <th>bmi</th>
+      <th>height_feet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>F</td>
+      <td>1.65</td>
+      <td>87.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>32.29</td>
+      <td>5.41</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+      <td>32.71</td>
+      <td>5.35</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>91</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>72.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>34.20</td>
+      <td>4.79</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+      <td>18.96</td>
+      <td>6.04</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+      <td>21.25</td>
+      <td>6.40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>60</td>
+      <td>M</td>
+      <td>1.67</td>
+      <td>87.0</td>
+      <td>False</td>
+      <td>c</td>
+      <td>31.20</td>
+      <td>5.48</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>49</td>
+      <td>M</td>
+      <td>1.56</td>
+      <td>96.9</td>
+      <td>False</td>
+      <td>a</td>
+      <td>39.82</td>
+      <td>5.12</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>55</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>83.7</td>
+      <td>True</td>
+      <td>b</td>
+      <td>58.13</td>
+      <td>3.94</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.44</td>
+      <td>4.76</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>19</td>
+      <td>M</td>
+      <td>1.63</td>
+      <td>88.1</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.16</td>
+      <td>5.35</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="the-insert-method">
+<h4>The <code class="docutils literal notranslate"><span class="pre">insert</span></code> method<a class="headerlink" href="#the-insert-method" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The insert column into DataFrame at specified location.</p></li>
+<li><p>Note that you can add duplicate columns</p></li>
+<li><p>This is a good opportunity to also introduce two vital tools</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.cut</span></code> and <code class="docutils literal notranslate"><span class="pre">categorical</span></code> dtype</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="pd-cut-bins-values-into-discrete-intervals">
+<h5><code class="docutils literal notranslate"><span class="pre">pd.cut</span></code> bins values into discrete intervals<a class="headerlink" href="#pd-cut-bins-values-into-discrete-intervals" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Use cut when you need to segment and sort data values into bins.</p></li>
+<li><p>This function is also useful for going from a continuous variable to a categorical variable.</p></li>
+<li><p>For example:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;baby&#39;</span><span class="p">,</span><span class="s1">&#39;toddler&#39;</span><span class="p">,</span><span class="s1">&#39;children&#39;</span><span class="p">,</span><span class="s1">&#39;teens&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span><span class="s1">&#39;elderly&#39;</span><span class="p">]</span>
+<span class="n">age_bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">age_groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">,</span><span class="n">age_bins</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">age_labels</span> <span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;age_groups&#39;</span><span class="p">,</span><span class="n">age_groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_groups</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+      <th>bmi</th>
+      <th>height_feet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>elderly</td>
+      <td>F</td>
+      <td>1.65</td>
+      <td>87.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>32.29</td>
+      <td>5.41</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+      <td>32.71</td>
+      <td>5.35</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>91</td>
+      <td>elderly</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>72.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>34.20</td>
+      <td>4.79</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+      <td>18.96</td>
+      <td>6.04</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+      <td>21.25</td>
+      <td>6.40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>60</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.67</td>
+      <td>87.0</td>
+      <td>False</td>
+      <td>c</td>
+      <td>31.20</td>
+      <td>5.48</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>49</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.56</td>
+      <td>96.9</td>
+      <td>False</td>
+      <td>a</td>
+      <td>39.82</td>
+      <td>5.12</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>55</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>83.7</td>
+      <td>True</td>
+      <td>b</td>
+      <td>58.13</td>
+      <td>3.94</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.44</td>
+      <td>4.76</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>19</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.63</td>
+      <td>88.1</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.16</td>
+      <td>5.35</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 9 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="but-you-can-also-just-add-a-column-like-in-a-dictionary">
+<h4>But you can also just add a column like in a dictionary<a class="headerlink" href="#but-you-can-also-just-add-a-column-like-in-a-dictionary" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Note that if this column already exists it will overwrite the contents</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_groups</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_groups</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+      <th>bmi</th>
+      <th>height_feet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>elderly</td>
+      <td>F</td>
+      <td>1.65</td>
+      <td>87.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>32.29</td>
+      <td>5.41</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+      <td>32.71</td>
+      <td>5.35</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>91</td>
+      <td>elderly</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>72.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>34.20</td>
+      <td>4.79</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+      <td>18.96</td>
+      <td>6.04</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+      <td>21.25</td>
+      <td>6.40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>60</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.67</td>
+      <td>87.0</td>
+      <td>False</td>
+      <td>c</td>
+      <td>31.20</td>
+      <td>5.48</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>49</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.56</td>
+      <td>96.9</td>
+      <td>False</td>
+      <td>a</td>
+      <td>39.82</td>
+      <td>5.12</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>55</td>
+      <td>adults</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>83.7</td>
+      <td>True</td>
+      <td>b</td>
+      <td>58.13</td>
+      <td>3.94</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.44</td>
+      <td>4.76</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>19</td>
+      <td>adults</td>
+      <td>M</td>
+      <td>1.63</td>
+      <td>88.1</td>
+      <td>False</td>
+      <td>c</td>
+      <td>33.16</td>
+      <td>5.35</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 9 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pd-concat">
+<h4><code class="docutils literal notranslate"><span class="pre">pd.concat</span></code><a class="headerlink" href="#pd-concat" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Finally you can concatenate different data frames and Series</p></li>
+<li></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-operations-in-pandas-using-numpy-universal-functions">
+<h3>Data operations in Pandas using Numpy Universal Functions<a class="headerlink" href="#data-operations-in-pandas-using-numpy-universal-functions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pandas derives most of this capability from Universal Functions in NumPy.</p></li>
+<li><p>The neat thing is that you can apply the numpy functions directly on a Pandas object and get a Series in return.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### We can transform values using numpy functions&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;### We can also standardise values using `mean` and `std`&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">((((</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    4.605170
+101    3.496508
+102    4.510860
+103    2.944439
+104    4.043051
+Name: age, dtype: float64
+</pre></div>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 3 [myst.header]</p>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100    2.475448
+101   -0.614251
+102    2.060414
+103   -1.259859
+104    0.492507
+Name: age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extend-dataframes-using-ufunc-and-assign">
+<h3>Extend dataframes using ufunc and assign<a class="headerlink" href="#extend-dataframes-using-ufunc-and-assign" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>This effectively means that you can use numpy ufunc to extend the original data frame also</p></li>
+<li><p>You can even use scipy to the same functionality</p></li>
+<li><p>For example, using scipy Z-score transformation compared to the equivalent manual using NumPy</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+    <span class="n">age_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">age_zscore</span> <span class="o">=</span> <span class="n">zscore</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">age_Z</span> <span class="o">=</span> <span class="p">(((</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>sex</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>depressed</th>
+      <th>group</th>
+      <th>age_log</th>
+      <th>age_zscore</th>
+      <th>age_Z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>F</td>
+      <td>1.65</td>
+      <td>87.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>4.61</td>
+      <td>2.48</td>
+      <td>2.48</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>33</td>
+      <td>F</td>
+      <td>1.63</td>
+      <td>86.9</td>
+      <td>False</td>
+      <td>d</td>
+      <td>3.50</td>
+      <td>-0.61</td>
+      <td>-0.61</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>91</td>
+      <td>F</td>
+      <td>1.46</td>
+      <td>72.9</td>
+      <td>False</td>
+      <td>c</td>
+      <td>4.51</td>
+      <td>2.06</td>
+      <td>2.06</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>19</td>
+      <td>F</td>
+      <td>1.84</td>
+      <td>64.2</td>
+      <td>False</td>
+      <td>c</td>
+      <td>2.94</td>
+      <td>-1.26</td>
+      <td>-1.26</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>57</td>
+      <td>F</td>
+      <td>1.95</td>
+      <td>80.8</td>
+      <td>False</td>
+      <td>c</td>
+      <td>4.04</td>
+      <td>0.49</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>60</td>
+      <td>M</td>
+      <td>1.67</td>
+      <td>87.0</td>
+      <td>False</td>
+      <td>c</td>
+      <td>4.09</td>
+      <td>0.63</td>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>49</td>
+      <td>M</td>
+      <td>1.56</td>
+      <td>96.9</td>
+      <td>False</td>
+      <td>a</td>
+      <td>3.89</td>
+      <td>0.12</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>55</td>
+      <td>F</td>
+      <td>1.20</td>
+      <td>83.7</td>
+      <td>True</td>
+      <td>b</td>
+      <td>4.01</td>
+      <td>0.40</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>31</td>
+      <td>M</td>
+      <td>1.45</td>
+      <td>70.3</td>
+      <td>False</td>
+      <td>c</td>
+      <td>3.43</td>
+      <td>-0.71</td>
+      <td>-0.71</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>19</td>
+      <td>M</td>
+      <td>1.63</td>
+      <td>88.1</td>
+      <td>False</td>
+      <td>c</td>
+      <td>2.94</td>
+      <td>-1.26</td>
+      <td>-1.26</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 9 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pandas-dataframe-have-information-to-share">
+<h3>Pandas dataframe have information to share<a class="headerlink" href="#pandas-dataframe-have-information-to-share" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pandas has several methods to describe the properties of a dataset</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;#### We can output the technical info of the data frame &#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 4 [myst.header]</p>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 100 entries, 100 to 199
+Data columns (total 8 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   age          100 non-null    int64  
+ 1   sex          100 non-null    object 
+ 2   height       100 non-null    float64
+ 3   weight       100 non-null    float64
+ 4   depressed    100 non-null    bool   
+ 5   group        100 non-null    object 
+ 6   bmi          100 non-null    float64
+ 7   height_feet  100 non-null    float64
+dtypes: bool(1), float64(4), int64(1), object(2)
+memory usage: 6.3+ KB
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;#### We can describe the statistical properties of the dataset&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;##### For numerical features (columns)&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span> <span class="s1">&#39;##### For categorical object or boolean features (columns)&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;bool&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 4 [myst.header]</p>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 5 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>bmi</th>
+      <th>height_feet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>46.320000</td>
+      <td>1.503400</td>
+      <td>80.548000</td>
+      <td>37.242600</td>
+      <td>4.931500</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>21.794207</td>
+      <td>0.188279</td>
+      <td>13.736529</td>
+      <td>11.115863</td>
+      <td>0.617505</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>1.200000</td>
+      <td>46.000000</td>
+      <td>17.750000</td>
+      <td>3.940000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>32.000000</td>
+      <td>1.405000</td>
+      <td>70.200000</td>
+      <td>30.070000</td>
+      <td>4.605000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>45.000000</td>
+      <td>1.500000</td>
+      <td>81.050000</td>
+      <td>35.410000</td>
+      <td>4.920000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>60.000000</td>
+      <td>1.610000</td>
+      <td>88.725000</td>
+      <td>43.605000</td>
+      <td>5.280000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>100.000000</td>
+      <td>2.100000</td>
+      <td>113.200000</td>
+      <td>73.170000</td>
+      <td>6.890000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">/home/runner/work/SystemAI2022/SystemAI2022/bootcamp/day_04/02_Pandas_data_structures.ipynb</span>, line 1)</p>
+<p>Non-consecutive header level increase; 0 to 5 [myst.header]</p>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>depressed</th>
+      <th>group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>F</td>
+      <td>False</td>
+      <td>c</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>52</td>
+      <td>90</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://pandas.pydata.org/">Pandas online documentation</a></p></li>
+<li><p><a class="reference external" href="http://pyvideo.org/search?q=pandas">Pandas on PyVideo</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_Numpy_data_structures.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Numpy 101</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_raw_to_tidy_with_pandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">From raw to structured</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

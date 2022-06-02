@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAY 01 - basics &#8212; System &amp; AI 2022</title>
+    <title>DAY 04 - Numpy and Pandas 101 &#8212; System &amp; AI 2022</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,11 +56,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_01/00_day_01_overview.html" />
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_04/00_day_04_overview.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="BASH 101" href="01_bash101.html" />
-    <link rel="prev" title="BOOT CAMP" href="../../about/intro.html" />
+    <link rel="next" title="Numpy 101" href="01_Numpy_data_structures.html" />
+    <link rel="prev" title="DAY 03 - HOMEWORK" href="../day_03/05_homework.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,43 +110,43 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
    DAY 01 - basics
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_bash101.html">
+    <a class="reference internal" href="../day_01/01_bash101.html">
      BASH 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_anaconda101.html">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
      Anaconda environment 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_git101.html">
+    <a class="reference internal" href="../day_01/03_git101.html">
      Version control, git and github command line tools
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_jupyter_101.html">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
      Jupyter notebooks 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_markdown_101.html">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
      Markdown 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="06_homework.html">
+    <a class="reference internal" href="../day_01/06_homework.html">
      DAY 01 - HOMEWORK
     </a>
    </li>
@@ -231,38 +231,38 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_04/00_day_04_overview.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    DAY 04 - Numpy and Pandas 101
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+    <a class="reference internal" href="01_Numpy_data_structures.html">
      Numpy 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+    <a class="reference internal" href="02_Pandas_data_structures.html">
      Pandas 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+    <a class="reference internal" href="03_raw_to_tidy_with_pandas.html">
      From raw to structured
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+    <a class="reference internal" href="04_plotting_with_pandas.html">
      Plotting with pandas and Matplotlib
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/05_homework.html">
+    <a class="reference internal" href="05_homework.html">
      DAY 04 - HOMEWORK
     </a>
    </li>
@@ -309,9 +309,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_01/00_day_01_overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_04/00_day_04_overview.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -329,10 +329,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_01/00_day_01_overview.html&body=Your%20issue%20content%20here."><button
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_04/00_day_04_overview.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_01/00_day_01_overview.md"><button
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_04/00_day_04_overview.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -358,51 +358,39 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-begins">
-   Before We Begins
+  <a class="reference internal nav-link" href="#why-do-we-need-modules">
+   Why do we need modules?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introductions">
-   Introductions
+  <a class="reference internal nav-link" href="#the-scientific-python-ecosystem">
+   The scientific Python ecosystem
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-to-know-each-other">
-     Getting to know each other
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advice-on-benefiting-the-most-from-the-course">
-     Advice On Benefiting The Most From The Course
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#collaborate-and-share-ideas-code-examples-etc">
-     Collaborate And Share Ideas, Code, Examples Etc
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ask-questions">
-     Ask Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#know-when-to-give-up-and-ask-for-help">
-     Know When To Give Up And Ask For Help
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feedback">
-     Feedback
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-will-be-covered">
-     What Will be covered
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-pandas">
+   What is Pandas?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-numpy">
+   What is Numpy?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-matplotlib">
+   What is Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-this-module-will-cover">
+   What this module will cover
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#schedule">
@@ -424,7 +412,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DAY 01 - basics</h1>
+                <h1>DAY 04 - Numpy and Pandas 101</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -435,51 +423,39 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#before-we-begins">
-   Before We Begins
+  <a class="reference internal nav-link" href="#why-do-we-need-modules">
+   Why do we need modules?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introductions">
-   Introductions
+  <a class="reference internal nav-link" href="#the-scientific-python-ecosystem">
+   The scientific Python ecosystem
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-to-know-each-other">
-     Getting to know each other
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#advice-on-benefiting-the-most-from-the-course">
-     Advice On Benefiting The Most From The Course
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#collaborate-and-share-ideas-code-examples-etc">
-     Collaborate And Share Ideas, Code, Examples Etc
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ask-questions">
-     Ask Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#know-when-to-give-up-and-ask-for-help">
-     Know When To Give Up And Ask For Help
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feedback">
-     Feedback
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-will-be-covered">
-     What Will be covered
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-pandas">
+   What is Pandas?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-numpy">
+   What is Numpy?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-matplotlib">
+   What is Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-this-module-will-cover">
+   What this module will cover
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#schedule">
@@ -500,68 +476,103 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="day-01-basics">
-<h1>DAY 01 - basics<a class="headerlink" href="#day-01-basics" title="Permalink to this headline">¶</a></h1>
-<p>Controlling the fundamentals is critical in any field, but especially in data science.
-Today, I’ll go over five essential fundamentals in modern data science.</p>
-<ol class="simple">
-<li><p>Getting a Sense of the Linux Environment</p></li>
-<li><p>Establishing a reproducible computational environment</p></li>
-<li><p>Using version control to curate your work</p></li>
-<li><p>Using Jupyter notebook to document your work</p></li>
-<li><p>Using Markdown to document your projects</p></li>
-</ol>
-<div class="section" id="before-we-begins">
-<h2>Before We Begins<a class="headerlink" href="#before-we-begins" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="introductions">
-<h2>Introductions<a class="headerlink" href="#introductions" title="Permalink to this headline">¶</a></h2>
-<p>Hello everyone and welcome to the Data Science Bootcamp. I am Dr Eyal Soreq, your instructor for this course. During this course, you will learn how to apply modern data science methods to neurocognitive issues, including how to create reusable data-driven reports using the GWDG Jupyter cloud. The course aims to teach you some of the analytical skills you need to complete your PhD.</p>
-<div class="section" id="getting-to-know-each-other">
-<h3>Getting to know each other<a class="headerlink" href="#getting-to-know-each-other" title="Permalink to this headline">¶</a></h3>
-<p>Let’s go over all the people that are in this boot camp,
-If you can:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="day-04-numpy-and-pandas-101">
+<h1>DAY 04 - Numpy and Pandas 101<a class="headerlink" href="#day-04-numpy-and-pandas-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-do-we-need-modules">
+<h2>Why do we need modules?<a class="headerlink" href="#why-do-we-need-modules" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Say your full name</p></li>
-<li><p>Your scientific background</p></li>
-<li><p>Your programming background</p></li>
-<li><p>And why they would like to become neuroscientists</p></li>
+<li><p>Modules are simply a time-saving method of combining multiple pieces of useful functionality that serve a similar purpose.</p></li>
+<li><p>When a module can be easily disassociated from the larger programme, it is much simpler for a scientist to understand what they should anticipate receiving from that module.</p></li>
+<li><p>In addition to this, they are an effective method of working together toward the same goal.</p></li>
 </ul>
 </div>
-<div class="section" id="advice-on-benefiting-the-most-from-the-course">
-<h3>Advice On Benefiting The Most From The Course<a class="headerlink" href="#advice-on-benefiting-the-most-from-the-course" title="Permalink to this headline">¶</a></h3>
-<p>Aside from wishing you a warm welcome, I want to share some helpful tips for completing this course. At this point, you should have a lot of experience with online courses. Online courses, in my opinion, require different skills from students and provide a new way of studying. Being an online learner means you must be self-motivated and disciplined. Consequently, it’s your responsibility to establish and maintain a regular study schedule.</p>
+<div class="section" id="the-scientific-python-ecosystem">
+<h2>The scientific Python ecosystem<a class="headerlink" href="#the-scientific-python-ecosystem" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Consider the image below that illustrates the scientific eco-system that is based on Python</p></li>
+<li><p>At the core level we have three tools we already used extensively</p>
+<ul>
+<li><p>Anaconda for managing our environment</p></li>
+<li><p>Jupyter as our notebook framework that enables both documenting code and running it in the same time</p></li>
+<li><p>And under the hood we used the IPython which stands for interactive Python that powers our kernel</p></li>
+<li><p>Today we will extend our reach to cover two and half additional players, specifically Numpy and Pandas, with some backstage support from Matplotlib, which we will cover extensively tomorrow.<br />
+<img alt="" src="../../_images/eco_system.png" /></p></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="section" id="collaborate-and-share-ideas-code-examples-etc">
-<h3>Collaborate And Share Ideas, Code, Examples Etc<a class="headerlink" href="#collaborate-and-share-ideas-code-examples-etc" title="Permalink to this headline">¶</a></h3>
-<p>A key factor for course success is completing all assignments. Collaboration with your classmates is not only permitted, but I encourage it. Getting a deeper understanding of something is best achieved by successfully teaching it to someone else. Even so, you will find that the course is designed in such a way that each assignment is personalized.</p>
+<div class="section" id="what-is-pandas">
+<h2>What is <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>?<a class="headerlink" href="#what-is-pandas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pandas is Pythons basic data analytics package that provides quick, versatile, and expressive data structures that make dealing with “relational” or “labelled” data straightforward.</p></li>
+<li><p>It’s a high-level building component for real-world Python data analysis.</p></li>
+<li><p>It is probably the most powerful and useful open source data analysis/manipulation tool for small to mid size datasets (10 to 10 million rows give or take).</p></li>
+</ul>
 </div>
-<div class="section" id="ask-questions">
-<h3>Ask Questions<a class="headerlink" href="#ask-questions" title="Permalink to this headline">¶</a></h3>
-<p>I can’t stress this enough, you are in your very first steps in what I hope will become a fruitful career. However, you will soon find that in most cases, the technical, programmatic and even theoretical problems you encounter are not unique. Learn from other people experience.</p>
+<div class="section" id="what-is-numpy">
+<h2>What is <a class="reference external" href="https://numpy.org/doc/stable/user/whatisnumpy.html">Numpy</a>?<a class="headerlink" href="#what-is-numpy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Numpy is Pythons basic scientific computing package that provides several essential capabilities such as:</p>
+<ul>
+<li><p>Multidimensional array object,</p></li>
+<li><p>Derived objects (such as masked arrays and matrices),</p></li>
+<li><p>Routines for fast array operations, including:</p>
+<ul>
+<li><p>mathematical,</p></li>
+<li><p>logical,</p></li>
+<li><p>shape manipulation,</p></li>
+<li><p>sorting,</p></li>
+<li><p>selecting,</p></li>
+<li><p>I/O (i.e. input/output),</p></li>
+<li><p>discrete Fourier transforms,</p></li>
+<li><p>basic linear algebra,</p></li>
+<li><p>basic statistical operations,</p></li>
+<li><p>random simulation,</p></li>
+<li><p>and more.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="section" id="know-when-to-give-up-and-ask-for-help">
-<h3>Know When To Give Up And Ask For Help<a class="headerlink" href="#know-when-to-give-up-and-ask-for-help" title="Permalink to this headline">¶</a></h3>
-<p>When you search online for more than 15 minutes and get no relevant result, you might be asking the wrong questions. If you spend more than an hour trying to solve a problem using online sources and nothing works, it might be useful to ask a friend, a supervisor, or collaborator.</p>
+<div class="section" id="what-is-matplotlib">
+<h2>What is Matplotlib<a class="headerlink" href="#what-is-matplotlib" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In Python, Matplotlib is the “grandfather” of data visualization.</p></li>
+<li><p>It was created to try and replicate MATLAB’s plotting capabilities with Python.</p></li>
+<li><p>It is an excellent 2D and 3D graphics library for creating reproducible publication ready scientific figures.</p></li>
+<li><p>Some of the major Pros of Matplotlib are:</p>
+<ul>
+<li><p>Simple plots are generally easy to create</p></li>
+<li><p>Each element in the figure is nicely controlled</p></li>
+<li><p>A variety of output formats with high quality</p></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="section" id="feedback">
-<h3>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h3>
-<p>As you know, the course also has a <a class="reference external" href="https://virtualcampus.maxplanckschools.org/course/view.php?id=153#section-1">blackboard site</a>. Please give us feedback on how to improve the course, it will benefit you immediately.
-We also have a slack workspace to make interactions more simple.
-Please use it to ask questions give feedback and in general share you successes and failures - sometimes sharing the right error is a step away from solving the problem.</p>
+<div class="section" id="what-this-module-will-cover">
+<h2>What this module will cover<a class="headerlink" href="#what-this-module-will-cover" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Today’s main objective is to familiarize you with the core scientific packages in the Python eco-system.</p></li>
+<li><p>We will start by looking over the different Numpy and Pandas data structures</p>
+<ul>
+<li><p>How to create them</p></li>
+<li><p>How to use them</p></li>
+<li><p>And how to save them</p></li>
+</ul>
+</li>
+<li><p>Then focus on Numpy and go over some advanced functionalities</p></li>
+<li><p>Return to Pandas to explore some basic and advanced data capabilities</p></li>
+</ul>
 </div>
-<div class="section" id="what-will-be-covered">
-<h3>What Will be covered<a class="headerlink" href="#what-will-be-covered" title="Permalink to this headline">¶</a></h3>
-<p>Our focus in this five-day course is to learn how to use <a class="reference external" href="https://jupyter-cloud.gwdg.de/welcome/">gwdg Jupyter-cloud</a> as your primary analytical tool. This first day is all about taking control over your scientific environment.</p>
-<p>If there is a specific topic you would like me to cover or expand on, please let me know by leaving a comment on the feedback section of the blackboard site or the slack channel.
-This  course’s content is dynamically generated from notebooks using a framework called jupyter-book, so if possible,  I’ll simply add a response to your questions in  tomorrow’s session.
-If I believe that a response in the slack channel would be better served, I may do so as well.
-In general, if you are on the Slack channel and know how to assist a friend, please do so.
-If I think this is a great response, I’ll just smile (and tag a smile) and move on.
-If, on the other hand, I believe the answer is incomplete, I will share my thoughts with you, and you will gain some knowledge as well, and we will discuss the subject.
-Finally, one of the best aspects of academia is that it is the only place where you are required to constantly learn.
-If you believe there is a better way to accomplish something in my examples, please share your thoughts with me and your classmates.</p>
-</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">Getting started with Pandas</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/quickstart.html">NumPy quick start</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">NumPy for MATLAB users</a></p></li>
+</ul>
 </div>
 <div class="section" id="schedule">
 <h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
@@ -573,52 +584,44 @@ If you believe there is a better way to accomplish something in my examples, ple
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:right"><p>09:00-09:20</p></td>
-<td class="text-align:right"><p>Getting to know each other</p></td>
-<td class="text-align:right"><p>Some expectations and overview of this week</p></td>
+<tr class="row-even"><td class="text-align:right"><p>09:00-09:10</p></td>
+<td class="text-align:right"><p>Day 04 overview</p></td>
+<td class="text-align:right"><p>Intro to core scientific tools in Python</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>09:20-09:50</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="01_bash101.html"><span class="doc std std-doc">Bash 101</span></a></p></td>
-<td class="text-align:right"><p>Learning to use a Linux terminal</p></td>
+<tr class="row-odd"><td class="text-align:right"><p>09:10-09:50</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="01_Numpy_data_structures.html"><span class="doc std std-doc">Numpy 101</span></a></p></td>
+<td class="text-align:right"><p>Python Functions 101</p></td>
 </tr>
 <tr class="row-even"><td class="text-align:right"><p>09:50-09:55</p></td>
 <td class="text-align:right"><p>Break</p></td>
 <td class="text-align:right"><p>Coffee or Tea</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>09:55-10:20</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="02_anaconda101.html"><span class="doc std std-doc">Anaconda 101</span></a></p></td>
-<td class="text-align:right"><p>Setting up an anaconda development environment</p></td>
+<tr class="row-odd"><td class="text-align:right"><p>10:00-10:40</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="02_Pandas_data_structures.html"><span class="doc std std-doc">Pandas 101</span></a></p></td>
+<td class="text-align:right"><p>What are modules and packages in Python</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>10:20-10:25</p></td>
+<tr class="row-even"><td class="text-align:right"><p>10:40-10:45</p></td>
 <td class="text-align:right"><p>Break</p></td>
 <td class="text-align:right"><p>Coffee or Tea</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>10:25-10:50</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="03_git101.html"><span class="doc std std-doc">Git 101</span></a></p></td>
-<td class="text-align:right"><p>Learning the basics of git and GitHub</p></td>
+<tr class="row-odd"><td class="text-align:right"><p>10:45-11:10</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="03_raw_to_tidy_with_pandas.html"><span class="doc std std-doc">From raw to tidy</span></a></p></td>
+<td class="text-align:right"><p>Practical environment setup</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>10:50-10:55</p></td>
+<tr class="row-even"><td class="text-align:right"><p>11:10-11:15</p></td>
 <td class="text-align:right"><p>Break</p></td>
 <td class="text-align:right"><p>Coffee or Tea</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>10:55-11:20</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="04_jupyter_101.html"><span class="doc std std-doc">Jupyter 101</span></a></p></td>
-<td class="text-align:right"><p>First introduction to jupyter notebook</p></td>
+<tr class="row-odd"><td class="text-align:right"><p>11:15-11:45</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="04_plotting_with_pandas.html"><span class="doc std std-doc">Plotting in Pandas</span></a></p></td>
+<td class="text-align:right"><p>Classes in Python</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>11:20-10:25</p></td>
-<td class="text-align:right"><p>Break</p></td>
-<td class="text-align:right"><p>Coffee or Tea</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:right"><p>11:25-11:45</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="05_markdown_101.html"><span class="doc std std-doc">Markdown 101</span></a></p></td>
-<td class="text-align:right"><p>Learning to use markdown</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:right"><p>11:20-10:25</p></td>
+<tr class="row-even"><td class="text-align:right"><p>11:45-11:50</p></td>
 <td class="text-align:right"><p>Break</p></td>
 <td class="text-align:right"><p>Coffee or Tea</p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:right"><p>11:50-12:00</p></td>
-<td class="text-align:right"><p><a class="reference internal" href="06_homework.html"><span class="doc std std-doc">homework assignment</span></a></p></td>
+<td class="text-align:right"><p><span class="xref myst">homework assignment</span></p></td>
 <td class="text-align:right"><p>Going over the homework assignment</p></td>
 </tr>
 </tbody>
@@ -626,7 +629,7 @@ If you believe there is a better way to accomplish something in my examples, ple
 </div>
 <div class="section" id="home-work">
 <h2>Home work<a class="headerlink" href="#home-work" title="Permalink to this headline">¶</a></h2>
-<p>After finishing all the modules please complete day one <a class="reference internal" href="06_homework.html"><span class="doc std std-doc">homework assignment</span></a></p>
+<p>After finishing all the modules please complete day three <span class="xref myst">homework assignment</span></p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -645,7 +648,7 @@ If you believe there is a better way to accomplish something in my examples, ple
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./bootcamp/day_01"
+            path: "./bootcamp/day_04"
         },
         predefinedOutput: true
     }
@@ -657,17 +660,17 @@ If you believe there is a better way to accomplish something in my examples, ple
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../../about/intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../day_03/05_homework.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">BOOT CAMP</p>
+            <p class="prev-next-title">DAY 03 - HOMEWORK</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_bash101.html" title="next page">
+    <a class='right-next' id="next-link" href="01_Numpy_data_structures.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">BASH 101</p>
+        <p class="prev-next-title">Numpy 101</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
