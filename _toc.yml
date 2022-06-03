@@ -33,11 +33,11 @@ parts:
       - file: bootcamp/day_04/03_raw_to_tidy_with_pandas   
       - file: bootcamp/day_04/04_plotting_with_pandas      
       - file: bootcamp/day_04/05_homework      
-    # - file: bootcamp/day_05/day_05_overview
-    #   sections:
-    #   - file: bootcamp/day_05/describing_data
-    #   - file: bootcamp/day_05/static_data_visualization
-    #   - file: bootcamp/day_05/interactive_data_visualization      
+    - file: bootcamp/day_05/00_day_05_overview
+      sections:
+      - file: bootcamp/day_05/describing_data
+      - file: bootcamp/day_05/01_visual_perception
+      - file: bootcamp/day_05/02_matplotlib_101      
 
 
 
