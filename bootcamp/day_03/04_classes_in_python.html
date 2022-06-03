@@ -268,6 +268,33 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_05/00_day_05_overview.html">
+   DAY 05 - Data visualisation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_05/describing_data.html">
+     describing_data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_05/01_visual_perception.html">
+     Graphical Representations of Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_05/02_matplotlib_101.html">
+     intro to matplotlib
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -735,7 +762,7 @@ errors              list    n=48
 number_of_obs = (50, 50, 50)
 number_of_groups = 3
 group_names = [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;]
-lambda_fun = &lt;function &lt;lambda&gt; at 0x7fac54bb25e0&gt;
+lambda_fun = &lt;function &lt;lambda&gt; at 0x7f009c650790&gt;
 bool = True
 chr_fun = &lt;built-in function chr&gt;
 test = t-test
@@ -769,7 +796,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;number_of_obs&#39;: (50, 50, 50), &#39;number_of_groups&#39;: 3, &#39;group_names&#39;: [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;], &#39;lambda_fun&#39;: &lt;function &lt;lambda&gt; at 0x7fac54bb25e0&gt;, &#39;bool&#39;: True, &#39;chr_fun&#39;: &lt;built-in function chr&gt;, &#39;test&#39;: &#39;t-test&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;number_of_obs&#39;: (50, 50, 50), &#39;number_of_groups&#39;: 3, &#39;group_names&#39;: [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;], &#39;lambda_fun&#39;: &lt;function &lt;lambda&gt; at 0x7f009c650790&gt;, &#39;bool&#39;: True, &#39;chr_fun&#39;: &lt;built-in function chr&gt;, &#39;test&#39;: &#39;t-test&#39;}
 </pre></div>
 </div>
 </div>
@@ -803,7 +830,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;first_name&#39;: &#39;Eyal&#39;, &#39;last_name&#39;: &#39;Soreq&#39;, &#39;Data_type&#39;: &#39;EEG&#39;, &#39;date&#39;: datetime.date(2022, 6, 2)}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;first_name&#39;: &#39;Eyal&#39;, &#39;last_name&#39;: &#39;Soreq&#39;, &#39;Data_type&#39;: &#39;EEG&#39;, &#39;date&#39;: datetime.date(2022, 6, 3)}
 </pre></div>
 </div>
 </div>
@@ -838,7 +865,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-02 for a EEG experiment
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-03 for a EEG experiment
 </pre></div>
 </div>
 </div>
@@ -886,9 +913,9 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-02 for a EEG experiment
-Odd one out registered at 06:04:36
-Stroop word test registered at 06:04:38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-03 for a EEG experiment
+Odd one out registered at 06:50:11
+Stroop word test registered at 06:50:13
 </pre></div>
 </div>
 </div>
@@ -950,13 +977,13 @@ Stroop word test registered at 06:04:38
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using EEG was registered at 06:04:38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using EEG was registered at 06:50:13
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using MRI was registered at 06:04:40
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using MRI was registered at 06:50:15
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using eye_tracker was registered at 06:04:42
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using eye_tracker was registered at 06:50:17
 </pre></div>
 </div>
 </div>

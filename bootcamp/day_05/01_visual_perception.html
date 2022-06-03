@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphical Representations of Data &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_05/01_visual_perception.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="intro to matplotlib" href="02_matplotlib_101.html" />
+    <link rel="prev" title="describing_data" href="describing_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/intro.html">
+   BOOT CAMP
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  -----
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_01/00_day_01_overview.html">
+   DAY 01 - basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/01_bash101.html">
+     BASH 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/02_anaconda101.html">
+     Anaconda environment 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/03_git101.html">
+     Version control, git and github command line tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/04_jupyter_101.html">
+     Jupyter notebooks 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/05_markdown_101.html">
+     Markdown 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_01/06_homework.html">
+     DAY 01 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_02/00_day_02_overview.html">
+   DAY 02 - Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+     PYTHON SYNTAX 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/02_variables_101.html">
+     PYTHON Basic Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/03_data_types.html">
+     PYTHON Data operations 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/04_python_data_structures.html">
+     PYTHON Data structures 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/05_programming_101.html">
+     Python Programming 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_02/06_home_work.html">
+     DAY 02 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_03/00_day_03_overview.html">
+   DAY 03 - Programming with Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/01_python_functions_101.html">
+     PYTHON FUNCTIONS 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/02_python_modules_101.html">
+     PYTHON MODULES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+     PYTHON ANACONDA 102
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/04_classes_in_python.html">
+     PYTHON CLASSES 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_03/05_homework.html">
+     DAY 03 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../day_04/00_day_04_overview.html">
+   DAY 04 - Numpy and Pandas 101
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+     Numpy 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+     Pandas 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+     From raw to structured
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+     Plotting with pandas and Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../day_04/05_homework.html">
+     DAY 04 - HOMEWORK
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_day_05_overview.html">
+   DAY 05 - Data visualisation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="describing_data.html">
+     describing_data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Graphical Representations of Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_matplotlib_101.html">
+     intro to matplotlib
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_05/01_visual_perception.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_05/01_visual_perception.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_05/01_visual_perception.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-building-blocks-of-visualization">
+   The Building Blocks of Visualization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-visual-channels-we-can-manipulate">
+     The visual channels we can manipulate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-channels-grouping">
+     Visual channels grouping
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#associative">
+       Associative:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#selective">
+       Selective
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ordered">
+       Ordered
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantitative">
+       Quantitative:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-everything-is-relative-to-context">
+   But everything is relative to context
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#consider-the-following-example">
+     Consider the following example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#or-another-competing-example">
+     Or another competing example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-context">
+     Adding context
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestalt">
+   Gestalt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestalt-principles">
+   Gestalt principles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-low-level-principles">
+     Some low level principles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-some-higher-level-principles">
+     And some higher level principles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-system-is-modular">
+     Visual system is modular
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-can-be-manipulated-quite-easily">
+     And can be manipulated quite easily
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#consider-this-grid">
+       consider this grid
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#now-consider-this-gradient">
+       Now consider this gradient
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#if-we-combine-these-we-get-an-optical-illusion-that-implies-direction-even-though-no-direction-exists">
+       If we combine these we get an optical illusion that implies direction even though no direction exists
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rotating-the-gradient-changes-the-direction">
+       Rotating the gradient changes the direction
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-manipulate-local-perception-as-effectively">
+     We can manipulate local perception as effectively
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#now-consider-this-example">
+       Now consider this example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-case-of-color">
+   The case of color
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colour-mixtures-and-selections">
+     Colour mixtures and selections
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-make-this-point-clear-lets-apply-these-rules-to-some-fixed-set-of-shapes">
+       To make this point clear lets apply these rules to some fixed set of shapes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monochromatic-harmony">
+       Monochromatic harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analogous-harmony">
+       Analogous harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#complementary-harmony">
+       Complementary harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#triadic-harmony">
+       Triadic harmony
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Graphical Representations of Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-building-blocks-of-visualization">
+   The Building Blocks of Visualization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-visual-channels-we-can-manipulate">
+     The visual channels we can manipulate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-channels-grouping">
+     Visual channels grouping
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#associative">
+       Associative:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#selective">
+       Selective
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ordered">
+       Ordered
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quantitative">
+       Quantitative:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-everything-is-relative-to-context">
+   But everything is relative to context
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#consider-the-following-example">
+     Consider the following example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#or-another-competing-example">
+     Or another competing example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-context">
+     Adding context
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestalt">
+   Gestalt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestalt-principles">
+   Gestalt principles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-low-level-principles">
+     Some low level principles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-some-higher-level-principles">
+     And some higher level principles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visual-system-is-modular">
+     Visual system is modular
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-can-be-manipulated-quite-easily">
+     And can be manipulated quite easily
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#consider-this-grid">
+       consider this grid
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#now-consider-this-gradient">
+       Now consider this gradient
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#if-we-combine-these-we-get-an-optical-illusion-that-implies-direction-even-though-no-direction-exists">
+       If we combine these we get an optical illusion that implies direction even though no direction exists
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rotating-the-gradient-changes-the-direction">
+       Rotating the gradient changes the direction
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-can-manipulate-local-perception-as-effectively">
+     We can manipulate local perception as effectively
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#now-consider-this-example">
+       Now consider this example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-case-of-color">
+   The case of color
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#colour-mixtures-and-selections">
+     Colour mixtures and selections
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-make-this-point-clear-lets-apply-these-rules-to-some-fixed-set-of-shapes">
+       To make this point clear lets apply these rules to some fixed set of shapes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#monochromatic-harmony">
+       Monochromatic harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analogous-harmony">
+       Analogous harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#complementary-harmony">
+       Complementary harmony
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#triadic-harmony">
+       Triadic harmony
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
+   Links to expand your understanding
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="graphical-representations-of-data">
+<h1>Graphical Representations of Data<a class="headerlink" href="#graphical-representations-of-data" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Data visualisation is more than just putting numbers on a chart for everyone to see.</p></li>
+<li><p>In order to be successful in data visualisation, you need to have a solid foundation in the field.</p></li>
+<li><p>Understanding why some data visualisation methods are more effective than others is based on the psychology of visual perception.</p></li>
+<li><p>Every time you create a plot, you can use a variety of psychological concepts.</p></li>
+<li><p>This lecture is by no means exhaustive it merely tries to highlight the importance of paying attention to the selections you make when you try to communicate ideas using visualisations</p></li>
+</ul>
+<div class="section" id="the-building-blocks-of-visualization">
+<h2>The Building Blocks of Visualization<a class="headerlink" href="#the-building-blocks-of-visualization" title="Permalink to this headline">¶</a></h2>
+<p>A visualization is composed of a set of visual items representing pieces of information. For each item in a visualization, we may use a number of visual channels to represent that item. Different visual channels can be used to represent the same item in different ways and to support different objectives.</p>
+<div class="section" id="the-visual-channels-we-can-manipulate">
+<h3>The visual channels we can manipulate<a class="headerlink" href="#the-visual-channels-we-can-manipulate" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/figures_day05_01.png" /></p>
+</div>
+<div class="section" id="visual-channels-grouping">
+<h3>Visual channels grouping<a class="headerlink" href="#visual-channels-grouping" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The visual medium is powerful in conveying specific sorts of information.</p></li>
+<li><p>Using colour or texture to distinguish between categorical variables, for example, is more effective for illustrating qualitative data than quantitative data.</p></li>
+<li><p>Cultural associations with more specific conceptions also influence immediate recognition.</p></li>
+<li><p>On the other hand, the position is excellent at representing quantitative data, but it isn’t as effective at identifying categories.</p></li>
+</ul>
+<div class="section" id="associative">
+<h4>Associative:<a class="headerlink" href="#associative" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Allowing all elements of a variable associated with some category with different values to be put together</p>
+<ul>
+<li><p>Texture,</p></li>
+<li><p>Colour,</p></li>
+<li><p>Orientation,</p></li>
+<li><p>Shape</p></li>
+<li><p>connection</p></li>
+<li><p>containment</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="selective">
+<h4>Selective<a class="headerlink" href="#selective" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Attending to one type of data, figuring out where visual items in the same category are, and ignoring others.</p>
+<ul>
+<li><p>size,</p></li>
+<li><p>brightness,</p></li>
+<li><p>transparency</p></li>
+<li><p>texture,</p></li>
+<li><p>colour,</p></li>
+<li><p>orientation</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="ordered">
+<h4>Ordered<a class="headerlink" href="#ordered" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Communicating visual ranking of the data</p>
+<ul>
+<li><p>planer</p></li>
+<li><p>size,</p></li>
+<li><p>brightness,</p></li>
+<li><p>density,</p></li>
+<li><p>Curvature</p></li>
+<li><p>depth</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="quantitative">
+<h4>Quantitative:<a class="headerlink" href="#quantitative" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Communicating visual ratios without the need to inspect a legend</p>
+<ul>
+<li><p>Planer,</p></li>
+<li><p>Size</p></li>
+<li><p>Brightness</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="but-everything-is-relative-to-context">
+<h2>But everything is relative to context<a class="headerlink" href="#but-everything-is-relative-to-context" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="consider-the-following-example">
+<h3>Consider the following example<a class="headerlink" href="#consider-the-following-example" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/figures_day05_02.png" /></p>
+</div>
+<div class="section" id="or-another-competing-example">
+<h3>Or another competing example<a class="headerlink" href="#or-another-competing-example" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/figures_day05_03.png" /></p>
+</div>
+<div class="section" id="adding-context">
+<h3>Adding context<a class="headerlink" href="#adding-context" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>When I give the context or change the ratio of stimulation the message becomes focused</p></li>
+</ul>
+<p><img alt="" src="../../_images/figures_day05_04.png" /></p>
+</div>
+</div>
+<div class="section" id="gestalt">
+<h2>Gestalt<a class="headerlink" href="#gestalt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Gestalt is an important theory in human psychology.</p></li>
+<li><p>It was created in the early 20th century by German psychologists Max Wertheimer (1880–1943), Kurt Koffka (1886–1941), and Wolfgang Kohler (1887–1967).</p></li>
+<li><p>The theory is about how our brains automatically create structure.</p></li>
+<li><p>It changes the meaning of the information presented in a big way. The German word “gestalt” means “unified whole” in English.</p></li>
+<li><p>It is often used to describe the idea that the whole is greater than the sum of its parts.</p></li>
+</ul>
+</div>
+<div class="section" id="gestalt-principles">
+<h2>Gestalt principles<a class="headerlink" href="#gestalt-principles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Gestalt principles explain how the brain automatically creates structure when it looks at something.</p></li>
+<li><p>This is why you can read the letters at the beginning of this article that are in the wrong order because your brain already knows how each word in that sentence is put together.</p></li>
+<li><p>Gestalt theory is a scientific explanation of how humans naturally look for patterns.</p></li>
+<li><p>Visual artists can use this theory to create images that communicate information in the most effective way.</p></li>
+<li><p>Designers don’t just use their intuition and imagination to make graphics and user experiences.</p></li>
+<li><p>Gestalt principles are used by most designers, whether they are aware of it or not.</p></li>
+<li><p>And whenever you create a data visualization you apply some of these principles (in a useful of destructive way)</p></li>
+</ul>
+<div class="section" id="some-low-level-principles">
+<h3>Some low level principles<a class="headerlink" href="#some-low-level-principles" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/figures_day05_05.png" /></p>
+</div>
+<div class="section" id="and-some-higher-level-principles">
+<h3>And some higher level principles<a class="headerlink" href="#and-some-higher-level-principles" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/figures_day05_06.png" /></p>
+</div>
+<div class="section" id="visual-system-is-modular">
+<h3>Visual system is modular<a class="headerlink" href="#visual-system-is-modular" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We need to remember that the visual system is one of the most modular areas in the cortex
+<img alt="" src="../../_images/figures_day05_07.png" /></p></li>
+</ul>
+</div>
+<div class="section" id="and-can-be-manipulated-quite-easily">
+<h3>And can be manipulated quite easily<a class="headerlink" href="#and-can-be-manipulated-quite-easily" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="consider-this-grid">
+<h4>consider this grid<a class="headerlink" href="#consider-this-grid" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_09.png" /></p>
+</div>
+<div class="section" id="now-consider-this-gradient">
+<h4>Now consider this gradient<a class="headerlink" href="#now-consider-this-gradient" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_12.png" /></p>
+</div>
+<div class="section" id="if-we-combine-these-we-get-an-optical-illusion-that-implies-direction-even-though-no-direction-exists">
+<h4>If we combine these we get an optical illusion that implies direction even though no direction exists<a class="headerlink" href="#if-we-combine-these-we-get-an-optical-illusion-that-implies-direction-even-though-no-direction-exists" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_08.png" /></p>
+</div>
+<div class="section" id="rotating-the-gradient-changes-the-direction">
+<h4>Rotating the gradient changes the direction<a class="headerlink" href="#rotating-the-gradient-changes-the-direction" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_11.png" /></p>
+</div>
+</div>
+<div class="section" id="we-can-manipulate-local-perception-as-effectively">
+<h3>We can manipulate local perception as effectively<a class="headerlink" href="#we-can-manipulate-local-perception-as-effectively" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A neat example of this builds on limitations of v4</p></li>
+<li><p>The foreground hue used for these two examples is exactly the same</p></li>
+<li><p>The choice of different background hues changes our perception of those</p></li>
+<li><p>But this is obviously a global effect</p></li>
+</ul>
+<p><img alt="" src="../../_images/figures_day05_13.png" /></p>
+<p><img alt="" src="../../_images/figures_day05_14.png" /></p>
+<div class="section" id="now-consider-this-example">
+<h4>Now consider this example<a class="headerlink" href="#now-consider-this-example" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Different local masking (or the lack of it) transformed the low frequency perception of the hues to a larger degree</p></li>
+</ul>
+<p><img alt="" src="../../_images/figures_day05_15.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="the-case-of-color">
+<h2>The case of color<a class="headerlink" href="#the-case-of-color" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Over the years color perception has spawned many different theories and color systems</p></li>
+<li><p>Here are four toy figures to illustrate the different ones</p></li>
+</ul>
+<p><img alt="" src="../../_images/figures_day05_16.png" /></p>
+<div class="section" id="colour-mixtures-and-selections">
+<h3>Colour mixtures and selections<a class="headerlink" href="#colour-mixtures-and-selections" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using the computerised version of the opponent system we can derive several harmonic rules that can be used to simplify the complex space of color selection</p></li>
+</ul>
+<p><img alt="" src="../../_images/figures_day05_17.png" /></p>
+<div class="section" id="to-make-this-point-clear-lets-apply-these-rules-to-some-fixed-set-of-shapes">
+<h4>To make this point clear lets apply these rules to some fixed set of shapes<a class="headerlink" href="#to-make-this-point-clear-lets-apply-these-rules-to-some-fixed-set-of-shapes" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="monochromatic-harmony">
+<h4>Monochromatic harmony<a class="headerlink" href="#monochromatic-harmony" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_19.png" /></p>
+</div>
+<div class="section" id="analogous-harmony">
+<h4>Analogous harmony<a class="headerlink" href="#analogous-harmony" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_20.png" /></p>
+</div>
+<div class="section" id="complementary-harmony">
+<h4>Complementary harmony<a class="headerlink" href="#complementary-harmony" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_21.png" /></p>
+</div>
+<div class="section" id="triadic-harmony">
+<h4>Triadic harmony<a class="headerlink" href="#triadic-harmony" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/figures_day05_21.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="links-to-expand-your-understanding">
+<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>For those interested in learning more…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ora.ox.ac.uk/objects/uuid:b98ccce1-038f-4c0a-a259-7f53dfe06ac7">Systematising glyph design for visualization</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bootcamp/day_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="describing_data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">describing_data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_matplotlib_101.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">intro to matplotlib</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
