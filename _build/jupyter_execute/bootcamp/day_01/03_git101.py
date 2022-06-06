@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Version control, git and github command line tools
+# ## Version control, git and github command line tools
 # 
-# ## Basic terminolgy
+# ### Basic terminolgy
 # 
-# ### what is version control 
+# #### what is version control 
 # Version control is a type of software that keeps track of every modification to the code in a special kind of database.
 # 
 # #### Why do we need to use version control when we code? 

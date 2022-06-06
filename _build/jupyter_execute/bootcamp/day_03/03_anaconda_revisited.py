@@ -30,7 +30,7 @@
 
 
 from pathlib import Path
-project_root = './SYS_2022/bootcamp'
+project_root = '~/SYS_2022/bootcamp'
 sub_folders = ['data','notebooks','code','report','background']
 _ = [Path(project_root + f'/{folder}').mkdir(parents=True, exist_ok=True) for folder in sub_folders]
 
@@ -40,7 +40,7 @@ _ = [Path(project_root + f'/{folder}').mkdir(parents=True, exist_ok=True) for fo
 # In[2]:
 
 
-project_root = Path('./SYS_2022')
+project_root = Path('~/SYS_2022')
 SYS_2022 = project_root / 'SYS_2022.yml'
 SYS_2022.write_text("""
 name: SYS_2022

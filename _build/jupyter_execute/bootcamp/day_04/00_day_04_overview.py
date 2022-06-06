@@ -3,12 +3,12 @@
 
 # # DAY 04 - Numpy and Pandas 101
 # 
-# ## Why do we need modules?
+# ### Why do we need modules?
 # - Modules are simply a time-saving method of combining multiple pieces of useful functionality that serve a similar purpose. 
 # - When a module can be easily disassociated from the larger programme, it is much simpler for a scientist to understand what they should anticipate receiving from that module.
 # - In addition to this, they are an effective method of working together toward the same goal.
 # 
-# ## The scientific Python ecosystem
+# ### The scientific Python ecosystem
 # - Consider the image below that illustrates the scientific eco-system that is based on Python 
 # - At the core level we have three tools we already used extensively
 #   - Anaconda for managing our environment 
@@ -17,12 +17,12 @@
 #   - Today we will extend our reach to cover two and half additional players, specifically Numpy and Pandas, with some backstage support from Matplotlib, which we will cover extensively tomorrow.  
 # ![](../../images/eco_system.png)
 # 
-# ## What is [Pandas](https://pandas.pydata.org/)?
+# ### What is [Pandas](https://pandas.pydata.org/)?
 # - Pandas is Pythons basic data analytics package that provides quick, versatile, and expressive data structures that make dealing with "relational" or "labelled" data straightforward. 
 # - It's a high-level building component for real-world Python data analysis. 
 # - It is probably the most powerful and useful open source data analysis/manipulation tool for small to mid size datasets (10 to 10 million rows give or take).
 # 
-# ## What is [Numpy](https://numpy.org/doc/stable/user/whatisnumpy.html)?
+# ### What is [Numpy](https://numpy.org/doc/stable/user/whatisnumpy.html)?
 # - Numpy is Pythons basic scientific computing package that provides several essential capabilities such as: 
 #   - Multidimensional array object, 
 #   - Derived objects (such as masked arrays and matrices), 
@@ -39,7 +39,7 @@
 #     - random simulation, 
 #     - and more.
 # 
-# ## What is Matplotlib
+# ### What is Matplotlib
 # - In Python, Matplotlib is the "grandfather" of data visualization. 
 # - It was created to try and replicate MATLAB's plotting capabilities with Python. 
 # - It is an excellent 2D and 3D graphics library for creating reproducible publication ready scientific figures.
@@ -49,7 +49,7 @@
 #   * Each element in the figure is nicely controlled
 #   * A variety of output formats with high quality
 # 
-# ## What this module will cover
+# ### What this module will cover
 # - Today's main objective is to familiarize you with the core scientific packages in the Python eco-system.
 # - We will start by looking over the different Numpy and Pandas data structures
 #   - How to create them 
@@ -59,7 +59,7 @@
 # - Return to Pandas to explore some basic and advanced data capabilities   
 # 
 #   
-# ## Links to expand your understanding 
+# ### Links to expand your understanding 
 # 
 # For those interested in learning more...
 # 

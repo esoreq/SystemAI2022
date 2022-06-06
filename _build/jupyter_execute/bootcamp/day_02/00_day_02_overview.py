@@ -12,7 +12,7 @@
 # - In the context of Data Science in general and specifically in neuroscience it is quickly the new lingua franca of the field. 
 # 
 # 
-# ## Some basic recommendations
+# ### Some basic recommendations
 # 
 # - Python projects can require complex development or implementation; in those cases, it is recommended to use some integrated development environment (IDE), for example, PyCharm. 
 # - While the use of IDE is not discouraged, I feel that it isn't necessary for applied Data Science projects (as opposed to algorithm development, for example). 
@@ -20,7 +20,7 @@
 # - However, my current favourite tool is visual studio code, which has a nice Python and Jupyter built-in support.
 # 
 # 
-# ## Module Recommendation
+# ### Module Recommendation
 # 
 # - today's main objective is to familiarize you with the use of this framework  and Python, making the writing process intuitive.
 # - All slides you will see were created using Jupyter, and all code snippets can be copied and pasted into your notebook.
@@ -28,7 +28,7 @@
 # Instead, write down the commands in your notebook and try to add your own comments.
 # - Keep in mind that you are doing this for future you, who in six months will want to know how to do something trivial, and having it in one (or more) notebooks that you have created will be worthwhile 
 # 
-# ## What this module will cover
+# ### What this module will cover
 # - This module is composed of several sections going over Python essentials such as: 
 #     1. Python Basics (e.g. Syntax Essentials, Keywords, Variables, Data Types, Comments and Operators)
 #     1. Python Data Structures (e.g. Lists, Tuples, Dictionaries and Sets)
@@ -37,7 +37,7 @@
 # 
 # 
 # 
-# ## Links to expand your understanding 
+# ### Links to expand your understanding 
 # 
 # For those interested in learning more...
 # 

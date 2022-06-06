@@ -2,7 +2,7 @@
 
 ## Introductions
 
-Hello everyone and welcome to the Data Science Bootcamp. I am Dr Eyal Soreq, your instructor for this course. During this course, you will learn how to apply modern data science methods to neurocognitive issues, including how to clean and transform real datasets, create reusable data-driven reports, apply machine learning concepts to datasets to answer questions. The course goal is to provide you with some of the broader analytical skills you need to complete your PhD. This is a baseline course, it assumes no prior Python knowledge and for those of you which this is not true this might be frustrating. My suggestion is to use this opportunity to refine you skills by either challenging yourself during the course, or by providing mentorship to those who are struggling teaching a topic is the best way to master it. 
+Hello everyone and welcome to the Data Science Bootcamp. I am Dr Eyal Soreq, your instructor for this course. During this course, you will learn how to apply modern data science methods to cognitive metrics, including how to clean and transform real datasets, create reusable data-driven reports, apply machine learning concepts to datasets to answer questions. The course goal is to provide you with some of the broader analytical skills you need to complete your PhD. This is a baseline course, it assumes no prior Python knowledge and for those of you which this is not true this might be frustrating. My suggestion is to use this opportunity to refine you skills by either challenging yourself during the course, or by providing mentorship to those who are struggling teaching a topic is the best way to master it. 
 
 ## Advice On Benefiting The Most From The Course
 

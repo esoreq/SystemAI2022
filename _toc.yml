@@ -1,42 +1,50 @@
+root: about/system_and_ai_2022
 format: jb-book
-root: about/intro
-parts:
-  - caption: -----
-    chapters:
-    - file: bootcamp/day_01/00_day_01_overview
-      sections:
-      - file: bootcamp/day_01/01_bash101
-      - file: bootcamp/day_01/02_anaconda101
-      - file: bootcamp/day_01/03_git101
-      - file: bootcamp/day_01/04_jupyter_101
-      - file: bootcamp/day_01/05_markdown_101    
-      - file: bootcamp/day_01/06_homework
-    - file: bootcamp/day_02/00_day_02_overview
-      sections:
-      - file: bootcamp/day_02/01_python_syntax_101
-      - file: bootcamp/day_02/02_variables_101
-      - file: bootcamp/day_02/03_data_types
-      - file: bootcamp/day_02/04_python_data_structures
-      - file: bootcamp/day_02/05_programming_101
-      - file: bootcamp/day_02/06_home_work      
-    - file: bootcamp/day_03/00_day_03_overview
-      sections:
-      - file: bootcamp/day_03/01_python_functions_101
-      - file: bootcamp/day_03/02_python_modules_101
-      - file: bootcamp/day_03/03_anaconda_revisited
-      - file: bootcamp/day_03/04_classes_in_python
-      - file: bootcamp/day_03/05_homework
-    - file: bootcamp/day_04/00_day_04_overview
-      sections:
-      - file: bootcamp/day_04/01_Numpy_data_structures
-      - file: bootcamp/day_04/02_Pandas_data_structures
-      - file: bootcamp/day_04/03_raw_to_tidy_with_pandas   
-      - file: bootcamp/day_04/04_plotting_with_pandas      
-      - file: bootcamp/day_04/05_homework      
-    - file: bootcamp/day_05/00_day_05_overview
-      sections:
-      - file: bootcamp/day_05/01_visual_perception
-      - file: bootcamp/day_05/02_matplotlib_101      
+chapters:
+- file: about/bootcamp_intro
+  sections:
+  - file: bootcamp/day_01/00_day_01_overview
+    sections:
+    - file: bootcamp/day_01/01_bash101
+    - file: bootcamp/day_01/02_anaconda101
+    - file: bootcamp/day_01/03_git101
+    - file: bootcamp/day_01/04_jupyter_101
+    - file: bootcamp/day_01/05_markdown_101    
+    - file: bootcamp/day_01/06_homework
+  - file: bootcamp/day_02/00_day_02_overview
+    sections:
+    - file: bootcamp/day_02/01_python_syntax_101
+    - file: bootcamp/day_02/02_variables_101
+    - file: bootcamp/day_02/03_data_types
+    - file: bootcamp/day_02/04_python_data_structures
+    - file: bootcamp/day_02/05_programming_101
+    - file: bootcamp/day_02/06_home_work      
+  - file: bootcamp/day_03/00_day_03_overview
+    sections:
+    - file: bootcamp/day_03/01_python_functions_101
+    - file: bootcamp/day_03/02_python_modules_101
+    - file: bootcamp/day_03/03_anaconda_revisited
+    - file: bootcamp/day_03/04_classes_in_python
+    - file: bootcamp/day_03/05_homework
+  - file: bootcamp/day_04/00_day_04_overview
+    sections:
+    - file: bootcamp/day_04/01_Numpy_data_structures
+    - file: bootcamp/day_04/02_Pandas_data_structures
+    - file: bootcamp/day_04/03_raw_to_tidy_with_pandas   
+    - file: bootcamp/day_04/04_plotting_with_pandas      
+    - file: bootcamp/day_04/05_homework      
+  - file: bootcamp/day_05/00_day_05_overview
+    sections:
+    - file: bootcamp/day_05/01_visual_perception
+    - file: bootcamp/day_05/02_matplotlib_101  
+    - file: bootcamp/day_05/02_matplotlib_102  
+- file: about/setup       
+- file: class/week_01/00_overview
+  sections:
+  - file: class/week_01/01_reproducibility
+  - file: class/week_01/02_reproducibility_lab
+  - file: class/week_01/03_reproducibility_rules
+  - file: class/week_01/04_home_work
 
 
 

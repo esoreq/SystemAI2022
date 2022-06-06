@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Anaconda environment 101
+# ## Anaconda environment 101
 # 
 # ## Basics
 # ### What is Conda?

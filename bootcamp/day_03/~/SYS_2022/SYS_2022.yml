@@ -1,0 +1,19 @@
+
+name: SYS_2022
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - jupyterlab
+  - scipy
+  - statsmodels
+  - pingouin
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  - pip
+  - ipykernel
+  - watermark
+  - nb_conda_kernels

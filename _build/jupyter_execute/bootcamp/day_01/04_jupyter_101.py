@@ -1,30 +1,30 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Jupyter notebooks 101
+# ## Jupyter notebooks 101
 # 
-# ## Jupyter basics
-# ### What is a Jupyter notebook?
+# ### Jupyter basics
+# #### What is a Jupyter notebook?
 # 
 # - Jupyter notebook is a modern web-based open-source tool specifically designed to support data science projects. 
 # - You can use Jupyter Notebooks to document workflows and to share code for data processing, analysis and visualization.
 #   
 # 
 
-# ### Jupyter Notebook Overview
+# #### Jupyter Notebook Overview
 # 
 # The Data science field makes extensive use of notebooks, which allow you to document code and thoughts while being able to follow your work. This section explains how to use Jupyter Notebook to facilitate open reproducible science workflows and introduces you to the interface that you will use for running and editing code and Markdown cells. 
 # 
 # 
 
-# ### Jupyter Notebook for Open Reproducible Science
+# #### Jupyter Notebook for Open Reproducible Science
 # 
 # - The Jupyter Notebook file format (.ipynb ) is constructed from linearly stacked cells allowing you to construct a single project-oriented file that combines descriptive text, code blocks and code output in a single file. 
 # - The code cells have output cells associated with them, allowing you to include plots, tables, and textual outputs to communicate your findings, within the notebook file. 
 # - You can then export the notebook to a .pdf or .html that can then be shared with anyone.
 # 
 
-# ### Key benefits of the Jupyter Notebook
+# #### Key benefits of the Jupyter Notebook
 # 1. **Human readable**: Using Jupyter, you can bridge ideas and concepts with methodology and results, creating a notebook that can be understood by different types of researchers. By adding Markdown text around your code, your project becomes more user-friendly and easier to understand. 
 # 1. **Simple syntax:**  Markdown is simple to learn and use reducing the learning curve needed to produce well-documented Jupyter reports.
 # 1. **Documenting your ideas:** Research is all about creating logical steps based on assumptions followed by tests. However, actual Research is messy, and many things will be left on your digital workbench. Forming the habit of documenting your workflow, making inline references when needed, and explaining the logical workflow, will be priceless to the future you. Just imagine changing or adapting specific parts of a study two years after it was created, without some comments.
@@ -32,7 +32,7 @@
 # 1. **Simple to share:** Sharing your workflow with colleague or supervisor is in the core of the Jupyter DNA. A notebook can be shared using file-sharing services like Dropbox or Google Drive or more sophisticated approaches such as Github. This simplifies the process of validating, replicating, extending, refining and communicating your workflow.
 # 1. **Flexible export formats:** Notebooks can be exported into various formats including HTML, PDF and slideshows.
 
-# ### Jupyter Notebook types
+# #### Jupyter Notebook types
 # 
 # There are four kinds of notebooks you would want to create:  
 # 
@@ -41,11 +41,11 @@
 # - **The presentation** - a slideshow designed to communicate ideas with collaborators  
 # - **The book** - Multi-notebook scientific project presented in book format
 
-# ###  What are Jupyter kernels 
+# ####  What are Jupyter kernels 
 # A kernel is a computer program that runs and inspects the user's code. IPython includes a kernel for Python code. Others have written kernels for various other languages. We will begin by using the bash built-in kernel today. Tomorrow, we will cover how to set up a project-specific environment and start our journy into python.
 
-# ## Opening a notebook on your local computer 
-# ### Jupyter notebook server
+# ### Opening a notebook on your local computer 
+# #### Jupyter notebook server
 # There are many ways to create a [Jupyter notebook](https://jupyter-notebook.readthedocs.io/en/latest/) instance,
 # The simplest way is to open a terminal and run the the following command: 
 #    
@@ -56,14 +56,14 @@
 # If you followed the previous sessions a notebook server will initialize a local server and open a jupyter notebook inside your default browser.
 # 
 
-# ### Using a notebook for the first time  
+# #### Using a notebook for the first time  
 # Jupyter Notebook is a web-based platform that lets developers write, display, share, and integrate multimedia in a single document. You can view both the code and the results in the same file, making it a popular tool for demonstrating work.
 # Executing each line of code individually improves data scientists' knowledge. Jupyter Notebook users may download the notebook in PDF, HTML, Python, Markdown, or .ipynb format.
 # 
 
-# ### Markdown and Code Cells are essential to a Jupyter Notebook.
+# #### Markdown and Code Cells are essential to a Jupyter Notebook.
 # 
-# #### Markdown Cell
+# ##### Markdown Cell
 # When you use a Markdown Cell, you're giving your readers enough information about the code block underneath to understand what you're trying to convey. Every data scientist has to know how to write in Markdown. The markup language is used to format the text, which is then displayed. Code Cells Will Be the Default for All Cells By Default Hit ESC to enter command mode and then press m to convert it to markdown.
 
 # #### Code Cell

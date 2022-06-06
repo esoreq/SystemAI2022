@@ -14,9 +14,9 @@ latex:
     targetname: book.tex
 html:
   home_page_in_navbar : true
-  use_repository_button: true
+  use_repository_button: false
   use_issues_button: true
-  use_edit_page_button: true
+  use_edit_page_button: false
   navbar_number_sections : false
   baseurl : "https://esoreq.github.io/SystemAI2022/"  # The base URL where your book will be hosted. 
   comments:
@@ -40,6 +40,7 @@ sphinx:
     html_show_copyright: true
     html_extra_path: ['files']
     bibtex_reference_style: author_year
+    myst_heading_anchors : 5
     myst_enable_extensions: 
     - amsmath
     - colon_fence
@@ -51,3 +52,9 @@ sphinx:
     - replacements
     - substitution
 
+launch_buttons:
+  notebook_interface        : ""  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : ""  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)

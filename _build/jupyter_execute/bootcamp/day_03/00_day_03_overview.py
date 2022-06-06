@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # DAY 03 - Programming with Python 
+# # DAY 03 - Programming 101
 # 
-# ## What is Programming?
+# ### What is Programming?
 # - Programming is a way to “instruct the computer to perform various tasks”.
 # - “Instruct the computer”: this basically means that you provide the computer a set of instructions that are written in a language that the computer can understand. The instructions could be of various types.
 # 
-# ## Why would we automate tasks using Programming
+# ### Why would we automate tasks using Programming
 # - Humans and computers environments revolve around the symbols we use to communicate and be communicated to. 
 # - Computers' consistency, precision, and speed make them good at things we can't or wouldn't accomplish. 
 # - If we want to reduce errors, repeated, tedious tasks should also be done by a computer. 
@@ -15,18 +15,18 @@
 # - We prefer being pushed and rewarded for doing complicated and creative tasks that build our talents. 
 # - For example, we don't like to do calculation on a spreadsheet. 
 # 
-# ## How would we automate things using Programming
+# ### How would we automate things using Programming
 # - In most cases it's just a matter of breaking the process that needs to be automated to general bits 
 # - As a rule of thumb if you find yourself copying and pasting a piece of code more than twice it's a hint that you should convert it into a function 
 # 
-# ## What this module will cover
+# ### What this module will cover
 # - Today's main objective is to familiarize you with how to use Python to automate stuff.
 # - We will start by looking into what are functions and how we can use them 
 # - Then go over the idea of a module or package as a way of sharing, and storing functions that are useful 
 # - Cover how to use magic commands in Jupyter to improve our workflow with modules and functions
 # - And end with the notion of classes in Python and how we can extend functions to create an object armed with methods
 # 
-# ## Links to expand your understanding 
+# ### Links to expand your understanding 
 # 
 # For those interested in learning more...
 # 

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Markdown 101
+# ## Markdown 101
 # 
 # 
-# ## What is Markdown?
+# ### What is Markdown?
 # Markdown is the formating codes for creating publishable data science report using Jupyter. 
 # The Markdown formatting process requires you to use syntax to apply various formatting, such as **bold text** or *italics*.
 # In this section, we will go over all the different ways to create a structured document using the Markdown syntax supported by Jupyter Notebook.
