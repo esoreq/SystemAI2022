@@ -10,8 +10,7 @@ dependencies:
   - numpy
   - pandas
   - myst-parser
-  - linkify
-  - linkify-it-py
+
   - sphinx==4.4.0
   - sphinx-book-theme==0.1.10
   - sphinx-comments==0.0.3
@@ -29,3 +28,6 @@ dependencies:
   - sphinxcontrib-jsmath==1.0.1
   - sphinxcontrib-qthelp==1.0.3
   - sphinxcontrib-serializinghtml==1.1.5
+  - pip:
+    - linkify
+    - linkify-it-py
