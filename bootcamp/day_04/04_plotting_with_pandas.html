@@ -41,12 +41,9 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/save_state.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -99,193 +96,232 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../about/intro.html">
-   BOOT CAMP
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  -----
- </span>
-</p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_01/00_day_01_overview.html">
-   DAY 01 - basics
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/01_bash101.html">
-     BASH 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/02_anaconda101.html">
-     Anaconda environment 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/03_git101.html">
-     Version control, git and github command line tools
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/04_jupyter_101.html">
-     Jupyter notebooks 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/05_markdown_101.html">
-     Markdown 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/06_homework.html">
-     DAY 01 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_02/00_day_02_overview.html">
-   DAY 02 - Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
-     PYTHON SYNTAX 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/02_variables_101.html">
-     PYTHON Basic Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/03_data_types.html">
-     PYTHON Data operations 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/04_python_data_structures.html">
-     PYTHON Data structures 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/05_programming_101.html">
-     Python Programming 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/06_home_work.html">
-     DAY 02 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_03/00_day_03_overview.html">
-   DAY 03 - Programming with Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/01_python_functions_101.html">
-     PYTHON FUNCTIONS 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/02_python_modules_101.html">
-     PYTHON MODULES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
-     PYTHON ANACONDA 102
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/04_classes_in_python.html">
-     PYTHON CLASSES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/05_homework.html">
-     DAY 03 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_day_04_overview.html">
-   DAY 04 - Numpy and Pandas 101
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_Numpy_data_structures.html">
-     Numpy 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_01/00_day_01_overview.html">
+     DAY 01 - basics
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_Pandas_data_structures.html">
-     Pandas 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_02/00_day_02_overview.html">
+     DAY 02 - Python
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_raw_to_tidy_with_pandas.html">
-     From raw to structured
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Plotting with pandas and Matplotlib
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
     </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_homework.html">
-     DAY 04 - HOMEWORK
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_05/00_day_05_overview.html">
-   DAY 05 - Data visualisation
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../class/week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/01_visual_perception.html">
-     Graphical Representations of Data
+    <a class="reference internal" href="../../class/week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/02_matplotlib_101.html">
-     intro to matplotlib
+    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
     </a>
    </li>
   </ul>
@@ -346,17 +382,12 @@ const thebe_selector_output = ".output, .cell_output"
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+        
         <a class="issues-button"
             href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_04/04_plotting_with_pandas.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_04/04_plotting_with_pandas.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
@@ -582,60 +613,12 @@ In particular, we will employ features from the pyplot module in Matplotlib, whi
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">display</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;watermark&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;autoreload&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;autoreload&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;tableau-colorblind10&#39;</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2305,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2303</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2304</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2305</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2306</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/IPython/core/magics/extension.py:33,</span> in <span class="ni">ExtensionMagics.load_ext</span><span class="nt">(self, module_str)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">module_str</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="k">raise</span> <span class="n">UsageError</span><span class="p">(</span><span class="s1">&#39;Missing module name.&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">33</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">extension_manager</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s1">&#39;already loaded&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The </span><span class="si">%s</span><span class="s2"> extension is already loaded. To reload it, use:&quot;</span> <span class="o">%</span> <span class="n">module_str</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/IPython/core/extensions.py:76,</span> in <span class="ni">ExtensionManager.load_extension</span><span class="nt">(self, module_str)</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="sd">&quot;&quot;&quot;Load an IPython extension by its module name.</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd"> Returns the string &quot;already loaded&quot; if the extension is already loaded,</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd"> &quot;no load function&quot; if the module doesn&#39;t have a load_ipython_extension</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="sd"> function, or None if it succeeded.</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="k">if</span> <span class="n">module_str</span> <span class="ow">in</span> <span class="n">BUILTINS_EXTS</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/IPython/core/extensions.py:92,</span> in <span class="ni">ExtensionManager._load_extension</span><span class="nt">(self, module_str)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">module_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">with</span> <span class="n">prepended_to_syspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">92</span>         <span class="n">mod</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>         <span class="k">if</span> <span class="n">mod</span><span class="o">.</span><span class="vm">__file__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>             <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;Loading extensions from </span><span class="si">{dir}</span><span class="s2"> is deprecated. &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>                    <span class="s2">&quot;We recommend managing extensions like any &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>                    <span class="s2">&quot;other Python packages, in site-packages.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>                   <span class="nb">dir</span><span class="o">=</span><span class="n">compress_user</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">)))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1014,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:991,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:973,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;watermark&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>

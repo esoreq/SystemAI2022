@@ -41,12 +41,9 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/save_state.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -99,20 +96,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../about/intro.html">
-   BOOT CAMP
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  -----
- </span>
-</p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_day_01_overview.html">
-   DAY 01 - basics
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -120,172 +112,216 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_bash101.html">
-     BASH 101
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00_day_01_overview.html">
+     DAY 01 - basics
     </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_anaconda101.html">
-     Anaconda environment 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_02/00_day_02_overview.html">
+     DAY 02 - Python
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_git101.html">
-     Version control, git and github command line tools
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Jupyter notebooks 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_markdown_101.html">
-     Markdown 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_homework.html">
-     DAY 01 - HOMEWORK
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_02/00_day_02_overview.html">
-   DAY 02 - Python
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../class/week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
-     PYTHON SYNTAX 101
+    <a class="reference internal" href="../../class/week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/02_variables_101.html">
-     PYTHON Basic Data Types
+    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+     Reproducibility lab
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/03_data_types.html">
-     PYTHON Data operations 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/04_python_data_structures.html">
-     PYTHON Data structures 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/05_programming_101.html">
-     Python Programming 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/06_home_work.html">
-     DAY 02 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_03/00_day_03_overview.html">
-   DAY 03 - Programming with Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/01_python_functions_101.html">
-     PYTHON FUNCTIONS 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/02_python_modules_101.html">
-     PYTHON MODULES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
-     PYTHON ANACONDA 102
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/04_classes_in_python.html">
-     PYTHON CLASSES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/05_homework.html">
-     DAY 03 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_04/00_day_04_overview.html">
-   DAY 04 - Numpy and Pandas 101
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
-     Numpy 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
-     Pandas 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
-     From raw to structured
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
-     Plotting with pandas and Matplotlib
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/05_homework.html">
-     DAY 04 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_05/00_day_05_overview.html">
-   DAY 05 - Data visualisation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/01_visual_perception.html">
-     Graphical Representations of Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/02_matplotlib_101.html">
-     intro to matplotlib
+    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
     </a>
    </li>
   </ul>
@@ -346,17 +382,12 @@ const thebe_selector_output = ".output, .cell_output"
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+        
         <a class="issues-button"
             href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_01/04_jupyter_101.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_01/04_jupyter_101.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
@@ -379,118 +410,125 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-basics">
-   Jupyter basics
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Jupyter notebooks 101
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">
-     What is a Jupyter notebook?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-overview">
-     Jupyter Notebook Overview
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-for-open-reproducible-science">
-     Jupyter Notebook for Open Reproducible Science
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-benefits-of-the-jupyter-notebook">
-     Key benefits of the Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-types">
-     Jupyter Notebook types
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-are-jupyter-kernels">
-     What are Jupyter kernels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opening-a-notebook-on-your-local-computer">
-   Opening a notebook on your local computer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-server">
-     Jupyter notebook server
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-a-notebook-for-the-first-time">
-     Using a notebook for the first time
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#markdown-and-code-cells-are-essential-to-a-jupyter-notebook">
-     Markdown and Code Cells are essential to a Jupyter Notebook.
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-basics">
+     Jupyter basics
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#markdown-cell">
-       Markdown Cell
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">
+       What is a Jupyter notebook?
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-overview">
+       Jupyter Notebook Overview
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-for-open-reproducible-science">
+       Jupyter Notebook for Open Reproducible Science
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#key-benefits-of-the-jupyter-notebook">
+       Key benefits of the Jupyter Notebook
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-types">
+       Jupyter Notebook types
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-jupyter-kernels">
+       What are Jupyter kernels
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opening-a-notebook-on-your-local-computer">
+     Opening a notebook on your local computer
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-server">
+       Jupyter notebook server
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-a-notebook-for-the-first-time">
+       Using a notebook for the first time
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown-and-code-cells-are-essential-to-a-jupyter-notebook">
+       Markdown and Code Cells are essential to a Jupyter Notebook.
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#markdown-cell">
+         Markdown Cell
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#code-cell">
        Code Cell
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-lab">
      Jupyter lab
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#integrated-development-environment-ide">
      Integrated development environment (IDE)
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cloud-based-solutions">
    Cloud based solutions
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#practicalities">
    Practicalities
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#opening-a-notebook">
      Opening a notebook
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-notebook-modes">
      Jupyter Notebook modes
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#edit-mode-useful-shortcuts">
      EDIT mode useful shortcuts
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#command-mode-useful-shortcuts">
      COMMAND mode useful shortcuts
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#document-this-code-using-markdown">
      Document this code using markdown
     </a>
@@ -517,118 +555,125 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-basics">
-   Jupyter basics
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Jupyter notebooks 101
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">
-     What is a Jupyter notebook?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-overview">
-     Jupyter Notebook Overview
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-for-open-reproducible-science">
-     Jupyter Notebook for Open Reproducible Science
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-benefits-of-the-jupyter-notebook">
-     Key benefits of the Jupyter Notebook
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-types">
-     Jupyter Notebook types
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-are-jupyter-kernels">
-     What are Jupyter kernels
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opening-a-notebook-on-your-local-computer">
-   Opening a notebook on your local computer
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-notebook-server">
-     Jupyter notebook server
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-a-notebook-for-the-first-time">
-     Using a notebook for the first time
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#markdown-and-code-cells-are-essential-to-a-jupyter-notebook">
-     Markdown and Code Cells are essential to a Jupyter Notebook.
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-basics">
+     Jupyter basics
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#markdown-cell">
-       Markdown Cell
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">
+       What is a Jupyter notebook?
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-overview">
+       Jupyter Notebook Overview
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-for-open-reproducible-science">
+       Jupyter Notebook for Open Reproducible Science
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#key-benefits-of-the-jupyter-notebook">
+       Key benefits of the Jupyter Notebook
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-types">
+       Jupyter Notebook types
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-jupyter-kernels">
+       What are Jupyter kernels
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opening-a-notebook-on-your-local-computer">
+     Opening a notebook on your local computer
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jupyter-notebook-server">
+       Jupyter notebook server
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-a-notebook-for-the-first-time">
+       Using a notebook for the first time
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#markdown-and-code-cells-are-essential-to-a-jupyter-notebook">
+       Markdown and Code Cells are essential to a Jupyter Notebook.
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#markdown-cell">
+         Markdown Cell
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#code-cell">
        Code Cell
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-lab">
      Jupyter lab
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#integrated-development-environment-ide">
      Integrated development environment (IDE)
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cloud-based-solutions">
    Cloud based solutions
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#practicalities">
    Practicalities
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#opening-a-notebook">
      Opening a notebook
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-notebook-modes">
      Jupyter Notebook modes
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#edit-mode-useful-shortcuts">
      EDIT mode useful shortcuts
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#command-mode-useful-shortcuts">
      COMMAND mode useful shortcuts
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#document-this-code-using-markdown">
      Document this code using markdown
     </a>
@@ -644,7 +689,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="jupyter-notebooks-101">
+  <div class="section" id="jupyter-notebooks-101">
 <h1>Jupyter notebooks 101<a class="headerlink" href="#jupyter-notebooks-101" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="jupyter-basics">
 <h2>Jupyter basics<a class="headerlink" href="#jupyter-basics" title="Permalink to this headline">¶</a></h2>
@@ -715,8 +760,9 @@ Executing each line of code individually improves data scientists’ knowledge. 
 <h4>Markdown Cell<a class="headerlink" href="#markdown-cell" title="Permalink to this headline">¶</a></h4>
 <p>When you use a Markdown Cell, you’re giving your readers enough information about the code block underneath to understand what you’re trying to convey. Every data scientist has to know how to write in Markdown. The markup language is used to format the text, which is then displayed. Code Cells Will Be the Default for All Cells By Default Hit ESC to enter command mode and then press m to convert it to markdown.</p>
 </div>
+</div>
 <div class="section" id="code-cell">
-<h4>Code Cell<a class="headerlink" href="#code-cell" title="Permalink to this headline">¶</a></h4>
+<h3>Code Cell<a class="headerlink" href="#code-cell" title="Permalink to this headline">¶</a></h3>
 <p>You are able to Create, Update, Read, Edit, and Delete Code inside a Code Cell while also benefiting from comprehensive syntax highlighting and tab completion.<br />
 Ipython, which is short for interactive Python, is the kernel that Jupyter Notebook uses by default (but you can use alternative kernels).<br />
 The flow of the code is sent to the kernel, whenever a Code Cell executes the code that is contained inside it is run.<br />
@@ -731,7 +777,7 @@ This shortcut <kbd>Ctrl+Shift±</kbd> makes it easy to create a new cell, as wel
 </div>
 </div>
 <div class="section" id="jupyter-lab">
-<h3>Jupyter lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<h2>Jupyter lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">¶</a></h2>
 <p>Alternatively, one can use a slightly more modern approach using a web-based user interface called <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">jupyter lab</a> that allows you to work with a more unified framework.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter lab
 </pre></div>
@@ -743,26 +789,26 @@ This shortcut <kbd>Ctrl+Shift±</kbd> makes it easy to create a new cell, as wel
 </div>
 </div>
 <div class="section" id="integrated-development-environment-ide">
-<h3>Integrated development environment (IDE)<a class="headerlink" href="#integrated-development-environment-ide" title="Permalink to this headline">¶</a></h3>
+<h2>Integrated development environment (IDE)<a class="headerlink" href="#integrated-development-environment-ide" title="Permalink to this headline">¶</a></h2>
 <p>A solution that requires more initial effort, that will eventually pay off is using a proper IDE.
 There are many options to choose from TBH, a free open-source solution that I use is called <a class="reference external" href="https://code.visualstudio.com/">VScode</a>.
 This gives you the capability to create notebooks within the IDE and comes with multiple perks that I urge to you to explore on your own.</p>
 </div>
 </div>
 <div class="section" id="cloud-based-solutions">
-<h2>Cloud based solutions<a class="headerlink" href="#cloud-based-solutions" title="Permalink to this headline">¶</a></h2>
+<h1>Cloud based solutions<a class="headerlink" href="#cloud-based-solutions" title="Permalink to this headline">¶</a></h1>
 <p>Jupyter has many side projects that enable spawning a notebook with access to cluster capabilities. This can be a lab owned small cluster or a large one owned by a University or one owned by some commerical company. In the context of our own center some of us have access to <a class="reference external" href="https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/">Research Computing Service (RCS)</a> notebook lab hub that gives you a portal to the Imperial College Cluster.</p>
 <p>The main differences from your local version to the cloud based lies in the access to joint storage, computing resources and standardised underlying software and hardware setups.</p>
 <p>Notably, there are other notebook solutions that resemble the Jupyter solution, the most famous is <a class="reference external" href="https://colab.research.google.com/?utm_source=scs-index">Colab</a> owned and developed by Google.</p>
 </div>
 <div class="section" id="practicalities">
-<h2>Practicalities<a class="headerlink" href="#practicalities" title="Permalink to this headline">¶</a></h2>
+<h1>Practicalities<a class="headerlink" href="#practicalities" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="opening-a-notebook">
-<h3>Opening a notebook<a class="headerlink" href="#opening-a-notebook" title="Permalink to this headline">¶</a></h3>
+<h2>Opening a notebook<a class="headerlink" href="#opening-a-notebook" title="Permalink to this headline">¶</a></h2>
 <p>In a cloud lab environment press <kbd>Shift + CMD + L</kbd> to open a new launcher (or open the file menu and select new Launcher). If you select the default notebook, a new notebook tab named <code class="docutils literal notranslate"><span class="pre">Untitled.ipynb</span></code> will appear.</p>
 </div>
 <div class="section" id="jupyter-notebook-modes">
-<h3>Jupyter Notebook modes<a class="headerlink" href="#jupyter-notebook-modes" title="Permalink to this headline">¶</a></h3>
+<h2>Jupyter Notebook modes<a class="headerlink" href="#jupyter-notebook-modes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>There are two modes of action in Jupyter: <em>Command</em> and <em>Edit</em>.</p></li>
 <li><p>Command mode allows you to edit your notebook, but you cannot type in cells</p></li>
@@ -771,7 +817,7 @@ This gives you the capability to create notebooks within the IDE and comes with 
 </ul>
 </div>
 <div class="section" id="edit-mode-useful-shortcuts">
-<h3>EDIT mode useful shortcuts<a class="headerlink" href="#edit-mode-useful-shortcuts" title="Permalink to this headline">¶</a></h3>
+<h2>EDIT mode useful shortcuts<a class="headerlink" href="#edit-mode-useful-shortcuts" title="Permalink to this headline">¶</a></h2>
 <p>When in EDIT mode, there are several key commands it is good to know.<br />
 You should practice using these commands until they become second nature.</p>
 <table class="colwidths-auto table">
@@ -812,7 +858,7 @@ You should practice using these commands until they become second nature.</p>
 </table>
 </div>
 <div class="section" id="command-mode-useful-shortcuts">
-<h3>COMMAND mode useful shortcuts<a class="headerlink" href="#command-mode-useful-shortcuts" title="Permalink to this headline">¶</a></h3>
+<h2>COMMAND mode useful shortcuts<a class="headerlink" href="#command-mode-useful-shortcuts" title="Permalink to this headline">¶</a></h2>
 <p>The same goes to COMMAND shortcuts.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -849,10 +895,9 @@ You should practice using these commands until they become second nature.</p>
 </table>
 </div>
 <div class="section" id="document-this-code-using-markdown">
-<h3>Document this code using markdown<a class="headerlink" href="#document-this-code-using-markdown" title="Permalink to this headline">¶</a></h3>
+<h2>Document this code using markdown<a class="headerlink" href="#document-this-code-using-markdown" title="Permalink to this headline">¶</a></h2>
 <p>One useful suggestion is to start the habit of documenting your learning experiences using markdown and coding when relevant<br />
 This will accelerate your work in the long run…</p>
-</div>
 </div>
 </div>
 

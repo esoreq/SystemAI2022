@@ -41,12 +41,9 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/save_state.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -99,20 +96,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../about/intro.html">
-   BOOT CAMP
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  -----
- </span>
-</p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_day_01_overview.html">
-   DAY 01 - basics
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -120,172 +112,216 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     BASH 101
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00_day_01_overview.html">
+     DAY 01 - basics
     </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_anaconda101.html">
-     Anaconda environment 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_02/00_day_02_overview.html">
+     DAY 02 - Python
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_git101.html">
-     Version control, git and github command line tools
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_jupyter_101.html">
-     Jupyter notebooks 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_markdown_101.html">
-     Markdown 101
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_homework.html">
-     DAY 01 - HOMEWORK
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_02/00_day_02_overview.html">
-   DAY 02 - Python
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../class/week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
-     PYTHON SYNTAX 101
+    <a class="reference internal" href="../../class/week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/02_variables_101.html">
-     PYTHON Basic Data Types
+    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+     Reproducibility lab
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/03_data_types.html">
-     PYTHON Data operations 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/04_python_data_structures.html">
-     PYTHON Data structures 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/05_programming_101.html">
-     Python Programming 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/06_home_work.html">
-     DAY 02 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_03/00_day_03_overview.html">
-   DAY 03 - Programming with Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/01_python_functions_101.html">
-     PYTHON FUNCTIONS 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/02_python_modules_101.html">
-     PYTHON MODULES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
-     PYTHON ANACONDA 102
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/04_classes_in_python.html">
-     PYTHON CLASSES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/05_homework.html">
-     DAY 03 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_04/00_day_04_overview.html">
-   DAY 04 - Numpy and Pandas 101
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
-     Numpy 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
-     Pandas 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
-     From raw to structured
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
-     Plotting with pandas and Matplotlib
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/05_homework.html">
-     DAY 04 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_05/00_day_05_overview.html">
-   DAY 05 - Data visualisation
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/01_visual_perception.html">
-     Graphical Representations of Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_05/02_matplotlib_101.html">
-     intro to matplotlib
+    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
     </a>
    </li>
   </ul>
@@ -346,17 +382,12 @@ const thebe_selector_output = ".output, .cell_output"
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+        
         <a class="issues-button"
             href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_01/01_bash101.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_01/01_bash101.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
@@ -379,71 +410,78 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-linux-based-command-line-interactions">
-   Introduction to Linux Based Command Line Interactions
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   BASH 101
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-would-i-use-a-terminal">
-     Why would I use a Terminal
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-to-linux-based-command-line-interactions">
+     Introduction to Linux Based Command Line Interactions
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-would-i-use-a-terminal">
+       Why would I use a Terminal
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-terminology">
      Basic terminology
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#graphical-user-interface-gui">
        graphical user interface (GUI)
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#command-line-interface-cli">
        Command-line interface (CLI)
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#the-shell-terminal">
        The Shell/Terminal
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#what-is-bash">
        What is Bash
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#context-and-practicalities">
      Context and practicalities
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#opening-a-terminal-on-your-local-computer">
        Opening a terminal on your local computer
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#command-prompt">
        Command prompt
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#shell-commands-structure">
        Shell Commands structure
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#commands">
      Commands
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#use-ls-to-list-folder-contents">
        Use
        <code class="docutils literal notranslate">
@@ -454,22 +492,22 @@ const thebe_selector_output = ".output, .cell_output"
        to list folder contents
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#managing-content-in-the-filesystem">
        Managing Content in the Filesystem
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#creating-a-sandbox-directory-using-mkdir">
        Creating a sandbox directory using mkdir
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mkdir-trys-to-create-the-same-dircetory-and-return-an-error">
        mkdir trys to create the same dircetory and return an error
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#use-man-linux-command-to-access-the-linux-manual">
        Use
        <code class="docutils literal notranslate">
@@ -480,19 +518,19 @@ const thebe_selector_output = ".output, .cell_output"
        linux command to access the linux manual
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mkdir-gives-us-the-ability-to-form-filesystem-structures">
        mkdir gives us the ability to form filesystem structures
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#removing-a-directory">
      Removing a directory
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#the-rm-command">
        The
        <code class="docutils literal notranslate">
@@ -505,12 +543,12 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#navigating-the-filesystem">
      Navigating the filesystem
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#change-directory-cd">
        Change Directory
        <code class="docutils literal notranslate">
@@ -522,87 +560,87 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#knowing-where-you-are">
      Knowing where you are
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-would-we-want-to-use-the-terminal">
    Why would we want to use the terminal
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#document-your-code">
    Document your code
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#hash-tag-add-comments-to-your-code">
      Hash tag - add comments to your code
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#deeper-dive-into-the-bash-syntax">
    Deeper dive into the bash syntax
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#listing-all-folders-contents">
      listing all folders contents
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#let-s-unpack-one-line-of-the-output-from-right-to-left">
        Let’s unpack one line of the output from right to left
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basics-of-permissions">
      Basics of permissions
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#changing-permissions">
      Changing permissions
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#file-system-navigation">
    File system navigation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#knowing-how-to-go-home">
      Knowing how to go home
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advanced-bash">
    Advanced Bash
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alias">
      Alias
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creating-content-in-the-terminal-old-school">
      creating content in the terminal (Old-school)
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#echo">
        <code class="docutils literal notranslate">
         <span class="pre">
@@ -613,7 +651,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples-using-echo">
      Examples using
      <code class="docutils literal notranslate">
@@ -623,7 +661,7 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples-using-cat">
      Examples using
      <code class="docutils literal notranslate">
@@ -633,17 +671,17 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cp-mv">
      cp,mv -
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples">
      Examples
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#echo-multiline-often-we-would-like-to-write-multi-line-files">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -656,38 +694,38 @@ const thebe_selector_output = ".output, .cell_output"
      — Often we would like to write multi line files
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#example">
        Example
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-do-we-use-these">
      How do we use these?
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
    Functions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-the-concept-of-relative-path-we-can-create-our-first-generlised-bash-function">
      Using the concept of relative path we can create our first generlised Bash function
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#finally-let-s-create-a-useful-function-to-organise-your-projects-further">
      Finally let’s create a useful function to organise your projects further
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
    Links to expand your understanding
   </a>
@@ -712,71 +750,78 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-linux-based-command-line-interactions">
-   Introduction to Linux Based Command Line Interactions
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   BASH 101
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-would-i-use-a-terminal">
-     Why would I use a Terminal
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-to-linux-based-command-line-interactions">
+     Introduction to Linux Based Command Line Interactions
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-would-i-use-a-terminal">
+       Why would I use a Terminal
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-terminology">
      Basic terminology
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#graphical-user-interface-gui">
        graphical user interface (GUI)
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#command-line-interface-cli">
        Command-line interface (CLI)
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#the-shell-terminal">
        The Shell/Terminal
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#what-is-bash">
        What is Bash
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#context-and-practicalities">
      Context and practicalities
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#opening-a-terminal-on-your-local-computer">
        Opening a terminal on your local computer
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#command-prompt">
        Command prompt
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#shell-commands-structure">
        Shell Commands structure
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#commands">
      Commands
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#use-ls-to-list-folder-contents">
        Use
        <code class="docutils literal notranslate">
@@ -787,22 +832,22 @@ const thebe_selector_output = ".output, .cell_output"
        to list folder contents
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#managing-content-in-the-filesystem">
        Managing Content in the Filesystem
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#creating-a-sandbox-directory-using-mkdir">
        Creating a sandbox directory using mkdir
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mkdir-trys-to-create-the-same-dircetory-and-return-an-error">
        mkdir trys to create the same dircetory and return an error
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#use-man-linux-command-to-access-the-linux-manual">
        Use
        <code class="docutils literal notranslate">
@@ -813,19 +858,19 @@ const thebe_selector_output = ".output, .cell_output"
        linux command to access the linux manual
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#mkdir-gives-us-the-ability-to-form-filesystem-structures">
        mkdir gives us the ability to form filesystem structures
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#removing-a-directory">
      Removing a directory
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#the-rm-command">
        The
        <code class="docutils literal notranslate">
@@ -838,12 +883,12 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#navigating-the-filesystem">
      Navigating the filesystem
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#change-directory-cd">
        Change Directory
        <code class="docutils literal notranslate">
@@ -855,87 +900,87 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#knowing-where-you-are">
      Knowing where you are
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-would-we-want-to-use-the-terminal">
    Why would we want to use the terminal
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#document-your-code">
    Document your code
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#hash-tag-add-comments-to-your-code">
      Hash tag - add comments to your code
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#deeper-dive-into-the-bash-syntax">
    Deeper dive into the bash syntax
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#listing-all-folders-contents">
      listing all folders contents
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#let-s-unpack-one-line-of-the-output-from-right-to-left">
        Let’s unpack one line of the output from right to left
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basics-of-permissions">
      Basics of permissions
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#changing-permissions">
      Changing permissions
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#file-system-navigation">
    File system navigation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#knowing-how-to-go-home">
      Knowing how to go home
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advanced-bash">
    Advanced Bash
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#alias">
      Alias
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creating-content-in-the-terminal-old-school">
      creating content in the terminal (Old-school)
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#echo">
        <code class="docutils literal notranslate">
         <span class="pre">
@@ -946,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples-using-echo">
      Examples using
      <code class="docutils literal notranslate">
@@ -956,7 +1001,7 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples-using-cat">
      Examples using
      <code class="docutils literal notranslate">
@@ -966,17 +1011,17 @@ const thebe_selector_output = ".output, .cell_output"
      </code>
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cp-mv">
      cp,mv -
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples">
      Examples
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#echo-multiline-often-we-would-like-to-write-multi-line-files">
      <code class="docutils literal notranslate">
       <span class="pre">
@@ -989,38 +1034,38 @@ const thebe_selector_output = ".output, .cell_output"
      — Often we would like to write multi line files
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
+     <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#example">
        Example
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-do-we-use-these">
      How do we use these?
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
    Functions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-the-concept-of-relative-path-we-can-create-our-first-generlised-bash-function">
      Using the concept of relative path we can create our first generlised Bash function
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#finally-let-s-create-a-useful-function-to-organise-your-projects-further">
      Finally let’s create a useful function to organise your projects further
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#links-to-expand-your-understanding">
    Links to expand your understanding
   </a>
@@ -1034,7 +1079,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="bash-101">
+  <div class="section" id="bash-101">
 <h1>BASH 101<a class="headerlink" href="#bash-101" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction-to-linux-based-command-line-interactions">
 <h2>Introduction to Linux Based Command Line Interactions<a class="headerlink" href="#introduction-to-linux-based-command-line-interactions" title="Permalink to this headline">¶</a></h2>
@@ -1042,29 +1087,30 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Why would I use a Terminal<a class="headerlink" href="#why-would-i-use-a-terminal" title="Permalink to this headline">¶</a></h3>
 <p>In the old days, independent devices, or so-called “hard copy terminals” (printer or screen plus keyboard), were used. Modern computers no longer have those, replaced by terminal emulators - programs that provide users with a graphical window for interacting with the shell. As scientists, we rely on powerful computer clusters to reveal answers to many questions and to perform many tasks automatically. There are many ways to interact with these computers. However, the fastest and most reliable way is the terminal emulators, which is the main focus of today’s session.</p>
 </div>
+</div>
 <div class="section" id="basic-terminology">
-<h3>Basic terminology<a class="headerlink" href="#basic-terminology" title="Permalink to this headline">¶</a></h3>
+<h2>Basic terminology<a class="headerlink" href="#basic-terminology" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="graphical-user-interface-gui">
-<h4>graphical user interface (GUI)<a class="headerlink" href="#graphical-user-interface-gui" title="Permalink to this headline">¶</a></h4>
+<h3>graphical user interface (GUI)<a class="headerlink" href="#graphical-user-interface-gui" title="Permalink to this headline">¶</a></h3>
 <p>In its most basic form, all computers have some interaction to store, process, create data, take actions, and communicate with other computers and people. There are many ways to interact with the computer. However, the most common is the GUI, which uses a mix of windows, icons, mice, and pointers to perform various tasks. This user interface type makes it easier for users to navigate through and use hundreds of programs, often from within a complex hierarchy.</p>
 </div>
 <div class="section" id="command-line-interface-cli">
-<h4>Command-line interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permalink to this headline">¶</a></h4>
+<h3>Command-line interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permalink to this headline">¶</a></h3>
 <p>Under the hood, all computers have a command-line interface, or CLI, which distinguishes it from the more common GUI, which most people use nowadays. A CLI’s heart is a read-evaluate-print loop or REPL: when a user types a command and presses enter, the computer reads the command, runs the command, and prints out the output until the user breaks the cycle. One of the programs in charge of enabling this cycle is called a shell or terminal.</p>
 </div>
 <div class="section" id="the-shell-terminal">
-<h4>The Shell/Terminal<a class="headerlink" href="#the-shell-terminal" title="Permalink to this headline">¶</a></h4>
+<h3>The Shell/Terminal<a class="headerlink" href="#the-shell-terminal" title="Permalink to this headline">¶</a></h3>
 <p>The shell is a program that serves as a keyboard-driven interface between the user and the operating system. It includes a command-line interpreter that accepts the user input via the keyboard, evaluates it, starts programs if necessary, and returns the output in the form of text output to the user. Each shell has its programming language, which makes it possible to write scripts that automate complex tasks. Each shell runs in a terminal.</p>
 </div>
 <div class="section" id="what-is-bash">
-<h4>What is Bash<a class="headerlink" href="#what-is-bash" title="Permalink to this headline">¶</a></h4>
+<h3>What is Bash<a class="headerlink" href="#what-is-bash" title="Permalink to this headline">¶</a></h3>
 <p>One of the differences between a shell and any other program is that a shell runs other programs instead of doing calculations. One of the most popular Unix shells is Bash, named for the Bourne Again Shell (derived from a shell originally written by Stephen Bourne). In most modern Unix implementations and most packages designed for Windows, Bash is the default shell.</p>
 </div>
 </div>
 <div class="section" id="context-and-practicalities">
-<h3>Context and practicalities<a class="headerlink" href="#context-and-practicalities" title="Permalink to this headline">¶</a></h3>
+<h2>Context and practicalities<a class="headerlink" href="#context-and-practicalities" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="opening-a-terminal-on-your-local-computer">
-<h4>Opening a terminal on your local computer<a class="headerlink" href="#opening-a-terminal-on-your-local-computer" title="Permalink to this headline">¶</a></h4>
+<h3>Opening a terminal on your local computer<a class="headerlink" href="#opening-a-terminal-on-your-local-computer" title="Permalink to this headline">¶</a></h3>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
 Opening a terminal on your local computer <div class="summary-down docutils">
@@ -1080,14 +1126,14 @@ Opening a terminal on your local computer <div class="summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="command-prompt">
-<h4>Command prompt<a class="headerlink" href="#command-prompt" title="Permalink to this headline">¶</a></h4>
+<h3>Command prompt<a class="headerlink" href="#command-prompt" title="Permalink to this headline">¶</a></h3>
 <p>Opening the terminal for the very first time, you will be presented with a prompt <code class="docutils literal notranslate"><span class="pre">$</span></code>, indicating that the shell is waiting for your input.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$
 </pre></div>
 </div>
 </div>
 <div class="section" id="shell-commands-structure">
-<h4>Shell Commands structure<a class="headerlink" href="#shell-commands-structure" title="Permalink to this headline">¶</a></h4>
+<h3>Shell Commands structure<a class="headerlink" href="#shell-commands-structure" title="Permalink to this headline">¶</a></h3>
 <p>You interact with the shell via commands, which can be used to execute CLI programs with names similar to the commands. For each action that you wish to perform using the terminal, you use a program call following this basic scheme:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Command <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>arguments<span class="o">]</span> 
 </pre></div>
@@ -1095,9 +1141,9 @@ Opening a terminal on your local computer <div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="commands">
-<h3>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h3>
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="use-ls-to-list-folder-contents">
-<h4>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list folder contents<a class="headerlink" href="#use-ls-to-list-folder-contents" title="Permalink to this headline">¶</a></h4>
+<h3>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to list folder contents<a class="headerlink" href="#use-ls-to-list-folder-contents" title="Permalink to this headline">¶</a></h3>
 <p>The first command we will use is <code class="docutils literal notranslate"><span class="pre">ls</span></code>, which displays the current directory contents. <br></p>
 <div class="admonition-challenge admonition">
 <p class="admonition-title">Challenge</p>
@@ -1105,11 +1151,11 @@ Opening a terminal on your local computer <div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="managing-content-in-the-filesystem">
-<h4>Managing Content in the Filesystem<a class="headerlink" href="#managing-content-in-the-filesystem" title="Permalink to this headline">¶</a></h4>
+<h3>Managing Content in the Filesystem<a class="headerlink" href="#managing-content-in-the-filesystem" title="Permalink to this headline">¶</a></h3>
 <p>The part of the operating system responsible for managing individual files and directories is called the <strong>file system</strong>. This part of the system categorizes our data into files or directories that contain files.</p>
 </div>
 <div class="section" id="creating-a-sandbox-directory-using-mkdir">
-<h4>Creating a sandbox directory using mkdir<a class="headerlink" href="#creating-a-sandbox-directory-using-mkdir" title="Permalink to this headline">¶</a></h4>
+<h3>Creating a sandbox directory using mkdir<a class="headerlink" href="#creating-a-sandbox-directory-using-mkdir" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-challenge admonition">
 <p class="admonition-title">Challenge</p>
 <p>Make a new directory by typing <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">sandbox</span></code> in the prompt.
@@ -1117,7 +1163,7 @@ Here, mkdir is the program name and sandbox is the argument, in this case the na
 </div>
 </div>
 <div class="section" id="mkdir-trys-to-create-the-same-dircetory-and-return-an-error">
-<h4>mkdir trys to create the same dircetory and return an error<a class="headerlink" href="#mkdir-trys-to-create-the-same-dircetory-and-return-an-error" title="Permalink to this headline">¶</a></h4>
+<h3>mkdir trys to create the same dircetory and return an error<a class="headerlink" href="#mkdir-trys-to-create-the-same-dircetory-and-return-an-error" title="Permalink to this headline">¶</a></h3>
 <p>Type <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">sandbox</span></code> again. Now the program returns an error.</p>
 <div class="admonition error">
 <p class="admonition-title">Error</p>
@@ -1128,7 +1174,7 @@ Here, mkdir is the program name and sandbox is the argument, in this case the na
 </div>
 </div>
 <div class="section" id="use-man-linux-command-to-access-the-linux-manual">
-<h4>Use <code class="docutils literal notranslate"><span class="pre">man</span></code> linux command to access the linux manual<a class="headerlink" href="#use-man-linux-command-to-access-the-linux-manual" title="Permalink to this headline">¶</a></h4>
+<h3>Use <code class="docutils literal notranslate"><span class="pre">man</span></code> linux command to access the linux manual<a class="headerlink" href="#use-man-linux-command-to-access-the-linux-manual" title="Permalink to this headline">¶</a></h3>
 <p>The Linux <a class="reference external" href="https://www.kernel.org/doc/man-pages/">man-pages</a> project documents the Linux OS.
 Every command, system call or devices are documented in this huge project.
 And this is also accessible from the terminal itself</p>
@@ -1151,7 +1197,7 @@ Solution<div class="summary-down docutils">
 </details></div>
 </div>
 <div class="section" id="mkdir-gives-us-the-ability-to-form-filesystem-structures">
-<h4>mkdir gives us the ability to form filesystem structures<a class="headerlink" href="#mkdir-gives-us-the-ability-to-form-filesystem-structures" title="Permalink to this headline">¶</a></h4>
+<h3>mkdir gives us the ability to form filesystem structures<a class="headerlink" href="#mkdir-gives-us-the-ability-to-form-filesystem-structures" title="Permalink to this headline">¶</a></h3>
 <p>Some of the options are quite powerful</p>
 <div class="admonition-challenge admonition">
 <p class="admonition-title">Challenge</p>
@@ -1186,10 +1232,10 @@ Solution<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="removing-a-directory">
-<h3>Removing a directory<a class="headerlink" href="#removing-a-directory" title="Permalink to this headline">¶</a></h3>
+<h2>Removing a directory<a class="headerlink" href="#removing-a-directory" title="Permalink to this headline">¶</a></h2>
 <p>If we add a folder, we should also have the ability to remove it, else we risk having a very messy file system.</p>
 <div class="section" id="the-rm-command">
-<h4>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command<a class="headerlink" href="#the-rm-command" title="Permalink to this headline">¶</a></h4>
+<h3>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command<a class="headerlink" href="#the-rm-command" title="Permalink to this headline">¶</a></h3>
 <p>If we try to use the <code class="docutils literal notranslate"><span class="pre">rm</span></code> command to remove the <code class="docutils literal notranslate"><span class="pre">sandbox/</span></code> folder we get an error.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rm sandbox/</span>
 </pre></div>
@@ -1221,10 +1267,10 @@ Real solution<div class="summary-down docutils">
 </details></div>
 </div>
 <div class="section" id="navigating-the-filesystem">
-<h3>Navigating the filesystem<a class="headerlink" href="#navigating-the-filesystem" title="Permalink to this headline">¶</a></h3>
+<h2>Navigating the filesystem<a class="headerlink" href="#navigating-the-filesystem" title="Permalink to this headline">¶</a></h2>
 <p>To move to and view directories, files, and content, we need some basic navigation skills.</p>
 <div class="section" id="change-directory-cd">
-<h4>Change Directory  <code class="docutils literal notranslate"><span class="pre">CD</span></code><a class="headerlink" href="#change-directory-cd" title="Permalink to this headline">¶</a></h4>
+<h3>Change Directory  <code class="docutils literal notranslate"><span class="pre">CD</span></code><a class="headerlink" href="#change-directory-cd" title="Permalink to this headline">¶</a></h3>
 <p>Navigation is the most fundamental skill in any computer program. The Change Directory command provides us with capability to switch from one place to another. For example, we can go to the Data folder we just created by using the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd sandbox/My_first_project/Data</span>
 </pre></div>
@@ -1232,7 +1278,7 @@ Real solution<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="knowing-where-you-are">
-<h3>Knowing where you are<a class="headerlink" href="#knowing-where-you-are" title="Permalink to this headline">¶</a></h3>
+<h2>Knowing where you are<a class="headerlink" href="#knowing-where-you-are" title="Permalink to this headline">¶</a></h2>
 <p>Another important thing is knowing where you are. The print working directory <code class="docutils literal notranslate"><span class="pre">pwd</span></code> will show you where you are currently located.
 Try to run the pwd command for yourself</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
@@ -1241,7 +1287,7 @@ Try to run the pwd command for yourself</p>
 </div>
 </div>
 <div class="section" id="why-would-we-want-to-use-the-terminal">
-<h2>Why would we want to use the terminal<a class="headerlink" href="#why-would-we-want-to-use-the-terminal" title="Permalink to this headline">¶</a></h2>
+<h1>Why would we want to use the terminal<a class="headerlink" href="#why-would-we-want-to-use-the-terminal" title="Permalink to this headline">¶</a></h1>
 <p>Clearly, there is an elephant in the room… Why would I want to waste your time by teaching you this ancient interface.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -1259,9 +1305,9 @@ If I know that the filesystem will look the same for every project I create, I c
 </div>
 </details></div>
 <div class="section" id="document-your-code">
-<h2>Document your code<a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h2>
+<h1>Document your code<a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="hash-tag-add-comments-to-your-code">
-<h3>Hash tag - add comments to your code<a class="headerlink" href="#hash-tag-add-comments-to-your-code" title="Permalink to this headline">¶</a></h3>
+<h2>Hash tag - add comments to your code<a class="headerlink" href="#hash-tag-add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
 <p>‘#’ the hash sign is used as the beginning of the comment in the script. In each line of the statement, the part starting with ‘#’ is not executed.</p>
 <details class="sphinx-bs dropdown card mb-3">
 <summary class="summary-title card-header">
@@ -1281,9 +1327,9 @@ Examples using ‘cd’ and ‘#’<div class="summary-down docutils">
 </details></div>
 </div>
 <div class="section" id="deeper-dive-into-the-bash-syntax">
-<h2>Deeper dive into the bash syntax<a class="headerlink" href="#deeper-dive-into-the-bash-syntax" title="Permalink to this headline">¶</a></h2>
+<h1>Deeper dive into the bash syntax<a class="headerlink" href="#deeper-dive-into-the-bash-syntax" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="listing-all-folders-contents">
-<h3>listing all folders contents<a class="headerlink" href="#listing-all-folders-contents" title="Permalink to this headline">¶</a></h3>
+<h2>listing all folders contents<a class="headerlink" href="#listing-all-folders-contents" title="Permalink to this headline">¶</a></h2>
 <p>Recall that <code class="docutils literal notranslate"><span class="pre">ls</span></code> contains many options, among the most useful ones are <code class="docutils literal notranslate"><span class="pre">-a</span></code>  which stands for all and means that the command does not ignore entries starting with <code class="docutils literal notranslate"><span class="pre">.</span></code>. Another useful option is <code class="docutils literal notranslate"><span class="pre">-l</span></code> which tells the command to use a long listing format.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> sandbox/My_first_project/Data
 ls -al
@@ -1297,7 +1343,7 @@ drwxr-xr-x <span class="m">2</span> jovyan users <span class="m">4096</span> May
 </pre></div>
 </div>
 <div class="section" id="let-s-unpack-one-line-of-the-output-from-right-to-left">
-<h4>Let’s unpack one line of the output from right to left<a class="headerlink" href="#let-s-unpack-one-line-of-the-output-from-right-to-left" title="Permalink to this headline">¶</a></h4>
+<h3>Let’s unpack one line of the output from right to left<a class="headerlink" href="#let-s-unpack-one-line-of-the-output-from-right-to-left" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Let’s unpack the bottom line from right to left</p></li>
 </ul>
@@ -1337,7 +1383,7 @@ drwxr-xr-x <span class="m">2</span> jovyan users <span class="m">4096</span> May
 </div>
 </div>
 <div class="section" id="basics-of-permissions">
-<h3>Basics of permissions<a class="headerlink" href="#basics-of-permissions" title="Permalink to this headline">¶</a></h3>
+<h2>Basics of permissions<a class="headerlink" href="#basics-of-permissions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Permission settings are grouped in a string of characters (-, r, w, x)</p></li>
 <li><p>The characters r, w, and x stand for <strong>read</strong>, <strong>write</strong>, and <strong>execute</strong>.
@@ -1352,7 +1398,7 @@ classified into four sections:</p></li>
 </ul>
 </div>
 <div class="section" id="changing-permissions">
-<h3>Changing permissions<a class="headerlink" href="#changing-permissions" title="Permalink to this headline">¶</a></h3>
+<h2>Changing permissions<a class="headerlink" href="#changing-permissions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Any Linux user, will at some point need to modify the permission settings of a file/directory.</p></li>
 <li><p>This can be done using the <code class="docutils literal notranslate"><span class="pre">chmod</span></code> command.</p></li>
@@ -1370,9 +1416,9 @@ chmod <span class="nv">u</span><span class="o">=</span>rwx,g<span class="o">=</s
 </div>
 </div>
 <div class="section" id="file-system-navigation">
-<h2>File system navigation<a class="headerlink" href="#file-system-navigation" title="Permalink to this headline">¶</a></h2>
+<h1>File system navigation<a class="headerlink" href="#file-system-navigation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="knowing-how-to-go-home">
-<h3>Knowing how to go home<a class="headerlink" href="#knowing-how-to-go-home" title="Permalink to this headline">¶</a></h3>
+<h2>Knowing how to go home<a class="headerlink" href="#knowing-how-to-go-home" title="Permalink to this headline">¶</a></h2>
 <p>A program that tracks your location provides an opportunity to discuss the difference between <strong>relative</strong> and <strong>absolute</strong> locations. The <code class="docutils literal notranslate"><span class="pre">pwd</span></code> command returns the absolute path to where you are. The shell contains two important variables, both of which are subjective. The first is the environment variable <code class="docutils literal notranslate"><span class="pre">$PWD</span></code>, which specifies your current active location. The other is <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>, which is the active user’s home folder. We can create our own variables in the shell to make navigation easier. When do you think this following code snippet can be useful?</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ORIGIN</span><span class="o">=</span><span class="nv">$PWD</span>
 <span class="nb">cd</span> <span class="nv">$HOME</span>
@@ -1392,9 +1438,9 @@ My explanation<div class="summary-down docutils">
 </details></div>
 </div>
 <div class="section" id="advanced-bash">
-<h2>Advanced Bash<a class="headerlink" href="#advanced-bash" title="Permalink to this headline">¶</a></h2>
+<h1>Advanced Bash<a class="headerlink" href="#advanced-bash" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="alias">
-<h3>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h3>
+<h2>Alias<a class="headerlink" href="#alias" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Shell aliases are used to reference a command.</p></li>
 <li><p>They can be used to avoid typing long commands or to correct incorrect input.</p></li>
@@ -1415,10 +1461,10 @@ My explanation<div class="summary-down docutils">
 </div>
 </div>
 <div class="section" id="creating-content-in-the-terminal-old-school">
-<h3>creating content in the terminal (Old-school)<a class="headerlink" href="#creating-content-in-the-terminal-old-school" title="Permalink to this headline">¶</a></h3>
+<h2>creating content in the terminal (Old-school)<a class="headerlink" href="#creating-content-in-the-terminal-old-school" title="Permalink to this headline">¶</a></h2>
 <p>In the last section for this episode we will cover different ways to generate files via the terminal.</p>
 <div class="section" id="echo">
-<h4><code class="docutils literal notranslate"><span class="pre">echo</span></code><a class="headerlink" href="#echo" title="Permalink to this headline">¶</a></h4>
+<h3><code class="docutils literal notranslate"><span class="pre">echo</span></code><a class="headerlink" href="#echo" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Prints text to the terminal window</p></li>
 <li><p>The most basic process in any programming language is the ability to output information.</p></li>
@@ -1436,7 +1482,7 @@ as a user works at the command line or in scripts.</p></li>
 </div>
 </div>
 <div class="section" id="examples-using-echo">
-<h3>Examples using <code class="docutils literal notranslate"><span class="pre">echo</span></code><a class="headerlink" href="#examples-using-echo" title="Permalink to this headline">¶</a></h3>
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">echo</span></code><a class="headerlink" href="#examples-using-echo" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> sandbox
 <span class="nb">echo</span> Some text to print out
 <span class="c1"># any string after the command will be printed</span>
@@ -1452,7 +1498,7 @@ as a user works at the command line or in scripts.</p></li>
 </div>
 </div>
 <div class="section" id="examples-using-cat">
-<h3>Examples using <code class="docutils literal notranslate"><span class="pre">cat</span></code><a class="headerlink" href="#examples-using-cat" title="Permalink to this headline">¶</a></h3>
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">cat</span></code><a class="headerlink" href="#examples-using-cat" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat file.txt
 <span class="c1"># Displaying Contents of a File</span>
 cat file_2.txt
@@ -1468,7 +1514,7 @@ cat file_1.txt &gt;&gt; file.txt
 </div>
 </div>
 <div class="section" id="cp-mv">
-<h3>cp,mv -<a class="headerlink" href="#cp-mv" title="Permalink to this headline">¶</a></h3>
+<h2>cp,mv -<a class="headerlink" href="#cp-mv" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Copy, move or rename files and directories</p></li>
 <li><p>Using cp, you can copy a file, a group of files, or a directory. A file is copied as an exact copy with a different file name to a disk. It is necessary to pass at least two file names to cp.</p></li>
@@ -1480,7 +1526,7 @@ cp <span class="o">[</span>OPTION<span class="o">]</span> Source-1 Source-2 Sour
 </div>
 </div>
 <div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/sandbox <span class="c1"># make sure we are at sandbox</span>
 <span class="nv">output</span><span class="o">=</span>dir_root/dir_branch/dir_leaf
 <span class="c1"># make a variable to store path</span>
@@ -1502,13 +1548,13 @@ ls -FR <span class="nv">$output</span> <span class="c1"># list files in output a
 </div>
 </div>
 <div class="section" id="echo-multiline-often-we-would-like-to-write-multi-line-files">
-<h3><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">multiline</span></code> — Often we would like to write multi line files<a class="headerlink" href="#echo-multiline-often-we-would-like-to-write-multi-line-files" title="Permalink to this headline">¶</a></h3>
+<h2><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">multiline</span></code> — Often we would like to write multi line files<a class="headerlink" href="#echo-multiline-often-we-would-like-to-write-multi-line-files" title="Permalink to this headline">¶</a></h2>
 <p>Here we read the contents of standard input, emit it to standard output, and makes a copy of it into the specified file(s) or variables.
 The purpose of this example is to create a <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code> file containing all of your aliases and learn how to use more about the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command.
 We understand what aliases are. However, it’s vital to comprehend that the aliases you create will only remain as long as the shell is open.
 Hence, it is useful to keep all aliases in one file.</p>
 <div class="section" id="example">
-<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;</span>
 <span class="s2">alias ls=&#39;ls -h --color&#39;</span>
 <span class="s2">alias ll=&#39;ls -lv --group-directories-first&#39;</span>
@@ -1525,7 +1571,7 @@ Hence, it is useful to keep all aliases in one file.</p>
 </div>
 </div>
 <div class="section" id="how-do-we-use-these">
-<h3>How do we use these?<a class="headerlink" href="#how-do-we-use-these" title="Permalink to this headline">¶</a></h3>
+<h2>How do we use these?<a class="headerlink" href="#how-do-we-use-these" title="Permalink to this headline">¶</a></h2>
 <p>In bash we need to source a file to make its contents avaliable we do this using the command <code class="docutils literal notranslate"><span class="pre">source</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bash_aliases
 </pre></div>
@@ -1534,9 +1580,9 @@ Hence, it is useful to keep all aliases in one file.</p>
 </div>
 </div>
 <div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="using-the-concept-of-relative-path-we-can-create-our-first-generlised-bash-function">
-<h3>Using the concept of relative path we can create our first generlised Bash function<a class="headerlink" href="#using-the-concept-of-relative-path-we-can-create-our-first-generlised-bash-function" title="Permalink to this headline">¶</a></h3>
+<h2>Using the concept of relative path we can create our first generlised Bash function<a class="headerlink" href="#using-the-concept-of-relative-path-we-can-create-our-first-generlised-bash-function" title="Permalink to this headline">¶</a></h2>
 <p>In bash we can pass arguments to a function, arguments are seperated by spaces and the first argument is always $1
 In bash there are protected symbols that in order to pass them we need to make the software ignore them we do this using what is called an escape sequence which is just a backslash in front of the symbol</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot; </span>
@@ -1555,7 +1601,7 @@ mcd my_new_folder
 </div>
 </div>
 <div class="section" id="finally-let-s-create-a-useful-function-to-organise-your-projects-further">
-<h3>Finally let’s create a useful function to organise your projects further<a class="headerlink" href="#finally-let-s-create-a-useful-function-to-organise-your-projects-further" title="Permalink to this headline">¶</a></h3>
+<h2>Finally let’s create a useful function to organise your projects further<a class="headerlink" href="#finally-let-s-create-a-useful-function-to-organise-your-projects-further" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot; </span>
 <span class="s2">function make_folder_structure {</span>
 <span class="s2">   echo Creating folder structure in \$1</span>
@@ -1571,14 +1617,13 @@ mcd my_new_folder
 </div>
 </div>
 <div class="section" id="links-to-expand-your-understanding">
-<h2>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h1>Links to expand your understanding<a class="headerlink" href="#links-to-expand-your-understanding" title="Permalink to this headline">¶</a></h1>
 <p>As a scientist in a data-infested field, your knowledge should always be refreshed, clarified, and expanded. Here are some links to support you in that:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://learn.datacamp.com/courses/introduction-to-shell">introduction-to-shell</a></p></li>
 <li><p><a class="reference external" href="https://learn.datacamp.com/courses/introduction-to-bash-scripting">Introduction to Bash Scripting</a></p></li>
 <li><p><a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">command-line-for-beginners</a></p></li>
 </ul>
-</div>
 </div>
 
     <script type="text/x-thebe-config">

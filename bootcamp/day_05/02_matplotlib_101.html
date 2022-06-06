@@ -41,12 +41,9 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/save_state.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
@@ -59,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_05/02_matplotlib_101.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="⚙️ Course Setup" href="../../about/setup.html" />
     <link rel="prev" title="Graphical Representations of Data" href="01_visual_perception.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -98,193 +96,232 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../about/intro.html">
-   BOOT CAMP
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  -----
- </span>
-</p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_01/00_day_01_overview.html">
-   DAY 01 - basics
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/01_bash101.html">
-     BASH 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/02_anaconda101.html">
-     Anaconda environment 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/03_git101.html">
-     Version control, git and github command line tools
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/04_jupyter_101.html">
-     Jupyter notebooks 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/05_markdown_101.html">
-     Markdown 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_01/06_homework.html">
-     DAY 01 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_02/00_day_02_overview.html">
-   DAY 02 - Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/01_python_syntax_101.html">
-     PYTHON SYNTAX 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/02_variables_101.html">
-     PYTHON Basic Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/03_data_types.html">
-     PYTHON Data operations 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/04_python_data_structures.html">
-     PYTHON Data structures 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/05_programming_101.html">
-     Python Programming 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_02/06_home_work.html">
-     DAY 02 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_03/00_day_03_overview.html">
-   DAY 03 - Programming with Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/01_python_functions_101.html">
-     PYTHON FUNCTIONS 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/02_python_modules_101.html">
-     PYTHON MODULES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
-     PYTHON ANACONDA 102
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/04_classes_in_python.html">
-     PYTHON CLASSES 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_03/05_homework.html">
-     DAY 03 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../day_04/00_day_04_overview.html">
-   DAY 04 - Numpy and Pandas 101
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
-     Numpy 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
-     Pandas 101
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
-     From raw to structured
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
-     Plotting with pandas and Matplotlib
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../day_04/05_homework.html">
-     DAY 04 - HOMEWORK
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_day_05_overview.html">
-   DAY 05 - Data visualisation
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
   <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../class/week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_visual_perception.html">
-     Graphical Representations of Data
+    <a class="reference internal" href="../../class/week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     intro to matplotlib
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
     </a>
    </li>
   </ul>
@@ -345,17 +382,12 @@ const thebe_selector_output = ".output, .cell_output"
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://esoreq.github.io/SystemAI2022/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+        
         <a class="issues-button"
             href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_05/02_matplotlib_101.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/esoreq.github.io/SystemAI2022/edit/master/bootcamp/day_05/02_matplotlib_101.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+        
     </div>
 </div>
 
@@ -546,6 +578,19 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="intro-to-matplotlib">
 <h1>intro to matplotlib<a class="headerlink" href="#intro-to-matplotlib" title="Permalink to this headline">¶</a></h1>
@@ -597,8 +642,8 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <th>45312</th>
       <th>45315</th>
       <th>45318</th>
-      <th>45321</th>
-      <th>45331</th>
+      <th>45319</th>
+      <th>45320</th>
     </tr>
     <tr>
       <th>task</th>
@@ -617,7 +662,7 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>DESKTOP</td>
       <td>DESKTOP</td>
       <td>DESKTOP</td>
-      <td>TABLET</td>
+      <td>DESKTOP</td>
       <td>DESKTOP</td>
     </tr>
     <tr>
@@ -626,40 +671,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>5.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td>4.0</td>
-      <td>7.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>4.75</td>
       <td>4.8</td>
       <td>5.0</td>
-      <td>3.666667</td>
-      <td>5.833333</td>
+      <td>4.25</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>2052.07381</td>
       <td>1842.607143</td>
       <td>1943.734694</td>
-      <td>2205.033333</td>
-      <td>1798.480952</td>
+      <td>1900.488095</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>4.0</td>
       <td>5.0</td>
       <td>4.0</td>
-      <td>3.0</td>
-      <td>6.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>7.0</td>
       <td>8.0</td>
       <td>7.0</td>
-      <td>6.0</td>
-      <td>9.0</td>
+      <td>7.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">grammatical_reasoning</th>
@@ -667,40 +712,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>19.0</td>
       <td>25.0</td>
       <td>17.0</td>
-      <td>19.0</td>
-      <td>15.0</td>
+      <td>21.0</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>19.0</td>
       <td>24.0</td>
       <td>18.0</td>
-      <td>19.0</td>
-      <td>18.0</td>
+      <td>22.0</td>
+      <td>13.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>19.0</td>
       <td>24.0</td>
       <td>19.0</td>
-      <td>19.0</td>
-      <td>21.0</td>
+      <td>23.0</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>4078.842105</td>
       <td>3081.291667</td>
       <td>4056.444444</td>
-      <td>4177.315789</td>
-      <td>3816.0</td>
+      <td>3313.863636</td>
+      <td>4515.538462</td>
     </tr>
     <tr>
       <th rowspan="13" valign="top">double_trouble</th>
@@ -708,8 +753,8 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>44.0</td>
       <td>28.0</td>
       <td>44.0</td>
-      <td>31.0</td>
-      <td>35.0</td>
+      <td>49.0</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <th>pct_CC</th>
@@ -724,8 +769,8 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>1.0</td>
       <td>0.7</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.8</td>
+      <td>0.923077</td>
+      <td>0.555556</td>
     </tr>
     <tr>
       <th>pct_IC</th>
@@ -733,79 +778,79 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>0.8</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.909091</td>
+      <td>0.888889</td>
     </tr>
     <tr>
       <th>pct_II</th>
       <td>0.909091</td>
       <td>0.9</td>
       <td>1.0</td>
-      <td>0.7</td>
-      <td>0.9</td>
+      <td>1.0</td>
+      <td>0.555556</td>
     </tr>
     <tr>
       <th>RT_CC</th>
       <td>1874.916667</td>
       <td>2289.2</td>
       <td>1800.8</td>
-      <td>2007.125</td>
-      <td>1954.916667</td>
+      <td>1513.538462</td>
+      <td>2106.333333</td>
     </tr>
     <tr>
       <th>RT_CI</th>
       <td>1947.363636</td>
       <td>2302.3</td>
       <td>2219.75</td>
-      <td>2775.777778</td>
-      <td>1889.9</td>
+      <td>1879.615385</td>
+      <td>2308.111111</td>
     </tr>
     <tr>
       <th>RT_IC</th>
       <td>1817.083333</td>
       <td>1658.7</td>
       <td>1836.727273</td>
-      <td>2104.2</td>
-      <td>2168.272727</td>
+      <td>1427.0</td>
+      <td>2787.0</td>
     </tr>
     <tr>
       <th>RT_II</th>
       <td>2055.636364</td>
       <td>2721.2</td>
       <td>2276.636364</td>
-      <td>2633.3</td>
-      <td>2325.4</td>
+      <td>2130.583333</td>
+      <td>2786.555556</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>1.0</td>
       <td>6.0</td>
       <td>0.0</td>
-      <td>3.0</td>
-      <td>4.0</td>
+      <td>1.0</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>45.0</td>
       <td>34.0</td>
       <td>44.0</td>
-      <td>34.0</td>
-      <td>39.0</td>
+      <td>50.0</td>
+      <td>27.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>46.0</td>
       <td>40.0</td>
       <td>44.0</td>
-      <td>37.0</td>
-      <td>43.0</td>
+      <td>51.0</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>1898.155556</td>
       <td>2303.323529</td>
       <td>2043.0</td>
-      <td>2405.588235</td>
-      <td>2111.487179</td>
+      <td>1713.92</td>
+      <td>2617.037037</td>
     </tr>
     <tr>
       <th rowspan="6" valign="top">odd_one_out</th>
@@ -813,24 +858,24 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>14.0</td>
       <td>11.0</td>
       <td>15.0</td>
-      <td>9.0</td>
-      <td>10.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
       <td>17.0</td>
       <td>16.0</td>
       <td>18.0</td>
-      <td>13.0</td>
-      <td>16.0</td>
+      <td>14.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>2.0</td>
       <td>4.0</td>
       <td>2.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
@@ -838,23 +883,23 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>15.0</td>
       <td>17.0</td>
       <td>13.0</td>
-      <td>15.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>18.0</td>
       <td>19.0</td>
       <td>19.0</td>
-      <td>17.0</td>
-      <td>19.0</td>
+      <td>18.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>9761.875</td>
       <td>8570.0</td>
       <td>8991.588235</td>
-      <td>7654.153846</td>
-      <td>5627.666667</td>
+      <td>7359.307692</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">monkey_ladder</th>
@@ -862,40 +907,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>8.0</td>
       <td>7.0</td>
       <td>7.0</td>
+      <td>NaN</td>
       <td>8.0</td>
-      <td>9.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>5.555556</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>5.125</td>
-      <td>6.1</td>
+      <td>NaN</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>1604.177513</td>
       <td>1447.962554</td>
       <td>1495.889069</td>
-      <td>1589.326876</td>
-      <td>1605.814225</td>
+      <td>NaN</td>
+      <td>1612.509881</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>9.0</td>
       <td>8.0</td>
       <td>8.0</td>
-      <td>8.0</td>
-      <td>10.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>12.0</td>
       <td>11.0</td>
       <td>11.0</td>
-      <td>11.0</td>
-      <td>13.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th rowspan="7" valign="top">rotations</th>
@@ -903,56 +948,56 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>109.0</td>
       <td>61.0</td>
       <td>132.0</td>
-      <td>64.0</td>
-      <td>137.0</td>
+      <td>144.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
       <td>11.0</td>
       <td>9.0</td>
       <td>12.0</td>
-      <td>9.0</td>
-      <td>12.0</td>
+      <td>13.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>correct_score</th>
       <td>116.0</td>
       <td>72.0</td>
       <td>152.0</td>
-      <td>79.0</td>
-      <td>140.0</td>
+      <td>153.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>0.0</td>
       <td>2.0</td>
       <td>1.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>15.0</td>
       <td>11.0</td>
       <td>18.0</td>
-      <td>12.0</td>
-      <td>17.0</td>
+      <td>18.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>15.0</td>
       <td>13.0</td>
       <td>19.0</td>
-      <td>14.0</td>
       <td>18.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>5096.4</td>
       <td>5196.090909</td>
       <td>3787.111111</td>
-      <td>5914.75</td>
-      <td>3851.823529</td>
+      <td>4153.444444</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="7" valign="top">feature_match</th>
@@ -960,24 +1005,24 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>100.0</td>
       <td>156.0</td>
       <td>145.0</td>
-      <td>110.0</td>
-      <td>156.0</td>
+      <td>157.0</td>
+      <td>90.0</td>
     </tr>
     <tr>
       <th>max</th>
       <td>10.0</td>
       <td>13.0</td>
       <td>13.0</td>
-      <td>11.0</td>
       <td>13.0</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>correct_score</th>
       <td>109.0</td>
       <td>171.0</td>
       <td>168.0</td>
-      <td>128.0</td>
       <td>181.0</td>
+      <td>125.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
@@ -985,31 +1030,31 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>2.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>19.0</td>
       <td>25.0</td>
       <td>24.0</td>
+      <td>25.0</td>
       <td>21.0</td>
-      <td>26.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>19.0</td>
       <td>26.0</td>
       <td>25.0</td>
-      <td>22.0</td>
-      <td>28.0</td>
+      <td>26.0</td>
+      <td>24.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>3790.736842</td>
       <td>2640.16</td>
       <td>2708.458333</td>
-      <td>3254.857143</td>
-      <td>2426.730769</td>
+      <td>2560.2</td>
+      <td>2885.666667</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">digit_span</th>
@@ -1017,40 +1062,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>5.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td>5.0</td>
-      <td>10.0</td>
+      <td>7.0</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>4.666667</td>
       <td>4.8</td>
       <td>5.2</td>
-      <td>4.75</td>
-      <td>7.111111</td>
+      <td>5.8</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>1111.905556</td>
       <td>2465.779762</td>
       <td>1127.108929</td>
-      <td>1338.983333</td>
-      <td>936.247514</td>
+      <td>1136.293304</td>
+      <td>1401.077381</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>3.0</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>4.0</td>
-      <td>9.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>6.0</td>
       <td>8.0</td>
       <td>8.0</td>
-      <td>7.0</td>
-      <td>12.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th rowspan="4" valign="top">spatial_planning</th>
@@ -1058,15 +1103,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>20.0</td>
       <td>19.0</td>
       <td>14.0</td>
-      <td>13.0</td>
-      <td>22.0</td>
+      <td>23.0</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>1.0</td>
       <td>2.0</td>
       <td>3.0</td>
-      <td>1.0</td>
+      <td>2.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1074,7 +1119,7 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>6.0</td>
       <td>5.0</td>
       <td>4.0</td>
-      <td>4.0</td>
+      <td>7.0</td>
       <td>6.0</td>
     </tr>
     <tr>
@@ -1082,7 +1127,7 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>7.0</td>
       <td>7.0</td>
       <td>7.0</td>
-      <td>5.0</td>
+      <td>9.0</td>
       <td>7.0</td>
     </tr>
     <tr>
@@ -1091,40 +1136,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>3.0</td>
       <td>6.0</td>
       <td>4.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>2.5</td>
       <td>4.0</td>
       <td>3.4</td>
-      <td>3.25</td>
-      <td>2.75</td>
+      <td>3.666667</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>3857.642857</td>
       <td>3762.21369</td>
       <td>3485.289583</td>
-      <td>3675.890476</td>
-      <td>4037.707143</td>
+      <td>3551.637037</td>
+      <td>3604.553704</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>4.0</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>4.0</td>
-      <td>4.0</td>
+      <td>6.0</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>7.0</td>
       <td>8.0</td>
       <td>8.0</td>
-      <td>7.0</td>
-      <td>7.0</td>
+      <td>9.0</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">polygons</th>
@@ -1132,8 +1177,8 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>26.0</td>
       <td>63.0</td>
       <td>62.0</td>
-      <td>48.0</td>
-      <td>84.0</td>
+      <td>72.0</td>
+      <td>55.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
@@ -1141,31 +1186,31 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>5.0</td>
       <td>4.0</td>
       <td>3.0</td>
-      <td>5.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>15.0</td>
       <td>20.0</td>
       <td>18.0</td>
-      <td>16.0</td>
-      <td>23.0</td>
+      <td>20.0</td>
+      <td>17.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>20.0</td>
       <td>25.0</td>
       <td>22.0</td>
-      <td>19.0</td>
-      <td>28.0</td>
+      <td>23.0</td>
+      <td>21.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>3435.266667</td>
       <td>2854.1</td>
       <td>3072.777778</td>
-      <td>3899.75</td>
-      <td>2316.173913</td>
+      <td>3041.45</td>
+      <td>3191.647059</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">token_search</th>
@@ -1173,40 +1218,40 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>8.0</td>
       <td>8.0</td>
       <td>7.0</td>
-      <td>9.0</td>
-      <td>9.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>6.166667</td>
       <td>6.428571</td>
       <td>5.666667</td>
-      <td>6.25</td>
-      <td>6.125</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>2137.649339</td>
       <td>1714.032778</td>
       <td>1488.663492</td>
-      <td>2459.66912</td>
-      <td>1438.585606</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>6.0</td>
       <td>7.0</td>
       <td>6.0</td>
-      <td>8.0</td>
-      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>9.0</td>
       <td>10.0</td>
       <td>9.0</td>
-      <td>11.0</td>
-      <td>11.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="17" valign="top">info</th>
@@ -1222,15 +1267,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>42.0</td>
       <td>26.0</td>
       <td>23.0</td>
-      <td>37.0</td>
       <td>24.0</td>
+      <td>31.0</td>
     </tr>
     <tr>
       <th>education</th>
       <td>Master's Degree</td>
       <td>High School Diploma</td>
       <td>High School Diploma</td>
-      <td>Doctoral or Professional Degree</td>
+      <td>High School Diploma</td>
       <td>Master's Degree</td>
     </tr>
     <tr>
@@ -1246,39 +1291,39 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>Canada</td>
       <td>Canada</td>
       <td>United Kingdom of Great Britain and Northern I...</td>
-      <td>United Kingdom of Great Britain and Northern I...</td>
-      <td>Canada,China</td>
+      <td>Portugal</td>
+      <td>Serbia</td>
     </tr>
     <tr>
       <th>languages_spoken</th>
       <td>English</td>
       <td>English</td>
       <td>English</td>
-      <td>English</td>
-      <td>Chinese, n.o.s.</td>
+      <td>Portuguese</td>
+      <td>English,Serbo-Croatian</td>
     </tr>
     <tr>
       <th>fluent_english</th>
       <td>True</td>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
       <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>hospital_stay</th>
       <td>False</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
+      <td>True</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>handedness</th>
       <td>Right</td>
       <td>Right</td>
       <td>Right</td>
-      <td>Left</td>
+      <td>Right</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -1286,15 +1331,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>Employed full time</td>
       <td>Employed full time</td>
       <td>Employed full time</td>
-      <td>Employed part time</td>
-      <td>Employed full time</td>
+      <td>Other</td>
+      <td>Full time student</td>
     </tr>
     <tr>
       <th>exercise_freq</th>
       <td>Three or more times a week</td>
       <td>Less than once a week</td>
       <td>Less than once a week</td>
-      <td>Less than once a week</td>
+      <td>Once or twice a week</td>
       <td>Less than once a week</td>
     </tr>
     <tr>
@@ -1302,15 +1347,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>3.0</td>
       <td>6.0</td>
       <td>1.0</td>
-      <td>3.0</td>
       <td>0.0</td>
+      <td>0.5</td>
     </tr>
     <tr>
       <th>caffeine_per_day</th>
       <td>1.0</td>
       <td>0.5</td>
       <td>1.0</td>
-      <td>6.0</td>
+      <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -1568,25 +1613,7 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">a5</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">a4</span><span class="p">,</span><span class="n">a5</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">change_style</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-
-<span class="nn">Input In [10],</span> in <span class="ni">change_style</span><span class="nt">(ax, xlim, ylim, xlabel, ylabel)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;.25&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">10</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">if</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">*</span><span class="n">ylim</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">if</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
-
-<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not subscriptable
-</pre></div>
-</div>
-<img alt="../../_images/02_matplotlib_101_19_1.png" src="../../_images/02_matplotlib_101_19_1.png" />
+<img alt="../../_images/02_matplotlib_101_19_0.png" src="../../_images/02_matplotlib_101_19_0.png" />
 </div>
 </div>
 </div>
@@ -1680,6 +1707,13 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Graphical Representations of Data</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../about/setup.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">⚙️ Course Setup</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
