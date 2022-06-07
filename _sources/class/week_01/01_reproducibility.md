@@ -47,6 +47,40 @@
 
 ## The Costs of Reproducibility
 ###  The Futility of Underpowered Science
+- We know that subtle behavioural neuronal markers require large numbers of samples to varify
+- **Collaborate**: Try to join or form consortia to collect data that will answer your question
+- **Use shared data**: Instead of proposing yet another little pilot in your PhD, try changing some of your questions in a manner that can be answered using datasets that are currently available.
+- **Embrace theory**: Try to attack your question using either limitation in the current technology, or by using synthetic data that is simulated in some form. Generated data may be a way to answer multiple questions that might lead to unexpected solutions. 
+
+### The Incentives Are Not Yet Aligned
+- Reproducible research is harder to do 
+- If you preregister your paper you are limited by your ability to manipulate the dat to increase the attractiveness of your paper 
+- Hopefully if you do adapt to some of these guidelines your ability to produce better science and as a result knowledge will improve 
+
+### Making Your Efforts Known
+- Join hackathons 
+- Join consortiums 
+- Collaborate on large projects 
+- Getting involved in social media
+- Identify the key players in your field and interact with them 
+
+### We Have a Problem
+- We should focus less on the results and more on the questions and methods.
+- We can try to include not only positive results but also negative ones. 
+- Even when you present to your peers emphasising the negative as well will make the change in small bites  
+
+
+
+### How to share your data 
+
+- [best practices for sharing data on the Web summary](https://www.w3.org/TR/dwbp/#bp-summary)
+- [git annex](https://git-annex.branchable.com/)
+- [Datalad](http://datalad.org/)
+- [FigShare](https://figshare.com/)
+
+
+### Search for datasets
+
 
 --- 
 
