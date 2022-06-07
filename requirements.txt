@@ -106,6 +106,7 @@ smmap==3.0.5
 sniffio==1.2.0
 snowballstemmer==2.2.0
 soupsieve==2.3.1
+seaborn
 Sphinx==4.4.0
 sphinx-book-theme==0.1.10
 sphinx-comments==0.0.3
