@@ -175,7 +175,7 @@
 # 
 # ### What are .yml/.yaml files 
 # 
-# Configuration files are often written in YAML, a language for serialising data. You can find YAML as yet another markup language or as [(YAML)](https://en.wikipedia.org/wiki/YAML) ain't markup language (a recursive acronym), emphasising that YAML is for data, not documents. Simply put, .yaml files are a simple format for bridging the gap between humans and computers by creating data files that are easy to read and use.
+# Configuration files are often written in YAML, a language for serialising data. You can find YAML as yet another markup language or as [(YAML)](https://en.wikipedia.org/wiki/YAML) YAML Ain't Markup Language (a recursive acronym), emphasising that YAML is for data, not documents. Simply put, `.yaml` files are a simple format for bridging the gap between humans and computers by creating data files that are easy to read and use.
 # 
 # 
 # ### Spawn Jupyter to see if all the hard work was worth it 

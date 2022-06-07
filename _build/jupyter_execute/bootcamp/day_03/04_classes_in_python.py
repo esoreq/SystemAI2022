@@ -13,7 +13,6 @@
 #   - Local
 # - The interpreter searches for a name from the inside out, looking in the local, enclosing, global, and finally the built-in scope
 # 
-# 
 
 # ###  The Built-In Namespace
 # - The built-in namespace contains the names of all of Python’s built-in objects. 

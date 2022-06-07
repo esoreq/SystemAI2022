@@ -83,6 +83,7 @@
 #   - pandas
 #   - jupyterlab
 #   - scipy
+#   - nbformat
 #   - statsmodels
 #   - pingouin
 #   - scikit-learn
@@ -115,6 +116,7 @@
 # ~~~
 # 
 # - Refresh your terminal and you can now work on the lab material 
+#   using the environment you just created
 
 # ```{note}
 # To create notebooks inside the notebook folder you should navigate to the notebooks folder using the jupyter lab explorer and launch a notebook when you are in the right folder

@@ -57,7 +57,7 @@
 # 
 # ### RULE #7 - STORE SUMMARY TABLES
 # 
-# ![](https://miro.medium.com/max/3840/1*M70VAAHkWsq23ifZLIVpLw.jpeg)
+# ![](https://iotcdn.oss-ap-southeast-1.aliyuncs.com/2020-11/14.jpg)
 # 
 # - ALWAYS STORE RAW DATA BEHIND PLOTS
 # - Automatically generate plots using code!!!
