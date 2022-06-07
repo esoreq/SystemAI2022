@@ -26,12 +26,13 @@ sns.heatmap(tasks.corr());
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m 
-[1;32m      2[0m pd[38;5;241m.[39mset_option([38;5;124m'[39m[38;5;124mdisplay.max_rows[39m[38;5;124m'[39m, [38;5;241m100[39m)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [2][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m 
+[0;32m----> 2[0m [43mpd[49m[38;5;241m.[39mset_option([38;5;124m'[39m[38;5;124mdisplay.max_rows[39m[38;5;124m'[39m, [38;5;241m100[39m)
 [1;32m      3[0m pd[38;5;241m.[39mset_option([38;5;124m"[39m[38;5;124mdisplay.max.columns[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+[1;32m      4[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_pickle([38;5;124m'[39m[38;5;124mSYS_2022/data/raw/12_tasks.pkl[39m[38;5;124m'[39m)
 
-[0;31mModuleNotFoundError[0m: No module named 'seaborn'
-ModuleNotFoundError: No module named 'seaborn'
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
 
