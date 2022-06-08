@@ -202,17 +202,15 @@ for folder in sub_folders:
 # - Select five demographic features of interest and at least three different cognitive tasks to create a dataset subset that will be used to conduct exploratory data analysis. 
 # - For example:  
 #   - The following code block examines the within and between global association across tasks and their metrics 
-
-# In[2]:
-
-
-import seaborn as sns 
-pd.set_option('display.max_rows', 100)
-pd.set_option("display.max.columns", None)
-df = pd.read_pickle('SYS_2022/data/raw/12_tasks.pkl')
-tasks = df.xs(['spatial_planning','spatial_span','feature_match'],1).astype(float)
-sns.heatmap(tasks.corr());
-
+# 
+# ~~~python
+# import seaborn as sns 
+# pd.set_option('display.max_rows', 100)
+# pd.set_option("display.max.columns", None)
+# df = pd.read_pickle('SYS_2022/data/raw/12_tasks.pkl')
+# tasks = df.xs(['spatial_planning','spatial_span','feature_match'],1).astype(float)
+# sns.heatmap(tasks.corr());
+# ~~~
 
 # - Another common question relates to the level of completeness across the different metrics you acquired 
 # - If our objective is to increase the number of observation to the maximum it might be useful to identify the landscape of completeness across the tasks 
