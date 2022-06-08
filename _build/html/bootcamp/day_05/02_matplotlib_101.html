@@ -315,13 +315,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
-     Reproducibility lab
+    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
-     Ten simple rules for reproducible research
+    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+     Reproducibility lab
     </a>
    </li>
   </ul>
@@ -615,7 +615,7 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
 <h3>Anatomy of a single plot figure¶<a class="headerlink" href="#anatomy-of-a-single-plot-figure" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -642,14 +642,10 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <th>45312</th>
       <th>45315</th>
       <th>45318</th>
-      <th>45319</th>
-      <th>45320</th>
     </tr>
     <tr>
       <th>task</th>
       <th>measure</th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -662,8 +658,6 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>DESKTOP</td>
       <td>DESKTOP</td>
       <td>DESKTOP</td>
-      <td>DESKTOP</td>
-      <td>DESKTOP</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">spatial_span</th>
@@ -671,40 +665,30 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>5.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>4.75</td>
       <td>4.8</td>
       <td>5.0</td>
-      <td>4.25</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>2052.07381</td>
       <td>1842.607143</td>
       <td>1943.734694</td>
-      <td>1900.488095</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>4.0</td>
       <td>5.0</td>
       <td>4.0</td>
-      <td>4.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>7.0</td>
       <td>8.0</td>
       <td>7.0</td>
-      <td>7.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">grammatical_reasoning</th>
@@ -712,40 +696,30 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>19.0</td>
       <td>25.0</td>
       <td>17.0</td>
-      <td>21.0</td>
-      <td>8.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>19.0</td>
       <td>24.0</td>
       <td>18.0</td>
-      <td>22.0</td>
-      <td>13.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>19.0</td>
       <td>24.0</td>
       <td>19.0</td>
-      <td>23.0</td>
-      <td>18.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>4078.842105</td>
       <td>3081.291667</td>
       <td>4056.444444</td>
-      <td>3313.863636</td>
-      <td>4515.538462</td>
     </tr>
     <tr>
       <th rowspan="13" valign="top">double_trouble</th>
@@ -753,13 +727,9 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>44.0</td>
       <td>28.0</td>
       <td>44.0</td>
-      <td>49.0</td>
-      <td>18.0</td>
     </tr>
     <tr>
       <th>pct_CC</th>
-      <td>1.0</td>
-      <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
@@ -769,88 +739,66 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>1.0</td>
       <td>0.7</td>
       <td>1.0</td>
-      <td>0.923077</td>
-      <td>0.555556</td>
     </tr>
     <tr>
       <th>pct_IC</th>
       <td>1.0</td>
       <td>0.8</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.888889</td>
     </tr>
     <tr>
       <th>pct_II</th>
       <td>0.909091</td>
       <td>0.9</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.555556</td>
     </tr>
     <tr>
       <th>RT_CC</th>
       <td>1874.916667</td>
       <td>2289.2</td>
       <td>1800.8</td>
-      <td>1513.538462</td>
-      <td>2106.333333</td>
     </tr>
     <tr>
       <th>RT_CI</th>
       <td>1947.363636</td>
       <td>2302.3</td>
       <td>2219.75</td>
-      <td>1879.615385</td>
-      <td>2308.111111</td>
     </tr>
     <tr>
       <th>RT_IC</th>
       <td>1817.083333</td>
       <td>1658.7</td>
       <td>1836.727273</td>
-      <td>1427.0</td>
-      <td>2787.0</td>
     </tr>
     <tr>
       <th>RT_II</th>
       <td>2055.636364</td>
       <td>2721.2</td>
       <td>2276.636364</td>
-      <td>2130.583333</td>
-      <td>2786.555556</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>1.0</td>
       <td>6.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>9.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>45.0</td>
       <td>34.0</td>
       <td>44.0</td>
-      <td>50.0</td>
-      <td>27.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>46.0</td>
       <td>40.0</td>
       <td>44.0</td>
-      <td>51.0</td>
-      <td>36.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>1898.155556</td>
       <td>2303.323529</td>
       <td>2043.0</td>
-      <td>1713.92</td>
-      <td>2617.037037</td>
     </tr>
     <tr>
       <th rowspan="6" valign="top">odd_one_out</th>
@@ -858,48 +806,36 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>14.0</td>
       <td>11.0</td>
       <td>15.0</td>
-      <td>8.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
       <td>17.0</td>
       <td>16.0</td>
       <td>18.0</td>
-      <td>14.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>2.0</td>
       <td>4.0</td>
       <td>2.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>16.0</td>
       <td>15.0</td>
       <td>17.0</td>
-      <td>13.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>18.0</td>
       <td>19.0</td>
       <td>19.0</td>
-      <td>18.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>9761.875</td>
       <td>8570.0</td>
       <td>8991.588235</td>
-      <td>7359.307692</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">monkey_ladder</th>
@@ -907,15 +843,11 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>8.0</td>
       <td>7.0</td>
       <td>7.0</td>
-      <td>NaN</td>
-      <td>8.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>5.555556</td>
       <td>5.0</td>
-      <td>5.0</td>
-      <td>NaN</td>
       <td>5.0</td>
     </tr>
     <tr>
@@ -923,24 +855,18 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>1604.177513</td>
       <td>1447.962554</td>
       <td>1495.889069</td>
-      <td>NaN</td>
-      <td>1612.509881</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>9.0</td>
       <td>8.0</td>
       <td>8.0</td>
-      <td>NaN</td>
-      <td>7.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>12.0</td>
       <td>11.0</td>
       <td>11.0</td>
-      <td>NaN</td>
-      <td>10.0</td>
     </tr>
     <tr>
       <th rowspan="7" valign="top">rotations</th>
@@ -948,56 +874,42 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>109.0</td>
       <td>61.0</td>
       <td>132.0</td>
-      <td>144.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
       <td>11.0</td>
       <td>9.0</td>
       <td>12.0</td>
-      <td>13.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>correct_score</th>
       <td>116.0</td>
       <td>72.0</td>
       <td>152.0</td>
-      <td>153.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>0.0</td>
       <td>2.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>15.0</td>
       <td>11.0</td>
       <td>18.0</td>
-      <td>18.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>15.0</td>
       <td>13.0</td>
       <td>19.0</td>
-      <td>18.0</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>5096.4</td>
       <td>5196.090909</td>
       <td>3787.111111</td>
-      <td>4153.444444</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="7" valign="top">feature_match</th>
@@ -1005,56 +917,42 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>100.0</td>
       <td>156.0</td>
       <td>145.0</td>
-      <td>157.0</td>
-      <td>90.0</td>
     </tr>
     <tr>
       <th>max</th>
       <td>10.0</td>
       <td>13.0</td>
       <td>13.0</td>
-      <td>13.0</td>
-      <td>10.0</td>
     </tr>
     <tr>
       <th>correct_score</th>
       <td>109.0</td>
       <td>171.0</td>
       <td>168.0</td>
-      <td>181.0</td>
-      <td>125.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>0.0</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>19.0</td>
       <td>25.0</td>
       <td>24.0</td>
-      <td>25.0</td>
-      <td>21.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>19.0</td>
       <td>26.0</td>
       <td>25.0</td>
-      <td>26.0</td>
-      <td>24.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>3790.736842</td>
       <td>2640.16</td>
       <td>2708.458333</td>
-      <td>2560.2</td>
-      <td>2885.666667</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">digit_span</th>
@@ -1062,38 +960,28 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>5.0</td>
       <td>6.0</td>
       <td>6.0</td>
-      <td>7.0</td>
-      <td>7.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>4.666667</td>
       <td>4.8</td>
       <td>5.2</td>
-      <td>5.8</td>
-      <td>5.0</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>1111.905556</td>
       <td>2465.779762</td>
       <td>1127.108929</td>
-      <td>1136.293304</td>
-      <td>1401.077381</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>3.0</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>5.0</td>
-      <td>5.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>6.0</td>
-      <td>8.0</td>
-      <td>8.0</td>
       <td>8.0</td>
       <td>8.0</td>
     </tr>
@@ -1103,31 +991,23 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>20.0</td>
       <td>19.0</td>
       <td>14.0</td>
-      <td>23.0</td>
-      <td>18.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>1.0</td>
       <td>2.0</td>
       <td>3.0</td>
-      <td>2.0</td>
-      <td>1.0</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>6.0</td>
       <td>5.0</td>
       <td>4.0</td>
-      <td>7.0</td>
-      <td>6.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>7.0</td>
       <td>7.0</td>
-      <td>7.0</td>
-      <td>9.0</td>
       <td>7.0</td>
     </tr>
     <tr>
@@ -1136,40 +1016,30 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>3.0</td>
       <td>6.0</td>
       <td>4.0</td>
-      <td>5.0</td>
-      <td>6.0</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>2.5</td>
       <td>4.0</td>
       <td>3.4</td>
-      <td>3.666667</td>
-      <td>4.0</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>3857.642857</td>
       <td>3762.21369</td>
       <td>3485.289583</td>
-      <td>3551.637037</td>
-      <td>3604.553704</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>4.0</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>6.0</td>
-      <td>6.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>7.0</td>
       <td>8.0</td>
       <td>8.0</td>
-      <td>9.0</td>
-      <td>9.0</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">polygons</th>
@@ -1177,15 +1047,11 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>26.0</td>
       <td>63.0</td>
       <td>62.0</td>
-      <td>72.0</td>
-      <td>55.0</td>
     </tr>
     <tr>
       <th>num_errors</th>
       <td>5.0</td>
       <td>5.0</td>
-      <td>4.0</td>
-      <td>3.0</td>
       <td>4.0</td>
     </tr>
     <tr>
@@ -1193,24 +1059,18 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>15.0</td>
       <td>20.0</td>
       <td>18.0</td>
-      <td>20.0</td>
-      <td>17.0</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>20.0</td>
       <td>25.0</td>
       <td>22.0</td>
-      <td>23.0</td>
-      <td>21.0</td>
     </tr>
     <tr>
       <th>avg_ms_correct</th>
       <td>3435.266667</td>
       <td>2854.1</td>
       <td>3072.777778</td>
-      <td>3041.45</td>
-      <td>3191.647059</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">token_search</th>
@@ -1218,46 +1078,34 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>8.0</td>
       <td>8.0</td>
       <td>7.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_score</th>
       <td>6.166667</td>
       <td>6.428571</td>
       <td>5.666667</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>avg_ms_per_item</th>
       <td>2137.649339</td>
       <td>1714.032778</td>
       <td>1488.663492</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_correct</th>
       <td>6.0</td>
       <td>7.0</td>
       <td>6.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th>num_attempts</th>
       <td>9.0</td>
       <td>10.0</td>
       <td>9.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
       <th rowspan="17" valign="top">info</th>
       <th>sex</th>
-      <td>Female</td>
-      <td>Female</td>
       <td>Female</td>
       <td>Female</td>
       <td>Female</td>
@@ -1267,21 +1115,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>42.0</td>
       <td>26.0</td>
       <td>23.0</td>
-      <td>24.0</td>
-      <td>31.0</td>
     </tr>
     <tr>
       <th>education</th>
       <td>Master's Degree</td>
       <td>High School Diploma</td>
       <td>High School Diploma</td>
-      <td>High School Diploma</td>
-      <td>Master's Degree</td>
     </tr>
     <tr>
       <th>SES_growing_up</th>
-      <td>At or above poverty level</td>
-      <td>At or above poverty level</td>
       <td>At or above poverty level</td>
       <td>At or above poverty level</td>
       <td>At or above poverty level</td>
@@ -1291,23 +1133,17 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>Canada</td>
       <td>Canada</td>
       <td>United Kingdom of Great Britain and Northern I...</td>
-      <td>Portugal</td>
-      <td>Serbia</td>
     </tr>
     <tr>
       <th>languages_spoken</th>
       <td>English</td>
       <td>English</td>
       <td>English</td>
-      <td>Portuguese</td>
-      <td>English,Serbo-Croatian</td>
     </tr>
     <tr>
       <th>fluent_english</th>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
-      <td>False</td>
       <td>True</td>
     </tr>
     <tr>
@@ -1315,13 +1151,9 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>False</td>
       <td>True</td>
       <td>True</td>
-      <td>True</td>
-      <td>True</td>
     </tr>
     <tr>
       <th>handedness</th>
-      <td>Right</td>
-      <td>Right</td>
       <td>Right</td>
       <td>Right</td>
       <td>Right</td>
@@ -1331,15 +1163,11 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>Employed full time</td>
       <td>Employed full time</td>
       <td>Employed full time</td>
-      <td>Other</td>
-      <td>Full time student</td>
     </tr>
     <tr>
       <th>exercise_freq</th>
       <td>Three or more times a week</td>
       <td>Less than once a week</td>
-      <td>Less than once a week</td>
-      <td>Once or twice a week</td>
       <td>Less than once a week</td>
     </tr>
     <tr>
@@ -1347,21 +1175,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>3.0</td>
       <td>6.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.5</td>
     </tr>
     <tr>
       <th>caffeine_per_day</th>
       <td>1.0</td>
       <td>0.5</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
     </tr>
     <tr>
       <th>cigarettes_per_day</th>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1371,21 +1193,15 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
       <td>False</td>
       <td>True</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>stimulants</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>depressants</th>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -1570,9 +1386,9 @@ The object-oriented interface the plotting functions are <em>methods</em> of exp
     
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;.25&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">10</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ylim</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">*</span><span class="n">ylim</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xlim</span><span class="p">)</span>
     
     <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">LinearLocator</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>

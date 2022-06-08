@@ -21,7 +21,7 @@ df = pd.read_pickle('12_tasks.pkl').dropna()
 # We will use the `plt.style` function to set the appropriate aesthetic styles for all of our figures.
 # I am using the `ggplot` style, which ensures that the plots we create use the nice and calm design schemes
 
-# In[12]:
+# In[4]:
 
 
 plt.style.use('ggplot')
@@ -35,15 +35,15 @@ plt.style.use('ggplot')
 # ### Anatomy of a single plot figure¶
 # 
 
-# In[22]:
+# In[5]:
 
 
-df.head().T
+df.head(3).T
 
 
 # #### Create some data  
 
-# In[98]:
+# In[6]:
 
 
 ooo_RT = ('odd_one_out','avg_ms_correct')
@@ -56,7 +56,7 @@ x,y1,y2 = data[ooo_RT],data[gr_RT],data[ds_RT]
 
 # #### Define a single plot object 
 
-# In[159]:
+# In[7]:
 
 
 from matplotlib.ticker import AutoMinorLocator, MultipleLocator, LinearLocator
@@ -108,19 +108,19 @@ ax.set_title('Correct RT vs RT per item');
 # - Saving a figure can be done using the `savefig()` command.
 # 
 
-# In[16]:
+# In[8]:
 
 
 fig.canvas.get_supported_filetypes()
 
 
-# In[160]:
+# In[9]:
 
 
 fig.savefig('my_figure.png', bbox_inches = 'tight')
 
 
-# In[161]:
+# In[10]:
 
 
 from IPython.display import Image
@@ -130,7 +130,7 @@ Image('my_figure.png')
 # ### Anatomy of a multi column figure¶
 # 
 
-# In[142]:
+# In[11]:
 
 
 fig, ax = plt.subplots(1,2,figsize=(15, 5))
@@ -174,7 +174,7 @@ plt.tight_layout()
 # 
 # 
 
-# In[237]:
+# In[12]:
 
 
 def change_style(ax,xlim=None, ylim=None, xlabel='X label', ylabel='Y label'):
@@ -184,9 +184,9 @@ def change_style(ax,xlim=None, ylim=None, xlabel='X label', ylabel='Y label'):
     
     ax.grid(linestyle="--", linewidth=0.5, color='.25', zorder=-10)
 
-    if ylim[0] not in [None]:
+    if type(ylim) is list:
         ax.set_ylim(*ylim)
-    if xlim[0] not in [None]:
+    if type(xlim) is list:
         ax.set_xlim(*xlim)
     
     ax.xaxis.set_major_locator(LinearLocator(5))
@@ -205,7 +205,7 @@ def change_style(ax,xlim=None, ylim=None, xlabel='X label', ylabel='Y label'):
 # ### Anatomy of a multi panel figure¶
 # 
 
-# In[195]:
+# In[13]:
 
 
 fig = plt.figure(figsize=(15, 6), constrained_layout=True)
@@ -226,7 +226,7 @@ fig.subplots_adjust(hspace=0.4)
 
 # ### Often we would like to add letters per panel
 
-# In[322]:
+# In[14]:
 
 
 def add_panel_letter(fig, ax, letter ,pos=( 0, 1.05), fontsize=12):
@@ -241,7 +241,7 @@ def add_panel_letter(fig, ax, letter ,pos=( 0, 1.05), fontsize=12):
 
 # ### Finally this framework is limited by your imagination
 
-# In[327]:
+# In[15]:
 
 
 rng = np.random.default_rng(2022)
