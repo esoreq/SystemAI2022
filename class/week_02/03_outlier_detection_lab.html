@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAY 03 - HOMEWORK &#8212; System &amp; AI 2022</title>
+    <title>We start by creating several subset datasets &#8212; System &amp; AI 2022</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,11 +53,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/bootcamp/day_03/05_homework.html" />
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_02/03_outlier_detection_lab.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="DAY 04 - Numpy and Pandas 101" href="../day_04/00_day_04_overview.html" />
-    <link rel="prev" title="PYTHON CLASSES 101" href="04_classes_in_python.html" />
+    <link rel="prev" title="Feature Engineering and Feature Selection 101" href="05_feature_engineering_lab.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -102,18 +101,18 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../about/bootcamp_intro.html">
    BOOT CAMP
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../day_01/00_day_01_overview.html">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
      DAY 01 - basics
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -123,39 +122,39 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/01_bash101.html">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
        BASH 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/02_anaconda101.html">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
        Anaconda environment 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/03_git101.html">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
        Version control, git and github command line tools
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/04_jupyter_101.html">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
        Jupyter notebooks 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/05_markdown_101.html">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
        Markdown 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_01/06_homework.html">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
        DAY 01 - HOMEWORK
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../day_02/00_day_02_overview.html">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
      DAY 02 - Python
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -165,76 +164,76 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/01_python_syntax_101.html">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
        PYTHON SYNTAX 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/02_variables_101.html">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
        PYTHON Basic Data Types
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/03_data_types.html">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
        PYTHON Data operations 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/04_python_data_structures.html">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
        PYTHON Data structures 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/05_programming_101.html">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
        Python Programming 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_02/06_home_work.html">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
        DAY 02 - HOMEWORK
       </a>
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="00_day_03_overview.html">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
      DAY 03 - Programming 101
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
     <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
+    <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_python_functions_101.html">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
        PYTHON FUNCTIONS 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02_python_modules_101.html">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
        PYTHON MODULES 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="03_anaconda_revisited.html">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
        PYTHON ANACONDA 102
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="04_classes_in_python.html">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
        PYTHON CLASSES 101
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
        DAY 03 - HOMEWORK
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../day_04/00_day_04_overview.html">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
      DAY 04 - Numpy and Pandas 101
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -244,34 +243,34 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_04/01_Numpy_data_structures.html">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
        Numpy 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_04/02_Pandas_data_structures.html">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
        Pandas 101
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_04/03_raw_to_tidy_with_pandas.html">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
        From raw to structured
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_04/04_plotting_with_pandas.html">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
        Plotting with pandas and Matplotlib
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_04/05_homework.html">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
        DAY 04 - HOMEWORK
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../day_05/00_day_05_overview.html">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
      DAY 05 - Data visualisation
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -281,12 +280,12 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_05/01_visual_perception.html">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
        Graphical Representations of Data
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../day_05/02_matplotlib_101.html">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
        intro to matplotlib
       </a>
      </li>
@@ -300,7 +299,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../class/week_01/00_overview.html">
+  <a class="reference internal" href="../week_01/00_overview.html">
    WEEK 01
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -310,44 +309,44 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_01/01_reproducibility.html">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
      What is Open and Reproducible Research?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_01/03_reproducibility_rules.html">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
      Ten simple rules for reproducible research
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_01/02_reproducibility_lab.html">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
      Reproducibility lab
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../class/week_02/00_overview.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
    WEEK 02
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_02/02_data_cleaning_lab.html">
+    <a class="reference internal" href="02_data_cleaning_lab.html">
      DATA Cleaning 101
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_02/05_feature_engineering_lab.html">
+    <a class="reference internal" href="05_feature_engineering_lab.html">
      Feature Engineering and Feature Selection 101
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../class/week_02/03_outlier_detection_lab.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      We start by creating several subset datasets
     </a>
    </li>
@@ -394,7 +393,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/bootcamp/day_03/05_homework.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/class/week_02/03_outlier_detection_lab.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -411,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="dropdown-buttons sourcebuttons">
         
         <a class="issues-button"
-            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fbootcamp/day_03/05_homework.html&body=Your%20issue%20content%20here."><button
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_02/03_outlier_detection_lab.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -437,34 +436,24 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1-calculate-age">
-   Exercise 1: Calculate age
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   We start by creating several subset datasets
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-2-treat-negative-numbers-differently">
-   Exercise 2: Treat negative numbers differently
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-difference-between-the-datasets">
+   What is the difference between the datasets?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-3-calculations">
-   Exercise 3: calculations
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-2">
+   Challenge 2
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-4-create-a-function-with-variable-length-of-arguments">
-   Exercise 4: Create a function with variable length of arguments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-5-using-the-same-type-of-input-filter-conditionally">
-   Exercise 5: Using the same type of input filter conditionally
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-6-using-the-same-type-of-input-use-map-to-clean-input">
-   Exercise 6: Using the same type of input use map to clean input
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-3">
+   Challenge 3
   </a>
  </li>
 </ul>
@@ -477,7 +466,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DAY 03 - HOMEWORK</h1>
+                <h1>We start by creating several subset datasets</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -487,34 +476,24 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1-calculate-age">
-   Exercise 1: Calculate age
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   We start by creating several subset datasets
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-2-treat-negative-numbers-differently">
-   Exercise 2: Treat negative numbers differently
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-difference-between-the-datasets">
+   What is the difference between the datasets?
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-3-calculations">
-   Exercise 3: calculations
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-2">
+   Challenge 2
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-4-create-a-function-with-variable-length-of-arguments">
-   Exercise 4: Create a function with variable length of arguments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-5-using-the-same-type-of-input-filter-conditionally">
-   Exercise 5: Using the same type of input filter conditionally
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-6-using-the-same-type-of-input-use-map-to-clean-input">
-   Exercise 6: Using the same type of input use map to clean input
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-3">
+   Challenge 3
   </a>
  </li>
 </ul>
@@ -526,99 +505,93 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="day-03-homework">
-<h1>DAY 03 - HOMEWORK<a class="headerlink" href="#day-03-homework" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Solve as many of the exercises below</p></li>
-</ul>
-<div class="section" id="exercise-1-calculate-age">
-<h2>Exercise 1: Calculate age<a class="headerlink" href="#exercise-1-calculate-age" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Write a function that takes date of birth as an argument, and returns the age in years.</p></li>
-</ul>
-</div>
-<div class="section" id="exercise-2-treat-negative-numbers-differently">
-<h2>Exercise 2: Treat negative numbers differently<a class="headerlink" href="#exercise-2-treat-negative-numbers-differently" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Write a function that takes as an input a single number</p></li>
-<li><p>And returns a transformed number such as</p>
-<ul>
-<li><p>For negative numbers 1/number</p></li>
-<li><p>For positive numbers the number squared</p></li>
-<li><p>And if the number is not a number it prints an error and returns the string <code class="docutils literal notranslate"><span class="pre">NaN</span></code></p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="exercise-3-calculations">
-<h2>Exercise 3: calculations<a class="headerlink" href="#exercise-3-calculations" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Write a function that gets two numbers</p></li>
-<li><p>and returns the addition, subtraction multiplication and division of these numbers</p></li>
-<li><p>For example if we give the function the numbers 3,2 we will get 5,1,6,1.5</p></li>
-</ul>
-</div>
-<div class="section" id="exercise-4-create-a-function-with-variable-length-of-arguments">
-<h2>Exercise 4: Create a function with variable length of arguments<a class="headerlink" href="#exercise-4-create-a-function-with-variable-length-of-arguments" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Write a function that takes as an input any set of arguments</p></li>
-<li><p>And returns a transformed set of numbers such as</p>
-<ul>
-<li><p>Positive sum</p></li>
-<li><p>Negative sum</p></li>
-<li><p>non-numbers count</p></li>
-</ul>
-</li>
-</ul>
-<p>For example if we give you function the following input</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">]</span>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="p">(</span><span class="n">StandardScaler</span><span class="p">,</span> 
+                                   <span class="n">PowerTransformer</span><span class="p">,</span> 
+                                   <span class="n">MinMaxScaler</span><span class="p">,</span> 
+                                   <span class="n">RobustScaler</span><span class="p">,</span>
+                                   <span class="n">MaxAbsScaler</span><span class="p">,</span>
+                                   <span class="n">QuantileTransformer</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">utils</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max.columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;12_tasks.pkl&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>It will return 26,-70,3</p></li>
-</ul>
 </div>
-<div class="section" id="exercise-5-using-the-same-type-of-input-filter-conditionally">
-<h2>Exercise 5: Using the same type of input filter conditionally<a class="headerlink" href="#exercise-5-using-the-same-type-of-input-filter-conditionally" title="Permalink to this headline">¶</a></h2>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="p">(</span><span class="n">StandardScaler</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                                    <span class="n">PowerTransformer</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                                    <span class="n">MinMaxScaler</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                                    <span class="n">RobustScaler</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                                    <span class="n">MaxAbsScaler</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>                                    <span class="n">QuantileTransformer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">utils</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-start-by-creating-several-subset-datasets">
+<h1>We start by creating several subset datasets<a class="headerlink" href="#we-start-by-creating-several-subset-datasets" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Write a function that takes as an input any set of arguments</p></li>
-<li><p>And returns a filtered set of values in a list</p>
+<li><p>Using the same dataset as last week create two datasets</p>
 <ul>
-<li><p>return only Positive numbers</p></li>
-<li><p>return only Negative numbers</p></li>
-<li><p>return any number (even if in string format)</p></li>
-<li><p>return only non-numbers</p></li>
+<li><p>One for cognitive scores that will take either avg or final score</p></li>
+<li><p>Another for response time that collects all features that contain <code class="docutils literal notranslate"><span class="pre">ms</span></code> in them</p></li>
 </ul>
 </li>
 </ul>
-<p>For example if we give you function the following input</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">]</span>
-<span class="n">condition</span> <span class="o">=</span> <span class="s1">&#39;numbers&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Your code comes here </span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">response_time</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="what-is-the-difference-between-the-datasets">
+<h1>What is the difference between the datasets?<a class="headerlink" href="#what-is-the-difference-between-the-datasets" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>It will return [10, -50, 7, 9, -20, 5]</p></li>
+<li><p>can you explain this using domain knowledge?</p></li>
 </ul>
 </div>
-<div class="section" id="exercise-6-using-the-same-type-of-input-use-map-to-clean-input">
-<h2>Exercise 6: Using the same type of input use map to clean input<a class="headerlink" href="#exercise-6-using-the-same-type-of-input-use-map-to-clean-input" title="Permalink to this headline">¶</a></h2>
+<div class="tex2jax_ignore mathjax_ignore section" id="challenge-2">
+<h1>Challenge 2<a class="headerlink" href="#challenge-2" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Write a function that takes as an input any set of arguments</p></li>
-<li><p>And returns a mapped set of values in a list where</p>
+<li><p>Using the two datasets select two different tasks one that records response time per_item and one that records correct rt</p>
 <ul>
-<li><p>all numbers are of type float</p></li>
-<li><p>all non-numbers are transformed into ‘NaN’</p></li>
+<li><p>Use the appropriate visualisation method to examine if there are outliers in the reaction time data</p></li>
+<li><p>If there are try to use one of the methods covered in the lecture to deal with these</p></li>
 </ul>
 </li>
 </ul>
-<p>For example if we give you function the following input</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">]</span>
-</pre></div>
 </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="challenge-3">
+<h1>Challenge 3<a class="headerlink" href="#challenge-3" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>It will return [10, -50, 7, 9, -20,’NaN’,’NaN’, 5]</p></li>
+<li><p>Now try to create a function that automatically detects outliers and deals with them</p></li>
+<li><p>Apply it to the entire dataset and re-examine your exploration from last week assignment</p></li>
 </ul>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -634,7 +607,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./bootcamp/day_03"
+            path: "./class/week_02"
         },
         predefinedOutput: true
     }
@@ -646,19 +619,12 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="04_classes_in_python.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="05_feature_engineering_lab.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">PYTHON CLASSES 101</p>
+            <p class="prev-next-title">Feature Engineering and Feature Selection 101</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../day_04/00_day_04_overview.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DAY 04 - Numpy and Pandas 101</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
