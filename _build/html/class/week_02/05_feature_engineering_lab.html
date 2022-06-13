@@ -1,0 +1,1479 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Engineering and Feature Selection 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_02/05_feature_engineering_lab.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="DATA Cleaning 101" href="02_data_cleaning_lab.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   WEEK 02
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_data_cleaning_lab.html">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_02/05_feature_engineering_lab.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_02/05_feature_engineering_lab.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Feature Engineering and Feature Selection 101
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ml-workflow">
+     ML workflow
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-exploration">
+     Data Exploration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-variable">
+     What is a variable?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variables-types">
+       Variables types
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-a-feature">
+       What is a Feature?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-feature-characteristics">
+       What are Feature Characteristics?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numeric-feature-characteristics">
+       numeric Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#categorical-feature-characteristics">
+       Categorical Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datetime-feature-characteristics">
+       Datetime Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#free-text-feature-characteristics">
+       free text Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#identify-feature-type">
+       Identify Feature type
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#univariate-analysis">
+         Univariate Analysis
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pandas">
+         Pandas
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#plots">
+         Plots
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multi-variate-analysis">
+         Multi-variate Analysis
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#numpy-and-pandas">
+         Numpy and Pandas
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Plots
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-cleaning">
+     Dataset Cleaning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-values">
+       Missing Values
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-mechanisms">
+       Missing Mechanisms
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-completely-at-random">
+         Missing Completely at Random
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-at-random">
+         Missing at Random
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-not-at-random">
+         Missing Not At Random
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#testing-for-a-missing-mechanism">
+       Testing for a Missing Mechanism
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dealing-with-missing-data">
+       Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#outliers">
+       Outliers
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#what-can-outlier-do">
+         What can Outlier do?
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#outlier-detection">
+         Outlier Detection
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-outliers">
+         Handling Outliers
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-summarise">
+       To summarise
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rare-values">
+       Rare Values
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-rare-value">
+         Handling Rare Value
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#high-cardinality">
+       High Cardinality
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-high-cardinality">
+         Handling High Cardinality
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-leakage">
+     Data Leakage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-feature-engineering">
+   What is a Feature engineering?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-feature-construction">
+     What is feature construction?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-construction-methods">
+     Feature construction Methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-feature-transforming">
+     What is feature transforming?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-transforming-methods">
+       Feature transforming Methods
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-feature-selection">
+       What is feature selection?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-selection-methods">
+       Feature Selection Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-expand-you-knowledge">
+     Links to expand you knowledge
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Feature Engineering and Feature Selection 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Feature Engineering and Feature Selection 101
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ml-workflow">
+     ML workflow
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-exploration">
+     Data Exploration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-a-variable">
+     What is a variable?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variables-types">
+       Variables types
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-a-feature">
+       What is a Feature?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-feature-characteristics">
+       What are Feature Characteristics?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numeric-feature-characteristics">
+       numeric Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#categorical-feature-characteristics">
+       Categorical Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#datetime-feature-characteristics">
+       Datetime Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#free-text-feature-characteristics">
+       free text Feature Characteristics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#identify-feature-type">
+       Identify Feature type
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#univariate-analysis">
+         Univariate Analysis
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pandas">
+         Pandas
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#plots">
+         Plots
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multi-variate-analysis">
+         Multi-variate Analysis
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#numpy-and-pandas">
+         Numpy and Pandas
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id1">
+         Plots
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-cleaning">
+     Dataset Cleaning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-values">
+       Missing Values
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#missing-mechanisms">
+       Missing Mechanisms
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-completely-at-random">
+         Missing Completely at Random
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-at-random">
+         Missing at Random
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#missing-not-at-random">
+         Missing Not At Random
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#testing-for-a-missing-mechanism">
+       Testing for a Missing Mechanism
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dealing-with-missing-data">
+       Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#outliers">
+       Outliers
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#what-can-outlier-do">
+         What can Outlier do?
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#outlier-detection">
+         Outlier Detection
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-outliers">
+         Handling Outliers
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-summarise">
+       To summarise
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rare-values">
+       Rare Values
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-rare-value">
+         Handling Rare Value
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#high-cardinality">
+       High Cardinality
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#handling-high-cardinality">
+         Handling High Cardinality
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-leakage">
+     Data Leakage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-feature-engineering">
+   What is a Feature engineering?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-feature-construction">
+     What is feature construction?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-construction-methods">
+     Feature construction Methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-feature-transforming">
+     What is feature transforming?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-transforming-methods">
+       Feature transforming Methods
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-feature-selection">
+       What is feature selection?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#feature-selection-methods">
+       Feature Selection Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-expand-you-knowledge">
+     Links to expand you knowledge
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="feature-engineering-and-feature-selection-101">
+<h1>Feature Engineering and Feature Selection 101<a class="headerlink" href="#feature-engineering-and-feature-selection-101" title="Permalink to this headline">¶</a></h1>
+<p>Feature engineering is the process of <strong>selecting</strong>, <strong>construction</strong>, or <strong>transforming</strong> raw data into features that form a quality dataset that can be used in supervised and unsupervised learning.</p>
+<p>The art/science of translating data in the best way feasible involves an elegant combination of domain expertise, intuition, and mathematics. This section provides a quick overview  to the most basic yet regularly used strategies for feature engineering.</p>
+<div class="section" id="ml-workflow">
+<h2>ML workflow<a class="headerlink" href="#ml-workflow" title="Permalink to this headline">¶</a></h2>
+<p>A typical ML workflow/pipeline looks like this:</p>
+<p><img alt="workflow" src="../../_images/data_cycle.svg" /></p>
+<p>There can be many ways to divide the tasks that make up the ML workflow into phases. But generally the basic steps are similar as the graph above.</p>
+</div>
+<div class="section" id="data-exploration">
+<h2>Data Exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="what-is-a-variable">
+<h2>What is a variable?<a class="headerlink" href="#what-is-a-variable" title="Permalink to this headline">¶</a></h2>
+<p>A variable is any differentiating factor, number, or amount that can be measured or quantified. They are termed “variables” because the value they accept can and generally does change.</p>
+<div class="section" id="variables-types">
+<h3>Variables types<a class="headerlink" href="#variables-types" title="Permalink to this headline">¶</a></h3>
+<p>Variables come in different shapes and forms from very common and intuitive like age, sex or eye colour to complicated measures that require domain knowledge for example systolic blood pressure.</p>
+<p>It is useful to cluster variables into four major types:</p>
+<ul class="simple">
+<li><p>Numerical: e.g. binary, integers, float or complex</p></li>
+<li><p>Categorical: e.g. nominal and ordinal</p></li>
+<li><p>Datetime: i.e. any time related unit</p></li>
+<li><p>Freetext: i.e. any observation containing unstructured textual data</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-a-feature">
+<h3>What is a Feature?<a class="headerlink" href="#what-is-a-feature" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A feature is just a sequence of variables that almost always share the same type.</p></li>
+<li><p>The building blocks of datasets are features.</p></li>
+<li><p>The features of a dataset that you use for machine learning greatly influence the quality of the insights you will be able to derive.</p></li>
+<li><p>Moreover, different scientific challenges within a given discipline may not always require the same characteristics, which is why understanding the specific goals of any data science project is paramount.</p></li>
+</ul>
+</div>
+<div class="section" id="what-are-feature-characteristics">
+<h3>What are Feature Characteristics?<a class="headerlink" href="#what-are-feature-characteristics" title="Permalink to this headline">¶</a></h3>
+<p>Any scientific endeavour needs to be able to describe features using some summary measures</p>
+<ul class="simple">
+<li><p>The most common characteristics regardless of type is missingness. Which is just the percentage of missing data in a specific feature.</p></li>
+<li><p>Then each of the four types of data will have different means of describing them.</p></li>
+</ul>
+</div>
+<div class="section" id="numeric-feature-characteristics">
+<h3>numeric Feature Characteristics<a class="headerlink" href="#numeric-feature-characteristics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>For example, numeric features will often be described using:</p>
+<ul>
+<li><p>Statistical moments: e.g. mean, var,  skewness and kurtosis</p></li>
+<li><p>Magnitude, range and quantiles</p></li>
+<li><p>Outliers: i.e. the existence of extreme value that is significantly different from the remaining data</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="categorical-feature-characteristics">
+<h3>Categorical Feature Characteristics<a class="headerlink" href="#categorical-feature-characteristics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In contrast, categorical features will be described using:</p>
+<ul>
+<li><p>Cardinality: i.e. The number of unique labels the feature contains</p></li>
+<li><p>label frequency: i.e. the distribution of labels across a feature</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="datetime-feature-characteristics">
+<h3>Datetime Feature Characteristics<a class="headerlink" href="#datetime-feature-characteristics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Datetime features will be described using:</p>
+<ul>
+<li><p>Min, max date</p></li>
+<li><p>Observation frequency</p></li>
+<li><p>And can also apply more complex methods such as trend, stationarity etc.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="free-text-feature-characteristics">
+<h3>free text Feature Characteristics<a class="headerlink" href="#free-text-feature-characteristics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Finally, free text features can be described using:</p>
+<ul>
+<li><p>Dictionary: i.e. the unique set of words that can be formed from the feature</p></li>
+<li><p>Min and Max sentence length in words</p></li>
+<li><p>If relevant we can also extract affective tendencies</p></li>
+<li><p>Or even richness of vocabulary</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="identify-feature-type">
+<h3>Identify Feature type<a class="headerlink" href="#identify-feature-type" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="univariate-analysis">
+<h4>Univariate Analysis<a class="headerlink" href="#univariate-analysis" title="Permalink to this headline">¶</a></h4>
+<p>Descriptive statistics on one single variable.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Categorical</p></td>
+<td><p><strong>Shape</strong>:<br />Histogram/ Frequency table…</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numerical</p></td>
+<td><p><strong>Central Tendency</strong>:<br />Mean/ Median/ Mode<br /><strong>Dispersion</strong>:<br />Min/ Max/ Range/ Quantile/ IQR/ MAD/ Variance/ Standard Deviation/ <br /><strong>Shape</strong>:<br />Skewness/ Kurtosis/ Binning…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pandas">
+<h4>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Categorical: <code class="docutils literal notranslate"><span class="pre">&lt;pd.Series&gt;.value_counts()</span></code></p></li>
+<li><p>Central Tendency: <code class="docutils literal notranslate"><span class="pre">&lt;pd.Series&gt;.agg(['mean','median','mode'])</span></code></p></li>
+<li><p>Dispersion: <code class="docutils literal notranslate"><span class="pre">&lt;pd.Series&gt;.agg(['min','max','ptp','quantile','scipy.stats.iqr','mad','var','std'])</span></code></p></li>
+<li><p>Shape: <code class="docutils literal notranslate"><span class="pre">&lt;pd.Series&gt;.agg(['skew','kurt'])</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="plots">
+<h4>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Categorical: Bar, line, area, swarm plots</p></li>
+<li><p>Numerical: Density, histogram, Box, violin</p></li>
+</ul>
+</div>
+<div class="section" id="multi-variate-analysis">
+<h4>Multi-variate Analysis<a class="headerlink" href="#multi-variate-analysis" title="Permalink to this headline">¶</a></h4>
+<p>Descriptive statistics between two or more variables.
+Density approximation</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Categorical</p></td>
+<td><p><strong>Shape</strong>:<br />ND Histogram/ Cross tabulation table…</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numerical</p></td>
+<td><p><strong>Central Tendency</strong>:<br />… Vectors <br /><strong>Dispersion</strong>:<br />… Vectors <br /><strong>Shape</strong>:<br />… covariance/ correlation matrix</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="numpy-and-pandas">
+<h4>Numpy and Pandas<a class="headerlink" href="#numpy-and-pandas" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Categorical: <code class="docutils literal notranslate"><span class="pre">np.histogramdd,</span> <span class="pre">pd.crosstab</span></code></p></li>
+<li><p>Central Tendency: <code class="docutils literal notranslate"><span class="pre">&lt;pd.DataFrame&gt;.mean(axis=1)</span></code></p></li>
+<li><p>Dispersion: <code class="docutils literal notranslate"><span class="pre">&lt;pd.DataFrame&gt;.min(axis=1)</span></code></p></li>
+<li><p>Shape: <code class="docutils literal notranslate"><span class="pre">Morphology,</span> <span class="pre">distance</span> <span class="pre">and</span> <span class="pre">similarity</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Plots<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Categorical: Scatter, swarm Plot</p></li>
+<li><p>Correlation Plot</p></li>
+<li><p>Heat Maps</p></li>
+<li><p>Radviz</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="dataset-cleaning">
+<h2>Dataset Cleaning<a class="headerlink" href="#dataset-cleaning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="missing-values">
+<h3>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<p><strong>Definition</strong>: For a certain observation there is some proportion of missing variables across features.</p>
+<ul class="simple">
+<li><p>Certain algorithms cannot work when missing value are present</p></li>
+<li><p>Even for algorithm that handle missing data, without treatment the model can lead to inaccurate conclusion</p></li>
+<li><p>Missingness can be evidence of a bigger problem that the experiment is neglecting to deal with</p></li>
+</ul>
+</div>
+<div class="section" id="missing-mechanisms">
+<h3>Missing Mechanisms<a class="headerlink" href="#missing-mechanisms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>It is important to identify the processes that underlays the reasons for missingness in the dataset.</p></li>
+<li><p>We may opt to treat the missing information differently depending on the mechanism.</p></li>
+<li><p>There Are three theoretical missingness concepts</p>
+<ul>
+<li><p>Missing Completely at Random : no relationship between the data missing and any other values</p></li>
+<li><p>Missing at Random : Depends on observed Predictors</p></li>
+<li><p>Missing Not At Random : Depends on Unobserved Predictors</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="missing-completely-at-random">
+<h4>Missing Completely at Random<a class="headerlink" href="#missing-completely-at-random" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A variable is missing completely at random (MCAR) if the probability of being missing is the same for all the observations.</p></li>
+<li><p>There is <strong>nothing systematic going on</strong> that makes some data more likely to be missing than other.</p></li>
+<li><p>If values for observations are missing completely at random, then disregarding those cases would not bias the inferences made.</p></li>
+</ul>
+</div>
+<div class="section" id="missing-at-random">
+<h4>Missing at Random<a class="headerlink" href="#missing-at-random" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Missing as Random (MAR) occurs when <strong>there is a systematic relationship</strong> between the propensity of missing values and the observed data.</p></li>
+<li><p>In other words, the probability an observation being missing depends only on available information (other variables in the dataset), but not on the variable itself.</p></li>
+<li><p>For example, if people from african ethnicity are less likely to allow their financial status to be captured on internet databases compared to european ones, ethnicity is associated with financial status.</p></li>
+<li><p>And we will expect to see that the financial information will be missing at random more for africans than for europeans.</p></li>
+</ul>
+</div>
+<div class="section" id="missing-not-at-random">
+<h4>Missing Not At Random<a class="headerlink" href="#missing-not-at-random" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Missingness depends on information that has not been recorded, and this information also predicts the missing values.</p></li>
+<li><p>If the website used to acquire data only works well for high band internet there will be a bias for urban areas where the deployment of high band internet is more abundant</p></li>
+<li><p>In this situation, data sample is biased if we drop those missing cases.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="testing-for-a-missing-mechanism">
+<h3>Testing for a Missing Mechanism<a class="headerlink" href="#testing-for-a-missing-mechanism" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using <strong>domain expertise</strong>.</p>
+<ul>
+<li><p>In many situations we can assume the mechanism by probing into the logic behind a feature.</p></li>
+</ul>
+</li>
+<li><p>Using <strong>statistical test</strong>.</p>
+<ul>
+<li><p>Use missingness as either a binary or continues variable and test it’s dependency on other features</p></li>
+<li><p>If a dependence exists we can assume that the data is Missing at Random</p></li>
+</ul>
+</li>
+<li><p>In practice without the ability to conduct actual experiments on the missing mechanism it is very hard to be certain</p></li>
+</ul>
+</div>
+<div class="section" id="dealing-with-missing-data">
+<h3>Dealing with Missing Data<a class="headerlink" href="#dealing-with-missing-data" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to deal with missing data here is a list of the most common ones</p>
+<ul class="simple">
+<li><p>Row wise Deletion</p>
+<ul>
+<li><p>Remove observations with any missingness</p></li>
+<li><p>This approach will preserve joint distribution if <strong>Missing Completely at Random (MCAR)</strong></p></li>
+<li><p>May yield biased estimates if <strong>Missing at Random</strong> or <strong>Missing Not At Random</strong>, because we are biased towards a specific group</p></li>
+<li><p>Often data acquisition is expensive and discarding too much data is not realistic</p></li>
+</ul>
+</li>
+<li><p>Mean/Median/Mode Imputation</p>
+<ul>
+<li><p>Replacing the NaN by mean/median and the NA by most frequent value</p></li>
+<li><p>Effective for MCAR</p></li>
+<li><p>However, this will distort the distributions and the joint distributions</p></li>
+</ul>
+</li>
+<li><p>Random Imputation</p>
+<ul>
+<li><p>Replacing the NA/NaN by sampling at random from the available observations</p></li>
+<li><p>Preserve distribution if MCAR</p></li>
+<li><p>However, this introduces a hidden bias that is hard to control</p></li>
+</ul>
+</li>
+<li><p>Arbitrary Value Imputation</p>
+<ul>
+<li><p>Replacing the NA/NaN with a single number that reflects it’s missingness</p></li>
+<li><p>Distort distributions</p></li>
+</ul>
+</li>
+<li><p>Add missingness feature</p>
+<ul>
+<li><p>Include a feature to indicate that the value was imputed</p></li>
+<li><p>May capture missingness dependencies</p></li>
+<li><p>Increases feature space complexity</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note</strong>: Some methods, like as XGboost, include missing data treatment into the model-building process, eliminating the requirement for this phase. However, it is critical that you understand how the algorithm treats them and convey this in your paper.</p>
+</div>
+<div class="section" id="outliers">
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>An outlier is an observation that deviates so much from the other observations that it raises the possibility that it was created by a separate mechanism.</p></li>
+<li><p>Outliers, depending on the context, either deserve special attention or should be completely ignored.</p></li>
+<li><p>For example, an extreme response time on a cognitive task is usually a sign of task disengagement, while a weight of 700kg is very likely due to measurement error and should be filter out or impute with something else.</p></li>
+</ul>
+<div class="section" id="what-can-outlier-do">
+<h4>What can Outlier do?<a class="headerlink" href="#what-can-outlier-do" title="Permalink to this headline">¶</a></h4>
+<p>The presence of outliers may:</p>
+<ul class="simple">
+<li><p>Disrupt the functionality of most linear and distance dependent approaches</p></li>
+<li><p>Introduce noises to dataset</p></li>
+<li><p>Make samples less representative</p></li>
+<li><p>Any algorithms that rely on means/variance are sensitive to outliers as those stats are greatly influenced by extreme values.</p></li>
+</ul>
+</div>
+<div class="section" id="outlier-detection">
+<h4>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Outlier analysis and anomaly detection is a huge field of research.</p></li>
+<li><p>As you would expect there is a is a comprehensive Python toolkit (PyOD) to detect and deal with outliers</p></li>
+<li><p>The common statistical methods to detect outliers are:</p>
+<ul>
+<li><p>Detect by arbitrary or domain boundary : just manual</p></li>
+<li><p>Mean &amp; Standard Deviation method : <span class="math notranslate nohighlight">\(\mu \pm 3*sd\)</span></p></li>
+<li><p>IQR method : <span class="math notranslate nohighlight">\(iqr=q3-q1\)</span>, <span class="math notranslate nohighlight">\(q1-iqr*1.5, q3+iqr*1.5\)</span></p></li>
+<li><p>MAD method : <span class="math notranslate nohighlight">\(mad =  median(abs(x-q2))\)</span>, <span class="math notranslate nohighlight">\(q2 \pm mad*2.5\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>However, beyond these methods, it’s more important to keep in mind that the study context should govern how you define and react to these outliers. The meanings of your findings should be dictated by the underlying context, rather than the number itself.</p>
+</div>
+<div class="section" id="handling-outliers">
+<h4>Handling Outliers<a class="headerlink" href="#handling-outliers" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Mean/Median/Mode Imputation</p>
+<ul>
+<li><p>replacing the outlier by mean/median/most frequent values of that feature</p></li>
+</ul>
+</li>
+<li><p>Discretization</p>
+<ul>
+<li><p>Transform the continuous feature into discrete variables</p></li>
+</ul>
+</li>
+<li><p>Windsorization</p>
+<ul>
+<li><p>Capping the maximum of a distribution at an arbitrarily set value, vice versa</p></li>
+</ul>
+</li>
+<li><p>Discard outliers</p>
+<ul>
+<li><p>Drop all the observations that are outliers</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="to-summarise">
+<h3>To summarise<a class="headerlink" href="#to-summarise" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There are many strategies for dealing with outliers in data, and depending on the context and data set, any could be the right or the wrong way.</p></li>
+<li><p>It’s important to investigate the nature of the outlier before deciding.</p></li>
+</ul>
+</div>
+<div class="section" id="rare-values">
+<h3>Rare Values<a class="headerlink" href="#rare-values" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Categorical variable with labels with very low frequency.</p></li>
+<li><p>In some situations rare values, like outliers, may contains valuable information of the dataset and therefore need particular attention.</p></li>
+<li><p>For example, a hospital visit of a patient is rare but important.</p></li>
+<li><p>Rare values in categorical variables tend to cause over-fitting, particularly in <strong>tree based</strong> methods.</p></li>
+<li><p>A big number of infrequent labels adds noise, with little information, therefore causing over-fitting.</p></li>
+<li><p>Rare labels may be present in training set, but not in test set, therefore causing over-fitting to the train set.</p></li>
+<li><p>Rare labels may appear in the test set, and not in the train set. Thus, the model will not know how to evaluate it.</p></li>
+</ul>
+<div class="section" id="handling-rare-value">
+<h4>Handling Rare Value<a class="headerlink" href="#handling-rare-value" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Mode Imputation</p>
+<ul>
+<li><p>Replacing the rare label by most frequent label</p></li>
+</ul>
+</li>
+<li><p>Grouping into one new category</p>
+<ul>
+<li><p>Grouping the observations that show rare labels into a unique category</p></li>
+</ul>
+</li>
+</ul>
+<p>Depending on the situation, we may use different strategies:</p>
+</div>
+</div>
+<div class="section" id="high-cardinality">
+<h3>High Cardinality<a class="headerlink" href="#high-cardinality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The number of labels within a categorical variable is known as  cardinality.</p></li>
+<li><p>A high number of labels within a variable is known as high cardinality.</p></li>
+<li><p>Variables with too many labels tend to dominate over those with only a few labels, particularly in <strong>tree based</strong> algorithms.</p></li>
+<li><p>A big number of labels within a variable may introduce noise with little if any information, therefore making the machine learning models  prone to over-fit.</p></li>
+<li><p>Some of the labels may only be present in the training data set,  but not in the test set, therefore causing algorithms to over-fit the training set.</p></li>
+<li><p>Contrarily, new labels may appear in the test set that were not  present in the training set, therefore leaving algorithm unable to perform a calculation over the new observation.</p></li>
+</ul>
+<div class="section" id="handling-high-cardinality">
+<h4>Handling High Cardinality<a class="headerlink" href="#handling-high-cardinality" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Grouping labels with domain knowledge</p></li>
+<li><p>Grouping labels with rare occurrence into other category</p></li>
+<li><p>Grouping labels with some learning algorithm</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="data-leakage">
+<h2>Data Leakage<a class="headerlink" href="#data-leakage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Data leakage occurs when information from sources other than the training dataset is utilised to build the model. As a result, you may end up developing overly optimistic models that are virtually worthless and cannot be utilised to make judgments.</p></li>
+<li><p>The model performs well on both your training and testing data, however this is not because your model has strong generalizability, but because it relies on information from the training data.</p></li>
+<li><p>While it is common knowledge to employ cross-validation or at least separate a validation set when training and testing models, it is easy to overlook doing so throughout the feature engineering and selection process.</p></li>
+<li><p>Keep in mind that the training dataset should not be utilised to make model decisions, including feature engineering and selection.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="what-is-a-feature-engineering">
+<h1>What is a Feature engineering?<a class="headerlink" href="#what-is-a-feature-engineering" title="Permalink to this headline">¶</a></h1>
+<p>Feature engineering is the process of <strong>selecting</strong>, <strong>construction</strong>, or <strong>transforming</strong> raw data into features that form a quality dataset that can be used in supervised and unsupervised learning.</p>
+<div class="section" id="what-is-feature-construction">
+<h2>What is feature construction?<a class="headerlink" href="#what-is-feature-construction" title="Permalink to this headline">¶</a></h2>
+<p>Feature construction is the process of developing new features apart from the ones generated in feature transformation, that are appropriate variables of the process under study.</p>
+</div>
+<div class="section" id="feature-construction-methods">
+<h2>Feature construction Methods<a class="headerlink" href="#feature-construction-methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Domain expertise</p></li>
+<li><p>Expansion</p></li>
+<li><p>Encoding</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-feature-transforming">
+<h2>What is feature transforming?<a class="headerlink" href="#what-is-feature-transforming" title="Permalink to this headline">¶</a></h2>
+<p>Feature transformation is the process of translating a set of values for a feature to a new set of values in order to make the data representation more acceptable or easier to handle for downstream analysis.</p>
+<div class="section" id="feature-transforming-methods">
+<h3>Feature transforming Methods<a class="headerlink" href="#feature-transforming-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Scaling</p></li>
+<li><p>Capping</p></li>
+<li><p>Imputation</p></li>
+<li><p>Discretisation</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-feature-selection">
+<h3>What is feature selection?<a class="headerlink" href="#what-is-feature-selection" title="Permalink to this headline">¶</a></h3>
+<p>The process of extracting the most consistent, non-redundant, and relevant features for use in model creation is known as feature selection. As the number and variety of datasets expand, it is critical to reduce their size methodically. The primary purpose of feature selection is to increase predictive model performance while lowering modelling computational costs.</p>
+</div>
+<div class="section" id="feature-selection-methods">
+<h3>Feature Selection Methods<a class="headerlink" href="#feature-selection-methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Feature selection algorithms are categorized as either supervised, which can be used for labeled data; or unsupervised, which can be used for unlabelled data.</p></li>
+<li><p>Supervised techniques are :</p>
+<ul>
+<li><p>Directional selection</p></li>
+<li><p>Directional elimination</p></li>
+<li><p>Random selection</p></li>
+<li><p>Brute force</p></li>
+</ul>
+</li>
+<li><p>Unsupervised techniques are :</p>
+<ul>
+<li><p>Filtering</p></li>
+<li><p>Wrapping</p></li>
+<li><p>Embedding</p></li>
+<li><p>Hybrid</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="links-to-expand-you-knowledge">
+<h2>Links to expand you knowledge<a class="headerlink" href="#links-to-expand-you-knowledge" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://core.ecu.edu/omgt/krosj/IMDSDataMining2003.pdf">The impact of missing data on different ML algorithm</a>.</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2335739?seq=1">Inference and Missing Data</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-94-015-3994-4?noAccess=true">Identification of Outliers</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-1-4614-6396-2">Outlier Analysis</a></p></li>
+<li><p><a class="reference external" href="https://pyod.readthedocs.io/en/latest/">Python toolkit for detecting outlying objects</a></p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/cd/E40248_01/epm.1112/cb_statistical/frameset.htm?ch07s02s10s01.html">Outlier Detection Methods</a></p></li>
+<li><p><a class="reference external" href="https://kaggle2.blob.core.windows.net/forum-message-attachments/225952/7441/high%20cardinality%20categoricals.pdf">High-Cardinality Categorical Attributes in Classification and Prediction Problems.</a></p></li>
+<li><p><a class="reference external" href="https://dl.acm.org/doi/10.5555/1867135.1867154">ChiMerge: discretization of numeric attributes</a></p></li>
+<li><p><a class="reference external" href="https://feature-engine.readthedocs.io/en/latest/">Feature-engine:A Python library for Feature Engineering and Selection</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html">sklearn.preprocessing</a></p></li>
+<li><p><a class="reference external" href="https://machinelearningmastery.com/data-leakage-machine-learning/">Data Leakage in Machine Learning</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02_data_cleaning_lab.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">DATA Cleaning 101</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

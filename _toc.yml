@@ -44,7 +44,11 @@ chapters:
   - file: class/week_01/01_reproducibility
   - file: class/week_01/03_reproducibility_rules
   - file: class/week_01/02_reproducibility_lab
-
+- file: class/week_02/00_overview
+  sections:
+  - file: class/week_02/02_data_cleaning_lab
+  - file: class/week_02/05_feature_engineering_lab
+  - file: class/week_01/03_outlier_detection_lab
 
 
 

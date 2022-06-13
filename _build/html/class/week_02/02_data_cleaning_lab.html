@@ -1,0 +1,1789 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DATA Cleaning 101 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_02/02_data_cleaning_lab.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Feature Engineering and Feature Selection 101" href="05_feature_engineering_lab.html" />
+    <link rel="prev" title="WEEK 02" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   WEEK 02
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_feature_engineering_lab.html">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_02/02_data_cleaning_lab.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_02/02_data_cleaning_lab.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-simulation-to-understand-the-data-cleaning-cycle">
+   Using simulation to understand the data cleaning cycle
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulate-messy-data">
+     Simulate messy data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-by-importing-basic-tools">
+     Start by importing basic tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-random-generator-with-a-seed-so-we-all-have-the-same-values">
+     Create a random generator with a seed so we all have the same values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-will-start-with-the-cdr-values">
+     We will start with the CDR values
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cdr-dementia-staging-instrument">
+       CDR® Dementia Staging Instrument
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-the-following-probabilities-sample-five-groups">
+       Using the following probabilities, sample five groups
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducing-a-coding-error">
+     Introducing a coding error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-will-do-the-same-with-estimated-total-intracranial-volume">
+     We will do the same with estimated Total Intracranial Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-systematic-inconsistency">
+     Adding systematic inconsistency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#providing-sex-feature">
+     Providing sex feature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-another-systematic-inconsistency">
+     Adding another systematic inconsistency
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#or-more-efficiently-using-the-map-function">
+       Or more efficiently using the map function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finally-we-will-create-a-dataframe-from-this-horrific-sample">
+       Finally, we will create a dataframe from this horrific sample
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examining-data-when-you-first-get-it">
+     Examining data when you first get it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-should-raise-alarms">
+     This should raise alarms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#it-s-now-time-for-everything-to-be-fixed-transparently">
+   It’s now time for everything to be fixed transparently
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#having-learned-how-to-fake-data-now-we-need-to-clean-it">
+     Having learned how to fake data now we need to clean it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-regular-expressions-simplifies-this-challenge">
+     Using regular expressions simplifies this challenge
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-this-practically">
+       Using this practically
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-with-the-sex-feature">
+     Start with the Sex feature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-same-approach-can-be-used-to-remap-the-cdr-data">
+     The same approach can be used to remap the CDR data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-about-continuous-data">
+       What about continuous data?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-this-valid">
+   Is this valid?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DATA Cleaning 101</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-simulation-to-understand-the-data-cleaning-cycle">
+   Using simulation to understand the data cleaning cycle
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulate-messy-data">
+     Simulate messy data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-by-importing-basic-tools">
+     Start by importing basic tools
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-random-generator-with-a-seed-so-we-all-have-the-same-values">
+     Create a random generator with a seed so we all have the same values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-will-start-with-the-cdr-values">
+     We will start with the CDR values
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cdr-dementia-staging-instrument">
+       CDR® Dementia Staging Instrument
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-the-following-probabilities-sample-five-groups">
+       Using the following probabilities, sample five groups
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducing-a-coding-error">
+     Introducing a coding error
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-will-do-the-same-with-estimated-total-intracranial-volume">
+     We will do the same with estimated Total Intracranial Volume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-systematic-inconsistency">
+     Adding systematic inconsistency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#providing-sex-feature">
+     Providing sex feature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-another-systematic-inconsistency">
+     Adding another systematic inconsistency
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#or-more-efficiently-using-the-map-function">
+       Or more efficiently using the map function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finally-we-will-create-a-dataframe-from-this-horrific-sample">
+       Finally, we will create a dataframe from this horrific sample
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examining-data-when-you-first-get-it">
+     Examining data when you first get it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-should-raise-alarms">
+     This should raise alarms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#it-s-now-time-for-everything-to-be-fixed-transparently">
+   It’s now time for everything to be fixed transparently
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#having-learned-how-to-fake-data-now-we-need-to-clean-it">
+     Having learned how to fake data now we need to clean it
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-regular-expressions-simplifies-this-challenge">
+     Using regular expressions simplifies this challenge
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-this-practically">
+       Using this practically
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-with-the-sex-feature">
+     Start with the Sex feature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-same-approach-can-be-used-to-remap-the-cdr-data">
+     The same approach can be used to remap the CDR data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-about-continuous-data">
+       What about continuous data?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-this-valid">
+   Is this valid?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-cleaning-101">
+<h1>DATA Cleaning 101<a class="headerlink" href="#data-cleaning-101" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-simulation-to-understand-the-data-cleaning-cycle">
+<h2>Using simulation to understand the data cleaning cycle<a class="headerlink" href="#using-simulation-to-understand-the-data-cleaning-cycle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simulate-messy-data">
+<h3>Simulate messy data<a class="headerlink" href="#simulate-messy-data" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We will simulate Intra Cranial Volume (also known as estimated Total Intracranial  Volume (eTIV) in 50k males and females</p></li>
+<li><p>In addition, we will simulate CDR for all of these synthetic humans</p></li>
+<li><p>This demonstration is only to touch on technical issues that involve data processing so we won’t be imposing any effect (i.e. sex, eTIV &amp; CDR)</p></li>
+<li><p>What we do is to create datasets with different types of problems</p></li>
+<li><p>The goal of this session is to fix the data (and remove rows that cannot be fixed).</p></li>
+</ul>
+</div>
+<div class="section" id="start-by-importing-basic-tools">
+<h3>Start by importing basic tools<a class="headerlink" href="#start-by-importing-basic-tools" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-random-generator-with-a-seed-so-we-all-have-the-same-values">
+<h3>Create a random generator with a seed so we all have the same values<a class="headerlink" href="#create-a-random-generator-with-a-seed-so-we-all-have-the-same-values" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">2022</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">50000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="we-will-start-with-the-cdr-values">
+<h3>We will start with the CDR values<a class="headerlink" href="#we-will-start-with-the-cdr-values" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cdr-dementia-staging-instrument">
+<h4><a class="reference external" href="https://knightadrc.wustl.edu/cdr/cdr.htm">CDR® Dementia Staging Instrument</a><a class="headerlink" href="#cdr-dementia-staging-instrument" title="Permalink to this headline">¶</a></h4>
+<p>The CDR® Dementia Staging Instrument in one aspect is a 5-point scale used to characterize six domains of cognitive and functional performance applicable to Alzheimer disease and related dementias: Memory, Orientation, Judgment &amp; Problem Solving, Community Affairs, Home &amp; Hobbies, and Personal Care. The necessary information to make each rating is obtained through a semi-structured interview of the patient and a reliable informant or collateral source (e.g., family member) referred to as the CDR® Assessment Protocol.</p>
+</div>
+<div class="section" id="using-the-following-probabilities-sample-five-groups">
+<h4>Using the following probabilities, sample five groups<a class="headerlink" href="#using-the-following-probabilities-sample-five-groups" title="Permalink to this headline">¶</a></h4>
+<p>Seventy-five percent of the population needs to be healthy.<br />
+Probabilities for the rest are smaller.<br />
+Additionally, we want to introduce missing values that represent incomplete observations.<br />
+And add errors and outliers to the code.</p>
+<p>To begin with, here are some sampling probability with matching values</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Value</p></th>
+<th class="text-align:left head"><p>Probability</p></th>
+<th class="text-align:left head"><p>CDR context</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>0</p></td>
+<td class="text-align:left"><p>0.75</p></td>
+<td class="text-align:left"><p>Normal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>0.5</p></td>
+<td class="text-align:left"><p>0.05</p></td>
+<td class="text-align:left"><p>Very Mild Dementia</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>1</p></td>
+<td class="text-align:left"><p>0.04</p></td>
+<td class="text-align:left"><p>Mild Dementia</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>2</p></td>
+<td class="text-align:left"><p>0.04</p></td>
+<td class="text-align:left"><p>Moderate Dementia</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>3</p></td>
+<td class="text-align:left"><p>0.02</p></td>
+<td class="text-align:left"><p>Severe Dementia</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>np.nan</p></td>
+<td class="text-align:left"><p>0.06</p></td>
+<td class="text-align:left"><p>Missing values</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">3</span> </code></p></td>
+<td class="text-align:left"><p>0.015</p></td>
+<td class="text-align:left"><p>error in coding</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"> </code></p></td>
+<td class="text-align:left"><p>0.015</p></td>
+<td class="text-align:left"><p>error in coding</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">99</span></code></p></td>
+<td class="text-align:left"><p>0.01</p></td>
+<td class="text-align:left"><p>Missing values</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.015</span><span class="p">,</span><span class="mf">0.015</span><span class="p">,</span><span class="mf">0.01</span><span class="p">]</span>
+<span class="n">CDR</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="s1">&#39;3 &#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;99&#39;</span><span class="p">],</span><span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,),</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="introducing-a-coding-error">
+<h3>Introducing a coding error<a class="headerlink" href="#introducing-a-coding-error" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We take 20% of severe dementia cases and randomly assign them a value of 30</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">CDR</span><span class="o">==</span><span class="s1">&#39;3&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ix</span><span class="p">)</span>
+<span class="n">CDR</span><span class="p">[</span><span class="n">ix</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">ix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.2</span><span class="p">)]]</span><span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="we-will-do-the-same-with-estimated-total-intracranial-volume">
+<h3>We will do the same with estimated Total Intracranial Volume<a class="headerlink" href="#we-will-do-the-same-with-estimated-total-intracranial-volume" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using the continuous measure of <a class="reference external" href="https://surfer.nmr.mgh.harvard.edu/fswiki/eTIV">estimated Total Intracranial Volume</a>.</p></li>
+<li><p>We start by sampling 50k samples from a normal distribution (using the <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html">numpy.random.Generator.normal</a> generator) we define our normal distribution cantered around a mean volume of 1.5e6 mm^3 and with 1.8e5 mm^3 width or standard deviation.</p></li>
+<li><p>Then we randomly sample 9% of observations and remove them by replacing their values with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> using <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html">numpy.random.Generator.integers</a>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eTIV</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">1.5e6</span><span class="p">,</span><span class="mf">1.8e5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,))</span>
+<span class="n">eTIV</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mf">0.09</span><span class="p">),))]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-systematic-inconsistency">
+<h3>Adding systematic inconsistency<a class="headerlink" href="#adding-systematic-inconsistency" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Making life interesting and introducing another form of error (and some other ways to randomly sample in Python). We are introducing a systematic inconsistency in the data where 32% of observations were coded using cm^3 instead of mm^3</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permuted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">eTIV</span><span class="p">)))[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mf">0.32</span><span class="p">)]</span>
+<span class="n">eTIV</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">eTIV</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">*</span><span class="mf">0.001</span> <span class="c1"># tranfrom 32% of the data from mm^3 to cm^3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="providing-sex-feature">
+<h3>Providing sex feature<a class="headerlink" href="#providing-sex-feature" title="Permalink to this headline">¶</a></h3>
+<p>It is now possible to create a categorical sex variable and introduce different coding errors for this binary value (which are less uncommon than you might think).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.12</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.22</span><span class="p">,</span><span class="mf">0.10</span><span class="p">,</span><span class="mf">0.10</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.02</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;m &#39;</span><span class="p">,</span><span class="s1">&#39; F&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;f &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="s1">&#39; ?&#39;</span><span class="p">],</span><span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,),</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-another-systematic-inconsistency">
+<h3>Adding another systematic inconsistency<a class="headerlink" href="#adding-another-systematic-inconsistency" title="Permalink to this headline">¶</a></h3>
+<p>Keeping with the former systematic inconsistency we introduced, sex values from this site will be numerically coded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_sex</span> <span class="o">=</span> <span class="n">sex</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">_sex</span><span class="p">):</span>
+  <span class="n">_k</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">_k</span> <span class="o">==</span><span class="s1">&#39;m&#39;</span> <span class="k">else</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">_k</span><span class="o">==</span><span class="s1">&#39;f&#39;</span> <span class="k">else</span> <span class="s1">&#39;null&#39;</span>
+  <span class="n">_sex</span><span class="p">[</span><span class="n">_sex</span><span class="o">==</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="n">sex</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">_sex</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="or-more-efficiently-using-the-map-function">
+<h4>Or more efficiently using the map function<a class="headerlink" href="#or-more-efficiently-using-the-map-function" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sex</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;m&#39;</span> <span class="k">else</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s1">&#39;f&#39;</span> <span class="k">else</span> <span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="p">[</span><span class="n">ix</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finally-we-will-create-a-dataframe-from-this-horrific-sample">
+<h4>Finally, we will create a dataframe from this horrific sample<a class="headerlink" href="#finally-we-will-create-a-dataframe-from-this-horrific-sample" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="n">sex</span><span class="p">,</span><span class="s1">&#39;eTIV&#39;</span><span class="p">:</span><span class="n">eTIV</span><span class="p">,</span><span class="s1">&#39;CDR&#39;</span><span class="p">:</span><span class="n">CDR</span><span class="p">})</span>
+<span class="n">fake_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>eTIV</th>
+      <th>CDR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>F</td>
+      <td>1.647253e+03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>f</td>
+      <td>1.329376e+06</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>F</td>
+      <td>1.391975e+03</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>m</td>
+      <td>1.729302e+06</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="examining-data-when-you-first-get-it">
+<h3>Examining data when you first get it<a class="headerlink" href="#examining-data-when-you-first-get-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We can use the describe function, but this function treats non-numeric values differently, so it may not be the best choice for examining raw messy data.</p></li>
+<li><p>This is a perfect example of how describe() will fail miserably. The reason is not that it isn’t useful, but rather that it isn’t designed for dealing with datasets  like these.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 50000 entries, 0 to 49999
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Sex     50000 non-null  object 
+ 1   eTIV    45702 non-null  float64
+ 2   CDR     50000 non-null  object 
+dtypes: float64(1), object(2)
+memory usage: 1.1+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="this-should-raise-alarms">
+<h3>This should raise alarms<a class="headerlink" href="#this-should-raise-alarms" title="Permalink to this headline">¶</a></h3>
+<p>Even if we didn’t make this data, I’ve never seen a raw dataset that was error-free
+The profile of the underlying distributions needs to be examined in any new dataset
+Although we can definitely do this with prebuilt functions, making your own will allow you to learn and customize to the specifics of your dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>eTIV</th>
+      <th>CDR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>50000</td>
+      <td>45702.0</td>
+      <td>50000</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>9</td>
+      <td>NaN</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>m</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>19643</td>
+      <td>NaN</td>
+      <td>37540</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>NaN</td>
+      <td>976005.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>729845.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>NaN</td>
+      <td>716.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>NaN</td>
+      <td>1599.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>NaN</td>
+      <td>1368160.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>NaN</td>
+      <td>1553236.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>NaN</td>
+      <td>2231230.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">freq_profile</span><span class="p">(</span><span class="n">df</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;freq_profile Create a frequency profile for messy datasets</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df (pd.DataFrame): Some raw or tidy data frame</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pd.DataFrame: frequency profile of the input dataset </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+            <span class="n">vc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">vc</span> <span class="o">=</span> <span class="n">vc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">vc</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                                        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()]))</span>
+                               <span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">vc</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span><span class="s1">&#39;Freq&#39;</span><span class="p">]</span>
+        <span class="n">vc</span><span class="p">[</span><span class="s1">&#39;Precent&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">vc</span><span class="o">.</span><span class="n">Freq</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">vc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="n">vc</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)},</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="n">freq_profile</span><span class="p">(</span><span class="n">fake_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="it-s-now-time-for-everything-to-be-fixed-transparently">
+<h2>It’s now time for everything to be fixed transparently<a class="headerlink" href="#it-s-now-time-for-everything-to-be-fixed-transparently" title="Permalink to this headline">¶</a></h2>
+<p>It is obvious that this simulates a very problematic dataset. When we encounter something like this in real life, two things are essential:</p>
+<ul class="simple">
+<li><p>Fix it in a non-destructive manner</p></li>
+<li><p>Explain each step you take</p></li>
+</ul>
+<div class="section" id="having-learned-how-to-fake-data-now-we-need-to-clean-it">
+<h3>Having learned how to fake data now we need to clean it<a class="headerlink" href="#having-learned-how-to-fake-data-now-we-need-to-clean-it" title="Permalink to this headline">¶</a></h3>
+<p>Fortunately, the eda table clearly identifies some problems (even if you do not possess prior knowledge). As a result, they are easy to fix (in fact, fixing them will be faster than learning how to create them).
+A theoretical solution should be evident just by looking at the sex values<br />
+<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">?,</span> <span class="pre">F,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">M,</span> <span class="pre">f,</span> <span class="pre">f</span> <span class="pre">,</span> <span class="pre">m</span> <span class="pre">,</span> <span class="pre">nan,</span> <span class="pre">null]</span></code></p>
+</div>
+<div class="section" id="using-regular-expressions-simplifies-this-challenge">
+<h3>Using regular expressions simplifies this challenge<a class="headerlink" href="#using-regular-expressions-simplifies-this-challenge" title="Permalink to this headline">¶</a></h3>
+<p>Although sometimes these can be automated, from my experience, this is never a good idea.
+Instead we will use a powerful tool called regular expressions (press here for a <a class="reference external" href="https://learn.datacamp.com/courses/regular-expressions-in-python">tutorial on regex</a>)
+In our example we are using some basic commands</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">^.*</span></code> search for everything from start to end containing:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[pattern]</span></code> string pattern inside brackets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[p1|p2|p3]</span></code> use <code class="docutils literal notranslate"><span class="pre">|</span></code> to define an <code class="docutils literal notranslate"><span class="pre">or</span></code> operator</p></li>
+<li><p>For example the pattern <code class="docutils literal notranslate"><span class="pre">^.*[f|F|2]</span></code> will search for strings containing ‘f’ or ‘F’ or 2</p></li>
+<li><p>Similarly, in the case of CDR we can use the following expression <code class="docutils literal notranslate"><span class="pre">^.*[99|nan|\s]</span></code> to identify missing results in all there forms</p></li>
+</ol>
+<div class="section" id="using-this-practically">
+<h4>Using this practically<a class="headerlink" href="#using-this-practically" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We will start with the sex column</p></li>
+<li><p>Using the Sex profile we can see he problem we are facing</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>?</th>
+      <td>951</td>
+      <td>0.01902</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <td>10745</td>
+      <td>0.21490</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>115</td>
+      <td>0.00230</td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>5962</td>
+      <td>0.11924</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>4879</td>
+      <td>0.09758</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>4913</td>
+      <td>0.09826</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>19643</td>
+      <td>0.39286</td>
+    </tr>
+    <tr>
+      <th>nan</th>
+      <td>1908</td>
+      <td>0.03816</td>
+    </tr>
+    <tr>
+      <th>null</th>
+      <td>884</td>
+      <td>0.01768</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="start-with-the-sex-feature">
+<h3>Start with the Sex feature<a class="headerlink" href="#start-with-the-sex-feature" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>We need to define 3 classes mapping</p>
+<ul>
+<li><p>Male: ‘^.*[m|M|1]’</p></li>
+<li><p>Female : ‘^.*[f|F|2]’</p></li>
+<li><p>Missing : ‘^.*[null|nan|?]’</p></li>
+</ul>
+</li>
+<li><p>Putting all of these in a dictionary we can create a mapping device</p></li>
+<li><p>And use replace with regex to remap these values</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_fake_data</span> <span class="o">=</span> <span class="n">fake_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">sex_mapper</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;^.*[f|F|2]&#39;</span><span class="p">:</span><span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="s1">&#39;^.*[m|M|1]&#39;</span><span class="p">:</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;^.*[null|nan|?]&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">}</span>
+<span class="n">cleaned_fake_data</span><span class="o">.</span><span class="n">Sex</span> <span class="o">=</span> <span class="n">fake_data</span><span class="o">.</span><span class="n">Sex</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">sex_mapper</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">freq_profile</span><span class="p">(</span><span class="n">cleaned_fake_data</span><span class="p">[[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Sex</th>
+      <th>Female</th>
+      <td>20652</td>
+      <td>0.41304</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>25605</td>
+      <td>0.51210</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>3743</td>
+      <td>0.07486</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="the-same-approach-can-be-used-to-remap-the-cdr-data">
+<h3>The same approach can be used to remap the CDR data<a class="headerlink" href="#the-same-approach-can-be-used-to-remap-the-cdr-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;CDR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>773</td>
+      <td>0.01546</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>37540</td>
+      <td>0.75080</td>
+    </tr>
+    <tr>
+      <th>0.5</th>
+      <td>2545</td>
+      <td>0.05090</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961</td>
+      <td>0.03922</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1993</td>
+      <td>0.03986</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>800</td>
+      <td>0.01600</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>738</td>
+      <td>0.01476</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>199</td>
+      <td>0.00398</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>484</td>
+      <td>0.00968</td>
+    </tr>
+    <tr>
+      <th>nan</th>
+      <td>2967</td>
+      <td>0.05934</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CDR_mapper</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;^.*[99|nan|\s]&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">:</span><span class="s1">&#39;3&#39;</span><span class="p">}</span>
+<span class="n">cleaned_fake_data</span><span class="o">.</span><span class="n">CDR</span> <span class="o">=</span> <span class="n">fake_data</span><span class="o">.</span><span class="n">CDR</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">CDR_mapper</span><span class="p">,</span><span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+<span class="n">freq_profile</span><span class="p">(</span><span class="n">cleaned_fake_data</span><span class="p">[[</span><span class="s1">&#39;CDR&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">CDR</th>
+      <th>0</th>
+      <td>37540</td>
+      <td>0.75080</td>
+    </tr>
+    <tr>
+      <th>0.5</th>
+      <td>2545</td>
+      <td>0.05090</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961</td>
+      <td>0.03922</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1993</td>
+      <td>0.03986</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>999</td>
+      <td>0.01998</td>
+    </tr>
+    <tr>
+      <th>nan</th>
+      <td>4962</td>
+      <td>0.09924</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="what-about-continuous-data">
+<h4>What about continuous data?<a class="headerlink" href="#what-about-continuous-data" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>To improve our understanding of continuous features it is useful to use data visualization</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;eTIV&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(-1514.141, 446819.157]</th>
+      <td>16000.0</td>
+      <td>0.32000</td>
+    </tr>
+    <tr>
+      <th>(446819.157, 892921.941]</th>
+      <td>9.0</td>
+      <td>0.00018</td>
+    </tr>
+    <tr>
+      <th>(892921.941, 1339024.725]</th>
+      <td>5440.0</td>
+      <td>0.10880</td>
+    </tr>
+    <tr>
+      <th>(1339024.725, 1785127.508]</th>
+      <td>22545.0</td>
+      <td>0.45090</td>
+    </tr>
+    <tr>
+      <th>(1785127.508, 2231230.292]</th>
+      <td>1708.0</td>
+      <td>0.03416</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>4298.0</td>
+      <td>0.08596</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="p">[</span><span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="o">&lt;</span><span class="mi">500000</span><span class="p">],</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="p">[</span><span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="o">&gt;</span><span class="mf">0.5e6</span><span class="p">],</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;eTIV&#39;, ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02_data_cleaning_lab_38_1.png" src="../../_images/02_data_cleaning_lab_38_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix</span> <span class="o">=</span> <span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span> <span class="o">&lt;</span> <span class="mi">500000</span>
+<span class="n">cleaned_fake_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span><span class="s1">&#39;eTIV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e3</span>
+<span class="n">freq_profile</span><span class="p">(</span><span class="n">cleaned_fake_data</span><span class="p">[[</span><span class="s1">&#39;eTIV&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">eTIV</th>
+      <th>(714852.151, 1020702.54]</th>
+      <td>180.0</td>
+      <td>0.00360</td>
+    </tr>
+    <tr>
+      <th>(1020702.54, 1325031.285]</th>
+      <td>7422.0</td>
+      <td>0.14844</td>
+    </tr>
+    <tr>
+      <th>(1325031.285, 1629360.031]</th>
+      <td>27384.0</td>
+      <td>0.54768</td>
+    </tr>
+    <tr>
+      <th>(1629360.031, 1933688.776]</th>
+      <td>10351.0</td>
+      <td>0.20702</td>
+    </tr>
+    <tr>
+      <th>(1933688.776, 2238017.521]</th>
+      <td>365.0</td>
+      <td>0.00730</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>4298.0</td>
+      <td>0.08596</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">cleaned_fake_data</span><span class="o">.</span><span class="n">eTIV</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;eTIV&#39;, ylabel=&#39;Count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/02_data_cleaning_lab_40_1.png" src="../../_images/02_data_cleaning_lab_40_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-this-valid">
+<h2>Is this valid?<a class="headerlink" href="#is-this-valid" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Here we created a manual data cleaning process</p></li>
+<li><p>In reality we will check our assumptions with our partners before applying these transformations</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">WEEK 02</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_feature_engineering_lab.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Feature Engineering and Feature Selection 101</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

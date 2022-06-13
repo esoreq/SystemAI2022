@@ -81,7 +81,7 @@ from IPython.display import display, Markdown
 # - For example:
 #   
 
-# In[25]:
+# In[2]:
 
 
 print(pd.Index(['a','b','c','d','e']))
@@ -98,7 +98,7 @@ print(pd.Index([('a',1),('a',2),('b',1),('b',3)]))
 # - However you cannot change indices, only replace the whole thing
 # 
 
-# In[41]:
+# In[3]:
 
 
 A2Z = pd.Index([chr(n) for n in range(65,91)])
@@ -112,7 +112,7 @@ print(f'size = {A2Z.size}, shape = {A2Z.shape}, dtype = {A2Z.dtype}')
 # - Python's built-in set methods such as Difference, Intersection or Union are supported either by set notation
 # - Or as builtin functions
 
-# In[45]:
+# In[4]:
 
 
 ix_01 = pd.Index(range(1,11,3))
@@ -123,7 +123,7 @@ print(f'{"Intersection of ix_01 and ix_02":<50} = {ix_01 & ix_02}')
 print(f'{"Union of ix_01 and ix_02":<50} = {ix_01 | ix_02}')
 
 
-# In[48]:
+# In[5]:
 
 
 print(f'{"Difference of ix_01 and ix_02":<50} = {ix_01.difference(ix_02)}')
@@ -142,7 +142,7 @@ print(f'{"Union of ix_01 and ix_02":<50} = {ix_01 | ix_02}')
 # - You can also add a name 
 #   
 
-# In[56]:
+# In[6]:
 
 
 print(pd.Series((1,2,3)))
@@ -163,7 +163,7 @@ print(pd.Series(range(4,7,2),name='46'))
 # - We can convert them to a 1D array that is called a data frame
 # - The Series name becomes the column header and every element becomes a row 
 
-# In[120]:
+# In[7]:
 
 
 vector_a = pd.Series(np.ones(3),index = ('a','b','c'),name='vector_a')
@@ -189,7 +189,7 @@ vector_a.to_frame()
 # - The values are the rows 
 # - The only caveat that is that the values need to have the same length 
 
-# In[116]:
+# In[8]:
 
 
 pd.DataFrame({'col_A':[1,2],'col_B':[3,4]})
@@ -202,7 +202,7 @@ pd.DataFrame({'col_A':[1,2],'col_B':[3,4]})
 # - Pandas adapts to new columns by implicitly adding missing values
 # 
 
-# In[122]:
+# In[9]:
 
 
 data = [{'col_A': 1,'col_B': 2},
@@ -214,7 +214,7 @@ pd.DataFrame(data)
 # ##### We can define the values using Series with index and then Pandas can adapt
 # - If we supply a Series with indices this will be taken into account 
 
-# In[117]:
+# In[10]:
 
 
 col_A = pd.Series((1,2,3))
@@ -230,14 +230,14 @@ pd.DataFrame({'col_A':col_A,'col_B':col_B,'col_C':col_C})
 # - In contrast to sets or dictionaries index can contain multiple copies
 # 
 
-# In[128]:
+# In[11]:
 
 
 x = np.array([range(1,5)])
 pd.DataFrame(x*x.T)
 
 
-# In[130]:
+# In[12]:
 
 
 pd.DataFrame(x*x.T, index = ['a','b','x','a'])
@@ -246,7 +246,7 @@ pd.DataFrame(x*x.T, index = ['a','b','x','a'])
 # ### Data Selection in Series and DataFrames
 # - Let's create some simulated data to explore some selection basics 
 
-# In[232]:
+# In[13]:
 
 
 np.clip(np.round(rng.normal(80,15,size=(n,)),2),45,125)

@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEEK 02 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_02/00_overview.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DATA Cleaning 101" href="02_data_cleaning_lab.html" />
+    <link rel="prev" title="Reproducibility lab" href="../week_01/02_reproducibility_lab.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   WEEK 02
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_data_cleaning_lab.html">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_feature_engineering_lab.html">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_02/00_overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_02/00_overview.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-cover-some-basics">
+   Let’s cover some basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-learning-or-the-ml-cake">
+     Types of learning or the ML cake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supervised-learning">
+     Supervised learning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#two-types-of-problems">
+       Two types of problems
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsupervised-learning">
+     Unsupervised learning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unsupervised-learning-problems">
+       Unsupervised learning problems
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-this-relate-to-feature-creation">
+   How does this relate to feature creation?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-quality-datasets">
+   What are quality datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-data-preprocessing">
+   What is Data Preprocessing ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-data-preprocessing">
+   Why use Data Preprocessing?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-an-observations-are-incomplete">
+   What can I do when an observations are incomplete?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-there-are-errors-or-outliers-in-the-data">
+   What can I do when there are errors or outliers in the data?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-my-dataset-is-inconsistent">
+   What can I do when my dataset is inconsistent?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>WEEK 02</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-cover-some-basics">
+   Let’s cover some basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#types-of-learning-or-the-ml-cake">
+     Types of learning or the ML cake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supervised-learning">
+     Supervised learning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#two-types-of-problems">
+       Two types of problems
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unsupervised-learning">
+     Unsupervised learning
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unsupervised-learning-problems">
+       Unsupervised learning problems
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-this-relate-to-feature-creation">
+   How does this relate to feature creation?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-quality-datasets">
+   What are quality datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-data-preprocessing">
+   What is Data Preprocessing ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-data-preprocessing">
+   Why use Data Preprocessing?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-an-observations-are-incomplete">
+   What can I do when an observations are incomplete?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-there-are-errors-or-outliers-in-the-data">
+   What can I do when there are errors or outliers in the data?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-can-i-do-when-my-dataset-is-inconsistent">
+   What can I do when my dataset is inconsistent?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-02">
+<h1>WEEK 02<a class="headerlink" href="#week-02" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="let-s-cover-some-basics">
+<h2>Let’s cover some basics<a class="headerlink" href="#let-s-cover-some-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="types-of-learning-or-the-ml-cake">
+<h3>Types of learning or the ML cake<a class="headerlink" href="#types-of-learning-or-the-ml-cake" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Learning from examples: Supervised learning</p></li>
+<li><p>Learning from data: UnSupervised learning</p></li>
+<li><p>Learning from experience: Reinforcement learning (which we will not cover here)</p></li>
+</ul>
+<p>In all cases we have some form of input and some expected output</p>
+</div>
+<div class="section" id="supervised-learning">
+<h3>Supervised learning<a class="headerlink" href="#supervised-learning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In supervised learning we commonly have a dataset formed from input-output pairs
+where the input (aka the feature space) is some n-dimensional dataset and the output (aka the response vector) is mostly a vector of variables that we wish to predict.</p></li>
+<li><p>Our objective is to find a way to learn a way to map input information in a way that predicts output</p></li>
+<li><p>Given a dataset where samples are drawn from some unknown joint distribution <span class="math notranslate nohighlight">\(p(X, y)\)</span>.</p></li>
+<li><p>And variables are independent and identically distributed (<span class="math notranslate nohighlight">\(\text{ i.i.d.}\)</span>) which means that variable distributions won’t change over time or space and sample wont be dependent on each other in anyway.</p></li>
+<li><p>Where for each observation <span class="math notranslate nohighlight">\(i\)</span> we have some feature input vector <span class="math notranslate nohighlight">\(X_i\)</span> and it’s paired output <span class="math notranslate nohighlight">\(y_i\)</span>.</p></li>
+<li><p>Our job is learn a function <span class="math notranslate nohighlight">\(f(X) \approx y\)</span> that approximates the output <span class="math notranslate nohighlight">\(y_i\)</span> for each known input <span class="math notranslate nohighlight">\(X_i\)</span>, however, the implicit assumption is that the same function will be able to perform equally good approximations for new inputs <span class="math notranslate nohighlight">\(x\)</span> , and unobserved <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+</ul>
+<div class="section" id="two-types-of-problems">
+<h4>Two types of problems<a class="headerlink" href="#two-types-of-problems" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Regression: predict a number</p></li>
+<li><p>Classification: predict a label</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="unsupervised-learning">
+<h3>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Unsupervised learning analyses unlabelled datasets using machine learning methods. These algorithms find hidden or natural data patterns without human interaction (i.e. without a teacher that provides labels).</p></li>
+<li><p>Its capacity to find similarities and differences makes it perfect for exploratory data analysis, and feature engineering.</p></li>
+<li><p>Here we are also have a dataset where samples are drawn from some unknown distribution <span class="math notranslate nohighlight">\(p(X)\)</span></p></li>
+<li><p>The assumption is that there exist some hidden associations that can be derived just by looking at the properties of the data using different tools</p></li>
+<li><p>If we can uncover this association we can use them to :</p>
+<ul>
+<li><p>Compress the data by removing redundant (i.e. overlapping) information.</p></li>
+<li><p>Find rules that allow us to identify similar and different observations</p></li>
+<li><p>Identify sub feature rules where specific sequences are common</p></li>
+<li><p>Separate independent information sources</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="unsupervised-learning-problems">
+<h4>Unsupervised learning problems<a class="headerlink" href="#unsupervised-learning-problems" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Dimensionality reduction: compress dataset with minimal information loss</p></li>
+<li><p>Clustering: Separate a dataset to k different groups</p></li>
+<li><p>Association rules: Identify rules of association hidden within a dataset</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="how-does-this-relate-to-feature-creation">
+<h2>How does this relate to feature creation?<a class="headerlink" href="#how-does-this-relate-to-feature-creation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A dataset is normaly created to answer a specific question</p></li>
+<li><p>If the problem you want to solve is one of prediction you will require an annotated dataset</p></li>
+<li><p>If on the other hand you wish to explore the hidden properties of a dataset you will need some in-depth understanding of the underlying dataset potential distributions and what features it makes sense to extract</p></li>
+<li><p>Regardless, your central aim is to transform a raw data into a quality/tidy datasets ready for analysis</p></li>
+</ul>
+</div>
+<div class="section" id="what-are-quality-datasets">
+<h2>What are quality datasets<a class="headerlink" href="#what-are-quality-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Quality datasets have the following properties:</p>
+<ol class="simple">
+<li><p><strong>Data-Type Constraints</strong>: all column values assigned the correct datatype, i.e., binary, categorical, ordinal, numeric, date</p></li>
+<li><p><strong>Mandatory Columns</strong>: some columns cannot be empty.</p></li>
+<li><p><strong>Range Constraints</strong>: numeric or dates columns should fall within a certain domain range.</p></li>
+<li><p><strong>Categorical Consistency</strong>: Categorical columns have a set of unique values For example, a person’s sex may be male or female.</p></li>
+<li><p><strong>Cross-Column Consistency</strong>: There are some interactions that need to make sense (e.g. age in years should be assoicated to birth date)</p></li>
+<li><p><strong>Uniformity Constraints</strong>: The degree to which the data is specified using the same unit of measure.</p></li>
+</ol>
+</div>
+<div class="section" id="what-is-data-preprocessing">
+<h2>What is Data Preprocessing ?<a class="headerlink" href="#what-is-data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>The process of data preprocessing involves converting raw data into a format that can be analysed and used. Data from the real world tends to be incomplete, inconsistent, and/or lacking in certain behaviors and trends, as well as containing a lot of errors. This can be resolved through data cleaning.
+Furthermore, when you have access to a large dataset with several potential interactions, you may wish to isolate a question of interest, doing so from the beginning will help you focus on what is most important at that time with the flexibility to always go back and incorporate the features or domains you excluded earlier.</p>
+</div>
+<div class="section" id="why-use-data-preprocessing">
+<h2>Why use Data Preprocessing?<a class="headerlink" href="#why-use-data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>In the real world, data often contain inaccuracies, noise, and inconsistencies.</p>
+<ul class="simple">
+<li><p>When an observation is incomplete, we mean that it lacks attribute values, lacks desired attributes, or is only aggregated.</p></li>
+<li><p>When there are errors or outliers in the data, they are considered noisy.</p></li>
+<li><p>Data that is inconsistent contains names or codes that aren’t consistent with the structure of interest.</p></li>
+</ul>
+</div>
+<div class="section" id="what-can-i-do-when-an-observations-are-incomplete">
+<h2>What can I do when an observations are incomplete?<a class="headerlink" href="#what-can-i-do-when-an-observations-are-incomplete" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If the dataset is large enough…, exclude all observations with missing values</p></li>
+<li><p>You might consider imputed values in rare datasets (even if they are large)</p></li>
+<li><p>Decide in advance (before you examine the dataset) some exclusion criteria</p></li>
+</ul>
+</div>
+<div class="section" id="what-can-i-do-when-there-are-errors-or-outliers-in-the-data">
+<h2>What can I do when there are errors or outliers in the data?<a class="headerlink" href="#what-can-i-do-when-there-are-errors-or-outliers-in-the-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>First task is to identify errors or outliers cases</p>
+<ul>
+<li><p>Errors are values that were logged incorrectly</p></li>
+<li><p>Outliers are values that can’t be justified conceptually (i.e. using a domain expert)</p></li>
+</ul>
+</li>
+<li><p>Once you find them, you need to come up with a strategy</p>
+<ul>
+<li><p>In order to eliminate errors and outliers, we can filter data</p></li>
+<li><p>Outliers and errors can be transformed or imputed</p></li>
+<li><p>They can be investigated independently</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-can-i-do-when-my-dataset-is-inconsistent">
+<h2>What can I do when my dataset is inconsistent?<a class="headerlink" href="#what-can-i-do-when-my-dataset-is-inconsistent" title="Permalink to this headline">¶</a></h2>
+<p>It depends on the level of inconsistency?</p>
+<ul class="simple">
+<li><p>Sometimes it’s all about simple hacks</p></li>
+<li><p>Sometimes you need some manual procedures</p>
+<ul>
+<li><p>In manuals, it is crucial to identify problems</p>
+<ul>
+<li><p>Understand them</p></li>
+<li><p>Handle them</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Time</p></th>
+<th class="text-align:right head"><p>Session</p></th>
+<th class="text-align:right head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>09:30-09:50</p></td>
+<td class="text-align:right"><p>[Week 02 overview[(index.html)]</p></td>
+<td class="text-align:right"><p>Basics of ML</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>09:50-10:30</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="02_data_cleaning_lab.html"><span class="doc std std-doc">Data Cleaning lab</span></a></p></td>
+<td class="text-align:right"><p>Basic data cleaning over simulated data</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10:30-10:35</p></td>
+<td class="text-align:right"><p>Break</p></td>
+<td class="text-align:right"><p>Coffee or Tea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10:35-11:30</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="05_feature_engineering_lab.html"><span class="doc std std-doc">Feature engineering 101</span></a></p></td>
+<td class="text-align:right"><p>What is Feature_engineering</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>11:30-11:35</p></td>
+<td class="text-align:right"><p>Break</p></td>
+<td class="text-align:right"><p>Coffee or Tea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10:35-12:00</p></td>
+<td class="text-align:right"><p><span class="xref myst">outlier detection lab</span></p></td>
+<td class="text-align:right"><p>Detecting outliers in the wild</p></td>
+</tr>
+</tbody>
+</table>
+<!-- #### Reinforcement learning
+- Reinforcement learning is all about continuous learning, that is creating output that adapts to a changing world.
+- Reinforcement learning teaches a computer a task through trial-and-error encounters with a dynamic environment. This learning technique allows the computer to optimise a reward measure without human interaction or explicit programming.
+
+#### Reinforcement learning problems -->
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week_01/02_reproducibility_lab.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reproducibility lab</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_data_cleaning_lab.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DATA Cleaning 101</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -24,8 +24,17 @@ I selected some papers that are supposed to give some context to the different p
 
 ## 2 1/2 hours is not long
 
-We have very little time to cover many topics. All the sessions will begin with a short journal club and high-level context on the sessions topic. This will be followed by a long lab session where you will be separated into four breakout rooms, where you will go over a self-paced lab on the topic.  
+We have very little time to cover many topics. All the sessions will begin with a short journal club and high-level context on the sessions topic. This will be followed by a long lab session where you will be separated into four breakout rooms, where you will go over a self-paced lab on the weeks topic.  
 
+## Course topics 
+
+| Session | Date | Topic | 
+| :--- | :--- | :--- | 
+| Week 01 | 08-06-22 | Reproducibility in neuroscience |
+| Week 02 | 13-06-22 | Feature Engineering |
+| Week 03 | 20-06-22 | Unsupervised Learning |
+| Week 04 | 27-06-22 | Supervised Learning (Regression) |
+| Week 05 | 04-07-22 | Supervised Learning (Classification) |
 
 ## Recommended reading 
 
