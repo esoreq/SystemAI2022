@@ -93,3 +93,4 @@
 
 - [Guide for Reproducible Research](https://the-turing-way.netlify.app/reproducible-research/reproducible-research.html)
 - [The Costs of Reproducibility](https://www.sciencedirect.com/science/article/pii/S0896627318310390)
+- [The Good Research Code Handbook](https://goodresearch.dev/index.html)
