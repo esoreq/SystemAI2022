@@ -1,0 +1,1086 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEEK 03 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/save_state.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_03/00_overview.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introducing Scikit-Learn" href="01_sklearn_101.html" />
+    <link rel="prev" title="We start by creating several subset datasets" href="../week_02/03_outlier_detection_lab.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_02/00_overview.html">
+   WEEK 02
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/02_data_cleaning_lab.html">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/05_feature_engineering_lab.html">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/03_outlier_detection_lab.html">
+     We start by creating several subset datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   WEEK 03
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_sklearn_101.html">
+     Introducing Scikit-Learn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_pca.html">
+     Principal Component Analysis (PCA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_home_assignment.html">
+     Home assignment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_03/00_overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_03/00_overview.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-cover-some-more-basics">
+   Let’s cover some more basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-models">
+     What are models?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-models-to-describe-a-dataset">
+       Use models to describe a dataset
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-covered-the-most-famous-model-out-there-the-mean">
+       We covered the most famous model out there - The mean
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-also-covered-the-variance">
+       We also covered the variance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#and-its-normalised-version-the-standard-deviation">
+       And its normalised version the standard deviation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-also-mentioned-probability">
+       We also mentioned probability
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#which-leads-to-the-idea-of-a-random-variable-and-conditional-probability">
+       Which leads to the idea of a random variable and conditional probability
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#for-example">
+         For example:
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-expected-value-is-equal-to-the-sample-mean-i-e-the-random-variable-in-some-experiment">
+       The expected value is equal to the sample mean, i.e. the random variable in some experiment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-an-estimator-and-how-do-we-assess-it">
+     What is an estimator and how do we assess it?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-have-some-error-in-every-prediction-which-is-a-function-of-the-accuracy-of-your-estimator-and-the-quality-of-the-observed-sample">
+       We have some error in every prediction, which is a function of the
+       <strong>
+        accuracy
+       </strong>
+       of your estimator and the
+       <strong>
+        quality
+       </strong>
+       of the observed sample
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-have-also-the-sampling-deviation">
+       We have also the sampling deviation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#which-brings-us-back-to-variance">
+       Which brings us back to Variance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#and-bias">
+       And Bias
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-why-do-we-need-all-of-this">
+   But why do we need all of this?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-simple-estimator-of-the-association-between-two-variables-would-be-the-covariance">
+     One simple estimator of the association between two variables would be the Covariance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-scaled-version-of-the-covariance-is-you-guessed-it-correlation">
+     The scaled version of the covariance is (you guessed it) correlation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-would-we-want-that">
+     Why would we want that?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curse-of-dimensionality">
+     Curse of dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dealing-with-dimensionality">
+     Dealing with Dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#today-we-will-cover-the-concept-of-feature-extraction">
+     Today we will cover the concept of feature extraction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-advantages-of-feature-extraction">
+   The advantages of feature extraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations-of-feature-extraction">
+   Limitations of feature extraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-will-also-touch-on-the-process-of-clustering">
+   We will also touch on the process of clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>WEEK 03</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-cover-some-more-basics">
+   Let’s cover some more basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-models">
+     What are models?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-models-to-describe-a-dataset">
+       Use models to describe a dataset
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-covered-the-most-famous-model-out-there-the-mean">
+       We covered the most famous model out there - The mean
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-also-covered-the-variance">
+       We also covered the variance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#and-its-normalised-version-the-standard-deviation">
+       And its normalised version the standard deviation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-also-mentioned-probability">
+       We also mentioned probability
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#which-leads-to-the-idea-of-a-random-variable-and-conditional-probability">
+       Which leads to the idea of a random variable and conditional probability
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#for-example">
+         For example:
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-expected-value-is-equal-to-the-sample-mean-i-e-the-random-variable-in-some-experiment">
+       The expected value is equal to the sample mean, i.e. the random variable in some experiment
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-an-estimator-and-how-do-we-assess-it">
+     What is an estimator and how do we assess it?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-have-some-error-in-every-prediction-which-is-a-function-of-the-accuracy-of-your-estimator-and-the-quality-of-the-observed-sample">
+       We have some error in every prediction, which is a function of the
+       <strong>
+        accuracy
+       </strong>
+       of your estimator and the
+       <strong>
+        quality
+       </strong>
+       of the observed sample
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-have-also-the-sampling-deviation">
+       We have also the sampling deviation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#which-brings-us-back-to-variance">
+       Which brings us back to Variance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#and-bias">
+       And Bias
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-why-do-we-need-all-of-this">
+   But why do we need all of this?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-simple-estimator-of-the-association-between-two-variables-would-be-the-covariance">
+     One simple estimator of the association between two variables would be the Covariance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-scaled-version-of-the-covariance-is-you-guessed-it-correlation">
+     The scaled version of the covariance is (you guessed it) correlation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-would-we-want-that">
+     Why would we want that?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curse-of-dimensionality">
+     Curse of dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dealing-with-dimensionality">
+     Dealing with Dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#today-we-will-cover-the-concept-of-feature-extraction">
+     Today we will cover the concept of feature extraction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-advantages-of-feature-extraction">
+   The advantages of feature extraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations-of-feature-extraction">
+   Limitations of feature extraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#we-will-also-touch-on-the-process-of-clustering">
+   We will also touch on the process of clustering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-03">
+<h1>WEEK 03<a class="headerlink" href="#week-03" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="let-s-cover-some-more-basics">
+<h2>Let’s cover some more basics<a class="headerlink" href="#let-s-cover-some-more-basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-are-models">
+<h3>What are models?<a class="headerlink" href="#what-are-models" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modelling is a way of representing some phenomenon in a simple, useful way</p></li>
+<li><p>It is useful because it makes it easier to understand, define, quantify, visualize, or simulate that phenomenon.</p></li>
+<li><p>Models can be simple equations that represent the relationship between two variables or complex systems with intricate laws.</p></li>
+<li><p>And most importantly models  allow us to convert complex datasets to stories.</p></li>
+</ul>
+<div class="section" id="use-models-to-describe-a-dataset">
+<h4>Use models to describe a dataset<a class="headerlink" href="#use-models-to-describe-a-dataset" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We have already discussed some of the different data models that can be used for describing data properties.</p></li>
+<li><p>In this section we will cover models that try to discover some natural relationships in datasets at lower dimension.</p></li>
+</ul>
+</div>
+<div class="section" id="we-covered-the-most-famous-model-out-there-the-mean">
+<h4>We covered the most famous model out there - The mean<a class="headerlink" href="#we-covered-the-most-famous-model-out-there-the-mean" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>We defined it as the sum of the sample divided by the number of observed elements</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i \]</div>
+<ul class="simple">
+<li><p>With <span class="math notranslate nohighlight">\(x_i\)</span> representing the value of one random observation, and <span class="math notranslate nohighlight">\(\bar{x}\)</span> as the mean value of all observations
+and <span class="math notranslate nohighlight">\(n\)</span> is the number of observations. And in our course observation is exactly the same as an event.</p></li>
+</ul>
+</div>
+<div class="section" id="we-also-covered-the-variance">
+<h4>We also covered the variance<a class="headerlink" href="#we-also-covered-the-variance" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>As the expectation of the squared deviation of a random variable from its mean.</p></li>
+<li><p>In other words, it measures how far a set of numbers is spread out from their average value.<br />
+$<span class="math notranslate nohighlight">\( \sigma^2 =  \frac{\sum_{i=1}^n(x_i-\bar{x})^2} {n} \)</span>$</p></li>
+</ul>
+</div>
+<div class="section" id="and-its-normalised-version-the-standard-deviation">
+<h4>And its normalised version the standard deviation<a class="headerlink" href="#and-its-normalised-version-the-standard-deviation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>By determining each data point’s deviation from the mean, the standard deviation is calculated as the square root of variance.</p></li>
+<li><p>Within the data set, there will be a higher deviation if the data points are further away from the mean;</p></li>
+<li><p>Therefore, the higher the standard deviation, the more spread out the data is.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \sigma =  \frac{\sum_{i=1}^n(x_i-\bar{x})^2} {n} \]</div>
+</div>
+<div class="section" id="we-also-mentioned-probability">
+<h4>We also mentioned probability<a class="headerlink" href="#we-also-mentioned-probability" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Probability = The expected <strong>relative</strong> frequency of some outcome.</p></li>
+<li><p>e.g. for a fair coin <span class="math notranslate nohighlight">\(P(heads)=P(tails)=0.5\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="which-leads-to-the-idea-of-a-random-variable-and-conditional-probability">
+<h4>Which leads to the idea of a random variable and conditional probability<a class="headerlink" href="#which-leads-to-the-idea-of-a-random-variable-and-conditional-probability" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Variable determined by a random experiment or sampling</p></li>
+</ul>
+<div class="section" id="for-example">
+<h5>For example:<a class="headerlink" href="#for-example" title="Permalink to this headline">¶</a></h5>
+<p>According to a <a class="reference external" href="http://www.nature.com/articles/s41598-019-55432-z#data-availability">Nature article</a> almost all females have a foot size smaller than 280mm[1].</p>
+<p>In men, the probability of having a foot size larger than 280 is around 0.3, as you can see from this recent study that analysed 1.2 million foot scans.</p>
+<p><img alt="" src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-019-55432-z/MediaObjects/41598_2019_55432_Fig2_HTML.png?as=webp" /></p>
+<p>This allows us to confidently state the following from these plots of the probability distribution function (pdf) of different conditional distributions:</p>
+<div class="math notranslate nohighlight">
+\[ P(FL&gt;fl|M) \neq P(FL&gt;fl|F) \]</div>
+<p>The conditional probability of foot size for males being larger than some limit fl is most of the time different than females</p>
+<p>We can be more specific in our comparison and state the directionality of the relationship</p>
+<div class="math notranslate nohighlight">
+\[ P(FL&gt;fl|M) &gt; P(FL&gt;fl|F) \]</div>
+</div>
+</div>
+<div class="section" id="the-expected-value-is-equal-to-the-sample-mean-i-e-the-random-variable-in-some-experiment">
+<h4>The expected value is equal to the sample mean, i.e. the random variable in some experiment<a class="headerlink" href="#the-expected-value-is-equal-to-the-sample-mean-i-e-the-random-variable-in-some-experiment" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>So $<span class="math notranslate nohighlight">\( E[X] = \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i \)</span>$</p></li>
+<li><p>And the variance would be describing the dispersion or the spread of the sampled observations around the mean</p></li>
+<li><p>And Covariance would be the paired variance of two random variables
+$<span class="math notranslate nohighlight">\( Cov[X,Y] = E[[(X-E[X])(Y-E[Y])] \)</span>$</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="what-is-an-estimator-and-how-do-we-assess-it">
+<h3>What is an estimator and how do we assess it?<a class="headerlink" href="#what-is-an-estimator-and-how-do-we-assess-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>An “estimator” or “point estimate” is a statistic used to infer the value of an unknown parameter in a statistical model.</p></li>
+</ul>
+<div class="section" id="we-have-some-error-in-every-prediction-which-is-a-function-of-the-accuracy-of-your-estimator-and-the-quality-of-the-observed-sample">
+<h4>We have some error in every prediction, which is a function of the <strong>accuracy</strong> of your estimator and the <strong>quality</strong> of the observed sample<a class="headerlink" href="#we-have-some-error-in-every-prediction-which-is-a-function-of-the-accuracy-of-your-estimator-and-the-quality-of-the-observed-sample" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[ \epsilon(x) = \widehat\Theta(x) - \Theta \]</div>
+</div>
+<div class="section" id="we-have-also-the-sampling-deviation">
+<h4>We have also the sampling deviation<a class="headerlink" href="#we-have-also-the-sampling-deviation" title="Permalink to this headline">¶</a></h4>
+<p>The difference is accepting that each sampling has its own error, which is different from the actual error</p>
+<div class="math notranslate nohighlight">
+\[ d(x) = \widehat\Theta(x) - E(\widehat\Theta(X)) \]</div>
+</div>
+<div class="section" id="which-brings-us-back-to-variance">
+<h4>Which brings us back to Variance<a class="headerlink" href="#which-brings-us-back-to-variance" title="Permalink to this headline">¶</a></h4>
+<p>The variance of <span class="math notranslate nohighlight">\(\widehat\Theta\)</span> is simply the expected value of the squared sampling deviations</p>
+<div class="math notranslate nohighlight">
+\[ VAR(\widehat\theta)=E[(\widehat\theta-E[\widehat\theta])^2] \]</div>
+</div>
+<div class="section" id="and-bias">
+<h4>And Bias<a class="headerlink" href="#and-bias" title="Permalink to this headline">¶</a></h4>
+<div class="math notranslate nohighlight">
+\[ B(\widehat\theta) = E(\widehat\theta)-\theta = E(\widehat\theta-\theta) \]</div>
+<p>Which is the expected value of the error, i.e. the mean error of the sample
+Or the difference between the Predicted Value and the Expected Value.</p>
+</div>
+</div>
+</div>
+<div class="section" id="but-why-do-we-need-all-of-this">
+<h2>But why do we need all of this?<a class="headerlink" href="#but-why-do-we-need-all-of-this" title="Permalink to this headline">¶</a></h2>
+<p>A possible reason would be to measure the level of association between two or more variables</p>
+<div class="section" id="one-simple-estimator-of-the-association-between-two-variables-would-be-the-covariance">
+<h3>One simple estimator of the association between two variables would be the Covariance<a class="headerlink" href="#one-simple-estimator-of-the-association-between-two-variables-would-be-the-covariance" title="Permalink to this headline">¶</a></h3>
+<p>Remember that covariance indicates how closely two random variables change together.<br />
+It’s the unscaled measure that indicates the direction of the linear relationship between variables.<br />
+As such it is hard to compare between two variables of different scales.</p>
+</div>
+<div class="section" id="the-scaled-version-of-the-covariance-is-you-guessed-it-correlation">
+<h3>The scaled version of the covariance is (you guessed it) correlation<a class="headerlink" href="#the-scaled-version-of-the-covariance-is-you-guessed-it-correlation" title="Permalink to this headline">¶</a></h3>
+<p>It is a measure used to measure the strength of the linear association between two random variables<br />
+And is just the covariance divided by the product of both variables standard deviation.<br />
+It’s values range from -1 to 1 in contrast to the covariance matrix that ranges from <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span></p>
+</div>
+<div class="section" id="why-would-we-want-that">
+<h3>Why would we want that?<a class="headerlink" href="#why-would-we-want-that" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One simple reason would be to see if there is redundancy in your dataset</p></li>
+<li><p>If your dataset has high degree of association it is useful to reduce it’s Dimensionality</p></li>
+</ul>
+</div>
+<div class="section" id="curse-of-dimensionality">
+<h3>Curse of dimensionality<a class="headerlink" href="#curse-of-dimensionality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Dimensionality is the number of variables, characteristics or features present in the dataset.</p></li>
+<li><p>These dimensions are represented in a tidy dataset as columns, and they are often expected to have some redundancy.</p></li>
+<li><p>The ratio between the number of observations and features is key, with a rule of thumb that to interpret a model you need 10 observations per feature</p></li>
+</ul>
+</div>
+<div class="section" id="dealing-with-dimensionality">
+<h3>Dealing with Dimensionality<a class="headerlink" href="#dealing-with-dimensionality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There are two approaches for dimensionality reduction:</p>
+<ul>
+<li><p><strong>Feature Selection</strong> : the process of selecting features using either data-driven approaches or domain expertise.</p></li>
+<li><p><strong>Feature Extraction</strong> : the process of transforming the existing features into few features.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="today-we-will-cover-the-concept-of-feature-extraction">
+<h3>Today we will cover the concept of feature extraction<a class="headerlink" href="#today-we-will-cover-the-concept-of-feature-extraction" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Feature extraction is a process of reducing the dimensionality of a dataset.</p></li>
+<li><p>Feature extraction involves combining the existing features into new ones, thereby reducing the number of features in the dataset.</p></li>
+<li><p>This process reduces the amount of data into manageable sizes for algorithms to process with minimal distorting the original relationships or relevant information.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-advantages-of-feature-extraction">
+<h2>The advantages of feature extraction<a class="headerlink" href="#the-advantages-of-feature-extraction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Reduce computational complexity</p></li>
+<li><p>Reduce noise effects</p></li>
+<li><p>Improve our understanding of the big picture</p></li>
+<li><p>Merge together collinear features</p></li>
+</ul>
+</div>
+<div class="section" id="limitations-of-feature-extraction">
+<h2>Limitations of feature extraction<a class="headerlink" href="#limitations-of-feature-extraction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The new features generated are not easily interpretable.</p></li>
+<li><p>Scalability, some of these approaches require large computational resources that mean they are limited by number of observations and features</p></li>
+</ul>
+</div>
+<div class="section" id="we-will-also-touch-on-the-process-of-clustering">
+<h2>We will also touch on the process of clustering<a class="headerlink" href="#we-will-also-touch-on-the-process-of-clustering" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>which can be viewed as a way to create a response vector when you don’t have one</p></li>
+</ul>
+</div>
+<div class="section" id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Time</p></th>
+<th class="text-align:right head"><p>Session</p></th>
+<th class="text-align:right head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>09:30-10:00</p></td>
+<td class="text-align:right"><p>Week 03 overview</p></td>
+<td class="text-align:right"><p>Basic terminology and overview</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10:00-10:50</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="01_sklearn_101.html"><span class="doc std std-doc">Sklearn 101 A</span></a></p></td>
+<td class="text-align:right"><p>hands on to basic design patterns in sci kit-learn module with simple examples of feature extraction</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10:50-10:55</p></td>
+<td class="text-align:right"><p>Break</p></td>
+<td class="text-align:right"><p>Coffee or Tea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10:55-11:40</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="02_pca.html"><span class="doc std std-doc">PCA</span></a></p></td>
+<td class="text-align:right"><p>hands on to the basic idea behind PCA</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>11:40-12:00</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="03_home_assignment.html"><span class="doc std std-doc">home work</span></a></p></td>
+<td class="text-align:right"><p>Apply PCA and tSNE to the 12tasks data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week_02/03_outlier_detection_lab.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">We start by creating several subset datasets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_sklearn_101.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducing Scikit-Learn</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

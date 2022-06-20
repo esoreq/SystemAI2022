@@ -111,8 +111,4 @@ It depends on the level of inconsistency?
 |11:30-11:35| Break | Coffee or Tea |
 |10:35-12:00| [outlier detection lab](03_outlier_detection_lab.ipynb) | Detecting outliers in the wild |
 
-<!-- #### Reinforcement learning
-- Reinforcement learning is all about continuous learning, that is creating output that adapts to a changing world.
-- Reinforcement learning teaches a computer a task through trial-and-error encounters with a dynamic environment. This learning technique allows the computer to optimise a reward measure without human interaction or explicit programming.
 
-#### Reinforcement learning problems -->
