@@ -1,6 +1,7 @@
 alabaster==0.7.12
 anyio==3.5.0
 appnope==0.1.2
+sklearn
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.2

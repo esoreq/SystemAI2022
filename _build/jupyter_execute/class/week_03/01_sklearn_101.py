@@ -120,8 +120,8 @@
 # - Dimensionality reduction is focused on reducing the amount of features by constructing new features by some form of transformation applied on the original features
 # - Clustering is the process of learning some function that is able to assign a label to each point in the feature space based on some natural patterns the dataset contains
 # 
-# ### We will cover these two algorithms using the same dataset
-# - We start by loading and exploring the dataset  
+# ### We will cover the first algorithm using two different datasets
+# - We start by loading and exploring the first dataset  
 # 
 
 # In[1]:
