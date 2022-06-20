@@ -104,15 +104,11 @@ It depends on the level of inconsistency?
 
 |Time    | Session    | Description   |
 |-----------:|----------:|---------:|
-|09:30-09:50| [Week 02 overview[(index.html)] | Basics of ML |
-|09:50-10:30| [Data Cleaning lab](02_data_cleaning_lab.ipynb)| Basic data cleaning over simulated data|
+|09:30-09:50| [Week 02 overview](https://github.com/esoreq/SystemAI2022/blob/main/class/week_02/index.html) | Basics of ML |
+|09:50-10:30| [Data Cleaning lab](02_data_cleaning_lab.ipynb)| hands on to basic data cleaning over simulated data|
 |10:30-10:35| Break | Coffee or Tea |
 |10:35-11:30| [Feature engineering 101](05_feature_engineering_lab.ipynb)| What is Feature_engineering |
 |11:30-11:35| Break | Coffee or Tea |
 |10:35-12:00| [outlier detection lab](03_outlier_detection_lab.ipynb) | Detecting outliers in the wild |
 
-<!-- #### Reinforcement learning
-- Reinforcement learning is all about continuous learning, that is creating output that adapts to a changing world.
-- Reinforcement learning teaches a computer a task through trial-and-error encounters with a dynamic environment. This learning technique allows the computer to optimise a reward measure without human interaction or explicit programming.
 
-#### Reinforcement learning problems -->

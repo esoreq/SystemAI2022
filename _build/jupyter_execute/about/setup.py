@@ -83,7 +83,6 @@
 #   - pandas
 #   - jupyterlab
 #   - scipy
-#   - nbformat
 #   - statsmodels
 #   - pingouin
 #   - scikit-learn
@@ -108,6 +107,12 @@
 # python -m ipykernel install --user --name SYS_2022 --display-name "Python (SYS_2022)"
 # ~~~
 
+# In[ ]:
+
+
+
+
+
 # ### Check if this worked 
 # - If everything worked as planned when you run the following line you will get the new SYS_2022 environment as one of the conda environments
 # 
@@ -116,7 +121,6 @@
 # ~~~
 # 
 # - Refresh your terminal and you can now work on the lab material 
-#   using the environment you just created
 
 # ```{note}
 # To create notebooks inside the notebook folder you should navigate to the notebooks folder using the jupyter lab explorer and launch a notebook when you are in the right folder

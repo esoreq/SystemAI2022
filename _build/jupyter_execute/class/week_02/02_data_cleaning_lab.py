@@ -28,7 +28,7 @@ plt.style.use('bmh')
 
 # ### Create a random generator with a seed so we all have the same values
 
-# In[1]:
+# In[3]:
 
 
 rng = np.random.default_rng(seed = 2022)
@@ -63,17 +63,23 @@ n = 50000
 # | ` ` | 0.015 | error in coding | 
 # | `99` | 0.01 | Missing values|
 
-# In[2]:
+# In[4]:
 
 
 p = [0.75,0.05,0.04,0.04,0.02,0.06,0.015,0.015,0.01]
 CDR = rng.choice([0,0.5,1,2,3,np.nan,'3 ',' ','99'],replace=True, size=(n,),p=p)
 
 
+# In[8]:
+
+
+pd.Series(CDR).value_counts(normalize=True)
+
+
 # ### Introducing a coding error
 # - We take 20% of severe dementia cases and randomly assign them a value of 30  
 
-# In[5]:
+# In[7]:
 
 
 ix = np.where(CDR=='3')[0]
@@ -86,7 +92,7 @@ CDR[ix[0:int(ix.shape[0]*0.2)]]= 30
 # - We start by sampling 50k samples from a normal distribution (using the [numpy.random.Generator.normal](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html) generator) we define our normal distribution cantered around a mean volume of 1.5e6 mm^3 and with 1.8e5 mm^3 width or standard deviation. 
 # - Then we randomly sample 9% of observations and remove them by replacing their values with `np.nan` using [numpy.random.Generator.integers](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html).
 
-# In[6]:
+# In[9]:
 
 
 eTIV = rng.normal(1.5e6,1.8e5,size=(n,))
@@ -96,7 +102,7 @@ eTIV[rng.integers(low=0,high=n-1,size=(int(n*0.09),))] = np.nan
 # ### Adding systematic inconsistency
 # - Making life interesting and introducing another form of error (and some other ways to randomly sample in Python). We are introducing a systematic inconsistency in the data where 32% of observations were coded using cm^3 instead of mm^3
 
-# In[38]:
+# In[10]:
 
 
 ix = rng.permuted(np.where(~np.isnan(eTIV)))[0,0:int(n*0.32)]
@@ -107,7 +113,7 @@ eTIV[ix] = eTIV[ix]*0.001 # tranfrom 32% of the data from mm^3 to cm^3
 # 
 # It is now possible to create a categorical sex variable and introduce different coding errors for this binary value (which are less uncommon than you might think).
 
-# In[16]:
+# In[11]:
 
 
 p = [0.12,0.4,0.22,0.10,0.10,0.04,0.02]
@@ -118,7 +124,7 @@ sex = rng.choice(['M','m ',' F','f','f ',np.nan,' ?'],replace=True, size=(n,),p=
 # 
 # Keeping with the former systematic inconsistency we introduced, sex values from this site will be numerically coded.
 
-# In[8]:
+# In[12]:
 
 
 _sex = sex[ix]
@@ -140,7 +146,7 @@ sex[ix] = list(map(lambda x: 1 if x=='m' else 2 if x=='f' else 'null', sex[ix]))
 # #### Finally, we will create a dataframe from this horrific sample
 # 
 
-# In[85]:
+# In[13]:
 
 
 fake_data = pd.DataFrame({'Sex':sex,'eTIV':eTIV,'CDR':CDR})
@@ -151,7 +157,7 @@ fake_data.head()
 # - We can use the describe function, but this function treats non-numeric values differently, so it may not be the best choice for examining raw messy data.
 # - This is a perfect example of how describe() will fail miserably. The reason is not that it isn't useful, but rather that it isn't designed for dealing with datasets  like these.
 
-# In[86]:
+# In[14]:
 
 
 fake_data.info()
@@ -162,13 +168,13 @@ fake_data.info()
 # The profile of the underlying distributions needs to be examined in any new dataset
 # Although we can definitely do this with prebuilt functions, making your own will allow you to learn and customize to the specifics of your dataset.
 
-# In[87]:
+# In[15]:
 
 
 fake_data.describe(include='all').round()
 
 
-# In[53]:
+# In[16]:
 
 
 def freq_profile(df:pd.DataFrame) -> pd.DataFrame:
@@ -198,10 +204,16 @@ def freq_profile(df:pd.DataFrame) -> pd.DataFrame:
     return pd.concat(d)
 
 
-# In[88]:
+# In[17]:
 
 
 profile = freq_profile(fake_data)
+
+
+# In[19]:
+
+
+profile.xs('Sex')
 
 
 # ## It's now time for everything to be fixed transparently 
@@ -229,7 +241,7 @@ profile = freq_profile(fake_data)
 # - We will start with the sex column 
 # - Using the Sex profile we can see he problem we are facing 
 
-# In[46]:
+# In[20]:
 
 
 profile.xs('Sex')
@@ -245,7 +257,7 @@ profile.xs('Sex')
 # - And use replace with regex to remap these values 
 # 
 
-# In[89]:
+# In[21]:
 
 
 cleaned_fake_data = fake_data.copy()
@@ -258,13 +270,13 @@ freq_profile(cleaned_fake_data[['Sex']])
 # ### The same approach can be used to remap the CDR data 
 # 
 
-# In[57]:
+# In[22]:
 
 
 profile.xs('CDR')
 
 
-# In[90]:
+# In[23]:
 
 
 CDR_mapper = {'^.*[99|nan|\s]':np.nan, '30':'3'}
@@ -275,13 +287,13 @@ freq_profile(cleaned_fake_data[['CDR']])
 # #### What about continuous data?
 # - To improve our understanding of continuous features it is useful to use data visualization
 
-# In[91]:
+# In[24]:
 
 
 profile.xs('eTIV')
 
 
-# In[98]:
+# In[25]:
 
 
 fig, ax = plt.subplots(1,2,figsize=(15,3))
@@ -289,7 +301,7 @@ sns.histplot(fake_data.eTIV[fake_data.eTIV<500000],kde=True,ax=ax[0])
 sns.histplot(fake_data.eTIV[fake_data.eTIV>0.5e6],kde=True,ax=ax[1])
 
 
-# In[99]:
+# In[26]:
 
 
 ix = fake_data.eTIV < 500000
@@ -297,7 +309,7 @@ cleaned_fake_data.loc[ix,'eTIV'] = fake_data.eTIV[ix] * 1e3
 freq_profile(cleaned_fake_data[['eTIV']])
 
 
-# In[101]:
+# In[27]:
 
 
 sns.histplot(cleaned_fake_data.eTIV,kde=True)

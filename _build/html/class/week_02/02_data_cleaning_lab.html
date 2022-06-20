@@ -346,6 +346,38 @@ const thebe_selector_output = ".output, .cell_output"
      Feature Engineering and Feature Selection 101
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_outlier_detection_lab.html">
+     We start by creating several subset datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_03/00_overview.html">
+   WEEK 03
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/01_sklearn_101.html">
+     Introducing Scikit-Learn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/02_pca.html">
+     Principal Component Analysis (PCA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/03_home_assignment.html">
+     Home assignment
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -846,6 +878,28 @@ And add errors and outliers to the code.</p>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">CDR</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.75080
+nan    0.05934
+0.5    0.05090
+2      0.03986
+1      0.03922
+3      0.01600
+       0.01546
+3      0.01476
+99     0.00968
+30     0.00398
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="introducing-a-coding-error">
@@ -966,13 +1020,13 @@ And add errors and outliers to the code.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>M</td>
+      <td>f</td>
       <td>NaN</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>F</td>
+      <td>2</td>
       <td>1.647253e+03</td>
       <td>0</td>
     </tr>
@@ -984,8 +1038,8 @@ And add errors and outliers to the code.</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>F</td>
-      <td>1.391975e+03</td>
+      <td>f</td>
+      <td>1.391975e+06</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1072,7 +1126,7 @@ Although we can definitely do this with prebuilt functions, making your own will
     </tr>
     <tr>
       <th>unique</th>
-      <td>9</td>
+      <td>10</td>
       <td>NaN</td>
       <td>10</td>
     </tr>
@@ -1084,50 +1138,50 @@ Although we can definitely do this with prebuilt functions, making your own will
     </tr>
     <tr>
       <th>freq</th>
-      <td>19643</td>
+      <td>13546</td>
       <td>NaN</td>
       <td>37540</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>NaN</td>
-      <td>976005.0</td>
+      <td>975245.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>729845.0</td>
+      <td>729201.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>min</th>
       <td>NaN</td>
-      <td>716.0</td>
+      <td>788.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>NaN</td>
-      <td>1599.0</td>
+      <td>1601.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>NaN</td>
-      <td>1368160.0</td>
+      <td>1367902.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>NaN</td>
-      <td>1553236.0</td>
+      <td>1552882.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>max</th>
       <td>NaN</td>
-      <td>2231230.0</td>
+      <td>2238018.0</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -1171,6 +1225,95 @@ Although we can definitely do this with prebuilt functions, making your own will
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Freq</th>
+      <th>Precent</th>
+    </tr>
+    <tr>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>?</th>
+      <td>726.0</td>
+      <td>0.01452</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <td>7513.0</td>
+      <td>0.15026</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8224.0</td>
+      <td>0.16448</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6839.0</td>
+      <td>0.13678</td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>4123.0</td>
+      <td>0.08246</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>3316.0</td>
+      <td>0.06632</td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>3376.0</td>
+      <td>0.06752</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>13546.0</td>
+      <td>0.27092</td>
+    </tr>
+    <tr>
+      <th>nan</th>
+      <td>1400.0</td>
+      <td>0.02800</td>
+    </tr>
+    <tr>
+      <th>null</th>
+      <td>937.0</td>
+      <td>0.01874</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -1242,48 +1385,53 @@ In our example we are using some basic commands</p>
   <tbody>
     <tr>
       <th>?</th>
-      <td>951</td>
-      <td>0.01902</td>
+      <td>726.0</td>
+      <td>0.01452</td>
     </tr>
     <tr>
       <th>F</th>
-      <td>10745</td>
-      <td>0.21490</td>
+      <td>7513.0</td>
+      <td>0.15026</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8224.0</td>
+      <td>0.16448</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>115</td>
-      <td>0.00230</td>
+      <td>6839.0</td>
+      <td>0.13678</td>
     </tr>
     <tr>
       <th>M</th>
-      <td>5962</td>
-      <td>0.11924</td>
+      <td>4123.0</td>
+      <td>0.08246</td>
     </tr>
     <tr>
       <th>f</th>
-      <td>4879</td>
-      <td>0.09758</td>
+      <td>3316.0</td>
+      <td>0.06632</td>
     </tr>
     <tr>
       <th>f</th>
-      <td>4913</td>
-      <td>0.09826</td>
+      <td>3376.0</td>
+      <td>0.06752</td>
     </tr>
     <tr>
       <th>m</th>
-      <td>19643</td>
-      <td>0.39286</td>
+      <td>13546.0</td>
+      <td>0.27092</td>
     </tr>
     <tr>
       <th>nan</th>
-      <td>1908</td>
-      <td>0.03816</td>
+      <td>1400.0</td>
+      <td>0.02800</td>
     </tr>
     <tr>
       <th>null</th>
-      <td>884</td>
-      <td>0.01768</td>
+      <td>937.0</td>
+      <td>0.01874</td>
     </tr>
   </tbody>
 </table>
@@ -1348,18 +1496,18 @@ In our example we are using some basic commands</p>
     <tr>
       <th rowspan="3" valign="top">Sex</th>
       <th>Female</th>
-      <td>20652</td>
-      <td>0.41304</td>
+      <td>21044</td>
+      <td>0.42088</td>
     </tr>
     <tr>
       <th>Male</th>
-      <td>25605</td>
-      <td>0.51210</td>
+      <td>25893</td>
+      <td>0.51786</td>
     </tr>
     <tr>
       <th>NaN</th>
-      <td>3743</td>
-      <td>0.07486</td>
+      <td>3063</td>
+      <td>0.06126</td>
     </tr>
   </tbody>
 </table>
@@ -1405,52 +1553,52 @@ In our example we are using some basic commands</p>
   <tbody>
     <tr>
       <th></th>
-      <td>773</td>
+      <td>773.0</td>
       <td>0.01546</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>37540</td>
+      <td>37540.0</td>
       <td>0.75080</td>
     </tr>
     <tr>
       <th>0.5</th>
-      <td>2545</td>
+      <td>2545.0</td>
       <td>0.05090</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1961</td>
+      <td>1961.0</td>
       <td>0.03922</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1993</td>
+      <td>1993.0</td>
       <td>0.03986</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>800</td>
+      <td>800.0</td>
       <td>0.01600</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>738</td>
+      <td>738.0</td>
       <td>0.01476</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>199</td>
+      <td>199.0</td>
       <td>0.00398</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>484</td>
+      <td>484.0</td>
       <td>0.00968</td>
     </tr>
     <tr>
       <th>nan</th>
-      <td>2967</td>
+      <td>2967.0</td>
       <td>0.05934</td>
     </tr>
   </tbody>
@@ -1572,29 +1720,29 @@ In our example we are using some basic commands</p>
   </thead>
   <tbody>
     <tr>
-      <th>(-1514.141, 446819.157]</th>
+      <th>(-1449.035, 448234.061]</th>
       <td>16000.0</td>
       <td>0.32000</td>
     </tr>
     <tr>
-      <th>(446819.157, 892921.941]</th>
-      <td>9.0</td>
-      <td>0.00018</td>
+      <th>(448234.061, 895679.926]</th>
+      <td>14.0</td>
+      <td>0.00028</td>
     </tr>
     <tr>
-      <th>(892921.941, 1339024.725]</th>
-      <td>5440.0</td>
-      <td>0.10880</td>
+      <th>(895679.926, 1343125.791]</th>
+      <td>5682.0</td>
+      <td>0.11364</td>
     </tr>
     <tr>
-      <th>(1339024.725, 1785127.508]</th>
-      <td>22545.0</td>
-      <td>0.45090</td>
+      <th>(1343125.791, 1790571.656]</th>
+      <td>22439.0</td>
+      <td>0.44878</td>
     </tr>
     <tr>
-      <th>(1785127.508, 2231230.292]</th>
-      <td>1708.0</td>
-      <td>0.03416</td>
+      <th>(1790571.656, 2238017.521]</th>
+      <td>1567.0</td>
+      <td>0.03134</td>
     </tr>
     <tr>
       <th>NaN</th>
@@ -1617,7 +1765,7 @@ In our example we are using some basic commands</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;eTIV&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/02_data_cleaning_lab_38_1.png" src="../../_images/02_data_cleaning_lab_38_1.png" />
+<img alt="../../_images/02_data_cleaning_lab_40_1.png" src="../../_images/02_data_cleaning_lab_40_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1704,7 +1852,7 @@ In our example we are using some basic commands</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;eTIV&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/02_data_cleaning_lab_40_1.png" src="../../_images/02_data_cleaning_lab_40_1.png" />
+<img alt="../../_images/02_data_cleaning_lab_42_1.png" src="../../_images/02_data_cleaning_lab_42_1.png" />
 </div>
 </div>
 </div>
