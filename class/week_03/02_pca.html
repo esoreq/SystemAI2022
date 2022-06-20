@@ -608,20 +608,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">digits</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="principal-component-analysis-pca">
 <h1>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">¶</a></h1>
@@ -684,7 +670,7 @@ The further the points are to the axis, the biggest the information loss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x182050eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f24a76f0220&gt;
 </pre></div>
 </div>
 <img alt="../../_images/02_pca_6_1.png" src="../../_images/02_pca_6_1.png" />
@@ -705,10 +691,14 @@ The further the points are to the axis, the biggest the information loss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pc1&#39;, ylabel=&#39;pc2&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/02_pca_8_1.png" src="../../_images/02_pca_8_1.png" />
+<img alt="../../_images/02_pca_8_2.png" src="../../_images/02_pca_8_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -783,10 +773,14 @@ The further the points are to the axis, the biggest the information loss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  warnings.warn(
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;pc1&#39;, ylabel=&#39;pc2&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/02_pca_13_1.png" src="../../_images/02_pca_13_1.png" />
+<img alt="../../_images/02_pca_13_2.png" src="../../_images/02_pca_13_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -849,7 +843,7 @@ The further the points are to the axis, the biggest the information loss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x1ab6150c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f24a763ee30&gt;
 </pre></div>
 </div>
 <img alt="../../_images/02_pca_17_1.png" src="../../_images/02_pca_17_1.png" />
@@ -892,7 +886,7 @@ The further the points are to the axis, the biggest the information loss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1ab9ec3a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x7f249d335960&gt;
 </pre></div>
 </div>
 <img alt="../../_images/02_pca_20_1.png" src="../../_images/02_pca_20_1.png" />

@@ -558,20 +558,51 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="p">(</span><span class="n">StandardScaler</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                                    <span class="n">PowerTransformer</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>                                    <span class="n">MinMaxScaler</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span>                                    <span class="n">RobustScaler</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                                    <span class="n">MaxAbsScaler</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>                                    <span class="n">QuantileTransformer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">utils</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 15&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max.columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;12_tasks.pkl&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;autoreload&#39;</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/pandas/io/pickle.py:187,</span> in <span class="ni">read_pickle</span><span class="nt">(filepath_or_buffer, compression, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span><span class="sd"> Load pickled pandas object (or any object) from file.</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="sd"> 4    4    9</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span><span class="sd"> &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span> <span class="n">excs_to_catch</span> <span class="o">=</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">187</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="n">filepath_or_buffer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span>     <span class="s2">&quot;rb&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>     <span class="n">is_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span> 
+<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="c1"># 1) try standard library Pickle</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="c1"># 2) try pickle_compat (older pandas version) to handle subclass changes</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="c1"># 3) try pickle_compat with latin-1 encoding upon a UnicodeDecodeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>         <span class="c1"># TypeError for Cython complaints about object.__new__ vs Tick.__new__</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/pandas/io/common.py:798,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="c1"># Binary mode</span>
+<span class="ne">--&gt; </span><span class="mi">798</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="c1"># Convert BytesIO or file objects passed with an encoding</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;12_tasks.pkl&#39;
 </pre></div>
 </div>
 </div>
