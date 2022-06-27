@@ -200,7 +200,7 @@ pd.concat(perf)
 # - The tree model offers a crude simplified solution to the regression problem 
 # - [Understanding Machine Learning: From Theory to Algorithms - ch18](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf)
 
-# In[7]:
+# In[11]:
 
 
 from sklearn.tree import DecisionTreeRegressor,plot_tree
@@ -209,7 +209,8 @@ N = 100
 perf = [] 
 
 x = rng.normal(10,5,size=(N,1))
-x_range = np.linspace(np.min(y),np.max(y),100).reshape(-1, 1)
+x_range = np.linspace(0,20,100).reshape(-1, 1)
+
 fig, ax = plt.subplots(1, 5,sharey=True,sharex=True,figsize=(20,5))
 for i,sd in enumerate(np.arange(1,10,2)):
     y = fu(x,sd)
@@ -241,7 +242,7 @@ pd.concat(perf)
 # - We defined the first peak at 6 seconds and the delay of undershoot has its minima at 16 seconds
 # - We also defined r as 1/6 
 
-# In[135]:
+# In[12]:
 
 
 from scipy.stats import gamma
@@ -399,6 +400,8 @@ plt.tight_layout()
 # ### Lets start with what makes SVR different then the models we covered so far 
 # - SVR tries to fit the best line (or hyperplane for multidimensional datasets) within a threshold value
 # - In SVR, the best fit line is the hyperplane that has the maximum number of points.
+# - The constant C is the box constraint, a positive numeric value that controls the penalty imposed on observations that lie outside the epsilon margin (ε) and helps to prevent overfitting (regularization). 
+# - This value determines the trade-off between the flatness of f(x) and the amount up to which deviations larger than ε are tolerated.
 # - The threshold value is the distance between the hyperplane and boundary line.
 # - The boundary is defined using a margin of tolerance epsilon   
 # - [The math behind support vector regression](https://link.springer.com/article/10.1023/B:STCO.0000035301.49549.88) 
