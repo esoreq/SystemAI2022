@@ -1178,7 +1178,8 @@ some stopping criteria have been reached</p></li>
 <span class="n">perf</span> <span class="o">=</span> <span class="p">[]</span> 
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">sd</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">fu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span>
@@ -1223,47 +1224,47 @@ some stopping criteria have been reached</p></li>
     <tr>
       <th>0</th>
       <td>err=1</td>
-      <td>4.845840</td>
-      <td>34.434112</td>
-      <td>4.103228</td>
-      <td>5.868059</td>
-      <td>-4.735830</td>
+      <td>4.572925</td>
+      <td>31.822150</td>
+      <td>3.824980</td>
+      <td>5.641112</td>
+      <td>-5.336461</td>
     </tr>
     <tr>
       <th>1</th>
       <td>err=3</td>
-      <td>4.499006</td>
-      <td>29.366542</td>
-      <td>4.045836</td>
-      <td>5.419091</td>
-      <td>-3.483719</td>
+      <td>4.116997</td>
+      <td>27.457780</td>
+      <td>3.523919</td>
+      <td>5.240017</td>
+      <td>-3.234762</td>
     </tr>
     <tr>
       <th>2</th>
       <td>err=5</td>
-      <td>4.217208</td>
-      <td>26.172340</td>
-      <td>3.751568</td>
-      <td>5.115891</td>
-      <td>-3.134638</td>
+      <td>3.950589</td>
+      <td>25.384741</td>
+      <td>3.469278</td>
+      <td>5.038327</td>
+      <td>-2.275628</td>
     </tr>
     <tr>
       <th>3</th>
       <td>err=7</td>
-      <td>4.559417</td>
-      <td>29.073985</td>
-      <td>4.578437</td>
-      <td>5.392030</td>
-      <td>-1.762754</td>
+      <td>4.208337</td>
+      <td>28.485265</td>
+      <td>3.822363</td>
+      <td>5.337159</td>
+      <td>-1.409640</td>
     </tr>
     <tr>
       <th>4</th>
       <td>err=9</td>
-      <td>4.700972</td>
-      <td>34.278576</td>
-      <td>3.836412</td>
-      <td>5.854791</td>
-      <td>-1.460139</td>
+      <td>3.662073</td>
+      <td>22.778036</td>
+      <td>2.491821</td>
+      <td>4.772634</td>
+      <td>-1.064681</td>
     </tr>
   </tbody>
 </table>
@@ -1601,6 +1602,8 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
 <ul class="simple">
 <li><p>SVR tries to fit the best line (or hyperplane for multidimensional datasets) within a threshold value</p></li>
 <li><p>In SVR, the best fit line is the hyperplane that has the maximum number of points.</p></li>
+<li><p>The constant C is the box constraint, a positive numeric value that controls the penalty imposed on observations that lie outside the epsilon margin (ε) and helps to prevent overfitting (regularization).</p></li>
+<li><p>This value determines the trade-off between the flatness of f(x) and the amount up to which deviations larger than ε are tolerated.</p></li>
 <li><p>The threshold value is the distance between the hyperplane and boundary line.</p></li>
 <li><p>The boundary is defined using a margin of tolerance epsilon</p></li>
 <li><p><a class="reference external" href="https://link.springer.com/article/10.1023/B:STCO.0000035301.49549.88">The math behind support vector regression</a></p></li>
