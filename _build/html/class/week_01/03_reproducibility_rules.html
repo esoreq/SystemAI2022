@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ten simple rules for reproducible research &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_01/03_reproducibility_rules.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reproducibility lab" href="02_reproducibility_lab.html" />
+    <link rel="prev" title="What is Open and Reproducible Research?" href="01_reproducibility.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   WEEK 01
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_02/00_overview.html">
+   WEEK 02
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/02_data_cleaning_lab.html">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/05_feature_engineering_lab.html">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/03_outlier_detection_lab.html">
+     We start by creating several subset datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_03/00_overview.html">
+   WEEK 03
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/01_sklearn_101.html">
+     Introducing Scikit-Learn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/02_pca.html">
+     Principal Component Analysis (PCA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/03_home_assignment.html">
+     Home assignment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_04/00_overview.html">
+   WEEK 04
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/01_regression_models.html">
+     Let’s cover some more basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/02_assessing_performance.html">
+     Resampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/03_brainage.html">
+     Home assignment : Ageing and Structural VBM
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_01/03_reproducibility_rules.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_01/03_reproducibility_rules.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-1-data-curation">
+   RULE #1 - DATA CURATION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-2-automate">
+   RULE #2 - AUTOMATE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-3-track-external-versions">
+   RULE #3 - TRACK EXTERNAL VERSIONS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-4-track-internal-evolution">
+   RULE #4 - TRACK INTERNAL EVOLUTION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-5-store-data-steps">
+   RULE #5 - STORE DATA STEPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-6-store-data-seeds">
+   RULE #6 - STORE DATA SEEDS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-7-store-summary-tables">
+   RULE #7 - STORE SUMMARY TABLES
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-8-recreate-the-rabbit-hole">
+   RULE #8 - RECREATE THE RABBIT HOLE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-9-link-everything">
+   RULE #9 - LINK EVERYTHING
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-10-be-transparent">
+   RULE #10 - BE TRANSPARENT
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ten simple rules for reproducible research</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-1-data-curation">
+   RULE #1 - DATA CURATION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-2-automate">
+   RULE #2 - AUTOMATE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-3-track-external-versions">
+   RULE #3 - TRACK EXTERNAL VERSIONS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-4-track-internal-evolution">
+   RULE #4 - TRACK INTERNAL EVOLUTION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-5-store-data-steps">
+   RULE #5 - STORE DATA STEPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-6-store-data-seeds">
+   RULE #6 - STORE DATA SEEDS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-7-store-summary-tables">
+   RULE #7 - STORE SUMMARY TABLES
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-8-recreate-the-rabbit-hole">
+   RULE #8 - RECREATE THE RABBIT HOLE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-9-link-everything">
+   RULE #9 - LINK EVERYTHING
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rule-10-be-transparent">
+   RULE #10 - BE TRANSPARENT
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="ten-simple-rules-for-reproducible-research">
+<h1>Ten simple rules for reproducible research<a class="headerlink" href="#ten-simple-rules-for-reproducible-research" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rule-1-data-curation">
+<h2>RULE #1 - DATA CURATION<a class="headerlink" href="#rule-1-data-curation" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i2.pickpik.com/photos/110/568/870/files-ddr-archive-preview.jpg" /></p>
+<ul class="simple">
+<li><p>FOR EVERY RESULT, KEEP TRACK OF HOW IT WAS PRODUCED</p></li>
+<li><p>Knowing how you went from the raw data to the conclusion allows you to:</p>
+<ul>
+<li><p>defend the results</p></li>
+<li><p>update the results if errors are found</p></li>
+<li><p>reproduce the results when data is updated</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="rule-2-automate">
+<h2>RULE #2 - AUTOMATE<a class="headerlink" href="#rule-2-automate" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i1.pickpik.com/photos/373/813/306/heavy-hard-work-hard-work-preview.jpg" /></p>
+<ul class="simple">
+<li><p>AVOID MANUAL DATA MANIPULATION STEPS</p></li>
+<li><p>Sometimes it is far easier to open data files in an editor (did anyone say excel?) and manually clean up a couple of formatting errors or remove an outlier.</p></li>
+<li><p>It is also easy to cut and paste between applications.</p></li>
+<li><p>This temptation to use manual work instead of scripting should be resisted.</p></li>
+<li><p>Manual data manipulation is hidden manipulation (violates rule 1).</p></li>
+</ul>
+</div>
+<div class="section" id="rule-3-track-external-versions">
+<h2>RULE #3 - TRACK EXTERNAL VERSIONS<a class="headerlink" href="#rule-3-track-external-versions" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://p0.piqsels.com/preview/60/688/850/business-office-graphic-designer-planning-thumbnail.jpg" /></p>
+<ul class="simple">
+<li><p>ARCHIVE THE EXACT VERSIONS OF ALL EXTERNAL PROGRAMS USED</p></li>
+<li><p>Document the edition and version of all the software used</p></li>
+<li><p>Operating system used</p></li>
+<li><p>Hardware in special cases</p></li>
+</ul>
+</div>
+<div class="section" id="rule-4-track-internal-evolution">
+<h2>RULE #4 - TRACK INTERNAL EVOLUTION<a class="headerlink" href="#rule-4-track-internal-evolution" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://blog.k.io/attachment/f1224b44-d27f-4e45-8a49-47fb68f9c862/thumb1400.jpg" /></p>
+<ul class="simple">
+<li><p>VERSION CONTROL ALL CUSTOM SCRIPTS</p></li>
+<li><p>A version control system, (e.g. Git), should be used to track the evolution of your code.</p></li>
+</ul>
+</div>
+<div class="section" id="rule-5-store-data-steps">
+<h2>RULE #5 - STORE DATA STEPS<a class="headerlink" href="#rule-5-store-data-steps" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://miro.medium.com/max/3200/1*SwXkSz05zb7_kCPQ4dhPug.jpeg" /></p>
+<ul class="simple">
+<li><p>RECORD ALL INTERMEDIATE RESULTS, WHEN POSSIBLE IN STANDARDIZED FORMATS</p></li>
+<li><p>In principle, as long as you kept raw data, all intermediate steps can also be recreated</p></li>
+<li><p>In practice, some intermediate results are useful at least at the exploratory stage of the analysis.</p></li>
+</ul>
+</div>
+<div class="section" id="rule-6-store-data-seeds">
+<h2>RULE #6 - STORE DATA SEEDS<a class="headerlink" href="#rule-6-store-data-seeds" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://miro.medium.com/max/3840/1*M70VAAHkWsq23ifZLIVpLw.jpeg" /></p>
+<ul class="simple">
+<li><p>FOR ANALYSES THAT INCLUDE RANDOMNESS, NOTE UNDERLYING RANDOM SEEDS</p></li>
+<li><p>Almost all machine learning algorithms have some stochastic element</p></li>
+<li><p>This is also central for non parametric analysis</p></li>
+<li><p>Even if your robust results are statistically reproducible, being able to reproduce the exact numbers produced by someone else - is key.</p></li>
+</ul>
+</div>
+<div class="section" id="rule-7-store-summary-tables">
+<h2>RULE #7 - STORE SUMMARY TABLES<a class="headerlink" href="#rule-7-store-summary-tables" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://iotcdn.oss-ap-southeast-1.aliyuncs.com/2020-11/14.jpg" /></p>
+<ul class="simple">
+<li><p>ALWAYS STORE RAW DATA BEHIND PLOTS</p></li>
+<li><p>Automatically generate plots using code!!!</p></li>
+<li><p>Figures will constantly change up until you present results.</p></li>
+<li><p>If raw data is accessible, you can just change how you communicate it instead of what you communicate.</p></li>
+<li><p>This is also a good habit to have when working with someone else</p></li>
+</ul>
+</div>
+<div class="section" id="rule-8-recreate-the-rabbit-hole">
+<h2>RULE #8 - RECREATE THE RABBIT HOLE<a class="headerlink" href="#rule-8-recreate-the-rabbit-hole" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://c1.wallpaperflare.com/preview/331/516/975/water-plant-green-fine-layers.jpg" /></p>
+<ul class="simple">
+<li><p>GENERATE HIERARCHICAL ANALYSIS OUTPUT, ALLOWING LAYERS OF INCREASING DETAIL TO BE INSPECTED</p></li>
+<li><p>As scientists, our goal is to summarize results in some form.</p></li>
+<li><p>That is a key step in communicating results.</p></li>
+<li><p>However, summarizing data involves losing information</p></li>
+<li><p>It is also an easy way to misuse data</p></li>
+<li><p>For each summary result, have a link to the data used to calculate the summary.</p></li>
+</ul>
+</div>
+<div class="section" id="rule-9-link-everything">
+<h2>RULE #9 - LINK EVERYTHING<a class="headerlink" href="#rule-9-link-everything" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://i.pinimg.com/originals/a0/f3/81/a0f381ead8a60dfe88bbf1ddc414708b.png" /></p>
+<ul class="simple">
+<li><p>CONNECT TEXTUAL STATEMENTS TO UNDERLYING RESULTS</p></li>
+<li><p>Data analysis results are commonly presented as a report containing words and images.</p></li>
+<li><p>The link between analysis and interpretations is not always straight forward.</p></li>
+<li><p>Therefore it’s essential that the report of a study be linked back to the results.</p></li>
+<li><p>And because of Rule #1, all the way back to the raw data.</p></li>
+<li><p>This can be achieved, by using a computational notebook</p></li>
+</ul>
+</div>
+<div class="section" id="rule-10-be-transparent">
+<h2>RULE #10 - BE TRANSPARENT<a class="headerlink" href="#rule-10-be-transparent" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="https://p1.piqsels.com/preview/915/529/243/keyboard-button-key-entering-input-internet.jpg" /></p>
+<ul class="simple">
+<li><p>PROVIDE PUBLIC ACCESS TO SCRIPTS, RUNS, AND RESULTS</p></li>
+<li><p>Open version control systems, such as GitLab and GitHub, allow the creation of both private and public repositories</p></li>
+<li><p>Private repositories can be accessed by authorized colleagues.</p></li>
+<li><p>public repositories can be accessed by anyone with a computer.</p></li>
+<li><p>More eyes on your analysis leads to less mistakes</p></li>
+<li><p>So the more you share, the better your analyses are likely to be.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_reproducibility.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">What is Open and Reproducible Research?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_reproducibility_lab.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reproducibility lab</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
