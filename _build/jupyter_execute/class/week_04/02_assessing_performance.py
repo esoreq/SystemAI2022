@@ -293,27 +293,29 @@ for i, (train, test) in enumerate(skf.split(X, Y)):
 # 
 # 
 
-# In[63]:
+# In[8]:
 
 
-from sklearn.datasets import load_boston
+from sklearn.datasets import load_diabetes
 from IPython.display import display,Markdown
-boston = load_boston()
-X = pd.DataFrame(boston['data'],columns= boston['feature_names'])
-y = pd.Series(boston['target'])
-display(Markdown(boston['DESCR']))
+diabetes = load_diabetes()
+X = pd.DataFrame(diabetes['data'],columns= diabetes['feature_names'])
+y = pd.Series(diabetes['target'])
+display(Markdown(diabetes['DESCR']))
 
 
-# In[83]:
+# In[10]:
 
 
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LinearRegression
 from sklearn.decomposition import PCA
+from sklearn.feature_selection import VarianceThreshold # Feature selector
 from sklearn.preprocessing import Normalizer, StandardScaler, MinMaxScaler, PowerTransformer, MaxAbsScaler, LabelEncoder
 from sklearn.model_selection import GridSearchCV # For optimization
 from sklearn.preprocessing import PolynomialFeatures
+from sklearn.feature_selection import SelectKBest
 
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score,median_absolute_error
 def calc_error(y,y_hat,i=None,kind='model'):
@@ -333,6 +335,11 @@ y_hat = lr_pipe.predict(X_test)
 
 display(calc_error(Y_test,y_hat))
 
+
+# In[11]:
+
+
+
 lr_pipe = Pipeline([('scl', StandardScaler()),
                     ('poly_expansion', PolynomialFeatures(2)),                                     
                     ('mdl',LinearRegression())])
@@ -342,7 +349,20 @@ y_hat = lr_pipe.predict(X_test)
 display(calc_error(Y_test,y_hat))
 
 
-# In[102]:
+# In[13]:
+
+
+
+lr_pipe = Pipeline([('scl', StandardScaler()),
+                    ('reduce_dim', PCA(4)),                                     
+                    ('mdl',LinearRegression())])
+lr_pipe.fit(X_train, Y_train)
+y_hat = lr_pipe.predict(X_test)
+
+display(calc_error(Y_test,y_hat))
+
+
+# In[16]:
 
 
 from sklearn.tree import DecisionTreeRegressor
@@ -355,7 +375,7 @@ pipe = Pipeline([('scaler', StandardScaler()),
           ('mdl',LinearRegression())])
 param_grid = dict(
     scaler = [StandardScaler(),PowerTransformer()],
-    reduce_dim=['passthrough', PCA(5), PCA(10)],
+    reduce_dim=['passthrough', PCA(5)],
     poly_expansion = ['passthrough', PolynomialFeatures(2)],
     mdl = [LinearRegression(),DecisionTreeRegressor(),
            SVR(C=100),SVR(C=1000)]
@@ -363,13 +383,13 @@ param_grid = dict(
 grid_search = GridSearchCV(pipe, param_grid=param_grid, cv=5).fit(X_train, Y_train)
 
 
-# In[103]:
+# In[17]:
 
 
 pd.DataFrame(grid_search.cv_results_).sort_values('rank_test_score')
 
 
-# In[113]:
+# In[18]:
 
 
 best_pipe = grid_search.best_estimator_
@@ -378,16 +398,17 @@ best_pipe = grid_search.best_estimator_
 display(calc_error(Y_test,best_pipe.predict(X_test)))
 
 
-# In[117]:
+# In[19]:
 
 
 y_hat = best_pipe.predict(X_test)
 residual = pd.Series(Y_test-y_hat)
 
 
-# In[120]:
+# In[21]:
 
 
+import matplotlib.pyplot as plt 
 fig,ax = plt.subplots(1,2,figsize=(15,5))
 ax[0].scatter(residual.index,residual)
 ax[1].scatter(Y_test,y_hat)
