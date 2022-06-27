@@ -28,10 +28,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/pdf_print.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom_layouts.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/extra.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/myadmonition.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -44,7 +40,6 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/save_state.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -376,6 +371,33 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../class/week_03/03_home_assignment.html">
      Home assignment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../class/week_04/00_overview.html">
+   WEEK 04
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_04/01_regression_models.html">
+     Let’s cover some more basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_04/02_assessing_performance.html">
+     Resampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../class/week_04/03_brainage.html">
+     Home assignment : Ageing and Structural VBM
     </a>
    </li>
   </ul>
@@ -842,7 +864,7 @@ errors              list    n=48
 number_of_obs = (50, 50, 50)
 number_of_groups = 3
 group_names = [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;]
-lambda_fun = &lt;function &lt;lambda&gt; at 0x7ff9401c81f0&gt;
+lambda_fun = &lt;function &lt;lambda&gt; at 0x7fb510b4c1f0&gt;
 bool = True
 chr_fun = &lt;built-in function chr&gt;
 test = t-test
@@ -876,7 +898,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;number_of_obs&#39;: (50, 50, 50), &#39;number_of_groups&#39;: 3, &#39;group_names&#39;: [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;], &#39;lambda_fun&#39;: &lt;function &lt;lambda&gt; at 0x7ff9401c81f0&gt;, &#39;bool&#39;: True, &#39;chr_fun&#39;: &lt;built-in function chr&gt;, &#39;test&#39;: &#39;t-test&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;number_of_obs&#39;: (50, 50, 50), &#39;number_of_groups&#39;: 3, &#39;group_names&#39;: [&#39;group_ 0&#39;, &#39;group_ 1&#39;, &#39;group_ 2&#39;], &#39;lambda_fun&#39;: &lt;function &lt;lambda&gt; at 0x7fb510b4c1f0&gt;, &#39;bool&#39;: True, &#39;chr_fun&#39;: &lt;built-in function chr&gt;, &#39;test&#39;: &#39;t-test&#39;}
 </pre></div>
 </div>
 </div>
@@ -910,7 +932,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;first_name&#39;: &#39;Eyal&#39;, &#39;last_name&#39;: &#39;Soreq&#39;, &#39;Data_type&#39;: &#39;EEG&#39;, &#39;date&#39;: datetime.date(2022, 6, 20)}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;first_name&#39;: &#39;Eyal&#39;, &#39;last_name&#39;: &#39;Soreq&#39;, &#39;Data_type&#39;: &#39;EEG&#39;, &#39;date&#39;: datetime.date(2022, 6, 27)}
 </pre></div>
 </div>
 </div>
@@ -945,7 +967,7 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-20 for a EEG experiment
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-27 for a EEG experiment
 </pre></div>
 </div>
 </div>
@@ -993,9 +1015,9 @@ test = t-test
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-20 for a EEG experiment
-Odd one out registered at 06:53:31
-Stroop word test registered at 06:53:33
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Participant Eyal Soreq was admitted at 2022-06-27 for a EEG experiment
+Odd one out registered at 05:59:15
+Stroop word test registered at 05:59:17
 </pre></div>
 </div>
 </div>
@@ -1057,13 +1079,13 @@ Stroop word test registered at 06:53:33
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using EEG was registered at 06:53:33
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using EEG was registered at 05:59:17
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using MRI was registered at 06:53:35
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using MRI was registered at 05:59:19
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using eye_tracker was registered at 06:53:37
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stroop using eye_tracker was registered at 05:59:21
 </pre></div>
 </div>
 </div>
