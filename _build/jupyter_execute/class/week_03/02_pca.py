@@ -19,7 +19,7 @@ df_digits = df_digits.assign(y = digits['target'])
 
 
 # ## Principal Component Analysis (PCA)
-# 
+# - [Ten quick tips for effective dimensionality reduction](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006907)
 # Using PCA, we find directions of maximum variance in high-dimensional data,
 # We project these directions into a new subspace with the same or fewer dimensions than the original one.
 # 
@@ -30,7 +30,7 @@ df_digits = df_digits.assign(y = digits['target'])
 # ## Before we dive to the digit example let's review some basic properties of PCA
 # - Loosely based on the following [scaling importance](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html) 
 
-# In[3]:
+# In[2]:
 
 
 from sklearn.datasets import load_wine
@@ -39,7 +39,7 @@ wine_df = pd.DataFrame(wine['data'],columns=wine['feature_names'])
 wine_df = wine_df.assign(y = wine['target'])
 
 
-# In[4]:
+# In[3]:
 
 
 display(Markdown(wine['DESCR']))
@@ -61,7 +61,7 @@ sns.pairplot(pd.DataFrame(wine_df[selected_features]))
 
 # ## Reduce dimensionality to 2 features
 
-# In[7]:
+# In[5]:
 
 
 from sklearn.decomposition import PCA
@@ -72,7 +72,7 @@ wine_reduced = pd.DataFrame(pca.transform(features),columns =['pc1','pc2']).assi
 sns.scatterplot('pc1','pc2',data=wine_reduced,hue='y',palette='tab10')
 
 
-# In[ ]:
+# In[6]:
 
 
 display(Markdown(f'''### Model components : \n
@@ -81,7 +81,7 @@ $PC2 = {" + ".join([f"{b:0.3f}x_{{{i+1}}}" for i,b in enumerate(pca.components_[
 '''))
 
 
-# In[ ]:
+# In[7]:
 
 
 display(Markdown(f'''### Model components explain variance ratio: \n
@@ -89,7 +89,7 @@ ${", ".join([f"PC{i+1} = {100*r:0.1f}" for i,r in enumerate(pca.explained_varian
 '''))
 
 
-# In[ ]:
+# In[8]:
 
 
 display(Markdown(f'''### Model components explain variance: \n
@@ -107,7 +107,7 @@ ${", ".join([f"PC{i+1} = {r:0.1f}" for i,r in enumerate(pca.explained_variance_)
 # - Scaling is essential because SVD approximates in the sum of squares sense, so if one variable is on a different scale than another, it will dominate the PCA procedure. So the low D plot will just be visualizing that dimension.
 # - Let's add scaling to the mixture and plot again
 
-# In[ ]:
+# In[9]:
 
 
 from sklearn.decomposition import PCA
@@ -120,7 +120,13 @@ wine_s_reduced = pd.DataFrame(pca.transform(features_s),columns =['pc1','pc2']).
 sns.scatterplot('pc1','pc2',data=wine_s_reduced,hue='y',palette='tab10')
 
 
-# In[ ]:
+# In[12]:
+
+
+sns.heatmap(features)
+
+
+# In[13]:
 
 
 display(Markdown(f'''### Model components : \n
@@ -129,7 +135,7 @@ $PC2 = {" + ".join([f"{b:0.3f}x_{{{i+1}}}" for i,b in enumerate(pca.components_[
 '''))
 
 
-# In[ ]:
+# In[14]:
 
 
 display(Markdown(f'''### Model components explain variance ratio: \n
@@ -171,7 +177,7 @@ ${", ".join([f"PC{i+1} = {100*r:0.1f}" for i,r in enumerate(pca.explained_varian
 # - The eigenvalues (variance explained by each PC) for PCs can help to retain the number of PCs. 
 # - Generally, PCs with eigenvalues > 1 contributes greater variance and should be retained for further analysis.
 
-# In[ ]:
+# In[15]:
 
 
 pca = PCA() # 1. Define the PCA model with default
@@ -189,7 +195,7 @@ ax.hlines(1,-0.5,12.5,color='r',linestyles=':')
 # - We should keep the PCs where there is a sharp change in the slope of the line connecting adjacent PCs.
 # 
 
-# In[ ]:
+# In[16]:
 
 
 exp_ratio = pca.explained_variance_ratio_
@@ -201,7 +207,7 @@ def scree_plot(y,plot=True):
     data = pd.DataFrame(dict(y=y, ys=ys, yl=yl, dtl=dtl))
     elbow,value = data.agg(pc = ('dtl','argmax'), value = ('dtl','max')).to_numpy()
     if plot: 
-        ax = data.y.cumsum().plot.bar(alpha=0.5,figsize=(12,4))
+        ax = data.y.cumsum().plot.bar(alpha=0.5,figsize=(6,4))
         ax.bar_label(ax.containers[0],padding=2,fontsize=10,color='k',fmt='%.2f')     
         data.y.plot.bar(ax=ax)
         data.yl.plot(ax=ax,linestyle=':')
@@ -222,3 +228,69 @@ elbow = scree_plot(exp_ratio)
 # - Identify the number of components that maximise the utility 
 # - This depends on the problem you are trying to solve and we will touch on this next week
 # 
+
+# In[24]:
+
+
+from sklearn.decomposition import PCA          
+from sklearn.preprocessing import MinMaxScaler
+
+mdl = PCA()                      
+features = df_digits.drop(columns='y').copy()
+scaler = MinMaxScaler()
+features_s = pd.DataFrame(scaler.fit_transform(features),columns=features.columns) # 
+
+
+mdl.fit(features_s)                       
+
+elbow = scree_plot(mdl.explained_variance_ratio_)
+mdl = PCA(n_components=2)
+mdl.fit(features_s) 
+digits_pc = pd.DataFrame(mdl.transform(features_s),columns = [f'pc{i+1:02}'for i in range(2)]).assign(y = df_digits.y)    
+digits_pc.plot.scatter('pc01','pc02',c=df_digits.y,cmap='tab10')
+
+
+# In[26]:
+
+
+from sklearn.manifold import TSNE
+
+tsne = TSNE()         
+digit_embedding = tsne.fit_transform(features_s)
+# fig,ax = plt.subplots()
+# ax.scatter(digit_embedding[0,:],digit_embedding[0,:],c=df_digits.y,cmap='tab10')
+
+
+# In[29]:
+
+
+digit_embedding = pd.DataFrame(digit_embedding, columns=['ts1','ts2']).assign(y = df_digits.y) 
+
+
+# In[32]:
+
+
+fig,ax = plt.subplots(1,2,figsize = (12,3))
+
+digits_pc.plot.scatter('pc01','pc02',c=df_digits.y,cmap='tab10',ax=ax[0])
+digit_embedding.plot.scatter('ts1','ts2',c=df_digits.y,cmap='tab10',ax= ax[1])
+
+
+# In[49]:
+
+
+rng = np.random.default_rng(2022)
+
+data = rng.exponential(size=(13,4))
+pca = PCA()
+pca.fit(data)
+pd.Series(pca.explained_variance_ratio_).cumsum().plot()
+
+
+# In[ ]:
+
+
+from sklearn.decomposition import TruncatedSVD
+X_dense = np.random.rand(100, 100)
+svd = TruncatedSVD()
+
