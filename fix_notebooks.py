@@ -28,9 +28,9 @@ clean_kernel = {
         "version": "3.8.12"
     }
 }
-nb = read_ipynb(notebooks[43])
-nb['metadata'] = clean_kernel
-write_ipynb(nb, notebooks[43])
+# nb = read_ipynb(notebooks[43])
+# nb['metadata'] = clean_kernel
+# write_ipynb(nb, notebooks[43])
 
 # %% 
 notebooks = sorted(Path('/Users/eyalsoreq/github/SystemAI2022/class/week_01').rglob('*.ipynb'))
