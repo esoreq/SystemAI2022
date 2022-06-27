@@ -581,6 +581,11 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
       </ul>
      </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-can-define-a-function-to-calculate-all-of-these-in-one-go">
+       We can define a function to calculate all of these in one go
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -780,6 +785,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
       </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#we-can-define-a-function-to-calculate-all-of-these-in-one-go">
+       We can define a function to calculate all of these in one go
+      </a>
      </li>
     </ul>
    </li>
@@ -1037,6 +1047,13 @@ based a set of independent variables that we assume hold some informative associ
 <li><p><span class="math notranslate nohighlight">\(R^2\)</span> range is <span class="math notranslate nohighlight">\((-\infty,1)\)</span>; as a result, worse models then the mean constant will be negative</p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\( R^2 = 1-\frac{MSE(model)}{MSE(baseline)}\)</span></p>
+</div>
+</div>
+<div class="section" id="we-can-define-a-function-to-calculate-all-of-these-in-one-go">
+<h3>We can define a function to calculate all of these in one go<a class="headerlink" href="#we-can-define-a-function-to-calculate-all-of-these-in-one-go" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Given some ground truth y and some approximation y_hat we want a function that will report all the different performance metrics of interest</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span><span class="n">mean_squared_error</span><span class="p">,</span><span class="n">r2_score</span><span class="p">,</span><span class="n">median_absolute_error</span>
@@ -1045,11 +1062,10 @@ based a set of independent variables that we assume hold some informative associ
             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
             <span class="s1">&#39;MSE&#39;</span><span class="p">:</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
             <span class="s1">&#39;MAD&#39;</span><span class="p">:</span><span class="n">median_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
-            <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">,</span><span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">,</span><span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="c1"># If True returns MSE value, if False returns RMSE value.</span>
             <span class="s1">&#39;r2&#39;</span><span class="p">:</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)}</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">err</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1067,9 +1083,9 @@ based a set of independent variables that we assume hold some informative associ
 <div class="tex2jax_ignore mathjax_ignore section" id="start-with-a-simple-problem">
 <h1>Start with a simple problem<a class="headerlink" href="#start-with-a-simple-problem" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>let’s start with a linear problem with one feature and one response vector $<span class="math notranslate nohighlight">\( y = 0.5x+\epsilon \)</span>$</p></li>
+<li><p>let’s start with a linear problem with one feature and one response vector <span class="math notranslate nohighlight">\( y = 0.5x+\epsilon \)</span></p></li>
 <li><p>We will use a linear model to fit a line onto the toy observation</p></li>
-<li><p>Recall from your statistics courses over the year the simple linear model $<span class="math notranslate nohighlight">\( Y=a+\beta X+\epsilon\)</span>$</p></li>
+<li><p>Recall from your statistics courses over the year the simple linear model <span class="math notranslate nohighlight">\( Y=a+\beta X+\epsilon\)</span></p></li>
 <li><p>What we have here is a robust predictive framework</p>
 <ul>
 <li><p>Let’s refresh your memory with the intuition behind this formula</p></li>
@@ -1090,20 +1106,8 @@ the easier it is to fit a line (with only two parameters) that will minimise the
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,))</span>
-<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># ground truth </span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;f&#39; is not defined
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">fu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># ground truth </span>
 </pre></div>
 </div>
 </div>
@@ -1115,8 +1119,7 @@ the easier it is to fit a line (with only two parameters) that will minimise the
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">sd</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)):</span>
     <span class="n">y_hat</span> <span class="o">=</span> <span class="n">fu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-    <span class="c1"># ax[i].plot(x,y ,c=&#39;g&#39;,label=&#39;Ground truth&#39;);</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_range</span><span class="p">)</span> <span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ground truth&#39;</span><span class="p">);</span>
     <span class="n">coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coefs</span><span class="p">,</span> <span class="n">x_range</span><span class="p">)</span> <span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear model&#39;</span><span class="p">);</span>
@@ -1130,81 +1133,28 @@ the easier it is to fit a line (with only two parameters) that will minimise the
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$y = </span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">+</span><span class="si">{</span><span class="n">coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">*x +\epsilon$&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">perf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calc_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;err=</span><span class="si">{</span><span class="n">sd</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">perf</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">Input In [1],</span> in <span class="ni">calc_error</span><span class="nt">(y, y_hat, i, kind)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">calc_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">,</span><span class="n">i</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">err</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Kind&#39;</span><span class="p">:</span><span class="n">kind</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>             <span class="s1">&#39;MAE&#39;</span><span class="p">:</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>             <span class="s1">&#39;MSE&#39;</span><span class="p">:</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>             <span class="s1">&#39;MAD&#39;</span><span class="p">:</span><span class="n">median_absolute_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>             <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">,</span><span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="c1"># If True returns MSE value, if False returns RMSE value.</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>             <span class="s1">&#39;r2&#39;</span><span class="p">:</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">y_hat</span><span class="p">)}</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">err</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Kind</th>
-      <th>MAE</th>
-      <th>MSE</th>
-      <th>MAD</th>
-      <th>RMSE</th>
-      <th>r2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>err=1</td>
-      <td>0.492487</td>
-      <td>0.326250</td>
-      <td>0.477507</td>
-      <td>0.571183</td>
-      <td>0.957056</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>err=3</td>
-      <td>1.534757</td>
-      <td>3.217468</td>
-      <td>1.311682</td>
-      <td>1.793730</td>
-      <td>0.576490</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>err=5</td>
-      <td>2.596333</td>
-      <td>8.802421</td>
-      <td>2.599665</td>
-      <td>2.966887</td>
-      <td>-0.158650</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>err=7</td>
-      <td>3.194497</td>
-      <td>14.502154</td>
-      <td>2.953296</td>
-      <td>3.808169</td>
-      <td>-0.908897</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>err=9</td>
-      <td>4.109978</td>
-      <td>23.783264</td>
-      <td>4.062087</td>
-      <td>4.876809</td>
-      <td>-2.130556</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><img alt="../../_images/01_regression_models_6_1.png" src="../../_images/01_regression_models_6_1.png" />
+<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
+</pre></div>
+</div>
+<img alt="../../_images/01_regression_models_7_1.png" src="../../_images/01_regression_models_7_1.png" />
 </div>
 </div>
 </div>
@@ -1233,7 +1183,7 @@ some stopping criteria have been reached</p></li>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">sd</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">fu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span>
     <span class="n">mdl</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span><span class="n">mdl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_range</span><span class="p">)</span> <span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ground truth&#39;</span><span class="p">);</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_range</span><span class="p">)</span> <span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ground truth&#39;</span><span class="p">);</span>
     <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -1273,51 +1223,51 @@ some stopping criteria have been reached</p></li>
     <tr>
       <th>0</th>
       <td>err=1</td>
-      <td>4.540403</td>
-      <td>32.799005</td>
-      <td>3.889613</td>
-      <td>5.727042</td>
-      <td>-4.548688</td>
+      <td>4.845840</td>
+      <td>34.434112</td>
+      <td>4.103228</td>
+      <td>5.868059</td>
+      <td>-4.735830</td>
     </tr>
     <tr>
       <th>1</th>
       <td>err=3</td>
-      <td>4.105403</td>
-      <td>27.678980</td>
-      <td>3.240974</td>
-      <td>5.261082</td>
-      <td>-3.145968</td>
+      <td>4.499006</td>
+      <td>29.366542</td>
+      <td>4.045836</td>
+      <td>5.419091</td>
+      <td>-3.483719</td>
     </tr>
     <tr>
       <th>2</th>
       <td>err=5</td>
-      <td>3.812727</td>
-      <td>23.246530</td>
-      <td>3.149034</td>
-      <td>4.821466</td>
-      <td>-2.686537</td>
+      <td>4.217208</td>
+      <td>26.172340</td>
+      <td>3.751568</td>
+      <td>5.115891</td>
+      <td>-3.134638</td>
     </tr>
     <tr>
       <th>3</th>
       <td>err=7</td>
-      <td>4.163736</td>
-      <td>26.256825</td>
-      <td>3.928566</td>
-      <td>5.124141</td>
-      <td>-1.524484</td>
+      <td>4.559417</td>
+      <td>29.073985</td>
+      <td>4.578437</td>
+      <td>5.392030</td>
+      <td>-1.762754</td>
     </tr>
     <tr>
       <th>4</th>
       <td>err=9</td>
-      <td>4.395248</td>
-      <td>29.999657</td>
-      <td>3.184658</td>
-      <td>5.477194</td>
-      <td>-1.292576</td>
+      <td>4.700972</td>
+      <td>34.278576</td>
+      <td>3.836412</td>
+      <td>5.854791</td>
+      <td>-1.460139</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/01_regression_models_8_1.png" src="../../_images/01_regression_models_8_1.png" />
+</div></div><img alt="../../_images/01_regression_models_9_1.png" src="../../_images/01_regression_models_9_1.png" />
 </div>
 </div>
 <div class="section" id="what-about-non-linear-space">
@@ -1370,7 +1320,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_regression_models_10_0.png" src="../../_images/01_regression_models_10_0.png" />
+<img alt="../../_images/01_regression_models_11_0.png" src="../../_images/01_regression_models_11_0.png" />
 </div>
 </div>
 </div>
@@ -1529,7 +1479,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/01_regression_models_12_1.png" src="../../_images/01_regression_models_12_1.png" />
+</div></div><img alt="../../_images/01_regression_models_13_1.png" src="../../_images/01_regression_models_13_1.png" />
 </div>
 </div>
 </div>
@@ -1562,7 +1512,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_regression_models_14_0.png" src="../../_images/01_regression_models_14_0.png" />
+<img alt="../../_images/01_regression_models_15_0.png" src="../../_images/01_regression_models_15_0.png" />
 </div>
 </div>
 <div class="section" id="can-we-solve-non-linear-problems-with-linear-models">
@@ -1598,7 +1548,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_regression_models_16_0.png" src="../../_images/01_regression_models_16_0.png" />
+<img alt="../../_images/01_regression_models_17_0.png" src="../../_images/01_regression_models_17_0.png" />
 </div>
 </div>
 </div>
@@ -1633,7 +1583,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_regression_models_18_0.png" src="../../_images/01_regression_models_18_0.png" />
+<img alt="../../_images/01_regression_models_19_0.png" src="../../_images/01_regression_models_19_0.png" />
 </div>
 </div>
 </div>
@@ -1750,7 +1700,7 @@ and <span class="math notranslate nohighlight">\(r\)</span> defines the ratio of
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/01_regression_models_20_1.png" src="../../_images/01_regression_models_20_1.png" />
+</div></div><img alt="../../_images/01_regression_models_21_1.png" src="../../_images/01_regression_models_21_1.png" />
 </div>
 </div>
 </div>

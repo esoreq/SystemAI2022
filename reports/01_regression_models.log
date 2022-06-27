@@ -17,23 +17,41 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-rng = np.random.default_rng(2022)
-fu = lambda x,noise: 0.5 * x + noise * rng.uniform(0,1,size=x.shape)
+import matplotlib.pyplot as plt
+perf = [] 
+fig, ax = plt.subplots(1, 5,sharey=True,sharex=True,figsize=(20,5))
+for i,sd in enumerate(np.arange(1,10,2)):
+    y_hat = fu(x,sd)
+    ax[i].scatter(x, y_hat, s=20,c='gray',alpha=0.5)
+    ax[i].plot(x_range,np.polyval([0.5,0], x_range) ,c='g',label='Ground truth');
+    coefs = np.polyfit(x, y_hat, 1)
+    ax[i].plot(x_range,np.polyval(coefs, x_range) ,c='b',label='linear model');
 
-N = 100
-x = rng.normal(10,5,size=(N,))
-x_range = np.linspace(np.min(x),np.max(x),100)
-y = f(x,0) # ground truth 
+    ax[i].set_title(f'$y = {coefs[-1]:0.2f}+{coefs[0]:0.2f}*x +\epsilon$')
+    if i==0:ax[i].legend()
+    perf.append(calc_error(y,y_hat,i,f'err={sd}'))
+pd.concat(perf)    
+    
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [2][0m, in [0;36m<cell line: 8>[0;34m()[0m
-[1;32m      6[0m x [38;5;241m=[39m rng[38;5;241m.[39mnormal([38;5;241m10[39m,[38;5;241m5[39m,size[38;5;241m=[39m(N,))
-[1;32m      7[0m x_range [38;5;241m=[39m np[38;5;241m.[39mlinspace(np[38;5;241m.[39mmin(x),np[38;5;241m.[39mmax(x),[38;5;241m100[39m)
-[0;32m----> 8[0m y [38;5;241m=[39m [43mf[49m(x,[38;5;241m0[39m)
+Input [0;32mIn [3][0m, in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m     11[0m     ax[i][38;5;241m.[39mset_title([38;5;124mf[39m[38;5;124m'[39m[38;5;124m$y = [39m[38;5;132;01m{[39;00mcoefs[[38;5;241m-[39m[38;5;241m1[39m][38;5;132;01m:[39;00m[38;5;124m0.2f[39m[38;5;132;01m}[39;00m[38;5;124m+[39m[38;5;132;01m{[39;00mcoefs[[38;5;241m0[39m][38;5;132;01m:[39;00m[38;5;124m0.2f[39m[38;5;132;01m}[39;00m[38;5;124m*x +[39m[38;5;124m\[39m[38;5;124mepsilon$[39m[38;5;124m'[39m)
+[1;32m     12[0m     [38;5;28;01mif[39;00m i[38;5;241m==[39m[38;5;241m0[39m:ax[i][38;5;241m.[39mlegend()
+[0;32m---> 13[0m     perf[38;5;241m.[39mappend([43mcalc_error[49m[43m([49m[43my[49m[43m,[49m[43my_hat[49m[43m,[49m[43mi[49m[43m,[49m[38;5;124;43mf[39;49m[38;5;124;43m'[39;49m[38;5;124;43merr=[39;49m[38;5;132;43;01m{[39;49;00m[43msd[49m[38;5;132;43;01m}[39;49;00m[38;5;124;43m'[39;49m[43m)[49m)
+[1;32m     14[0m pd[38;5;241m.[39mconcat(perf)
 
-[0;31mNameError[0m: name 'f' is not defined
-NameError: name 'f' is not defined
+Input [0;32mIn [1][0m, in [0;36mcalc_error[0;34m(y, y_hat, i, kind)[0m
+[1;32m      2[0m [38;5;28;01mdef[39;00m [38;5;21mcalc_error[39m(y,y_hat,i[38;5;241m=[39m[38;5;28;01mNone[39;00m,kind[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmodel[39m[38;5;124m'[39m):
+[1;32m      3[0m     err [38;5;241m=[39m {[38;5;124m'[39m[38;5;124mKind[39m[38;5;124m'[39m:kind,
+[1;32m      4[0m             [38;5;124m'[39m[38;5;124mMAE[39m[38;5;124m'[39m:mean_absolute_error(y,y_hat),
+[1;32m      5[0m             [38;5;124m'[39m[38;5;124mMSE[39m[38;5;124m'[39m:mean_squared_error(y,y_hat),
+[1;32m      6[0m             [38;5;124m'[39m[38;5;124mMAD[39m[38;5;124m'[39m:median_absolute_error(y,y_hat),
+[1;32m      7[0m             [38;5;124m'[39m[38;5;124mRMSE[39m[38;5;124m'[39m:mean_squared_error(y,y_hat,squared[38;5;241m=[39m[38;5;28;01mFalse[39;00m), [38;5;66;03m# If True returns MSE value, if False returns RMSE value.[39;00m
+[1;32m      8[0m             [38;5;124m'[39m[38;5;124mr2[39m[38;5;124m'[39m:r2_score(y,y_hat)}
+[0;32m----> 9[0m     [38;5;28;01mreturn[39;00m [43mpd[49m[38;5;241m.[39mDataFrame(err,index[38;5;241m=[39m[i])
+
+[0;31mNameError[0m: name 'pd' is not defined
+NameError: name 'pd' is not defined
 
