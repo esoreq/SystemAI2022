@@ -33,12 +33,16 @@ clean_kernel = {
 # write_ipynb(nb, notebooks[43])
 
 # %% 
-notebooks = sorted(Path('/Users/eyalsoreq/github/SystemAI2022/class/week_01').rglob('*.ipynb'))
+notebooks = sorted(Path('/Users/eyalsoreq/github/SystemAI2022/class/').rglob('*.ipynb'))
 for i,notebook in enumerate(notebooks):
     nb = read_ipynb(notebook)
     nb['metadata'] = clean_kernel
     write_ipynb(nb, notebook)
 
 # %% 
-notebook
+notebooks = sorted(Path('/Users/eyalsoreq/github/SystemAI2022/bootcamp/').rglob('*.ipynb'))
+for i,notebook in enumerate(notebooks):
+    nb = read_ipynb(notebook)
+    nb['metadata'] = clean_kernel
+    write_ipynb(nb, notebook)
 # %%

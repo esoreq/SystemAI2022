@@ -113,6 +113,9 @@
 # $ R^2 = 1-\frac{MSE(model)}{MSE(baseline)}$
 # 
 
+# ### We can define a function to calculate all of these in one go 
+# - Given some ground truth y and some approximation y_hat we want a function that will report all the different performance metrics of interest
+
 # In[1]:
 
 
@@ -122,7 +125,7 @@ def calc_error(y,y_hat,i=None,kind='model'):
             'MAE':mean_absolute_error(y,y_hat),
             'MSE':mean_squared_error(y,y_hat),
             'MAD':median_absolute_error(y,y_hat),
-            'RMSE':mean_squared_error(y,y_hat,squared=False),
+            'RMSE':mean_squared_error(y,y_hat,squared=False), # If True returns MSE value, if False returns RMSE value.
             'r2':r2_score(y,y_hat)}
     return pd.DataFrame(err,index=[i])
 
@@ -138,9 +141,9 @@ def calc_error(y,y_hat,i=None,kind='model'):
 # 
 # # Start with a simple problem
 # 
-# - let's start with a linear problem with one feature and one response vector $$ y = 0.5x+\epsilon $$
+# - let's start with a linear problem with one feature and one response vector $ y = 0.5x+\epsilon $
 # - We will use a linear model to fit a line onto the toy observation
-# - Recall from your statistics courses over the year the simple linear model $$ Y=a+\beta X+\epsilon$$ 
+# - Recall from your statistics courses over the year the simple linear model $ Y=a+\beta X+\epsilon$
 # - What we have here is a robust predictive framework 
 #     - Let's refresh your memory with the intuition behind this formula  
 #     - a is called the intercept, and it merely means some constant baseline to shift the parametric space 
@@ -163,11 +166,11 @@ fu = lambda x,noise: 0.5 * x + noise * rng.uniform(0,1,size=x.shape)
 
 N = 100
 x = rng.normal(10,5,size=(N,))
-x_range = np.linspace(np.min(x),np.max(x),100)
-y = f(x,0) # ground truth 
+x_range = np.linspace(0,20,100)
+y = fu(x,0) # ground truth 
 
 
-# In[127]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
@@ -175,8 +178,7 @@ perf = []
 fig, ax = plt.subplots(1, 5,sharey=True,sharex=True,figsize=(20,5))
 for i,sd in enumerate(np.arange(1,10,2)):
     y_hat = fu(x,sd)
-    ax[i].scatter(x, y_hat, s=5,c='gray',alpha=0.8)
-    # ax[i].plot(x,y ,c='g',label='Ground truth');
+    ax[i].scatter(x, y_hat, s=20,c='gray',alpha=0.5)
     ax[i].plot(x_range,np.polyval([0.5,0], x_range) ,c='g',label='Ground truth');
     coefs = np.polyfit(x, y_hat, 1)
     ax[i].plot(x_range,np.polyval(coefs, x_range) ,c='b',label='linear model');
@@ -198,7 +200,7 @@ pd.concat(perf)
 # - The tree model offers a crude simplified solution to the regression problem 
 # - [Understanding Machine Learning: From Theory to Algorithms - ch18](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf)
 
-# In[128]:
+# In[7]:
 
 
 from sklearn.tree import DecisionTreeRegressor,plot_tree
@@ -212,7 +214,7 @@ fig, ax = plt.subplots(1, 5,sharey=True,sharex=True,figsize=(20,5))
 for i,sd in enumerate(np.arange(1,10,2)):
     y = fu(x,sd)
     mdl = DecisionTreeRegressor(max_depth=2).fit(x,y)
-    ax[i].scatter(x, y,s=5,c='gray',alpha=0.8);
+    ax[i].scatter(x, y,s=20,c='gray',alpha=0.5);
     ax[i].plot(x_range,mdl.predict(x_range) ,c='r',label='Ground truth');
     ax[i].plot(x_range,np.polyval([0.5,0], x_range) ,c='g',label='Ground truth');
     if i==0:ax[i].legend()
