@@ -137,6 +137,12 @@ from IPython.display import display, Markdown
 digits = load_digits()
 
 
+# In[2]:
+
+
+digits.keys()
+
+
 # In[446]:
 
 
@@ -147,11 +153,17 @@ display(Markdown(digits['DESCR']))
 # - The data is composed of a feature space of 64 columns and a single response vector 
 # - Let's create a table to simplify exploration 
 
-# In[447]:
+# In[3]:
 
 
 df_digits = pd.DataFrame(digits['data'],columns=digits['feature_names'])
 df_digits = df_digits.assign(y = digits['target'])
+
+
+# In[4]:
+
+
+df_digits
 
 
 # ## We should also examine some statistics 
@@ -180,12 +192,12 @@ sns.heatmap(df_digits.groupby('y').agg('mean').T.corr(),ax=ax[0])
 sns.heatmap(df_digits.groupby('y').agg('mean').corr(),ax=ax[1])
 
 
-# In[560]:
+# In[8]:
 
 
 fig,ax = plt.subplots(1,2,figsize=(15,5))
-sns.heatmap(df_digits[df_digits.y == 1].T.corr(),ax=ax[0])
-sns.heatmap(df_digits[df_digits.y == 1].corr(),ax=ax[1])
+sns.heatmap(df_digits[df_digits.y == 8].T.corr(),ax=ax[0])
+sns.heatmap(df_digits[df_digits.y == 8].corr(),ax=ax[1])
 
 
 # # These don't look like numbers to view the numbers we need to reshape the data 

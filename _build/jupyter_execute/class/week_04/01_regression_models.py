@@ -200,7 +200,7 @@ pd.concat(perf)
 # - The tree model offers a crude simplified solution to the regression problem 
 # - [Understanding Machine Learning: From Theory to Algorithms - ch18](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf)
 
-# In[11]:
+# In[17]:
 
 
 from sklearn.tree import DecisionTreeRegressor,plot_tree
@@ -287,7 +287,7 @@ ax.plot([0,32], [0,0],'--r');
 # - Like all instance based modles they are prune to overfitting
 # - Let's try to visualize the idea of overfitting using the HRF
 
-# In[139]:
+# In[18]:
 
 
 from sklearn.tree import DecisionTreeRegressor,plot_tree
@@ -333,11 +333,11 @@ plt.show()
 
 # ### Can we solve non-linear problems with linear models?
 # 
-# - We can a concept called Polynomial expansion to capture non-linear properties 
+# - We can use a concept called Polynomial expansion to capture non-linear properties 
 # - As you can see a 9th polynomial is fitted pretty good 
 # 
 
-# In[144]:
+# In[19]:
 
 
 from sklearn.linear_model import LinearRegression

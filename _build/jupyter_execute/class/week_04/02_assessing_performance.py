@@ -70,7 +70,13 @@ rng = np.random.default_rng(SEED)
 # - Each element in the population is equally likely to be selected but only once.
 # 
 
-# In[8]:
+# In[24]:
+
+
+X
+
+
+# In[23]:
 
 
 X = np.arange(N)
@@ -83,7 +89,7 @@ sns.heatmap(subsets, cmap='Spectral', annot=True ,fmt='d')
 # #### If data is large 
 # 
 
-# In[9]:
+# In[28]:
 
 
 sample_size = (10, 5)
@@ -162,7 +168,7 @@ sns.heatmap(subsets, cmap='Spectral', annot=True ,fmt='d')
 # - Let's view this visually 
 # - For example take 20/80% split 
 
-# In[20]:
+# In[29]:
 
 
 import matplotlib.pyplot as plt
@@ -293,7 +299,7 @@ for i, (train, test) in enumerate(skf.split(X, Y)):
 # 
 # 
 
-# In[8]:
+# In[35]:
 
 
 from sklearn.datasets import load_diabetes
@@ -304,7 +310,7 @@ y = pd.Series(diabetes['target'])
 display(Markdown(diabetes['DESCR']))
 
 
-# In[10]:
+# In[38]:
 
 
 from sklearn.model_selection import train_test_split
@@ -349,7 +355,14 @@ y_hat = lr_pipe.predict(X_test)
 display(calc_error(Y_test,y_hat))
 
 
-# In[13]:
+# In[40]:
+
+
+residual = Y_test - y_hat
+plt.scatter(np.arange(residual.shape[0]),residual)
+
+
+# In[41]:
 
 
 
@@ -362,7 +375,7 @@ y_hat = lr_pipe.predict(X_test)
 display(calc_error(Y_test,y_hat))
 
 
-# In[16]:
+# In[42]:
 
 
 from sklearn.tree import DecisionTreeRegressor
@@ -373,6 +386,7 @@ pipe = Pipeline([('scaler', StandardScaler()),
           ('reduce_dim', 'passthrough'),                                     
           ('poly_expansion', 'passthrough'),
           ('mdl',LinearRegression())])
+
 param_grid = dict(
     scaler = [StandardScaler(),PowerTransformer()],
     reduce_dim=['passthrough', PCA(5)],
@@ -383,13 +397,13 @@ param_grid = dict(
 grid_search = GridSearchCV(pipe, param_grid=param_grid, cv=5).fit(X_train, Y_train)
 
 
-# In[17]:
+# In[43]:
 
 
 pd.DataFrame(grid_search.cv_results_).sort_values('rank_test_score')
 
 
-# In[18]:
+# In[44]:
 
 
 best_pipe = grid_search.best_estimator_

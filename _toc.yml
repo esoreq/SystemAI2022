@@ -59,4 +59,7 @@ chapters:
   - file: class/week_04/01_regression_models
   - file: class/week_04/02_assessing_performance
   - file: class/week_04/03_brainage
+- file: class/week_05/00_overview
+  sections:
+  - file: class/week_05/01_classification_models
 
