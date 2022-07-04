@@ -1,0 +1,1546 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEEK 05 &#8212; System &amp; AI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://esoreq.github.io/SystemAI2022/class/week_05/00_overview.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic terminology" href="01_classification_models.html" />
+    <link rel="prev" title="Home assignment : Ageing and Structural VBM" href="../week_04/03_brainage.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/figures_LOGO.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">System & AI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/system_and_ai_2022.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/bootcamp_intro.html">
+   BOOT CAMP
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_01/00_day_01_overview.html">
+     DAY 01 - basics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/01_bash101.html">
+       BASH 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/02_anaconda101.html">
+       Anaconda environment 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/03_git101.html">
+       Version control, git and github command line tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/04_jupyter_101.html">
+       Jupyter notebooks 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/05_markdown_101.html">
+       Markdown 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_01/06_homework.html">
+       DAY 01 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_02/00_day_02_overview.html">
+     DAY 02 - Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/01_python_syntax_101.html">
+       PYTHON SYNTAX 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/02_variables_101.html">
+       PYTHON Basic Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/03_data_types.html">
+       PYTHON Data operations 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/04_python_data_structures.html">
+       PYTHON Data structures 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/05_programming_101.html">
+       Python Programming 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_02/06_home_work.html">
+       DAY 02 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_03/00_day_03_overview.html">
+     DAY 03 - Programming 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/01_python_functions_101.html">
+       PYTHON FUNCTIONS 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/02_python_modules_101.html">
+       PYTHON MODULES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/03_anaconda_revisited.html">
+       PYTHON ANACONDA 102
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/04_classes_in_python.html">
+       PYTHON CLASSES 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_03/05_homework.html">
+       DAY 03 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_04/00_day_04_overview.html">
+     DAY 04 - Numpy and Pandas 101
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/01_Numpy_data_structures.html">
+       Numpy 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/02_Pandas_data_structures.html">
+       Pandas 101
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/03_raw_to_tidy_with_pandas.html">
+       From raw to structured
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/04_plotting_with_pandas.html">
+       Plotting with pandas and Matplotlib
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_04/05_homework.html">
+       DAY 04 - HOMEWORK
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../bootcamp/day_05/00_day_05_overview.html">
+     DAY 05 - Data visualisation
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/01_visual_perception.html">
+       Graphical Representations of Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../bootcamp/day_05/02_matplotlib_101.html">
+       intro to matplotlib
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/setup.html">
+   ⚙️ Course Setup
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_01/00_overview.html">
+   WEEK 01
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/01_reproducibility.html">
+     What is Open and Reproducible Research?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/03_reproducibility_rules.html">
+     Ten simple rules for reproducible research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/02_reproducibility_lab.html">
+     Reproducibility lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_02/00_overview.html">
+   WEEK 02
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/02_data_cleaning_lab.html">
+     DATA Cleaning 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/05_feature_engineering_lab.html">
+     Feature Engineering and Feature Selection 101
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_02/03_outlier_detection_lab.html">
+     We start by creating several subset datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_03/00_overview.html">
+   WEEK 03
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/01_sklearn_101.html">
+     Introducing Scikit-Learn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/02_pca.html">
+     Principal Component Analysis (PCA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_03/03_home_assignment.html">
+     Home assignment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../week_04/00_overview.html">
+   WEEK 04
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/01_regression_models.html">
+     Let’s cover some more basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/02_assessing_performance.html">
+     Resampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_04/03_brainage.html">
+     Home assignment : Ageing and Structural VBM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   WEEK 05
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_classification_models.html">
+     Basic terminology
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/class/week_05/00_overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://esoreq.github.io/SystemAI2022//issues/new?title=Issue%20on%20page%20%2Fclass/week_05/00_overview.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-for-precision-psychiatry-opportunities-and-challenge">
+   Machine Learning for Precision Psychiatry : Opportunities and Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-precision-psychiatry">
+   What is precision psychiatry?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-cognitive-neuroscience-advancing-the-vision-of-precision-psychiatry">
+   How is cognitive neuroscience advancing the vision of precision psychiatry?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-psychiatric-patients-diagnosed-using-the-dsm">
+     How are psychiatric patients diagnosed using the DSM?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-difference-between-psychiatric-neurological-and-neurodegenerative-disorders">
+     What is the difference between psychiatric, neurological and neurodegenerative disorders?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#research-evaluation-and-treatment-in-psychiatry-relies-on-fuzzy-characterization-for-example">
+     Research, evaluation, and treatment in Psychiatry relies on fuzzy characterization for example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-pathophysiology">
+     What about pathophysiology?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-take-for-example-adhd">
+     Let’s take for example ADHD?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-is-adhd-diagnosed">
+       How is ADHD diagnosed?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-main-features-of-the-diagnosis-are">
+       The main features of the diagnosis are
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importantly">
+       Importantly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-about-objective-measures-to-diagnose-the-disorder">
+       What about objective measures to diagnose the disorder?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#mri">
+         MRI
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#eeg">
+         EEG
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#questionnaires-rating-scales">
+         Questionnaires/rating scales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#neuropsychological-tests">
+         Neuropsychological tests
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#motion-data-i-e-accelerometer">
+         Motion data (i.e. accelerometer)
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pupillometry">
+         Pupillometry
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#this-is-not-exhaustive">
+       This is not exhaustive
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opportunities">
+   OPPORTUNITIES
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#early-detection-diagnosis-and-prognosis">
+     Early detection, Diagnosis  and Prognosis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-is-early-detection-important">
+       Why is Early detection important
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sensitivity-and-specificity">
+     What is sensitivity and specificity?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-is-it-important">
+       Why is it important?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#practicalities">
+       Practicalities
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interventions-and-treatments">
+   Interventions and Treatments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-interventions">
+     Examples of interventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-treatments">
+     Examples of Treatments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prospects">
+   Prospects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recommender-systems">
+     Recommender systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-morbidity-effects-on-prognosis">
+     Multi-morbidity effects on prognosis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#better-disease-categorization">
+     Better disease categorization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-we-lead-to-better-symptom-monitoring-in-psychiatry">
+     How can we lead to Better symptom monitoring in psychiatry?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dosage-control">
+     Dosage control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenges">
+   Challenges
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reproducibility-problems-in-evidence-based-psychiatric-disorders">
+     Reproducibility problems in evidence based psychiatric disorders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-need-for-better-research-building-blocks">
+     The need for better research building blocks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#research-domain-criteria-matrix-constructs">
+       Research domain criteria matrix - Constructs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#research-domain-criteria-matrix-units-of-analysis">
+       Research domain criteria matrix - Units of Analysis
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circuits">
+         Circuits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#physiology">
+         Physiology
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#behaviors">
+         Behaviors
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#self-reports">
+         Self-Reports
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#molecules">
+         Molecules
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#paradigms">
+         Paradigms
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-availability-management-and-quality">
+     Data Availability, Management and Quality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#translational-psychiatric-predictive-models">
+     Translational psychiatric predictive models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>WEEK 05</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-for-precision-psychiatry-opportunities-and-challenge">
+   Machine Learning for Precision Psychiatry : Opportunities and Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-precision-psychiatry">
+   What is precision psychiatry?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-cognitive-neuroscience-advancing-the-vision-of-precision-psychiatry">
+   How is cognitive neuroscience advancing the vision of precision psychiatry?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-psychiatric-patients-diagnosed-using-the-dsm">
+     How are psychiatric patients diagnosed using the DSM?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-difference-between-psychiatric-neurological-and-neurodegenerative-disorders">
+     What is the difference between psychiatric, neurological and neurodegenerative disorders?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#research-evaluation-and-treatment-in-psychiatry-relies-on-fuzzy-characterization-for-example">
+     Research, evaluation, and treatment in Psychiatry relies on fuzzy characterization for example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-pathophysiology">
+     What about pathophysiology?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-take-for-example-adhd">
+     Let’s take for example ADHD?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-is-adhd-diagnosed">
+       How is ADHD diagnosed?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-main-features-of-the-diagnosis-are">
+       The main features of the diagnosis are
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importantly">
+       Importantly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-about-objective-measures-to-diagnose-the-disorder">
+       What about objective measures to diagnose the disorder?
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#mri">
+         MRI
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#eeg">
+         EEG
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#questionnaires-rating-scales">
+         Questionnaires/rating scales
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#neuropsychological-tests">
+         Neuropsychological tests
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#motion-data-i-e-accelerometer">
+         Motion data (i.e. accelerometer)
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pupillometry">
+         Pupillometry
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#this-is-not-exhaustive">
+       This is not exhaustive
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opportunities">
+   OPPORTUNITIES
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#early-detection-diagnosis-and-prognosis">
+     Early detection, Diagnosis  and Prognosis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-is-early-detection-important">
+       Why is Early detection important
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sensitivity-and-specificity">
+     What is sensitivity and specificity?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#why-is-it-important">
+       Why is it important?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#practicalities">
+       Practicalities
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interventions-and-treatments">
+   Interventions and Treatments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-interventions">
+     Examples of interventions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples-of-treatments">
+     Examples of Treatments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prospects">
+   Prospects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recommender-systems">
+     Recommender systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-morbidity-effects-on-prognosis">
+     Multi-morbidity effects on prognosis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#better-disease-categorization">
+     Better disease categorization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-can-we-lead-to-better-symptom-monitoring-in-psychiatry">
+     How can we lead to Better symptom monitoring in psychiatry?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dosage-control">
+     Dosage control
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenges">
+   Challenges
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reproducibility-problems-in-evidence-based-psychiatric-disorders">
+     Reproducibility problems in evidence based psychiatric disorders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-need-for-better-research-building-blocks">
+     The need for better research building blocks
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#research-domain-criteria-matrix-constructs">
+       Research domain criteria matrix - Constructs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#research-domain-criteria-matrix-units-of-analysis">
+       Research domain criteria matrix - Units of Analysis
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#circuits">
+         Circuits
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#physiology">
+         Physiology
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#behaviors">
+         Behaviors
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#self-reports">
+         Self-Reports
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#molecules">
+         Molecules
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#paradigms">
+         Paradigms
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-availability-management-and-quality">
+     Data Availability, Management and Quality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#translational-psychiatric-predictive-models">
+     Translational psychiatric predictive models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="week-05">
+<h1>WEEK 05<a class="headerlink" href="#week-05" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="machine-learning-for-precision-psychiatry-opportunities-and-challenge">
+<h2>Machine Learning for Precision Psychiatry : Opportunities and Challenge<a class="headerlink" href="#machine-learning-for-precision-psychiatry-opportunities-and-challenge" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="what-is-precision-psychiatry">
+<h2>What is precision psychiatry?<a class="headerlink" href="#what-is-precision-psychiatry" title="Permalink to this headline">¶</a></h2>
+<p>Precision psychiatry is a branch of medicine that uses precision medicine to tailor mental health treatments to the individual. This approach takes into account the person’s genetic makeup, lifestyle, and environment to tailor treatments that are most likely to be effective for that individual.</p>
+<p>In the future, precision psychiatry may be used to develop personalized mental health treatments, based on an individual’s specific genetic makeup and brain structure. This approach has the potential to greatly improve the effectiveness of mental health treatments and reduce the side effects of medications.</p>
+</div>
+<div class="section" id="how-is-cognitive-neuroscience-advancing-the-vision-of-precision-psychiatry">
+<h2>How is cognitive neuroscience advancing the vision of precision psychiatry?<a class="headerlink" href="#how-is-cognitive-neuroscience-advancing-the-vision-of-precision-psychiatry" title="Permalink to this headline">¶</a></h2>
+<p>Cognitive neuroscience is advancing the vision of precision psychiatry by providing a more detailed understanding of the brain mechanisms underlying mental disorders. This knowledge can be used to develop more targeted and effective treatments for mental disorders. For example, cognitive neuroscience research has led to the development of new diagnostic methods, such as functional magnetic resonance imaging (fMRI), that can be used to identify specific brain abnormalities associated with mental disorders. This information can then be used to develop more targeted treatments that are tailored to the individual needs of each patient. In addition, cognitive neuroscience research is also providing new insights into the long-term course of mental disorders, which can be used to improve predictions of treatment response and to develop more effective prevention and intervention strategies.</p>
+<div class="section" id="how-are-psychiatric-patients-diagnosed-using-the-dsm">
+<h3>How are psychiatric patients diagnosed using the DSM?<a class="headerlink" href="#how-are-psychiatric-patients-diagnosed-using-the-dsm" title="Permalink to this headline">¶</a></h3>
+<p>The DSM is a classification system for mental disorders that is used by mental health professionals to diagnose and treat patients. The DSM is divided into different categories, or “axes,” that each contain a different set of disorders. The five axes are:</p>
+<ol class="simple">
+<li><p>Clinical Disorders</p></li>
+<li><p>Personality Disorders</p></li>
+<li><p>Substance-Related Disorders</p></li>
+<li><p>Intellectual Disability</p></li>
+<li><p>Medical Conditions</p></li>
+</ol>
+<p>To diagnose a patient, a mental health professional will assess the patient’s symptoms and compare them to the criteria for each disorder in the DSM. If the patient meets the criteria for a specific disorder, they will be given a diagnosis.</p>
+<p>There are many different disorders that can be diagnosed using the DSM, but some examples include:</p>
+<ol class="simple">
+<li><p>Major depressive disorder</p></li>
+<li><p>Bipolar disorder</p></li>
+<li><p>Schizophrenia</p></li>
+<li><p>Obsessive-compulsive disorder</p></li>
+<li><p>Autism spectrum disorder</p></li>
+</ol>
+</div>
+<div class="section" id="what-is-the-difference-between-psychiatric-neurological-and-neurodegenerative-disorders">
+<h3>What is the difference between psychiatric, neurological and neurodegenerative disorders?<a class="headerlink" href="#what-is-the-difference-between-psychiatric-neurological-and-neurodegenerative-disorders" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Psychiatric disorders are mental disorders that affect a person’s mood, thoughts, or behaviour. Neurological disorders are diseases of the nervous system, which includes the brain, spinal cord, and nerves. Neurodegenerative disorders are degenerative diseases of the nervous system.</p></li>
+<li><p>The diagnostic process for psychiatric disorders typically involves a mental health professional conducting a clinical interview and administering psychological tests.</p></li>
+<li><p>The diagnostic process for neurological disorders will often add neuroimaging tests and other medical tests.</p></li>
+<li><p>The diagnostic process for neurodegenerative disorders will include neuroimaging, genetic testing, and other medical tests.</p></li>
+</ul>
+</div>
+<div class="section" id="research-evaluation-and-treatment-in-psychiatry-relies-on-fuzzy-characterization-for-example">
+<h3>Research, evaluation, and treatment in Psychiatry relies on fuzzy characterization for example<a class="headerlink" href="#research-evaluation-and-treatment-in-psychiatry-relies-on-fuzzy-characterization-for-example" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Anxiety disorders are characterized by a number of different symptoms, including fear, worry, and avoidance.</p></li>
+<li><p>Depression is characterized by a number of different symptoms, including sadness, loss of interest or pleasure, feelings of guilt or worthlessness, and fatigue.</p></li>
+<li><p>Bipolar disorder is characterized by a number of different symptoms, including mania and depression.</p></li>
+<li><p>Schizophrenia is characterized by a number of different symptoms, including delusions and hallucinations.</p></li>
+<li><p>PTSD is characterized by a number of different symptoms, including flashbacks, avoidance, and hyperarousal.</p></li>
+</ol>
+</div>
+<div class="section" id="what-about-pathophysiology">
+<h3>What about pathophysiology?<a class="headerlink" href="#what-about-pathophysiology" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pathophysiology is the study of how diseases develop and progress. It is the study of the changes that occur in the body as a result of disease.</p></li>
+<li><p>Normal physiological markers that originate from the nervous system include electrical activity, neurotransmitter levels, brain wave patterns, functional and resting state activity and even structural and functional connectivity.</p></li>
+<li><p>In neurology, pathophysiology is concerned with the changes in nervous system function that occur as a result of disease or injury.</p></li>
+<li><p>In psychiatry, pathophysiology refers to the changes in the brain and body that result from a mental disorder.</p></li>
+<li><p>For example, depression has been linked to changes in the levels of certain chemicals in the brain, while schizophrenia has been linked to changes in the structure and function of the brain.</p></li>
+</ul>
+<!-- 
+### What about cognitive neuroscience?
+
+Cognitive neuroscience is the study of how the brain enables the mind to perceive, think, and remember. It encompasses a wide range of topics, from how we process visual information to how we make decisions. Researchers in cognitive neuroscience use a variety of techniques, including brain imaging, to understand the neural basis of cognition.
+
+Some disorders that are studied in cognitive neuroscience include Alzheimer's disease, autism, attention deficit hyperactivity disorder (ADHD), and schizophrenia. These disorders can offer insights into the normal functioning of the brain and mind, and can help researchers develop new treatments.
+
+### Concrete examples for new treatments for Alzheimer's that originated based on brain imaging research
+
+Alzheimer's disease is a degenerative brain disorder that leads to memory loss and cognitive decline. Researchers have used brain imaging to study how Alzheimer's affects the brain and to develop new treatments.
+
+#### For example 
+
+1. The use of PET scans to identify amyloid plaques in the brain, which are a hallmark of Alzheimer's disease. This has led to the development of new drugs that target these plaques.
+
+2. The use of MRI to identify areas of the brain that are affected by Alzheimer's disease. This has led to the development of new therapies that target these areas.
+
+3. The use of PET and MRI to identify changes in the brain that occur before symptoms of Alzheimer's disease appear. This has led to the development of new drugs and therapies that can prevent or delay the onset of Alzheimer's disease.
+
+### Concrete examples for new interventions to reduce autism symptoms 
+
+Autism is a developmental disorder that affects social interaction and communication. Cognitive neuroscience research has helped to identify brain abnormalities associated with autism and has led to new interventions.
+
+For example, one intervention that is being developed is based on the finding that people with autism have difficulty processing information from multiple sources simultaneously. This difficulty is thought to be due to abnormalities in the way that the brain filters information.
+
+The intervention involves training people with autism to use a computer program that helps them to filter information more effectively. 
+
+Another intervention that is being developed is based on the finding that people with autism have difficulty understanding the emotions of others. This difficulty is thought to be due to abnormalities in the way that the brain processes information about emotions. 
+
+The intervention involves training people with autism to use a computer program that helps them to understand the emotions of others better.
+
+But even more relevantly recently neurofeedback training based on Slow Cortical Potentials (SCP) in autism has shown that adolescents with ASD can successfully learn to modulate their brain activity a marked improvement in various behavioural scales[1](https://www.sciencedirect.com/science/article/pii/S2213158221000012). -->
+</div>
+<div class="section" id="let-s-take-for-example-adhd">
+<h3>Let’s take for example <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S014976342100049X">ADHD</a>?<a class="headerlink" href="#let-s-take-for-example-adhd" title="Permalink to this headline">¶</a></h3>
+<p>ADHD is a disorder characterized by impulsivity, hyperactivity, and difficulty paying attention.</p>
+<div class="section" id="how-is-adhd-diagnosed">
+<h4>How is ADHD diagnosed?<a class="headerlink" href="#how-is-adhd-diagnosed" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>ADHD can only be diagnosed by a licensed clinician who interviews the parent or caregiver and/or patient to document criteria for the disorder.</p></li>
+<li><p>It cannot be diagnosed by rating scales alone,</p></li>
+<li><p>neuropsychological tests, or</p></li>
+<li><p>neuroimaging.</p></li>
+</ul>
+</div>
+<div class="section" id="the-main-features-of-the-diagnosis-are">
+<h4>The main features of the diagnosis are<a class="headerlink" href="#the-main-features-of-the-diagnosis-are" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>The presence of developmentally inappropriate levels of hyperactive-impulsive and/or inattentive symptoms for at least 6 months;</p></li>
+<li><p>Symptoms occurring in different settings (e.g., home and school);</p></li>
+<li><p>Symptoms that cause impairments in living</p></li>
+<li><p>Some of the symptoms and impairments first occurred in early to mid-childhood; and</p></li>
+<li><p>No other disorder better explains the symptoms</p></li>
+</ol>
+</div>
+<div class="section" id="importantly">
+<h4>Importantly<a class="headerlink" href="#importantly" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>ADHD is rarely caused by a single genetic or environmental risk factor but most cases of ADHD are caused by the combined effects of many genetic and environmental risks each having a very small effect.</p></li>
+<li><p>People with ADHD often show impaired performance on psychological tests of brain functioning, but these tests cannot be used to diagnose ADHD.</p></li>
+<li><p>Neuroimaging studies find small differences in the structure and functioning of the brain between people with and without ADHD. These differences cannot be used to diagnose ADHD.</p></li>
+<li><p>Regulatory agencies around the world have determined that several medications are safe and effective for reducing the symptoms of ADHD as shown by randomized controlled clinical trials.</p></li>
+</ul>
+</div>
+<div class="section" id="what-about-objective-measures-to-diagnose-the-disorder">
+<h4>What about objective measures to diagnose the disorder?<a class="headerlink" href="#what-about-objective-measures-to-diagnose-the-disorder" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="mri">
+<h5>MRI<a class="headerlink" href="#mri" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>There are no specific MRI biomarkers for ADHD, but the disorder has been associated with abnormalities in several brain regions, including the prefrontal cortex, anterior cingulate cortex, and basal ganglia.</p></li>
+<li><p>Some potential functional connectivity biomarkers for ADHD include reduced connectivity between the prefrontal cortex and other brain regions, reduced connectivity between the right and left hemispheres of the brain, and reduced connectivity between the front and back regions of the brain.</p></li>
+</ul>
+</div>
+<div class="section" id="eeg">
+<h5>EEG<a class="headerlink" href="#eeg" title="Permalink to this headline">¶</a></h5>
+<p>There are a number of EEG biomarkers for ADHD, including:</p>
+<p>• Reduced alpha power: This is often seen in children with ADHD and is thought to be linked to problems with attention and focus.
+• Increased theta power: This is also seen in children with ADHD and is thought to be linked to problems with impulsivity and hyperactivity.
+• Increased beta power: This is sometimes seen in children with ADHD and is thought to be linked to problems with hyperactivity.</p>
+</div>
+<div class="section" id="questionnaires-rating-scales">
+<h5>Questionnaires/rating scales<a class="headerlink" href="#questionnaires-rating-scales" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Conners’ Rating Scales (e.g. CAARS) - social impact of ADHD, for example an individual’s behavior in school or work can be completed by either caregiver or patient or both</p></li>
+<li><p>Diagnostic Interview for ADHD in adults (DIVA)- a semi-structured interview constructed based on DSM-IV</p></li>
+<li><p>Behaviour Rating Inventory of Executive Function (e.g. BRIEF) - rate the patient executive functions such as emotions control, working memory, organization, and planning skills</p></li>
+<li><p>Adult ADHD Self-Report Scale (ASRS) - a symptoms checklist for individuals to self-evaluate</p></li>
+<li><p>Minnesota Multiphasic Personality Inventory-2 (MMPI-2) - 567-item questionnaire to assess various mental health problems</p></li>
+<li><p>Social Responsiveness Scale (SRS) - measure the social ability of individuals</p></li>
+</ul>
+</div>
+<div class="section" id="neuropsychological-tests">
+<h5>Neuropsychological tests<a class="headerlink" href="#neuropsychological-tests" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Continuous Performance Test (CPT)</p>
+<ul>
+<li><p>The Continuous Performance Test (CPT) is a measure of a person’s ability to pay attention and to respond quickly and accurately to a particular stimulus. The test is usually done by having the person sit in front of a computer screen and press a button whenever a particular image (such as a letter or a number) appears on the screen. The test measures how well the person can maintain their focus and how quickly they can respond to the stimulus.</p></li>
+<li><p>Individuals with ADHD often have difficulty sustaining their attention, and as a result, their performance on the CPT may be lower than that of individuals without ADHD.</p></li>
+</ul>
+</li>
+<li><p>Reverse Stroop task (RST)</p>
+<ul>
+<li><p>The RST is a measure of cognitive flexibility. It does this by assessing an individual’s ability to switch between two tasks. In the RST, participants are first presented with a list of words that are all printed in the same color. They are then asked to name the color of the ink in which the words are printed. The second part of the task involves presenting the same words, but this time they are printed in different colors. The participant must now name the color of the ink in which each word is printed, regardless of the word itself. The RST requires participants to switch between two tasks, and so it provides a measure of cognitive flexibility.</p></li>
+<li><p>In general, scores on the RST are used to measure how well someone can focus and pay attention.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="motion-data-i-e-accelerometer">
+<h5>Motion data (i.e. accelerometer)<a class="headerlink" href="#motion-data-i-e-accelerometer" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Studies suggest that individuals with ADHD tend to have more erratic and less consistent movement patterns than those without the condition. Additionally, people with ADHD may be more likely to exhibit higher levels of activity overall.</p></li>
+</ul>
+</div>
+<div class="section" id="pupillometry">
+<h5>Pupillometry<a class="headerlink" href="#pupillometry" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p>Studies have shown that the brain norepinephrine system which is associated to pupil-size dynamics, is found to be impaired in ADHD patients</p></li>
+<li><p>Uncontrollable eye movement in ADHD patients can be a potential biomarker for diagnosis</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="this-is-not-exhaustive">
+<h4>This is not exhaustive<a class="headerlink" href="#this-is-not-exhaustive" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Genetics</p></li>
+<li><p>Microbiome</p></li>
+<li><p>and more</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="opportunities">
+<h2>OPPORTUNITIES<a class="headerlink" href="#opportunities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="early-detection-diagnosis-and-prognosis">
+<h3>Early detection, Diagnosis  and Prognosis<a class="headerlink" href="#early-detection-diagnosis-and-prognosis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Early detection in refers to the identification of risk factors or early signs of mental illness to intervene early and prevent the development of more serious symptoms.</p></li>
+<li><p>Diagnosis in precision psychiatry is the use of specific and sensitive tests to identify the presence of a mental illness.</p></li>
+<li><p>Prognosis in precision psychiatry is the use of predictive modelling to identify the likely course and outcome of a mental illness.</p></li>
+</ul>
+<div class="section" id="why-is-early-detection-important">
+<h4>Why is Early detection important<a class="headerlink" href="#why-is-early-detection-important" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Early detection is important in precision psychiatry because :</p>
+<ul>
+<li><p>It improves our understanding of the disease</p></li>
+<li><p>It enables the development of preventive treatments</p></li>
+<li><p>Change lifestyle to reduce the effect of disease modifying risk factors</p></li>
+<li><p>It provides a larger treatment window</p></li>
+</ul>
+</li>
+</ul>
+<ol class="simple">
+<li><p>Earlier diagnosis</p></li>
+<li><p>Earlier treatment</p></li>
+<li><p>Improved treatment response</p></li>
+<li><p>Fewer hospitalizations</p></li>
+<li><p>Improved quality of life</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="what-is-sensitivity-and-specificity">
+<h3>What is sensitivity and specificity?<a class="headerlink" href="#what-is-sensitivity-and-specificity" title="Permalink to this headline">¶</a></h3>
+<p>Sensitivity refers to the ability of a test to correctly identify those with the disease, while specificity refers to the ability of the test to correctly identify those without the disease. A test that is insensitive will miss some cases of the disease, while a test that is non-specific will produce false positives.</p>
+<p>There are two types of errors that can be made when diagnosing a patient with a condition: false positives and false negatives.</p>
+<p>A false positive is when a person is incorrectly diagnosed with a condition when they do not actually have it. For example, if a diagnostic program incorrectly flags a person as having schizophrenia, this would be a false positive.</p>
+<p>A false negative is when a patient is incorrectly diagnosed as not having a condition when they actually do have it. For example, if a diagnostic program incorrectly flags a person as healthy when he has dementia, this would be a false negative.</p>
+<div class="section" id="why-is-it-important">
+<h4>Why is it important?<a class="headerlink" href="#why-is-it-important" title="Permalink to this headline">¶</a></h4>
+<p>The importance of sensitivity and specificity can be seen when we consider the consequences of a false positive or false negative result. A false positive result (test says you have the disease when you don’t) can lead to unnecessary anxiety and further testing. A false negative result (test says you don’t have the disease when you do) can delay treatment and lead to worsening of symptoms.</p>
+</div>
+<div class="section" id="practicalities">
+<h4>Practicalities<a class="headerlink" href="#practicalities" title="Permalink to this headline">¶</a></h4>
+<p>In a population of 100 people with schizophrenia, a test with 80% sensitivity will correctly identify 80 people with the disease. However, in a population of 100 people without schizophrenia, the same test will incorrectly identify 20 people as having the disease (false positives).</p>
+<p>A test with 80% specificity will correctly identify 80 people without schizophrenia, but will incorrectly identify 20 people with schizophrenia as not having the disease (false negatives).</p>
+</div>
+</div>
+</div>
+<div class="section" id="interventions-and-treatments">
+<h2>Interventions and Treatments<a class="headerlink" href="#interventions-and-treatments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Interventions are typically proactive and aim to prevent or reduce the occurrence of psychiatric symptoms or disorders.</p></li>
+<li><p>Treatment, on the other hand, is typically reactive and focuses on alleviating existing symptoms or disorders.</p></li>
+</ul>
+<div class="section" id="examples-of-interventions">
+<h3>Examples of interventions<a class="headerlink" href="#examples-of-interventions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>psychoeducational,</p></li>
+</ul>
+<p>Psychoeducational interventions are designed to educate and support people with mental health conditions, and their families. These interventions can help people to understand their condition, to manage their symptoms, and to cope with the challenges of living with a mental health condition. Psychoeducational interventions can take many different forms, but all share the goal of providing education and support to people with mental health conditions.</p>
+<ul class="simple">
+<li><p>cognitive behavioural therapy,</p></li>
+</ul>
+<p>Cognitive behavioural therapy (CBT) is a type of psychotherapy that focuses on changing negative thoughts, emotions, and behaviors. CBT is considered an intervention because it is a short-term, goal-oriented approach that can be used to treat a variety of mental health conditions. CBT has been shown to be effective in treating conditions such as anxiety, depression, eating disorders, and substance abuse.</p>
+<ul class="simple">
+<li><p>community support programs.
+Community support programs provide a range of services and supports to people with mental illness. These programs can include case management, housing assistance, job training and placement, and other support services. While community support programs are not considered a treatment for mental illness, they can be an important part of a person’s overall care plan.</p></li>
+</ul>
+</div>
+<div class="section" id="examples-of-treatments">
+<h3>Examples of Treatments<a class="headerlink" href="#examples-of-treatments" title="Permalink to this headline">¶</a></h3>
+<p>Treatment for psychiatric disorders can vary depending on the specific disorder and its severity. In general, however, treatment may involve a combination of medication, therapy, and lifestyle changes.</p>
+<ul class="simple">
+<li><p>Medication: Medication can be used to help stabilize mood, manage symptoms, and reduce the risk of relapse. Commonly prescribed medications for psychiatric disorders include antidepressants, anti-anxiety medications, and antipsychotics.</p></li>
+<li><p>Therapy: Therapy can provide support, guidance, and coping strategies for dealing with mental illness. It can be conducted individually, in groups, or in family sessions. Common types of therapy used to treat psychiatric disorders include cognitive-behavioural therapy (CBT), interpersonal therapy (IPT), and psychodynamic therapy.</p></li>
+<li><p>Lifestyle changes: Making positive lifestyle changes can help improve overall mental health and well-being. This may include getting regular exercise, eating a balanced diet, getting enough sleep, and avoiding substance abuse.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="prospects">
+<h2>Prospects<a class="headerlink" href="#prospects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recommender-systems">
+<h3>Recommender systems<a class="headerlink" href="#recommender-systems" title="Permalink to this headline">¶</a></h3>
+<p>A recommender system is a type of artificial intelligence that is used to predict what a user might want to buy or watch. It is commonly used in online stores and streaming services to recommend items to users based on their past behaviour.</p>
+<p>In psychiatric treatments, recommender systems can be used to suggest different types of therapy or medication for patients based on their symptoms and past response to treatment. For example, a recommender system could suggest cognitive behavioural therapy for a patient with depression who has not responded well to medication in the past.</p>
+</div>
+<div class="section" id="multi-morbidity-effects-on-prognosis">
+<h3>Multi-morbidity effects on prognosis<a class="headerlink" href="#multi-morbidity-effects-on-prognosis" title="Permalink to this headline">¶</a></h3>
+<p>There is evidence to suggest that patients with psychiatric disorders who also have multiple comorbidities have poorer prognoses than those who only have psychiatric disorders. This is likely due to the fact that patients with multiple comorbidities have more complex needs and are more difficult to treat. In addition, patients with multiple comorbidities are more likely to experience negative interactions between their various conditions, which can further complicate treatment and lead to poorer outcomes.</p>
+</div>
+<div class="section" id="better-disease-categorization">
+<h3>Better disease categorization<a class="headerlink" href="#better-disease-categorization" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One way to lead to better disease categorization in psychiatry is to fuse data across different measure types. This can be done by using a technique called data fusion. Data fusion is the process of combining data from multiple sources to create a more complete picture of a phenomenon. In the context of disease categorization, data fusion can be used to combine data from different measure types (e.g., clinical, genetic, neuroimaging) to create a more complete picture of a disease. This more complete picture can then be used to better categorize diseases.</p></li>
+<li><p>Reduced misdiagnosis rates, as physiological and behavioural measures can provide more accurate information about a patient’s condition.</p></li>
+<li><p>Improved treatment efficacy, as tailored treatments can be more effective when based on accurate disease categorization.</p></li>
+<li><p>Greater understanding of the causes and progression of mental illness, as continuous measures can provide insight into previously unidentified patterns or trends.</p></li>
+</ul>
+</div>
+<div class="section" id="how-can-we-lead-to-better-symptom-monitoring-in-psychiatry">
+<h3>How can we lead to Better symptom monitoring in psychiatry?<a class="headerlink" href="#how-can-we-lead-to-better-symptom-monitoring-in-psychiatry" title="Permalink to this headline">¶</a></h3>
+<p>There are many ways to lead to better symptom monitoring in psychiatry. Some current methods include using self-report measures, clinical interviews, and standardized rating scales. Future methods may include using mobile technology to track symptoms, using machine learning algorithms to identify early signs of relapse, and using virtual reality to simulate real-world situations and monitor reactions to those.</p>
+</div>
+<div class="section" id="dosage-control">
+<h3>Dosage control<a class="headerlink" href="#dosage-control" title="Permalink to this headline">¶</a></h3>
+<p>Dosage control in AI refers to the use of artificial intelligence to help control the dosage of medication given to patients. This can be used to help ensure that patients receive the correct amount of medication, and that they do not receive too much or too little. Dosage control can also be used to help monitor the side effects of medication and to adjust the dosage accordingly.</p>
+<p>The real challenge in this line of research is to define the target for optimisation. i.e. how do we measure the success of a drug in the context of psychiatry? Which raises the problem</p>
+</div>
+</div>
+<div class="section" id="challenges">
+<h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reproducibility-problems-in-evidence-based-psychiatric-disorders">
+<h3>Reproducibility problems in evidence based psychiatric disorders<a class="headerlink" href="#reproducibility-problems-in-evidence-based-psychiatric-disorders" title="Permalink to this headline">¶</a></h3>
+<p>There are a number of factors that can contribute to reproducibility problems in evidence-based psychiatric disorders. First, psychiatric disorders are often complex and multi-dimensional, making it difficult to identify all of the relevant factors that may contribute to the disorder. Second, psychiatric disorders often involve a wide range of symptoms and behaviors that can vary significantly from person to person. This makes it difficult to identify which specific symptoms or behaviors are most important in predicting the development of the disorder. Finally, psychiatric disorders are often influenced by a variety of environmental and social factors, making it difficult to isolate the specific effects of each factor.</p>
+</div>
+<div class="section" id="the-need-for-better-research-building-blocks">
+<h3>The need for better research building blocks<a class="headerlink" href="#the-need-for-better-research-building-blocks" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="research-domain-criteria-matrix-constructs">
+<h4>Research domain criteria matrix - Constructs<a class="headerlink" href="#research-domain-criteria-matrix-constructs" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc/constructs">RDoC Constructs</a></p>
+<ul>
+<li><p>Negative Valence Systems : Fear, anxiety etc.</p></li>
+<li><p>Positive Valence Systems : Reward response , Learning and Valuation</p></li>
+<li><p>Cognitive Systems : Attention, Perception, Memory (Declarative and working), Language and control</p></li>
+<li><p>Social Processes : Attachment, Communication, Self and Others Perception</p></li>
+<li><p>Arousal and Regulatory Systems : Arousal, Sleep-Wakefulness, Circadian Rhythms</p></li>
+<li><p>Sensorimotor Systems : Motor Actions, Agency, Habit and Innate Motor Patterns</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="research-domain-criteria-matrix-units-of-analysis">
+<h4>Research domain criteria matrix - <a class="reference external" href="https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc/units/units-of-analysis">Units of Analysis</a><a class="headerlink" href="#research-domain-criteria-matrix-units-of-analysis" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="circuits">
+<h5>Circuits<a class="headerlink" href="#circuits" title="Permalink to this headline">¶</a></h5>
+<p>Refers to measurements of particular circuits as studied by neuroimaging techniques, and/or other measures validated by animal models or functional neuroimaging (e.g., emotion-modulated startle, event-related potentials with established source localization)</p>
+</div>
+<div class="section" id="physiology">
+<h5>Physiology<a class="headerlink" href="#physiology" title="Permalink to this headline">¶</a></h5>
+<p>Refers to measures that are well-established indices of certain constructs, but that do necessarily not tap circuits directly (e.g., heart rate, cortisol).</p>
+</div>
+<div class="section" id="behaviors">
+<h5>Behaviors<a class="headerlink" href="#behaviors" title="Permalink to this headline">¶</a></h5>
+<p>Refers to behavioural tasks (e.g., a working memory task) or to systematic behavioural observations (e.g., a toddler behavioural assessment).</p>
+</div>
+<div class="section" id="self-reports">
+<h5>Self-Reports<a class="headerlink" href="#self-reports" title="Permalink to this headline">¶</a></h5>
+<p>Refers to interview-based scales, self-report questionnaires, or other instruments that may encompass normal-range and/or abnormal aspects of the dimension of interest.</p>
+</div>
+<div class="section" id="molecules">
+<h5>Molecules<a class="headerlink" href="#molecules" title="Permalink to this headline">¶</a></h5>
+<p>Refers to  specific neurotransmitters or neuromodulators and their expected patterns associated to a disease .</p>
+</div>
+<div class="section" id="paradigms">
+<h5>Paradigms<a class="headerlink" href="#paradigms" title="Permalink to this headline">¶</a></h5>
+<p>A paradigm is a model or framework that is used to guide research and understanding in a particular field. In mental health research, paradigms are used to help explain and predict patterns of behaviors, thoughts, and emotions. They can also be used to develop new treatments and interventions.</p>
+<p>For example, actigraphy is a tool used to study mental problems associated with disruptions in circadian rhythms. This method uses a wearable device to track an individual’s movement and sleep patterns.</p>
+</div>
+</div>
+</div>
+<div class="section" id="data-availability-management-and-quality">
+<h3>Data Availability, Management and Quality<a class="headerlink" href="#data-availability-management-and-quality" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The primary limitation for deploying state-of-the-art algorithms to personalize psychiatric care are</p>
+<ul>
+<li><p>The size of today’s datasets.</p></li>
+<li><p>The limited units of analysis being collected</p></li>
+<li><p>The limited longitudinal information in most datasets</p></li>
+<li><p>The insufficient phenotypic detail</p></li>
+<li><p>Noisy collection process</p></li>
+<li><p>Inability to retrospectively evaluate fuzzy constructs</p></li>
+<li><p>The need for automated curation and ingestion protocols</p></li>
+<li><p>Transparency selection and exclusion criteria</p></li>
+<li><p>Scalability</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="translational-psychiatric-predictive-models">
+<h3>Translational psychiatric predictive models<a class="headerlink" href="#translational-psychiatric-predictive-models" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Unbiased models : The need for the model to be validated in different populations,</p></li>
+<li><p>Robust models : The need for the model to be generalizable to different settings,</p></li>
+<li><p>Sensor agnostic : The need for the model to be independent from a measuring device</p></li>
+<li><p>Multi-model : The need for the prediction to be internally corroborated on multiple information sources</p></li>
+<li><p>Explainable : The degree of to which a model can be explained by its creators</p></li>
+<li><p>Interpretable : The degree to which a model can be interpreted by its users.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Time</p></th>
+<th class="text-align:right head"><p>Session</p></th>
+<th class="text-align:right head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>09:30-10:30</p></td>
+<td class="text-align:right"><p>Week 05 overview</p></td>
+<td class="text-align:right"><p>Machine Learning for Precision Psychiatry</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10:30-10:35</p></td>
+<td class="text-align:right"><p>Break</p></td>
+<td class="text-align:right"><p>Coffee or Tea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10:35-11:35</p></td>
+<td class="text-align:right"><p><a class="reference internal" href="01_classification_models.html"><span class="doc std std-doc">Classification 101</span></a></p></td>
+<td class="text-align:right"><p>hands on over basic classification models</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>11:35-11:40</p></td>
+<td class="text-align:right"><p>Break</p></td>
+<td class="text-align:right"><p>Coffee or Tea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>11:40-12:00</p></td>
+<td class="text-align:right"><p><span class="xref myst">summary</span></p></td>
+<td class="text-align:right"><p>Courses to expand your knowledge</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./class/week_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../week_04/03_brainage.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Home assignment : Ageing and Structural VBM</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_classification_models.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Basic terminology</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Eyal Soreq<br/>
+    
+        &copy; Copyright 2021.<br/>
+      <div class="extra_footer">
+        <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+    All content on this site (unless otherwise specified) is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+</div>
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
